@@ -1,0 +1,7 @@
+\select@language {english}
+\contentsline {section}{\tocsection {}{}{Introduction}}{1}{section*.2}
+\contentsline {section}{\tocsection {}{1}{The magmatic operad, quotients, and rewrite relations}}{2}{section.1}
+\contentsline {section}{\tocsection {}{2}{Generalizations of the associative operad}}{3}{section.2}
+\contentsline {section}{\tocsection {}{3}{The $3$-comb associative operad}}{5}{section.3}
+\contentsline {section}{\tocsection {}{}{Perspectives}}{8}{section*.3}
+\contentsline {section}{\tocsection {}{}{References}}{8}{section*.4}
