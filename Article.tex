@@ -1,6 +1,6 @@
 % Author: Cyrille Chenavier, Christophe Cordero, Samuele Giraudo
 % Creation: may. 2018
-% Modifications: may. 2018
+% Modifications: may. 2018, june 2018
 
 \documentclass[10pt,reqno]{amsart}
 
@@ -118,10 +118,13 @@ pagebackref=true]{hyperref}
 \newcommand{\Mag}{\mathsf{Mag}}
 \newcommand{\As}{\mathsf{As}}
 \newcommand{\CAs}[1]{\mathsf{CAs}^{(#1)}}
+\newcommand{\CAsAll}{\mathsf{CAs}}
 \newcommand{\PrefixWord}{\mathrm{p}}
 \newcommand{\Deg}{\mathrm{deg}}
-\newcommand{\LC}[1]{\text{LC}^{(#1)}}
-\newcommand{\RC}[1]{\text{RC}^{(#1)}}
+\newcommand{\LC}[1]{\mathfrak{lc}^{(#1)}}
+\newcommand{\RC}[1]{\mathfrak{lr}^{(#1)}}
+\newcommand{\LBranch}{\mathrm{lb}}
+\newcommand{\RBranch}{\mathrm{rb}}
 
 \DeclareMathOperator{\Product}{\star}
 \DeclareMathOperator{\Congr}{\equiv}
@@ -131,6 +134,7 @@ pagebackref=true]{hyperref}
 \DeclareMathOperator{\RewContext}{\Rightarrow}
 \DeclareMathOperator{\RewContextRT}{\overset{*}{\RewContext}}
 \DeclareMathOperator{\RewContextT}{\overset{+}{\RewContext}}
+\DeclareMathOperator{\lcm}{lcm}
 
 \newcommand{\CongrCAs}[1]{\Congr^{(#1)}}
 
@@ -176,8 +180,8 @@ satisfying among others the associativity law
 \begin{math}
     (x_1 \Product x_2) \Product x_3 = x_1 \Product (x_2 \Product x_3)
 \end{math}.
-It is well-known that the associative algebras are representations of 
-the associative (nonsymmetric) operad $\As$. This operad can be seen as 
+It is well-known that the associative algebras are representations of
+the associative (nonsymmetric) operad $\As$. This operad can be seen as
 the quotient of the magmatic operad $\Mag$ (the free operad of binary
 trees on the binary generator~$\Product$) by the operad congruence
 $\Congr$ satisfying
@@ -232,11 +236,11 @@ algebraic properties (see for instance~\cite{HT72,Cha06}).
 
 A first connection between the associative operad and the Tamari order
 is based upon the fact that the orientation of~\eqref{equ:congruence_as}
-from left to right provides a convergent orientation (a terminating and 
-confluent rewrite relation) of the congruence $\Congr$. The normal 
-forms of the rewrite relation induced by the rewrite rule obtained by 
-orienting~\eqref{equ:congruence_as} from left to right are right comb 
-binary trees and are hence in one-to-one correspondence with the 
+from left to right provides a convergent orientation (a terminating and
+confluent rewrite relation) of the congruence $\Congr$. The normal
+forms of the rewrite relation induced by the rewrite rule obtained by
+orienting~\eqref{equ:congruence_as} from left to right are right comb
+binary trees and are hence in one-to-one correspondence with the
 elements of~$\As$.
 
 This work is intended to be a first strike in the study of the eventual
@@ -299,7 +303,7 @@ writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
 encountered. The set of all words on $\{\Zero, \Two\}$ is endowed with
 the lexicographic order $\leq$ induced by $\Zero < \Two$.
 
-If $\Rew$ is a rewrite rule on $\Mag$ such that $\Sfr \Rew \Sfr'$ 
+If $\Rew$ is a rewrite rule on $\Mag$ such that $\Sfr \Rew \Sfr'$
 implies $|\Sfr| = |\Sfr'|$, we denote by $\RewContext$ the
 \Def{rewrite relation induced} by $\Rew$. Formally we have
 \begin{math}
@@ -342,8 +346,8 @@ rewrite relation is convergent.
 
 
 \begin{Lemma} \label{lem:degree_confluence}
-    Let $\Rew$ be a rewrite rule on $\Mag$ wherein all trees $\Tfr$ and 
-    $\Tfr'$ such that $\Tfr \Rew \Tfr'$ have degrees at most $\ell$. 
+    Let $\Rew$ be a rewrite rule on $\Mag$ wherein all trees $\Tfr$ and
+    $\Tfr'$ such that $\Tfr \Rew \Tfr'$ have degrees at most $\ell$.
     Then, if the rewrite relation $\RewContext$ induced by $\Rew$ is
     terminating and all its branching pairs of degrees at most
     $2\ell - 1$ are joinable, $\RewContext$ is convergent.
@@ -358,10 +362,10 @@ orienting~\eqref{equ:congruence_as} from left to right is a convergent
 orientation of (\ref{equ:congruence_as}). Then, a Poincaré-Birkhoff-Witt
 basis of $\As$ is the set of all right comb binary trees.
 
-Let us now define for any $d \geq 1$ the \Def{$\gamma$-comb associative
-operad} $\CAs{\gamma}$ as the quotient operad $\Mag/_{\CongrCAs{\gamma}}$ where
-$\CongrCAs{\gamma}$ is the smallest operad congruence of $\Mag$
-satisfying
+Let us now define for any $\gamma \geq 1$ the \Def{$\gamma$-comb
+associative operad} $\CAs{\gamma}$ as the quotient operad
+$\Mag/_{\CongrCAs{\gamma}}$ where $\CongrCAs{\gamma}$ is the smallest
+operad congruence of $\Mag$ satisfying
 \begin{equation} \label{equ:congruence_Asd}
     \underbrace{(\dots (\Product \circ_1 \Product) \circ_1 \dots)
         \circ_1 \Product}
@@ -372,79 +376,98 @@ satisfying
     _{\gamma \mbox{ \footnotesize operands}}.
 \end{equation}
 In words, \eqref{equ:congruence_Asd} says that the left and the right
-comb binary trees of degree $\gamma$ are equivalent for $\CongrCAs{\gamma}$.
-Notice that $\CongrCAs{1}$ is trivial so that $\CAs{1} = \Mag$ and that
-$\CongrCAs{2}$ is the operad congruence defined
-by~\eqref{equ:congruence_as} so that $\CAs{2} = \As$.
+comb binary trees of degree $\gamma$ are equivalent for
+$\CongrCAs{\gamma}$. Notice that $\CongrCAs{1}$ is trivial so that
+$\CAs{1} = \Mag$ and that $\CongrCAs{2}$ is the operad congruence
+defined by~\eqref{equ:congruence_as} so that $\CAs{2} = \As$.
 
-In the sequel we denote by $\LC{\gamma}$ and $\RC{\gamma}$ the left comb and the
-right comb of degree $\gamma$, respectively. Hence, $\CongrCAs{\gamma}$ is the
-congruence relation induced by $\LC{\gamma}\CongrCAs{\gamma}\RC{\gamma}$.
+In the sequel we denote by $\LC{\gamma}$ and $\RC{\gamma}$ the left
+comb and the right comb of degree $\gamma$, respectively. Hence,
+$\CongrCAs{\gamma}$ is the congruence relation induced by
+$\LC{\gamma}\CongrCAs{\gamma}\RC{\gamma}$.
 
-We denote by CAs the set of $\gamma$-comb associative operads where $\gamma$ belongs
-the set of strictly positive integers:
-\[\text{CAs}=\left\{\CAs{\gamma}\mid\gamma\geq 1\right\}.\]
-Our purpose is to show that CAs admits a lattice structure. For that, we provide
-a description of operads morphisms between the elements of CAs.
+Let
+\begin{equation}
+    \CAsAll := \left\{\CAs{\gamma} : \gamma\geq 1\right\}
+\end{equation}
+be the set of all the $\gamma$-comb associative operads
+Our purpose is to show that $\CAsAll$ admits a lattice structure. For
+that, we provide a description of operads morphisms between the
+elements of $\CAsAll$.
 
 \begin{Proposition}\label{prop:morphisms_CAs_d}
-  
-  Let $\gamma$ and $\gamma'$ be two strictly positive integers. There exists at most
-  one operads morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$. This morphism
-  exists if and only if $\emph{LC}\left(\gamma'\right)\CongrCAs{\gamma}\emph{RC}\left(\gamma'\right)$ and it is surjective in this
-  case. Moreover, $\varphi$ is injective if and only if $\gamma=\gamma'$, that is if and only
-  if $\varphi$ is the identity morphism.
-  
-  \end{Proposition}
-
+    Let $\gamma$ and $\gamma'$ be two positive integers. There exists at
+    most one operad morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$.
+    This  morphism exists if and only if
+    \begin{math}
+        \LC{\gamma'}\CongrCAs{\gamma}\RC{\gamma'}
+    \end{math}
+    and it is surjective in this case. Moreover, $\varphi$ is injective
+    if and only if $\gamma = \gamma'$, that is if and only if
+    $\varphi$ is the identity morphism.
+\end{Proposition}
 \begin{proof}
-  The operad $\CAs{\gamma'}$ is generated by one binary generator $t^{(\gamma')}$, so that
-  $\varphi$ is entirely determined by $\varphi\left(t^{(\gamma')}\right)$. Moreover,
-  $\varphi\left(t^{(\gamma')}\right)$ has to be of arity $2$ in $\CAs{\gamma}$, so that
-  $\varphi\left(t^{(\gamma')}\right)$ has to be equal to $t^{(\gamma)}$. Hence, if $\varphi$
-  exists, it is the unique operads morphism from $\CAs{\gamma'}$ and $\CAs{\gamma}$,
-  and in this case, $t^{(\gamma)}$ being in the image of $\varphi$, the latter is
-  surjective. Moreover, $\varphi$ is well defined if and only if
-  $\varphi\left(\LC{\gamma'}\right)$ and $\varphi\left(\RC{\gamma'}\right)$ are equal in
-  $\CAs{\gamma}$, that is if and only if $\LC{\gamma'}\CongrCAs{\gamma}\RC{\gamma'}$. In particular,
-  if $\gamma'$ is strictly smaller than $\gamma$, then there does not exist any morphism
-  $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$. Moreover, if $\gamma'$ is strictly smaller
-  than $\gamma$, the cardinality of $\CAs{\gamma'}\left(\gamma\right)$ is equal to the cardinality
-  of $\CAs{\gamma}(\gamma)$ plus one. Hence, if there exists an injective morphism
-  $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$, we must have $\gamma=\gamma'$, and in this case,
-  $\varphi$ is the identity morphism.
+    The operad $\CAs{\gamma'}$ is generated by one binary generator
+    $\Product$, so that $\varphi$ is entirely determined by
+    $\varphi\left(\Product\right)$. Moreover, $\varphi(\Product)$ has
+    to be of arity $2$ in $\CAs{\gamma}$, so that $\varphi(\Product)$
+    has to be equal to $\Product \in \CAs{\gamma}$. Hence, if $\varphi$
+    exists, it is the unique operad morphism from $\CAs{\gamma'}$ and
+    $\CAs{\gamma}$, and in this case, $\Product \in \CAs{\gamma'}$
+    being in the image of $\varphi$, the latter is surjective.
+    Moreover, $\varphi$ is well defined if and only if
+    $\varphi\left(\LC{\gamma'}\right)$ and
+    $\varphi\left(\RC{\gamma'}\right)$ are equal in $\CAs{\gamma}$,
+    that is if and only if
+    $\LC{\gamma'} \CongrCAs{\gamma} \RC{\gamma'}$. In particular, if
+    $\gamma'$ is smaller than $\gamma$, then there does not exist any
+    morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$.
+    \Todo{Faux car on peut avoir $\gamma' = 1$, puisque
+    $\LC{1} = \RC{1}$.}
+    Moreover, if $\gamma'$ is smaller than $\gamma$, the cardinality of
+    $\CAs{\gamma'}\left(\gamma\right)$ is equal to the cardinality of
+    $\CAs{\gamma}(\gamma)$ plus one. Hence, if there exists an injective
+    morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$, we must have
+    $\gamma = \gamma'$, and in this case, $\varphi$ is the identity
+    morphism.
 \end{proof}
 
-We define the binary relation $\preceq$ on CAs as follows: we have $\CAs{\gamma}\preceq\CAs{\gamma'}$
-if and only if there exists a morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$.
+We define the binary relation $\preceq$ on $\CAsAll$ as follows: we have
+$\CAs{\gamma}\preceq\CAs{\gamma'}$ if and only if there exists a
+morphism $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$.
 
 \begin{Proposition}\label{prop:poset_CAs}
-  The binary relation $\preceq$ is a partially order on \emph{CAs}, that is
-  $\left(\emph{CAs},\ \preceq\right)$ is a poset.
-  \end{Proposition}
-
+    The binary relation $\preceq$ is a partially order on $\CAsAll$,
+    that is $\left(\CAsAll,\ \preceq\right)$ is a poset.
+\end{Proposition}
 \begin{proof}
-  The binary relation $\preceq$ is reflexive since there exists the identity morphism
-  of $\CAs{\gamma}$ for every strictly positive integer $\gamma$. It is transitive since if
-  there exist two morphisms  $\varphi:\CAs{\gamma}\to\CAs{\gamma'}$ and
-  $\psi:\CAs{\gamma''}\to\CAs{\gamma'}$, then $\psi\circ\varphi$ is a morphism from
-  $\CAs{\gamma''}$ to $\CAs{\gamma}$. Now, let us assume that there exist morphisms
-  $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$ and $\psi:\CAs{\gamma}\to\CAs{\gamma'}$.
-  In particular, $\psi\circ\varphi$ and $\varphi\circ\psi$ are endomorphisms of $\CAs{\gamma'}$
-  and $\CAs{\gamma}$, respectively. From Proposition~\ref{prop:morphisms_CAs_d}, these two
-  morphisms are identity morphisms, so that $\varphi$ and $\psi$ are injective. From
-  Proposition~\ref{prop:morphisms_CAs_d}, $\gamma$ and $\gamma'$ are equal, which proves that
-  $\preceq$ is anti-symmetric, hence a partial order.
-  \end{proof}
+    The binary relation $\preceq$ is reflexive since there exists the
+    identity morphism of $\CAs{\gamma}$ for every positive integer
+    $\gamma$. It is transitive since if there exist two morphisms
+    $\varphi:\CAs{\gamma}\to\CAs{\gamma'}$ and
+    $\psi:\CAs{\gamma''}\to\CAs{\gamma'}$, then $\psi\circ\varphi$ is a
+    morphism from $\CAs{\gamma''}$ to $\CAs{\gamma}$. Now, let us assume
+    that there exist morphisms $\varphi:\CAs{\gamma'}\to\CAs{\gamma}$
+    and $\psi:\CAs{\gamma}\to\CAs{\gamma'}$. In particular,
+    $\psi\circ\varphi$ and $\varphi\circ\psi$ are endomorphisms of
+    $\CAs{\gamma'}$ and $\CAs{\gamma}$, respectively. From
+    Proposition~\ref{prop:morphisms_CAs_d}, these two morphisms are
+    identity morphisms, so that $\varphi$ and $\psi$ are injective. From
+    Proposition~\ref{prop:morphisms_CAs_d}, $\gamma$ and $\gamma'$ are
+    equal, which proves that $\preceq$ is anti-symmetric, hence a
+    partial order.
+\end{proof}
 
-In order to show that the poset $\left(\text{CAs},\ \preceq\right)$ extends into a lattice,
-that is two elements of CAs admit lower-bounds and upper-bounds, we relate
-$\left(\text{CAs},\ \preceq\right)$ to the lattice of integers
-$\left(\N,\ \mid,\ \text{gcd},\ \text{lcm}\right)$, where $\mid$ denotes the division
-relation, gcd denotes the \emph{greatest common divisor} and lcm the \emph{least common multiple}
+In order to show that the poset $\left(\CAsAll,\ \preceq\right)$
+extends into a lattice, that is two elements of $\CAsAll$ admit
+lower-bounds and upper-bounds, we relate
+$\left(\CAsAll,\ \preceq\right)$ to the lattice of integers
+$\left(\N,\ \mid,\ \gcd,\ \lcm\right)$, where $\mid$
+denotes the division relation, $\gcd$ denotes the \emph{greatest common divisor} and $\lcm$ the \emph{least common multiple}
 operators, respectively. In order to obtain this relationship, we introduce the notion of
-\Def{left rank} of an element $t\in\Mag$: this is the length $\text{lr}\left(t\right)$ of
-the left branch beginning at the root of $t$. The left rank of $t$ is represented as follows:
+\Def{left rank} of an element $\Tfr \in\Mag$: this is the number
+$\LBranch(\Tfr)$ of internal nodes in the left branch
+beginning at the root of $\Tfr$. The left rank of $\Tfr$ is represented as follows:
 \[\textbf{PICTURE}\]
 
 \begin{Lemma}\label{lem:left_rank_and_CongrCAs}
@@ -470,7 +493,7 @@ the left branch beginning at the root of $t$. The left rank of $t$ is represente
   $t_i\overset{*}{\Rew}t_{i+1}$ or $t_{i+1}\overset{*}{\Rew}t_i$. From the second part of the proof,
   $\text{lr}\left(t_{i+1}\right)-\text{lr}\left(t_i\right)$ is divisible by $\gamma-1$, so that
   $\text{lr}\left(t'\right)-\text{lr}\left(t\right)$ is divisible by $\gamma-1$.
-  
+
   The congruence relation $\CongrCAs{\gamma}$ is the equivalence relation induced by $\Rew$, that
   is we have $t\CongrCAs{\gamma}t'$ if and only if $t\overset{*}{\leftrightarrow}t'$. Hence, from the
   third part of the proof, $t\CongrCAs{\gamma}t'$ implies that
@@ -548,9 +571,9 @@ relation
         \draw[Edge](r)--(1);
     \end{tikzpicture}\,.
 \end{equation}
-This rewrite rule is compatible with the lexicographic order on prefix 
-words presented at the beginning of Section~\ref{sec:operad_Mag} in the 
-sense that the prefix word of the left member of~\eqref{equ:rew_1} is 
+This rewrite rule is compatible with the lexicographic order on prefix
+words presented at the beginning of Section~\ref{sec:operad_Mag} in the
+sense that the prefix word of the left member of~\eqref{equ:rew_1} is
 lexicographically greater than the prefix word of the right one.
 
 However, the rewrite relation $\RewContext$ induced by $\Rew$ is not
@@ -647,7 +670,7 @@ confluent. Indeed, we have
 and the two right members of~\eqref{equ:branching_pair_CAs_3} form a
 branching pair which is not joinable.
 
-In order to transform the rewrite relation induced by~\eqref{equ:rew_1} 
+In order to transform the rewrite relation induced by~\eqref{equ:rew_1}
 into a convergent one, we apply the Buchberger algorithm for
 operads~\cite[Section 3.7]{DK10} with respect to the lexicographic order
 on prefix words. Following this algorithm, we need to put the right
@@ -705,8 +728,8 @@ and $7$ provides the new relations \\
 
 \noindent
 We claim that the rewrite relation $\RewContext$ induced by
-rewrite rule $\Rew$ satisfying~\eqref{equ:rew_1}, \eqref{equ:rew_2}, 
-\eqref{equ:rew_3}---\eqref{equ:rew_11} is convergent. First, for every 
+rewrite rule $\Rew$ satisfying~\eqref{equ:rew_1}, \eqref{equ:rew_2},
+\eqref{equ:rew_3}---\eqref{equ:rew_11} is convergent. First, for every
 relation $\Tfr \Rew \Tfr'$, we have
 $\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$. Therefore, by
 Lemma~\ref{lem:prefix_word_termination}, $\RewContext$ is terminating.
