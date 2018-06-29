@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The magmatic operad, quotients, and rewrite relations}
+\label{sec:operad_Mag}
+We consider nonsymmetric set-theoretic operads. Let $\Oca$ be such an
+operad. We denote respectively by $\circ_i$ and $\circ$ the partial and
+complete compositions of $\Oca$. For any $n \geq 1$, $\Oca(n)$ is the
+set of the elements $x$ of $\Oca$ of arity $|x| = n$. We denote
+by $\Mag$ the magmatic operad, that is the free operad over one binary
+generator $\Product$, and we represent the elements of $\Mag$ by binary
+trees. The \Def{arity} $|\Tfr|$ (resp. \Def{degree} $\Deg(\Tfr)$) of a
+binary tree $\Tfr$ is its number of leaves (resp. internal nodes).
+Recall that for any positive integer $n$,
+$\# \Mag(n)$ is the $n$th Catalan number
+$\Catalan(n) := \binom{2n - 2}{n - 1}\frac{1}{n}$.
+\medbreak
+
+Given a binary tree $\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the
+\Def{prefix word} of $\Tfr$, that is the word on $\{\Zero, \Two\}$
+obtained by a left to right depth-first traversal of $\Tfr$ and by
+writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
+encountered. The set of all words on $\{\Zero, \Two\}$ is endowed with
+the lexicographic order $\leq$ induced by $\Zero < \Two$.
+\medbreak
+
+If $\Rew$ is a rewrite rule on $\Mag$ such that $\Sfr \Rew \Sfr'$
+implies $|\Sfr| = |\Sfr'|$, we denote by $\RewContext$ the
+\Def{rewrite relation induced} by $\Rew$. Formally we have
+\begin{math}
+    \Tfr\circ_i\left(\Sfr\circ\left[\Rfr_1,\dots,\Rfr_{n}\right]\right)
+    \RewContext
+    \Tfr\circ_i\left(\Sfr'\circ\left[\Rfr_1,\dots,\Rfr_{n}\right]\right)
+\end{math},
+if $\Sfr \Rew \Sfr'$ where $n = |\Sfr|$, and $\Tfr$, $\Rfr_1$, \dots,
+$\Rfr_n$ are binary trees. In other words, one has
+$\Tfr \RewContext \Tfr'$ if it is possible to obtain $\Tfr'$ from $\Tfr$
+by replacing a subtree $\Sfr$ of $\Tfr$ by $\Sfr'$ whenever
+$\Sfr \Rew \Sfr'$. We use here the standard terminology
+(\Def{terminating}, \Def{confluent}, \Def{convergent}, \Def{branching
+pair}, \Def{joinable}, \Def{normal form}, {\em etc.}) about rewrite
+relations and rewrite systems~\cite{BN98}.
+\medbreak
+
+Given an operad $\Oca \simeq \Mag/_{\Congr}$ where $\Congr$ is an operad
+congruence of $\Mag$, we denote by $[\Tfr]_{\Congr}$ the
+$\Congr$-equivalence class of any $\Tfr \in \Mag$. Besides, we say that
+$\Rew$ is an \Def{orientation} of $\Congr$ if the reflexive, transitive,
+and symmetric closure of $\RewContext$ is $\Congr$. We say that $\Rew$
+is a \Def{convergent orientation} if $\RewContext$ is convergent. When
+$\Rew$ is a convergent orientation of $\Congr$, the set of all normal
+forms of $\RewContext$ is a \Def{Poincaré-Birkhoff-Witt basis} of the
+operad $\Oca$ and its elements are exactly the binary trees avoiding,
+as subtrees, the trees appearing as left members in~$\Rew$.
+\medbreak
+
+We shall use the following criterion to prove that a rewrite relation on
+$\Mag$ is terminating.
+\medbreak
+
+\begin{Lemma}\label{lem:prefix_word_termination}
+    Let $\Rew$ be a rewrite rule on $\Mag$. If for any
+    $\Tfr, \Tfr' \in \Mag$ such that $\Tfr \Rew \Tfr'$ one has
+    $\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$, then the rewrite relation
+    induced by $\Rew$ is terminating.
+\end{Lemma}
+\medbreak
+
+Moreover, we shall use the following result appearing in~\cite{Gir16}
+specialized on rewrite relation on $\Mag$ to prove that a terminating
+rewrite relation is convergent.
+\medbreak
+
+\begin{Lemma} \label{lem:degree_confluence}
+    Let $\Rew$ be a rewrite rule on $\Mag$ wherein all trees $\Tfr$ and
+    $\Tfr'$ such that $\Tfr \Rew \Tfr'$ have degrees at most $\ell$.
+    Then, if the rewrite relation $\RewContext$ induced by $\Rew$ is
+    terminating and all its branching pairs of degrees at most
+    $2\ell - 1$ are joinable, $\RewContext$ is convergent.
+\end{Lemma}
+\medbreak
