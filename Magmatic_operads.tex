@@ -1,1 +1,95 @@
-\section{Magmatic operads}
+\section{Quotients of the magmatic operad}
+
+\Todo{Write mini intro.}
+
+\subsection{Lattice structure}
+
+We denote by $\IMag$ the set of operadic of $\Mag$, and
+\begin{equation} \label{equ:definition_of_QMag}
+  \QMag =\Big\{\Mag/ I\mid I\in\IMag\Big\},
+  \end{equation}
+the set of quotients of the magmatic operad. Given two elements $\Oca_1$
+and $\Oca_2$ of $\QMag$, we denote by $\text{hom}\left(\Oca_1,\Oca_2\right)$
+the set of operads morphisms from $\Oca_1$ to $\Oca_2$.
+
+\begin{Proposition} \label{prop:endomorphisms_of_magmatic_operads}
+  The set $\emph{hom}\left(\Oca_1,\Oca_2\right)$ admits a vector space
+  structure. Moreover, its dimension is equal to $0$ or $1$ and every
+  nonzero morphism is surjective.
+\end{Proposition}
+
+\begin{proof}
+  The operad $\Oca_1$ is spanned by the binary generator~$\Product$, so
+  that a morphism $\varphi:\Oca_1\to\Oca_2$ is uniquely determined by
+  $\varphi(\Product)$. Moreover, $\varphi(\Product)$ has arity $2$ is
+  $\Oca_2$. Hence, $\varphi(\Product)$ belongs to the line spanned by
+  the binary generator of $\Oca_2$, that is there exists a scalar
+  $\lambda\in\K$ such that $\varphi(\Product)=\lambda\Product$. If there
+  exists such a $\lambda$ different from zero, then for every nonzero
+  scalar $\mu$, we have a well-defined operads morphism
+  $\psi:\Oca_1\to\Oca_2$ satisfying $\psi(\Product)=\mu\Product=\left(
+  \mu/\lambda\right)\varphi(\Product)$. Hence,
+  $\text{hom}\left(\Oca_1,\Oca_2\right)$ is either reduced to the zero
+  morphism or it is in one-to-one correspondance with $\K$, which
+  proves that $\text{hom}\left(\Oca_1,\Oca_2\right)$ is a vector space
+  of dimension at most $1$. Moreover, if $\varphi$ is different from $0$,
+  that is there is a nonzero scalar such that
+  $\varphi(\Product)=\lambda\Product$, we have
+  $\varphi(1/\lambda\Product)=\Product$, so that $\varphi$ is
+  surjective.
+\end{proof}
+
+We introduce the binary relation $\preceq$ on $\QMag$ as follows: we
+have $\Oca_2\preceq\Oca_1$ if the dimension of
+$\text{hom}\left(\Oca_1,\Oca_2\right)$ is equal to $1$.
+
+\begin{Proposition} \label{prop:order_relations_on_QMag_and_ideals}
+  Let $\Oca_1=\Mag/I_1$ and $\Oca_2=\Mag/I_2$ be two elements of $\QMag$.
+  We have $\Oca_2\preceq\Oca_1$ if and only if $I_1\subseteq I_2$.
+\end{Proposition}
+
+\begin{proof}
+  Since $\text{hom}\left(\Oca_1,\Oca_2\right)$ is a vector space of
+  dimension at most $1$, it contains a nonzero morphism if and only if
+  the morphism
+  $\overline{\varphi}:\Oca_1\to\Oca_2$ satisfying
+  $\overline{\varphi}(\Product)=\Product$ is well-defined, which means
+  that $\Oca_2\preceq\Oca_1$ is equivalent to this condition. Moreover,
+  by the universal property of the quotient, $\overline{\varphi}$ is
+  well-defined if and only if $I_1$ is included in the kernel of the
+  morphism $\varphi:\Mag\to\Oca_2$ defined by
+  $\varphi(\Product)=\Product$. This kernel is equal to $I_2$, so that
+  $\overline{\varphi}$ is well-defined if and only if $I_1$ is included
+  in $I_2$, which concludes the proof.
+\end{proof}
+
+Recall that a \Def{lattice} is a tuple $\left(E,\leq,\wedge,\vee\right)$,
+where $\left(E,\leq\right)$ is a poset such that any two elements $e$
+and $e'$ of $E$ admit a lower-bound $e\wedge e'$ and an upper-bound
+$e\vee e'$. In particular, $\left(\IMag,\subseteq,\cap,+\right)$ is a
+lattice, where $\cap$ and $+$ are the intersection and the sum of
+operadic ideals, respectively.
+
+Given two elements $\Oca_1=\Mag/I_1$ and $\Oca_2=\Mag/I_2$ of $\QMag$,
+we let
+\begin{equation} \label{equ:definition_of_lattice_operations_of_QMag}
+  \Oca_1\wedge \Oca_2=\Mag/\left(I_1+I_2\right)\ \ \text{and}\ \
+  \Oca_1\wedge \Oca_2=\Mag/\left(I_1\cap I_2\right).
+  \end{equation}
+
+\begin{Theorem} \label{thm:lattice_structure_of_QMag}
+  The tuple $\left(\QMag,\preceq,\wedge,\vee\right)$ is a lattice.
+\end{Theorem}
+
+\begin{proof}
+  The map $\mathcal{Q}:\IMag\to\QMag$ defined by $\mathcal{Q}(I)=\Mag/I$
+  is a bijection by definition of $\QMag$. Moreover, from
+  Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
+  $\Oca_2\preceq\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
+  $\left(\QMag,\preceq\right)$ is a poset and $\mathcal{Q}$ is a
+  decreasing bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$
+  being a lattice, the decreasing bijection $\mathcal{Q}$ induces
+  lattice operations on $\QMag$, precisely $\wedge$ and $\vee$ by
+  definition.
+  \end{proof}
+\subsection{Kernels of magmatic operads}
