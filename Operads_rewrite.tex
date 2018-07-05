@@ -3,6 +3,81 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The magmatic operad, quotients, and rewrite relations}
 \label{sec:operad_Mag}
+We set in this preliminary section our notations about operads. We also
+provide a definition for the magmatic operad and introduce tools to
+handle with some of its quotients involving rewrite systems on
+syntax trees.
+\medbreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Nonsymmetric operads}
+A \Def{nonsymmetric operad in the category of sets}, or a
+\Def{nonsymmetric operad} for short, is a graded set
+\begin{equation}
+    \Oca = \bigsqcup_{n \geq 1} \Oca(n)
+\end{equation}
+together with maps
+\begin{equation}
+    \circ_i : \Oca(n) \times \Oca(m) \to \Oca(n + m - 1),
+    \qquad 1 \leq i \leq n, 1 \leq m,
+\end{equation}
+called \Def{partial compositions}, and a distinguished element
+$\Unit \in \Oca(1)$, the \Def{unit} of $\Oca$. This data has to satisfy,
+for any $x, y, z \in \Oca$, the three relations
+\begin{subequations}
+\begin{equation} \label{equ:operad_axiom_1}
+    (x \circ_i y) \circ_{i + j - 1} z = x \circ_i (y \circ_j z),
+    \qquad
+    1 \leq i \leq |x|, 1 \leq j \leq |y|,
+\end{equation}
+\begin{equation} \label{equ:operad_axiom_2}
+    (x \circ_i y) \circ_{j + |y| - 1} z = (x \circ_j z) \circ_i y,
+    \qquad
+    1 \leq i < j \leq |x|,
+\end{equation}
+\begin{equation} \label{equ:operad_axiom_3}
+    \Unit \circ_1 x = x = x \circ_i \Unit,
+    \qquad 1 \leq i \leq |x|.
+\end{equation}
+\end{subequations}
+Since we consider in this work only nonsymmetric operads, we shall call
+these simply \Def{operads}.
+\medbreak
+
+Let us provide some elementary definitions and notations about operads.
+If $x$ is an element of $\Oca$ such that $x \in \Oca(n)$ for an
+$n \geq 1$, the \Def{arity} $|x|$ of $x$ is $n$. If $\Oca_1$ and
+$\Oca_2$ are two operads, a map $\phi : \Oca_1 \to \Oca_2$ is an
+\Def{operad morphism} is it respects the arities, sends the unit of
+$\Oca_1$ to the unit of $\Oca_2$, and commutes with partial composition
+maps. We say that $\Oca_2$ is a \Def{suboperad} of $\Oca_1$ if $\Oca_2$
+is a subset of $\Oca_1$ containing the unit of $\Oca_1$ and the partial
+composition maps of $\Oca_2$ are the ones of $\Oca_1$ restricted on
+$\Oca_2$. For any subset $\GeneratingSet$ of $\Oca$, the
+\Def{operad generated} by $\GeneratingSet$ is the smallest suboperad
+$\Oca^\GeneratingSet$ of $\Oca$ containing $\GeneratingSet$. When
+$\Oca = \Oca^\GeneratingSet$, we say that $\GeneratingSet$ is a
+\Def{generating set} of $\Oca$. In this case, and when additionally
+$\GeneratingSet$ is minimal among all the subsets of $\Oca$ satisfying
+this property, $\GeneratingSet$ is a \Def{minimal} generating set of
+$\Oca$. An \Def{operad congruence} is an equivalence relation
+$\Congr$ on $\Oca$ such that $\Congr$ respects the arities, and
+for any $x, x', y, y' \in \Oca$ such that
+$x \Congr x'$ and $y \Congr y'$, $x \circ_i y$ is $\Congr$-equivalent to
+$x' \circ_i y'$ for any valid integer $i$. Given an operad congruence
+$\Congr$, the \Def{quotient operad} $\Oca/_{\Congr}$ of $\Oca$ by
+$\Congr$ is the operad of all $\Congr$-equivalence classes endowed
+with the partial composition maps defined in the obvious way.
+In the case where all the sets $\Oca(n)$, $n \geq 1$, are finite, the
+\Def{Hilbert series} $\HilbertSeries_\Oca(t)$ of $\Oca$ is the series
+defined by
+\begin{equation}
+    \HilbertSeries_\Oca(t) := \sum_{n \geq 1} \# \Oca(n) t^n.
+\end{equation}
+
+\Todo{TO DO}
+
 We consider nonsymmetric set-theoretic operads. Let $\Oca$ be such an
 operad. We denote respectively by $\circ_i$ and $\circ$ the partial and
 complete compositions of $\Oca$. For any $n \geq 1$, $\Oca(n)$ is the
@@ -16,6 +91,10 @@ $\# \Mag(n)$ is the $n$th Catalan number
 $\Catalan(n) := \binom{2n - 2}{n - 1}\frac{1}{n}$.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Magmatic operad}
+
 Given a binary tree $\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the
 \Def{prefix word} of $\Tfr$, that is the word on $\{\Zero, \Two\}$
 obtained by a left to right depth-first traversal of $\Tfr$ and by
@@ -23,6 +102,16 @@ writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
 encountered. The set of all words on $\{\Zero, \Two\}$ is endowed with
 the lexicographic order $\leq$ induced by $\Zero < \Two$.
 \medbreak
+
+\Todo{TO DO}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rewrite systems and presentations}
+
+
+\Todo{TO DO}
+
 
 If $\Rew$ is a rewrite rule on $\Mag$ such that $\Sfr \Rew \Sfr'$
 implies $|\Sfr| = |\Sfr'|$, we denote by $\RewContext$ the
