@@ -5,8 +5,8 @@
 \label{sec:operad_Mag}
 We set in this preliminary section our notations about operads. We also
 provide a definition for the magmatic operad and introduce tools to
-handle with some of its quotients involving rewrite systems on
-syntax trees.
+handle with some of its quotients involving rewrite systems on syntax
+trees.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,38 +62,175 @@ $\Oca = \Oca^\GeneratingSet$, we say that $\GeneratingSet$ is a
 $\GeneratingSet$ is minimal among all the subsets of $\Oca$ satisfying
 this property, $\GeneratingSet$ is a \Def{minimal} generating set of
 $\Oca$. An \Def{operad congruence} is an equivalence relation
-$\Congr$ on $\Oca$ such that $\Congr$ respects the arities, and
-for any $x, x', y, y' \in \Oca$ such that
-$x \Congr x'$ and $y \Congr y'$, $x \circ_i y$ is $\Congr$-equivalent to
-$x' \circ_i y'$ for any valid integer $i$. Given an operad congruence
-$\Congr$, the \Def{quotient operad} $\Oca/_{\Congr}$ of $\Oca$ by
-$\Congr$ is the operad of all $\Congr$-equivalence classes endowed
-with the partial composition maps defined in the obvious way.
-In the case where all the sets $\Oca(n)$, $n \geq 1$, are finite, the
-\Def{Hilbert series} $\HilbertSeries_\Oca(t)$ of $\Oca$ is the series
-defined by
+$\Congr$ on $\Oca$ such that $\Congr$ respects the arities, and for any
+$x, x', y, y' \in \Oca$ such that $x \Congr x'$ and $y \Congr y'$,
+$x \circ_i y$ is $\Congr$-equivalent to $x' \circ_i y'$ for any valid
+integer $i$. Given an operad congruence $\Congr$, the
+\Def{quotient operad} $\Oca/_{\Congr}$ of $\Oca$ by $\Congr$ is the
+operad of all $\Congr$-equivalence classes endowed with the partial
+composition maps defined in the obvious way. In the case where all the
+sets $\Oca(n)$, $n \geq 1$, are finite, the \Def{Hilbert series}
+$\HilbertSeries_\Oca(t)$ of $\Oca$ is the series defined by
 \begin{equation}
     \HilbertSeries_\Oca(t) := \sum_{n \geq 1} \# \Oca(n) t^n.
 \end{equation}
-
-\Todo{TO DO}
-
-We consider nonsymmetric set-theoretic operads. Let $\Oca$ be such an
-operad. We denote respectively by $\circ_i$ and $\circ$ the partial and
-complete compositions of $\Oca$. For any $n \geq 1$, $\Oca(n)$ is the
-set of the elements $x$ of $\Oca$ of arity $|x| = n$. We denote
-by $\Mag$ the magmatic operad, that is the free operad over one binary
-generator $\Product$, and we represent the elements of $\Mag$ by binary
-trees. The \Def{arity} $|\Tfr|$ (resp. \Def{degree} $\Deg(\Tfr)$) of a
-binary tree $\Tfr$ is its number of leaves (resp. internal nodes).
-Recall that for any positive integer $n$,
-$\# \Mag(n)$ is the $n$th Catalan number
-$\Catalan(n) := \binom{2n - 2}{n - 1}\frac{1}{n}$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Magmatic operad}
+\subsection{Binary trees and magmatic operad}
+A \Def{binary tree} is either the \Def{leaf} $\Leaf$ or a pair
+$(\Tfr_1, \Tfr_2)$ of binary trees. We use the standard terminology
+about binary trees (such as \Def{root}, \Def{internal node},
+\Def{child}, {\em etc.}) in this work. Let us recall the main notions.
+The \Def{arity} $|\Tfr|$ (resp. \Def{degree} $\Deg(\Tfr)$) of a binary
+tree $\Tfr$ is its number of leaves (resp. internal nodes). We shall
+draw binary trees the root to the top. For instance,
+\begin{equation}
+    \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
+        \node(0)at(0.00,-4.50){};
+        \node(2)at(2.00,-6.75){};
+        \node(4)at(4.00,-6.75){};
+        \node(6)at(6.00,-4.50){};
+        \node(8)at(8.00,-4.50){};
+        \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-4.50){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-2.25){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(5);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(5);
+        \draw[Edge](8)--(7);
+        \node(r)at(5.00,2){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+\end{equation}
+is the graphical representation of the binary tree
+\begin{math}
+    ((\Leaf, (\Leaf, \Leaf)), (\Leaf, \Leaf)).
+\end{math}
+\medbreak
+
+The \Def{magmatic operad} $\Mag$ is the graded set of all binary trees
+where $\Mag(n)$, $n \geq 1$, is the set of all binary trees of arity
+$n$. The partial composition maps of $\Mag$ are grafting of trees: given
+two binary trees $\Tfr$ and $\Sfr$, $\Tfr \circ_i \Sfr$ is the binary
+tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
+(numbered from left to right) of $\Tfr$. For instance,
+\begin{equation}
+    \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
+        \node(0)at(0.00,-4.50){};
+        \node(2)at(2.00,-6.75){};
+        \node(4)at(4.00,-6.75){};
+        \node(6)at(6.00,-4.50){};
+        \node(8)at(8.00,-4.50){};
+        \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-4.50){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-2.25){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(5);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(5);
+        \draw[Edge](8)--(7);
+        \node(r)at(5.00,2){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+    \enspace \circ_4 \enspace
+    \begin{tikzpicture}[xscale=.17,yscale=.18,Centering]
+        \node(0)at(0.00,-4.67){};
+        \node(2)at(2.00,-4.67){};
+        \node(4)at(4.00,-4.67){};
+        \node(6)at(6.00,-4.67){};
+        \node[NodeST](1)at(1.00,-2.33){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,-2.33){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(3);
+        \draw[Edge](2)--(1);
+        \draw[Edge](4)--(5);
+        \draw[Edge](5)--(3);
+        \draw[Edge](6)--(5);
+        \node(r)at(3.00,2){};
+        \draw[Edge](r)--(3);
+    \end{tikzpicture}
+    \enspace = \enspace
+    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+        \node(0)at(0.00,-6.00){};
+        \node(10)at(10.00,-12.00){};
+        \node(12)at(12.00,-12.00){};
+        \node(14)at(14.00,-6.00){};
+        \node(2)at(2.00,-9.00){};
+        \node(4)at(4.00,-9.00){};
+        \node(6)at(6.00,-12.00){};
+        \node(8)at(8.00,-12.00){};
+        \node[NodeST](1)at(1.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-6.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(5);
+        \draw[Edge](10)--(11);
+        \draw[Edge](11)--(9);
+        \draw[Edge](12)--(11);
+        \draw[Edge](13)--(5);
+        \draw[Edge](14)--(13);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(9);
+        \draw[Edge](8)--(7);
+        \draw[Edge](9)--(13);
+        \node(r)at(5.00,2.5){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+\end{equation}
+is a partial composition in $\Mag$. The number of binary of arity
+$n \geq 1$ is the $n$th Catalan number $\Catalan(n)$ and hence, the
+Hilbert series of $\Mag$ is
+\begin{equation}
+    \HilbertSeries_{\Mag}(t)
+    = \sum_{n \geq 1} \Catalan(n) t^n
+    = \sum_{n \geq 1} \binom{2n - 1}{n - 1} \frac{1}{n} t^n.
+\end{equation}
+\medbreak
+
+The operad $\Mag$ is the free operad generated by one binary element. It
+satisfies the following universality property. Let
+$\GeneratingSet := \GeneratingSet(2) := \{\Product\}$
+be the graded set containing exactly one element $\Product$ of arity
+$2$. For any operad $\Oca$ and any map
+$f : \GeneratingSet(2) \to \Oca(2)$, there exists a unique operad
+morphism $\phi : \Mag \to \Oca$ such that $f = \phi \circ \Corolla$,
+where $\Corolla$ is the map sending $\Product$ to the unique binary tree
+of degree $1$. In other terms, the diagram
+\begin{equation}
+    \begin{tikzpicture}[xscale=1.4,yscale=1.2,Centering]
+        \node(G)at(0,0){\begin{math}\GeneratingSet\end{math}};
+        \node(O)at(2,0){\begin{math}\Oca\end{math}};
+        \node(AG)at(0,-2){\begin{math}\Mag\end{math}};
+        \draw[Map](G)--(O)node[midway,above]{\begin{math}f\end{math}};
+        \draw[Injection](G)--(AG)node[midway,left]
+            {\begin{math}\Corolla\end{math}};
+        \draw[Map,dashed](AG)--(O)node[midway,right]
+            {\begin{math}\phi\end{math}};
+    \end{tikzpicture}
+\end{equation}
+commutes.
+\medbreak
+
+\Todo{TO DO}
 
 Given a binary tree $\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the
 \Def{prefix word} of $\Tfr$, that is the word on $\{\Zero, \Two\}$
@@ -102,8 +239,6 @@ writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
 encountered. The set of all words on $\{\Zero, \Two\}$ is endowed with
 the lexicographic order $\leq$ induced by $\Zero < \Two$.
 \medbreak
-
-\Todo{TO DO}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
