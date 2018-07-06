@@ -5,7 +5,7 @@
 \label{sec:operad_Mag}
 We set in this preliminary section our notations about operads. We also
 provide a definition for the magmatic operad and introduce tools to
-handle with some of its quotients involving rewrite systems on syntax
+handle with some of its quotients involving rewrite systems on binary
 trees.
 \medbreak
 
@@ -24,21 +24,22 @@ together with maps
 \end{equation}
 called \Def{partial compositions}, and a distinguished element
 $\Unit \in \Oca(1)$, the \Def{unit} of $\Oca$. This data has to satisfy,
-for any $x, y, z \in \Oca$, the three relations
+for any $x \in \Oca(n)$, $y \in \Oca(m)$, and $z \in \Oca$, the three
+relations
 \begin{subequations}
 \begin{equation} \label{equ:operad_axiom_1}
     (x \circ_i y) \circ_{i + j - 1} z = x \circ_i (y \circ_j z),
     \qquad
-    1 \leq i \leq |x|, 1 \leq j \leq |y|,
+    1 \leq i \leq n, 1 \leq j \leq m,
 \end{equation}
 \begin{equation} \label{equ:operad_axiom_2}
-    (x \circ_i y) \circ_{j + |y| - 1} z = (x \circ_j z) \circ_i y,
+    (x \circ_i y) \circ_{j + m - 1} z = (x \circ_j z) \circ_i y,
     \qquad
-    1 \leq i < j \leq |x|,
+    1 \leq i < j \leq n,
 \end{equation}
 \begin{equation} \label{equ:operad_axiom_3}
     \Unit \circ_1 x = x = x \circ_i \Unit,
-    \qquad 1 \leq i \leq |x|.
+    \qquad 1 \leq i \leq n.
 \end{equation}
 \end{subequations}
 Since we consider in this work only nonsymmetric operads, we shall call
@@ -50,16 +51,18 @@ If $x$ is an element of $\Oca$ such that $x \in \Oca(n)$ for an
 $n \geq 1$, the \Def{arity} $|x|$ of $x$ is $n$. The
 \Def{complete composition maps} of $\Oca$ are the map
 \begin{equation}
-    \circ : \Oca(n) \times \Oca(m_1) \times \dots \times \Oca(m_n)
-    \to \Oca(m_1 + \dots + m_n)
+    \circ : \Oca(n) \times
+    \Oca\left(m_1\right) \times \dots \times \Oca\left(m_n\right)
+    \to \Oca\left(m_1 + \dots + m_n\right)
 \end{equation}
 defined, for any $x \in \Oca(n)$ and $y_1, \dots, y_n \in \Oca$, by
 \begin{equation}
-    x \circ [y_1, \dots, y_n] :=
-    (\dots ((x \circ_n y_n) \circ_{n - 1} y_{n - 1}) \dots) \circ_1 y_1.
+    x \circ \left[y_1, \dots, y_n\right] :=
+    \left(\dots \left(\left(x \circ_n y_n\right)
+    \circ_{n - 1} y_{n - 1}\right) \dots\right) \circ_1 y_1.
 \end{equation}
 If $\Oca_1$ and $\Oca_2$ are two operads, a map
-$\phi : \Oca_1 \to \Oca_2$ is an \Def{operad morphism} is it respects
+$\phi : \Oca_1 \to \Oca_2$ is an \Def{operad morphism} if it respects
 the arities, sends the unit of $\Oca_1$ to the unit of $\Oca_2$, and
 commutes with partial composition maps. We say that $\Oca_2$ is a
 \Def{suboperad} of $\Oca_1$ if $\Oca_2$ is a subset of $\Oca_1$
@@ -82,7 +85,7 @@ composition maps defined in the obvious way. In the case where all the
 sets $\Oca(n)$, $n \geq 1$, are finite, the \Def{Hilbert series}
 $\HilbertSeries_\Oca(t)$ of $\Oca$ is the series defined by
 \begin{equation}
-    \HilbertSeries_\Oca(t) := \sum_{n \geq 1} \# \Oca(n) t^n.
+    \HilbertSeries_\Oca(t) := \sum_{n \geq 1} \# \Oca(n) \; t^n.
 \end{equation}
 \medbreak
 
@@ -126,11 +129,11 @@ is the graphical representation of the binary tree
 \end{math}
 \medbreak
 
-The \Def{magmatic operad} $\Mag$ is the graded set of all binary trees
-where $\Mag(n)$, $n \geq 1$, is the set of all binary trees of arity
-$n$. The partial composition maps of $\Mag$ are grafting of trees: given
-two binary trees $\Tfr$ and $\Sfr$, $\Tfr \circ_i \Sfr$ is the binary
-tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
+The \Def{magmatic operad} $\Mag$ is the graded set of all the binary
+trees where $\Mag(n)$, $n \geq 1$, is the set of all the binary trees of
+arity $n$. The partial composition maps of $\Mag$ are grafting of trees:
+given two binary trees $\Tfr$ and $\Sfr$, $\Tfr \circ_i \Sfr$ is the
+binary tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
 (numbered from left to right) of $\Tfr$. For instance,
 \begin{equation} \label{equ:example_composition_mag}
     \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
@@ -211,12 +214,12 @@ is a partial composition in $\Mag$. This leads, by definition, to the
 following complete composition maps of $\Mag$. Given $\Tfr \in \Mag(n)$
 and $\Sfr_1, \dots, \Sfr_n \in \Mag$,
 \begin{math}
-    \Tfr \circ [\Sfr_1, \dots, \Sfr_n]
+    \Tfr \circ \left[\Sfr_1, \dots, \Sfr_n\right]
 \end{math}
 is the binary tree obtained by grafting simultaneously the roots of all
-$\Sfr_i$ of the $i$th leaves of $\Tfr$. The number of binary of arity
-$n \geq 1$ is the $n$th Catalan number $\Catalan(n)$ and hence, the
-Hilbert series of $\Mag$ is
+the $\Sfr_i$ onto the $i$th leaves of $\Tfr$. The unit of $\Mag$ is the
+leaf. The number of binary trees of arity $n \geq 1$ is the $n$th
+Catalan number $\Catalan(n)$ and hence, the Hilbert series of $\Mag$ is
 \begin{equation}
     \HilbertSeries_{\Mag}(t)
     = \sum_{n \geq 1} \Catalan(n) t^n
@@ -224,8 +227,8 @@ Hilbert series of $\Mag$ is
 \end{equation}
 \medbreak
 
-The operad $\Mag$ is the free operad generated by one binary element. It
-satisfies the following universality property. Let
+The operad $\Mag$ can be seen as the free operad generated by one binary
+element. It satisfies the following universality property. Let
 \begin{math}
     \GeneratingSet := \GeneratingSet(2) := \{\Product\}
 \end{math}
@@ -253,12 +256,12 @@ $2$). In other terms, the diagram
 commutes.
 \medbreak
 
-We now provide some useful tools about binary trees.
-Given a binary tree $\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the
-\Def{prefix word} of $\Tfr$, that is the word on $\{\Zero, \Two\}$
-obtained by a left to right depth-first traversal of $\Tfr$ and by
-writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
-encountered. For instance,
+We now provide some useful tools about binary trees. Given a binary tree
+$\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the \Def{prefix word} of
+$\Tfr$, that is the word on $\{\Zero, \Two\}$ obtained by a left to
+right depth-first traversal of $\Tfr$ and by writing $\Zero$ (resp.
+$\Two$) when a leaf (resp. an internal node) is encountered. For
+instance,
 \begin{equation}
     \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
         \node(0)at(0.00,-6.00){};
@@ -297,13 +300,12 @@ encountered. For instance,
     \Two \Two \Zero \Two \Zero \Zero \Two \Two \Two \Zero \Zero \Two
     \Zero \Zero \Zero.
 \end{equation}
-The set of all words on $\{\Zero, \Two\}$ is endowed with
-the lexicographic order $\leq$ induced by $\Zero < \Two$. By
-extension, this defines a total order on each set $\Mag(n)$. Indeed,
-we set $\Tfr \leq \Tfr'$ if
-$\Tfr$ and $\Tfr'$ have the same arity and
-$\PrefixWord(\Tfr) \leq \PrefixWord(\Tfr')$.
-The \Def{left rank} of $\Tfr$ as the number $\LBranch(\Tfr)$ of internal
+The set of all the words on $\{\Zero, \Two\}$ is endowed with the
+lexicographic order $\leq$ induced by $\Zero < \Two$. By extension, this
+defines a total order on each set $\Mag(n)$, $n \geq 1$. Indeed, we set
+$\Tfr \leq \Tfr'$ if $\Tfr$ and $\Tfr'$ have the same arity and
+$\PrefixWord(\Tfr) \leq \PrefixWord(\Tfr')$. Let also the
+\Def{left rank} of $\Tfr$ as the number $\LBranch(\Tfr)$ of internal
 nodes in the left branch beginning at the root of $\Tfr$. For instance,
 \begin{equation}
     \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
@@ -345,8 +347,8 @@ Equivalently, $\LBranch(\Tfr)$ is the length of the prefix of
 $\PrefixWord(\Tfr)$ containing only the letter $\Two$. A binary tree
 $\Sfr$ is a \Def{subtree} of $\Tfr$ if it possible to stack $\Sfr$ onto
 $\Tfr$ by possibly superimposing leaves of $\Sfr$ onto internal nodes of
-$\Tfr$. More formally, by using the operad $\Mag$, this is equivalent to
-the fact that $\Tfr$ expresses as
+$\Tfr$. More formally, by using the operad $\Mag$ and its composition
+maps, this is equivalent to the fact that $\Tfr$ expresses as
 \begin{equation}
     \Tfr = \Rfr \circ_i
     \left(\Sfr \circ \left[\Rfr_1, \dots, \Rfr_n\right]\right)
@@ -359,7 +361,7 @@ $\Sfr$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Rewrite systems and presentations}
+\subsection{Rewrite systems on binary trees}
 We present here notions about rewrite systems on binary trees. General
 notations and notions appear in~\cite{BN98}.
 \medbreak
@@ -368,8 +370,8 @@ A \Def{rewrite rule} is an ordered pair $(\Sfr, \Sfr')$ of binary trees
 such that $|\Sfr| = |\Sfr'|$. A set $S$ of rewrite rules is a binary
 relation on $\Mag$ and it shall be denoted by $\Rew$. We denote by
 $\Sfr \Rew \Sfr'$ the fact that $(\Sfr, \Sfr') \in \Rew$. In the sequel,
-to define a set of rewrite rules $\Rew$, we shall simply list all
-the pairs $\Sfr \Rew \Sfr'$ contained in $\Rew$. The \Def{degree}
+to define a set of rewrite rules $\Rew$, we shall simply list all the
+pairs $\Sfr \Rew \Sfr'$ contained in $\Rew$. The \Def{degree}
 $\Deg(\Rew)$ of $\Rew$ is the maximal degree of the binary trees in
 relation through $\Rew$. Note that $\Deg(\Rew)$ can be not defined when
 $\Rew$ is infinite.
@@ -548,19 +550,17 @@ When $\Tfr_0$, $\Tfr_1$, \dots, $\Tfr_k$ are binary trees such that
 we say that $\Tfr_0$ is \Def{rewritable} by $\RewContext$ into $\Tfr_k$
 in $k$ \Def{steps}. When there is no infinite chain
 \begin{equation} \label{equ:infinite_chain}
-    \Tfr_0 \RewContext \Tfr_2 \RewContext \Tfr_3 \RewContext \Tfr_4
-    \cdots
+    \Tfr_0 \RewContext \Tfr_1 \RewContext \Tfr_2 \RewContext \cdots
 \end{equation}
 we say that $\RewContext$ is terminating. To establish the termination
-of a rewrite relation is terminating, we will use the following
-criterion.
+of a rewrite relation, we will use the following criterion.
 \medbreak
 
 \begin{Lemma}\label{lem:prefix_word_termination}
     Let $\Rew$ be a set of rewrite rules on $\Mag$. If for any
     $\Tfr, \Tfr' \in \Mag$ such that $\Tfr \Rew \Tfr'$ one has
-    $\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$, then the rewrite relation
-    induced by $\Rew$ is terminating.
+    $\Tfr > \Tfr'$, then the rewrite relation induced by $\Rew$ is
+    terminating.
 \end{Lemma}
 \begin{proof}
     \Todo{à faire}
@@ -571,10 +571,12 @@ criterion.
 \medbreak
 
 A \Def{normal form} for $\RewContext$ is a binary tree $\Tfr$ such
-that for all $\Tfr'$, $\Tfr \RewContextRT \Tfr'$ imply $\Tfr' = \Tfr$.
-In other words, a normal form for $\RewContext$ is a tree which is not
-rewritable by $\RewContext$. The set of all the normal forms of
-$\RewContext$ is denoted by $\NormalForms_{\RewContext}$.
+that for all binary trees $\Tfr'$, $\Tfr \RewContextRT \Tfr'$ imply
+$\Tfr' = \Tfr$. In other words, a normal form for $\RewContext$ is a
+tree which is not rewritable by $\RewContext$. The set of all the normal
+forms of $\RewContext$ is denoted by $\NormalForms_{\RewContext}$. The
+trees of $\NormalForms_{\RewContext}$ admit the following description,
+useful for enumerative prospects.
 \medbreak
 
 \begin{Lemma} \label{lem:normal_forms_avoiding}
@@ -591,29 +593,29 @@ $\RewContext$ is denoted by $\NormalForms_{\RewContext}$.
 
 When for any binary trees $\Tfr$, $\Sfr_1$, and $\Sfr_2$ such that
 $\Tfr \RewContextRT \Sfr_1$ and $\Tfr \RewContextRT \Sfr_2$, there
-exists a binary tree $\Tfr'$ such that
-$\Sfr_1 \RewContextRT \Tfr'$ and $\Sfr_2 \RewContextRT \Tfr'$, we say
-that $\RewContext$ is \Def{confluent}. Besides, a tree $\Tfr$ is a
-\Def{branching tree} for $\RewContext$ if there exists two different
-trees $\Sfr_1$ and $\Sfr_2$ satisfying $\Tfr \RewContext \Sfr_1$ and
-$\Tfr \RewContext \Sfr_2$. In this case, the pair $\{\Sfr_1, \Sfr_2\}$
-is a \Def{branching pair} for $\Tfr$. Moreover, the branching pair
-$\{\Sfr_1, \Sfr_2\}$ is \Def{joinable} if there exists a binary tree
-$\Tfr'$ such that $\Sfr_1 \RewContextRT \Tfr'$ and
-$\Sfr_2 \RewContextRT \Tfr'$. The diamond lemma~\cite{New42} is based
-upon the inspection of the branching pairs of a terminating rewrite
-relation $\RewContext$ in order to prove its confluence.
+exists a binary tree $\Tfr'$ such that $\Sfr_1 \RewContextRT \Tfr'$ and
+$\Sfr_2 \RewContextRT \Tfr'$, we say that $\RewContext$ is
+\Def{confluent}. Besides, a tree $\Tfr$ is a \Def{branching tree} for
+$\RewContext$ if there exists two different trees $\Sfr_1$ and $\Sfr_2$
+satisfying $\Tfr \RewContext \Sfr_1$ and $\Tfr \RewContext \Sfr_2$. In
+this case, the pair $\{\Sfr_1, \Sfr_2\}$ is a \Def{branching pair} for
+$\Tfr$. Moreover, the branching pair $\{\Sfr_1, \Sfr_2\}$ is
+\Def{joinable} if there exists a binary tree $\Tfr'$ such that
+$\Sfr_1 \RewContextRT \Tfr'$ and $\Sfr_2 \RewContextRT \Tfr'$. The
+diamond lemma~\cite{New42} is based upon the inspection of the branching
+pairs of a terminating rewrite relation $\RewContext$ in order to prove
+its confluence.
 \medbreak
 
 \begin{Lemma} \label{lem:diamond_lemma}
     Let $\Rew$ be a set of rewrite rules on $\Mag$ and $\RewContext$ be
-    the rewrite relation induced by $\Rew$. Then, it $\RewContext$ is
+    the rewrite relation induced by $\Rew$. Then, if $\RewContext$ is
     terminating and all its branching pairs are joinable, $\RewContext$
     is convergent.
 \end{Lemma}
 \medbreak
 
-When $\RewContext$ is terminating and confluent, $\RewContext$ is
+When $\RewContext$ is terminating and confluent, $\RewContext$ is said
 \Def{convergent}. We shall use the following result appearing
 in~\cite{Gir16} specialized on rewrite relations on $\Mag$ to prove that
 a terminating rewrite relation is convergent.
@@ -645,7 +647,7 @@ $\Rew$ is a \Def{convergent} (resp. \Def{terminating}, \Def{confluent})
 orientation of $\Congr$ if $\RewContext$ is convergent (resp.
 terminating, confluent). When $\Rew$ is a convergent orientation of
 $\Congr$, the set $\NormalForms_{\RewContext}$ of all normal forms of
-$\RewContext$ is called \Def{Poincaré-Birkhoff-Witt basis} (or a
+$\RewContext$ is called a \Def{Poincaré-Birkhoff-Witt basis} (or a
 \Def{PBW basis} for short) of the quotient operad $\Oca$
 (see~\cite{Hof10,DK10}). This forms a one-to-one correspondence between
 the sets $\NormalForms_{\RewContext}(n)$ and $\Oca(n)$, $n \geq 1$. In
@@ -676,14 +678,16 @@ step by step, a description of its execution:
     that $\Sfr_1$ and $\Sfr_2$ have the minimal prefix words.
     \item Add to $\Rew'$ the rewrite rule
     \begin{math}
-        \max_\leq\{\Sfr_1, \Sfr_2\}
+        \max_\leq \left\{\Sfr_1, \Sfr_2\right\}
         \Rew'
-        \min_\leq\{\Sfr_1, \Sfr_2\}.
+        \min_\leq \left\{\Sfr_1, \Sfr_2\right\}.
     \end{math}
     \item Go to Step~\ref{item:loop_start_buchberger}.
 \end{enumerate}
 The set of rewrite rules $\Rew'$ outputted by this semi-algorithm is the
-\Def{completion} of $\Rew$. Notice that, for certain inputs $\Rew$, this
-semi-algorithm never stops. Notice also that the computed completion
-depend on the total order $\leq$ on the binary trees of a same arity.
+\Def{completion} of $\Rew$. By Lemma~\ref{lem:degree_confluence},
+$\RewContext'$ is confluent. Notice that, for certain inputs $\Rew$,
+this semi-algorithm never stops. Notice also that the computed
+completion depend on the total order $\leq$ on the binary trees of a
+same arity.
 \medbreak
