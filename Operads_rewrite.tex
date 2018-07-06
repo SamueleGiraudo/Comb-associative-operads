@@ -12,8 +12,8 @@ trees.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Nonsymmetric operads}
-A \Def{nonsymmetric operad in the category of sets}, or a
-\Def{nonsymmetric operad} for short, is a graded set
+A \Def{nonsymmetric operad in the category of sets} (or a
+\Def{nonsymmetric operad} for short) is a graded set
 \begin{equation}
     \Oca = \bigsqcup_{n \geq 1} \Oca(n)
 \end{equation}
@@ -298,7 +298,11 @@ encountered. For instance,
     \Zero \Zero \Zero.
 \end{equation}
 The set of all words on $\{\Zero, \Two\}$ is endowed with
-the lexicographic order $\leq$ induced by $\Zero < \Two$.
+the lexicographic order $\leq$ induced by $\Zero < \Two$. By
+extension, this defines a total order on each set $\Mag(n)$. Indeed,
+we set $\Tfr \leq \Tfr'$ if
+$\Tfr$ and $\Tfr'$ have the same arity and
+$\PrefixWord(\Tfr) \leq \PrefixWord(\Tfr')$.
 The \Def{left rank} of $\Tfr$ as the number $\LBranch(\Tfr)$ of internal
 nodes in the left branch beginning at the root of $\Tfr$. For instance,
 \begin{equation}
@@ -365,7 +369,10 @@ such that $|\Sfr| = |\Sfr'|$. A set $S$ of rewrite rules is a binary
 relation on $\Mag$ and it shall be denoted by $\Rew$. We denote by
 $\Sfr \Rew \Sfr'$ the fact that $(\Sfr, \Sfr') \in \Rew$. In the sequel,
 to define a set of rewrite rules $\Rew$, we shall simply list all
-the pairs $\Sfr \Rew \Sfr'$ contained in $\Rew$.
+the pairs $\Sfr \Rew \Sfr'$ contained in $\Rew$. The \Def{degree}
+$\Deg(\Rew)$ of $\Rew$ is the maximal degree of the binary trees in
+relation through $\Rew$. Note that $\Deg(\Rew)$ can be not defined when
+$\Rew$ is infinite.
 \medbreak
 
 If $\Rew$ is a set of rewrite rules, we denote by $\RewContext$ the
@@ -583,47 +590,100 @@ $\RewContext$ is denoted by $\NormalForms_{\RewContext}$.
 \medbreak
 
 When for any binary trees $\Tfr$, $\Sfr_1$, and $\Sfr_2$ such that
-$\Tfr \RewContextRT \Sfr_1$ and $\Tfr \RewContextRT \Sfr_2$,
-there exists a binary tree $\Tfr'$ such that
-$\Sfr_1 \RewContextRT \Tfr'$ and $\Sfr_2 \RewContextRT \Tfr'$,
-we say that $\RewContext$ is \Def{convergent}.
-
-We use here the standard terminology
-(\Def{terminating}, \Def{confluent}, \Def{convergent}, \Def{branching
-pair}, \Def{joinable}, \Def{normal form}, {\em etc.}) about rewrite
-relations and rewrite systems~\cite{BN98}.
+$\Tfr \RewContextRT \Sfr_1$ and $\Tfr \RewContextRT \Sfr_2$, there
+exists a binary tree $\Tfr'$ such that
+$\Sfr_1 \RewContextRT \Tfr'$ and $\Sfr_2 \RewContextRT \Tfr'$, we say
+that $\RewContext$ is \Def{confluent}. Besides, a tree $\Tfr$ is a
+\Def{branching tree} for $\RewContext$ if there exists two different
+trees $\Sfr_1$ and $\Sfr_2$ satisfying $\Tfr \RewContext \Sfr_1$ and
+$\Tfr \RewContext \Sfr_2$. In this case, the pair $\{\Sfr_1, \Sfr_2\}$
+is a \Def{branching pair} for $\Tfr$. Moreover, the branching pair
+$\{\Sfr_1, \Sfr_2\}$ is \Def{joinable} if there exists a binary tree
+$\Tfr'$ such that $\Sfr_1 \RewContextRT \Tfr'$ and
+$\Sfr_2 \RewContextRT \Tfr'$. The diamond lemma~\cite{New42} is based
+upon the inspection of the branching pairs of a terminating rewrite
+relation $\RewContext$ in order to prove its confluence.
 \medbreak
 
-
-
-
-
-
-
-Moreover, we shall use the following result appearing in~\cite{Gir16}
-specialized on rewrite relation on $\Mag$ to prove that a terminating
-rewrite relation is convergent.
-\medbreak
-
-\begin{Lemma} \label{lem:degree_confluence}
-    Let $\Rew$ be a rewrite rule on $\Mag$ wherein all trees $\Tfr$ and
-    $\Tfr'$ such that $\Tfr \Rew \Tfr'$ have degrees at most $\ell$.
-    Then, if the rewrite relation $\RewContext$ induced by $\Rew$ is
-    terminating and all its branching pairs of degrees at most
-    $2\ell - 1$ are joinable, $\RewContext$ is convergent.
+\begin{Lemma} \label{lem:diamond_lemma}
+    Let $\Rew$ be a set of rewrite rules on $\Mag$ and $\RewContext$ be
+    the rewrite relation induced by $\Rew$. Then, it $\RewContext$ is
+    terminating and all its branching pairs are joinable, $\RewContext$
+    is convergent.
 \end{Lemma}
 \medbreak
 
+When $\RewContext$ is terminating and confluent, $\RewContext$ is
+\Def{convergent}. We shall use the following result appearing
+in~\cite{Gir16} specialized on rewrite relations on $\Mag$ to prove that
+a terminating rewrite relation is convergent.
+\medbreak
 
+\begin{Lemma} \label{lem:degree_confluence}
+    Let $\Rew$ be a set of rewrite rules on $\Mag$ having a degree
+    $\Deg(\Rew)$. Then, if the rewrite relation $\RewContext$ induced by
+    $\Rew$ is terminating and all its branching pairs made of trees of
+    degrees at most $2 \, \Deg(\Rew) - 1$ are joinable, $\RewContext$ is
+    convergent.
+\end{Lemma}
+\begin{proof}
+    \Todo{à faire}
+\end{proof}
+\medbreak
 
-Given an operad $\Oca \simeq \Mag/_{\Congr}$ where $\Congr$ is an operad
-congruence of $\Mag$, we denote by $[\Tfr]_{\Congr}$ the
-$\Congr$-equivalence class of any $\Tfr \in \Mag$. Besides, we say that
-$\Rew$ is an \Def{orientation} of $\Congr$ if the reflexive, transitive,
-and symmetric closure of $\RewContext$ is $\Congr$. We say that $\Rew$
-is a \Def{convergent orientation} if $\RewContext$ is convergent. When
-$\Rew$ is a convergent orientation of $\Congr$, the set of all normal
-forms of $\RewContext$ is a \Def{Poincaré-Birkhoff-Witt basis} of the
-operad $\Oca$ and its elements are exactly the binary trees avoiding,
-as subtrees, the trees appearing as left members in~$\Rew$.
+Let us now go back on operads. Let $\Congr$ be an operad congruence of
+$\Mag$. If $\Tfr$ is a binary tree, we denote by $[\Tfr]_{\Congr}$ the
+$\Congr$-equivalence class of $\Tfr$. By definition, $[\Tfr]_{\Congr}$
+is an element of the quotient operad
+\begin{equation}
+    \Oca := \Mag/_{\Congr}.
+\end{equation}
+A set of rewrite rules $\Rew$ is an \Def{orientation} of $\Congr$ if
+$\RewContextRST$ and $\Congr$ are equal as binary relations, where
+$\RewContext$ is the rewrite relation induced by $\Rew$. Moreover,
+$\Rew$ is a \Def{convergent} (resp. \Def{terminating}, \Def{confluent})
+orientation of $\Congr$ if $\RewContext$ is convergent (resp.
+terminating, confluent). When $\Rew$ is a convergent orientation of
+$\Congr$, the set $\NormalForms_{\RewContext}$ of all normal forms of
+$\RewContext$ is called \Def{Poincaré-Birkhoff-Witt basis} (or a
+\Def{PBW basis} for short) of the quotient operad $\Oca$
+(see~\cite{Hof10,DK10}). This forms a one-to-one correspondence between
+the sets $\NormalForms_{\RewContext}(n)$ and $\Oca(n)$, $n \geq 1$. In
+other words, a PBW basis offers a way to assign with each
+$\Congr$-equivalence class $[\Tfr]_{\Congr}$ a representative
+\begin{math}
+    \Tfr' \in [\Tfr]_{\Congr} \cap \NormalForms_{\RewContext}.
+\end{math}
+\medbreak
+
+When $\Rew$ is a terminating but not convergent orientation of $\Congr$,
+we shall use a variant of the \Def{Buchberger semi-algorithm} for
+operads~\cite[Section 3.7]{DK10} to compute a set of rewrite rules
+$\Rew'$ such that, as binary relations $\Rew \subseteq \Rew'$, and
+$\Rew'$ is a convergent orientation of $\Congr$. This semi-algorithm
+takes as input a finite set of rewrite rules $\Rew$ and outputs the set
+of rewrite rules $\Rew'$ satisfying the property stated above. Here is,
+step by step, a description of its execution:
+\begin{enumerate}[label={(\it\arabic*)}]
+    \item Set $\Rew' := \Rew$.
+    \item \label{item:loop_start_buchberger}
+    If there is no branching pairs for $\RewContext'$ of trees of
+    degrees $k$ for all $0 \leq k \leq 2 \, \Deg(\Rew') - 1$, the
+    execution stops and the output is $\Rew'$.
+    \item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
+    with the minimal degree and the minimal prefix word.
+    \item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
+    that $\Sfr_1$ and $\Sfr_2$ have the minimal prefix words.
+    \item Add to $\Rew'$ the rewrite rule
+    \begin{math}
+        \max_\leq\{\Sfr_1, \Sfr_2\}
+        \Rew'
+        \min_\leq\{\Sfr_1, \Sfr_2\}.
+    \end{math}
+    \item Go to Step~\ref{item:loop_start_buchberger}.
+\end{enumerate}
+The set of rewrite rules $\Rew'$ outputted by this semi-algorithm is the
+\Def{completion} of $\Rew$. Notice that, for certain inputs $\Rew$, this
+semi-algorithm never stops. Notice also that the computed completion
+depend on the total order $\leq$ on the binary trees of a same arity.
 \medbreak
