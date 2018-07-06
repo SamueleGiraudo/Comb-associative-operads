@@ -47,25 +47,35 @@ these simply \Def{operads}.
 
 Let us provide some elementary definitions and notations about operads.
 If $x$ is an element of $\Oca$ such that $x \in \Oca(n)$ for an
-$n \geq 1$, the \Def{arity} $|x|$ of $x$ is $n$. If $\Oca_1$ and
-$\Oca_2$ are two operads, a map $\phi : \Oca_1 \to \Oca_2$ is an
-\Def{operad morphism} is it respects the arities, sends the unit of
-$\Oca_1$ to the unit of $\Oca_2$, and commutes with partial composition
-maps. We say that $\Oca_2$ is a \Def{suboperad} of $\Oca_1$ if $\Oca_2$
-is a subset of $\Oca_1$ containing the unit of $\Oca_1$ and the partial
-composition maps of $\Oca_2$ are the ones of $\Oca_1$ restricted on
-$\Oca_2$. For any subset $\GeneratingSet$ of $\Oca$, the
-\Def{operad generated} by $\GeneratingSet$ is the smallest suboperad
-$\Oca^\GeneratingSet$ of $\Oca$ containing $\GeneratingSet$. When
-$\Oca = \Oca^\GeneratingSet$, we say that $\GeneratingSet$ is a
-\Def{generating set} of $\Oca$. In this case, and when additionally
-$\GeneratingSet$ is minimal among all the subsets of $\Oca$ satisfying
-this property, $\GeneratingSet$ is a \Def{minimal} generating set of
-$\Oca$. An \Def{operad congruence} is an equivalence relation
-$\Congr$ on $\Oca$ such that $\Congr$ respects the arities, and for any
-$x, x', y, y' \in \Oca$ such that $x \Congr x'$ and $y \Congr y'$,
-$x \circ_i y$ is $\Congr$-equivalent to $x' \circ_i y'$ for any valid
-integer $i$. Given an operad congruence $\Congr$, the
+$n \geq 1$, the \Def{arity} $|x|$ of $x$ is $n$. The
+\Def{complete composition maps} of $\Oca$ are the map
+\begin{equation}
+    \circ : \Oca(n) \times \Oca(m_1) \times \dots \times \Oca(m_n)
+    \to \Oca(m_1 + \dots + m_n)
+\end{equation}
+defined, for any $x \in \Oca(n)$ and $y_1, \dots, y_n \in \Oca$, by
+\begin{equation}
+    x \circ [y_1, \dots, y_n] :=
+    (\dots ((x \circ_n y_n) \circ_{n - 1} y_{n - 1}) \dots) \circ_1 y_1.
+\end{equation}
+If $\Oca_1$ and $\Oca_2$ are two operads, a map
+$\phi : \Oca_1 \to \Oca_2$ is an \Def{operad morphism} is it respects
+the arities, sends the unit of $\Oca_1$ to the unit of $\Oca_2$, and
+commutes with partial composition maps. We say that $\Oca_2$ is a
+\Def{suboperad} of $\Oca_1$ if $\Oca_2$ is a subset of $\Oca_1$
+containing the unit of $\Oca_1$ and the partial composition maps of
+$\Oca_2$ are the ones of $\Oca_1$ restricted on $\Oca_2$. For any subset
+$\GeneratingSet$ of $\Oca$, the \Def{operad generated} by
+$\GeneratingSet$ is the smallest suboperad $\Oca^\GeneratingSet$ of
+$\Oca$ containing $\GeneratingSet$. When $\Oca = \Oca^\GeneratingSet$,
+we say that $\GeneratingSet$ is a \Def{generating set} of $\Oca$. In
+this case, and when additionally $\GeneratingSet$ is minimal among all
+the subsets of $\Oca$ satisfying this property, $\GeneratingSet$ is a
+\Def{minimal} generating set of $\Oca$. An \Def{operad congruence} is an
+equivalence relation $\Congr$ on $\Oca$ such that $\Congr$ respects the
+arities, and for any $x, x', y, y' \in \Oca$ such that $x \Congr x'$ and
+$y \Congr y'$, $x \circ_i y$ is $\Congr$-equivalent to $x' \circ_i y'$
+for any valid integer $i$. Given an operad congruence $\Congr$, the
 \Def{quotient operad} $\Oca/_{\Congr}$ of $\Oca$ by $\Congr$ is the
 operad of all $\Congr$-equivalence classes endowed with the partial
 composition maps defined in the obvious way. In the case where all the
@@ -82,10 +92,11 @@ $\HilbertSeries_\Oca(t)$ of $\Oca$ is the series defined by
 A \Def{binary tree} is either the \Def{leaf} $\Leaf$ or a pair
 $(\Tfr_1, \Tfr_2)$ of binary trees. We use the standard terminology
 about binary trees (such as \Def{root}, \Def{internal node},
-\Def{child}, {\em etc.}) in this work. Let us recall the main notions.
-The \Def{arity} $|\Tfr|$ (resp. \Def{degree} $\Deg(\Tfr)$) of a binary
-tree $\Tfr$ is its number of leaves (resp. internal nodes). We shall
-draw binary trees the root to the top. For instance,
+\Def{left child}, \Def{right child}, {\em etc.}) in this work. Let us
+recall the main notions. The \Def{arity} $|\Tfr|$ (resp. \Def{degree}
+$\Deg(\Tfr)$) of a binary tree $\Tfr$ is its number of leaves (resp.
+internal nodes). We shall draw binary trees the root to the top. For
+instance,
 \begin{equation}
     \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
         \node(0)at(0.00,-4.50){};
@@ -121,7 +132,7 @@ $n$. The partial composition maps of $\Mag$ are grafting of trees: given
 two binary trees $\Tfr$ and $\Sfr$, $\Tfr \circ_i \Sfr$ is the binary
 tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
 (numbered from left to right) of $\Tfr$. For instance,
-\begin{equation}
+\begin{equation} \label{equ:example_composition_mag}
     \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
         \node(0)at(0.00,-4.50){};
         \node(2)at(2.00,-6.75){};
@@ -196,7 +207,14 @@ tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
         \draw[Edge](r)--(5);
     \end{tikzpicture}
 \end{equation}
-is a partial composition in $\Mag$. The number of binary of arity
+is a partial composition in $\Mag$. This leads, by definition, to the
+following complete composition maps of $\Mag$. Given $\Tfr \in \Mag(n)$
+and $\Sfr_1, \dots, \Sfr_n \in \Mag$,
+\begin{math}
+    \Tfr \circ [\Sfr_1, \dots, \Sfr_n]
+\end{math}
+is the binary tree obtained by grafting simultaneously the roots of all
+$\Sfr_i$ of the $i$th leaves of $\Tfr$. The number of binary of arity
 $n \geq 1$ is the $n$th Catalan number $\Catalan(n)$ and hence, the
 Hilbert series of $\Mag$ is
 \begin{equation}
@@ -208,15 +226,20 @@ Hilbert series of $\Mag$ is
 
 The operad $\Mag$ is the free operad generated by one binary element. It
 satisfies the following universality property. Let
-$\GeneratingSet := \GeneratingSet(2) := \{\Product\}$
+\begin{math}
+    \GeneratingSet := \GeneratingSet(2) := \{\Product\}
+\end{math}
 be the graded set containing exactly one element $\Product$ of arity
 $2$. For any operad $\Oca$ and any map
-$f : \GeneratingSet(2) \to \Oca(2)$, there exists a unique operad
-morphism $\phi : \Mag \to \Oca$ such that $f = \phi \circ \Corolla$,
-where $\Corolla$ is the map sending $\Product$ to the unique binary tree
-of degree $1$. In other terms, the diagram
+\begin{math}
+    f : \GeneratingSet(2) \to \Oca(2),
+\end{math}
+there exists a unique operad morphism $\phi : \Mag \to \Oca$ such that
+$f = \phi \circ \Corolla$, where $\Corolla$ is the map sending
+$\Product$ to the unique binary tree of degree $1$ (and then, arity
+$2$). In other terms, the diagram
 \begin{equation}
-    \begin{tikzpicture}[xscale=1.4,yscale=1.2,Centering]
+    \begin{tikzpicture}[xscale=1.3,yscale=1.1,Centering]
         \node(G)at(0,0){\begin{math}\GeneratingSet\end{math}};
         \node(O)at(2,0){\begin{math}\Oca\end{math}};
         \node(AG)at(0,-2){\begin{math}\Mag\end{math}};
@@ -230,65 +253,352 @@ of degree $1$. In other terms, the diagram
 commutes.
 \medbreak
 
-\Todo{TO DO}
-
+We now provide some useful tools about binary trees.
 Given a binary tree $\Tfr$, we denote by $ \PrefixWord(\Tfr)$ the
 \Def{prefix word} of $\Tfr$, that is the word on $\{\Zero, \Two\}$
 obtained by a left to right depth-first traversal of $\Tfr$ and by
 writing $\Zero$ (resp. $\Two$) when a leaf (resp. an internal node) is
-encountered. The set of all words on $\{\Zero, \Two\}$ is endowed with
+encountered. For instance,
+\begin{equation}
+    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+        \node(0)at(0.00,-6.00){};
+        \node(10)at(10.00,-12.00){};
+        \node(12)at(12.00,-12.00){};
+        \node(14)at(14.00,-6.00){};
+        \node(2)at(2.00,-9.00){};
+        \node(4)at(4.00,-9.00){};
+        \node(6)at(6.00,-12.00){};
+        \node(8)at(8.00,-12.00){};
+        \node[NodeST](1)at(1.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-6.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(5);
+        \draw[Edge](10)--(11);
+        \draw[Edge](11)--(9);
+        \draw[Edge](12)--(11);
+        \draw[Edge](13)--(5);
+        \draw[Edge](14)--(13);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(9);
+        \draw[Edge](8)--(7);
+        \draw[Edge](9)--(13);
+        \node(r)at(5.00,2.5){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+    \xmapsto{\; \PrefixWord \;}
+    \Two \Two \Zero \Two \Zero \Zero \Two \Two \Two \Zero \Zero \Two
+    \Zero \Zero \Zero.
+\end{equation}
+The set of all words on $\{\Zero, \Two\}$ is endowed with
 the lexicographic order $\leq$ induced by $\Zero < \Two$.
+The \Def{left rank} of $\Tfr$ as the number $\LBranch(\Tfr)$ of internal
+nodes in the left branch beginning at the root of $\Tfr$. For instance,
+\begin{equation}
+    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+        \node(0)at(0.00,-9.00){};
+        \node(10)at(10.00,-9.00){};
+        \node(12)at(12.00,-9.00){};
+        \node(14)at(14.00,-9.00){};
+        \node(2)at(2.00,-12.00){};
+        \node(4)at(4.00,-12.00){};
+        \node(6)at(6.00,-6.00){};
+        \node(8)at(8.00,-9.00){};
+        \node[NodeST](1)at(1.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-6.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(5);
+        \draw[Edge](10)--(9);
+        \draw[Edge](11)--(7);
+        \draw[Edge](12)--(13);
+        \draw[Edge](13)--(11);
+        \draw[Edge](14)--(13);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](5)--(7);
+        \draw[Edge](6)--(5);
+        \draw[Edge](8)--(9);
+        \draw[Edge](9)--(11);
+        \node(r)at(7.00,2.25){};
+        \draw[Edge](r)--(7);
+    \end{tikzpicture}
+    \xmapsto{\; \LBranch\; } 3.
+\end{equation}
+Equivalently, $\LBranch(\Tfr)$ is the length of the prefix of
+$\PrefixWord(\Tfr)$ containing only the letter $\Two$. A binary tree
+$\Sfr$ is a \Def{subtree} of $\Tfr$ if it possible to stack $\Sfr$ onto
+$\Tfr$ by possibly superimposing leaves of $\Sfr$ onto internal nodes of
+$\Tfr$. More formally, by using the operad $\Mag$, this is equivalent to
+the fact that $\Tfr$ expresses as
+\begin{equation}
+    \Tfr = \Rfr \circ_i
+    \left(\Sfr \circ \left[\Rfr_1, \dots, \Rfr_n\right]\right)
+\end{equation}
+where $\Rfr$ and $\Rfr_1$, \dots, $\Rfr_n$ are binary trees,
+$i \in [|\Rfr|]$, and $n$ is the arity of $\Sfr$. When, on the contrary,
+$\Sfr$ is not a subtree of $\Tfr$, we say that $\Tfr$ \Def{avoids}
+$\Sfr$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rewrite systems and presentations}
+We present here notions about rewrite systems on binary trees. General
+notations and notions appear in~\cite{BN98}.
+\medbreak
 
+A \Def{rewrite rule} is an ordered pair $(\Sfr, \Sfr')$ of binary trees
+such that $|\Sfr| = |\Sfr'|$. A set $S$ of rewrite rules is a binary
+relation on $\Mag$ and it shall be denoted by $\Rew$. We denote by
+$\Sfr \Rew \Sfr'$ the fact that $(\Sfr, \Sfr') \in \Rew$. In the sequel,
+to define a set of rewrite rules $\Rew$, we shall simply list all
+the pairs $\Sfr \Rew \Sfr'$ contained in $\Rew$.
+\medbreak
 
-\Todo{TO DO}
-
-
-If $\Rew$ is a rewrite rule on $\Mag$ such that $\Sfr \Rew \Sfr'$
-implies $|\Sfr| = |\Sfr'|$, we denote by $\RewContext$ the
+If $\Rew$ is a set of rewrite rules, we denote by $\RewContext$ the
 \Def{rewrite relation induced} by $\Rew$. Formally we have
-\begin{math}
-    \Tfr\circ_i\left(\Sfr\circ\left[\Rfr_1,\dots,\Rfr_{n}\right]\right)
+\begin{equation}
+    \Tfr \circ_i
+    \left(\Sfr \circ \left[\Rfr_1, \dots, \Rfr_{n}\right]\right)
     \RewContext
-    \Tfr\circ_i\left(\Sfr'\circ\left[\Rfr_1,\dots,\Rfr_{n}\right]\right)
-\end{math},
+    \Tfr \circ_i
+    \left(\Sfr' \circ \left[\Rfr_1, \dots, \Rfr_{n}\right]\right),
+\end{equation}
 if $\Sfr \Rew \Sfr'$ where $n = |\Sfr|$, and $\Tfr$, $\Rfr_1$, \dots,
 $\Rfr_n$ are binary trees. In other words, one has
 $\Tfr \RewContext \Tfr'$ if it is possible to obtain $\Tfr'$ from $\Tfr$
 by replacing a subtree $\Sfr$ of $\Tfr$ by $\Sfr'$ whenever
-$\Sfr \Rew \Sfr'$. We use here the standard terminology
+$\Sfr \Rew \Sfr'$. For instance, if $\Rew$ is the set of rewrite rules
+satisfying
+\begin{equation}
+    \begin{tikzpicture}[xscale=.22,yscale=.22,Centering]
+        \node(0)at(0.00,-3.50){};
+        \node(2)at(2.00,-5.25){};
+        \node(4)at(4.00,-5.25){};
+        \node(6)at(6.00,-1.75){};
+        \node[NodeST](1)at(1.00,-1.75){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-3.50){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge,ultra thick](1)--(5);
+        \draw[Edge](2)--(3);
+        \draw[Edge,ultra thick](3)--(1);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(5);
+        \node(r)at(5.00,1.31){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+    \enspace \Rew \enspace
+    \begin{tikzpicture}[xscale=.22,yscale=.22,Centering]
+        \node(0)at(0.00,-1.75){};
+        \node(2)at(2.00,-3.50){};
+        \node(4)at(4.00,-5.25){};
+        \node(6)at(6.00,-5.25){};
+        \node[NodeST](1)at(1.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-1.75){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,-3.50){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](2)--(3);
+        \draw[Edge,ultra thick](3)--(1);
+        \draw[Edge](4)--(5);
+        \draw[Edge,ultra thick](5)--(3);
+        \draw[Edge](6)--(5);
+        \node(r)at(1.00,1.31){};
+        \draw[Edge](r)--(1);
+    \end{tikzpicture}
+\end{equation}
+one has
+\begin{equation}
+    \begin{tikzpicture}[xscale=.19,yscale=.14,Centering]
+        \node(0)at(0.00,-9.00){};
+        \node(10)at(10.00,-12.00){};
+        \node(12)at(12.00,-18.00){};
+        \node(14)at(14.00,-18.00){};
+        \node(16)at(16.00,-15.00){};
+        \node(18)at(18.00,-9.00){};
+        \node(2)at(2.00,-9.00){};
+        \node(20)at(20.00,-9.00){};
+        \node(4)at(4.00,-6.00){};
+        \node(6)at(6.00,-12.00){};
+        \node(8)at(8.00,-12.00){};
+        \node[NodeST](1)at(1.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-9.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-15.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](15)at(15.00,-12.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](17)at(17.00,-3.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](19)at(19.00,-6.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-9.00){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-6.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(3);
+        \draw[Edge](10)--(11);
+        \draw[Edge,ultra thick](11)--(9);
+        \draw[Edge](12)--(13);
+        \draw[Edge](13)--(15);
+        \draw[Edge](14)--(13);
+        \draw[Edge](15)--(11);
+        \draw[Edge](16)--(15);
+        \draw[Edge](17)--(5);
+        \draw[Edge](18)--(19);
+        \draw[Edge](19)--(17);
+        \draw[Edge](2)--(1);
+        \draw[Edge](20)--(19);
+        \draw[Edge](3)--(5);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(9);
+        \draw[Edge](8)--(7);
+        \draw[Edge,ultra thick](9)--(17);
+        \node(r)at(5.00,2.25){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+    \enspace \RewContext \enspace
+    \begin{tikzpicture}[xscale=.19,yscale=.14,Centering]
+        \node(0)at(0.00,-9.00){};
+        \node(10)at(10.00,-9.00){};
+        \node(12)at(12.00,-18.00){};
+        \node(14)at(14.00,-18.00){};
+        \node(16)at(16.00,-15.00){};
+        \node(18)at(18.00,-15.00){};
+        \node(2)at(2.00,-9.00){};
+        \node(20)at(20.00,-15.00){};
+        \node(4)at(4.00,-6.00){};
+        \node(6)at(6.00,-9.00){};
+        \node(8)at(8.00,-9.00){};
+        \node[NodeST](1)at(1.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-6.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-15.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](15)at(15.00,-12.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](17)at(17.00,-9.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](19)at(19.00,-12.00)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-3.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-6.00){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-3.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(3);
+        \draw[Edge](10)--(11);
+        \draw[Edge,ultra thick](11)--(9);
+        \draw[Edge](12)--(13);
+        \draw[Edge](13)--(15);
+        \draw[Edge](14)--(13);
+        \draw[Edge](15)--(17);
+        \draw[Edge](16)--(15);
+        \draw[Edge,ultra thick](17)--(11);
+        \draw[Edge](18)--(19);
+        \draw[Edge](19)--(17);
+        \draw[Edge](2)--(1);
+        \draw[Edge](20)--(19);
+        \draw[Edge](3)--(5);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(9);
+        \draw[Edge](8)--(7);
+        \draw[Edge](9)--(5);
+        \node(r)at(5.00,2.25){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}\,.
+\end{equation}
+\medbreak
+
+Let $\Rew$ be a set of rewrite rules and $\RewContext$ be rewrite
+relation induced by $\Rew$. Since $\RewContext$ is in particular a
+binary relation on $\Mag$, the classical notations about closures apply
+here: we denote by $\RewContextT$ (resp. $\RewContextRT$,
+$\RewContextRST$) the transitive (resp. reflexive and transitive,
+reflexive, symmetric, and transitive) closure of $\RewContext$.
+\medbreak
+
+When $\Tfr_0$, $\Tfr_1$, \dots, $\Tfr_k$ are binary trees such that
+\begin{equation}
+    \Tfr_0 \RewContext \Tfr_1 \RewContext \cdots \RewContext \Tfr_k,
+\end{equation}
+we say that $\Tfr_0$ is \Def{rewritable} by $\RewContext$ into $\Tfr_k$
+in $k$ \Def{steps}. When there is no infinite chain
+\begin{equation} \label{equ:infinite_chain}
+    \Tfr_0 \RewContext \Tfr_2 \RewContext \Tfr_3 \RewContext \Tfr_4
+    \cdots
+\end{equation}
+we say that $\RewContext$ is terminating. To establish the termination
+of a rewrite relation is terminating, we will use the following
+criterion.
+\medbreak
+
+\begin{Lemma}\label{lem:prefix_word_termination}
+    Let $\Rew$ be a set of rewrite rules on $\Mag$. If for any
+    $\Tfr, \Tfr' \in \Mag$ such that $\Tfr \Rew \Tfr'$ one has
+    $\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$, then the rewrite relation
+    induced by $\Rew$ is terminating.
+\end{Lemma}
+\begin{proof}
+    \Todo{à faire}
+    % 1. Montrer la compatibilité des compo aux mots prefixes
+    % 2. Supposer qu'il existe une chaine infinie de reecritures
+    % 3. Absurde car il n'existe qu'un nombre fini de mots sur {0, 2}.
+\end{proof}
+\medbreak
+
+A \Def{normal form} for $\RewContext$ is a binary tree $\Tfr$ such
+that for all $\Tfr'$, $\Tfr \RewContextRT \Tfr'$ imply $\Tfr' = \Tfr$.
+In other words, a normal form for $\RewContext$ is a tree which is not
+rewritable by $\RewContext$. The set of all the normal forms of
+$\RewContext$ is denoted by $\NormalForms_{\RewContext}$.
+\medbreak
+
+\begin{Lemma} \label{lem:normal_forms_avoiding}
+    Let $\Rew$ be a set of rewrite rules on $\Mag$ and $\RewContext$ be
+    the rewrite relation induced by $\Rew$. Then, if $\RewContext$ is
+    terminating, $\NormalForms_{\RewContext}$ is the set of all the
+    binary trees that avoid all the trees appearing as left members
+    of $\Rew$.
+\end{Lemma}
+\begin{proof}
+    \Todo{à faire}
+\end{proof}
+\medbreak
+
+When for any binary trees $\Tfr$, $\Sfr_1$, and $\Sfr_2$ such that
+$\Tfr \RewContextRT \Sfr_1$ and $\Tfr \RewContextRT \Sfr_2$,
+there exists a binary tree $\Tfr'$ such that
+$\Sfr_1 \RewContextRT \Tfr'$ and $\Sfr_2 \RewContextRT \Tfr'$,
+we say that $\RewContext$ is \Def{convergent}.
+
+We use here the standard terminology
 (\Def{terminating}, \Def{confluent}, \Def{convergent}, \Def{branching
 pair}, \Def{joinable}, \Def{normal form}, {\em etc.}) about rewrite
 relations and rewrite systems~\cite{BN98}.
 \medbreak
 
-Given an operad $\Oca \simeq \Mag/_{\Congr}$ where $\Congr$ is an operad
-congruence of $\Mag$, we denote by $[\Tfr]_{\Congr}$ the
-$\Congr$-equivalence class of any $\Tfr \in \Mag$. Besides, we say that
-$\Rew$ is an \Def{orientation} of $\Congr$ if the reflexive, transitive,
-and symmetric closure of $\RewContext$ is $\Congr$. We say that $\Rew$
-is a \Def{convergent orientation} if $\RewContext$ is convergent. When
-$\Rew$ is a convergent orientation of $\Congr$, the set of all normal
-forms of $\RewContext$ is a \Def{Poincaré-Birkhoff-Witt basis} of the
-operad $\Oca$ and its elements are exactly the binary trees avoiding,
-as subtrees, the trees appearing as left members in~$\Rew$.
-\medbreak
 
-We shall use the following criterion to prove that a rewrite relation on
-$\Mag$ is terminating.
-\medbreak
 
-\begin{Lemma}\label{lem:prefix_word_termination}
-    Let $\Rew$ be a rewrite rule on $\Mag$. If for any
-    $\Tfr, \Tfr' \in \Mag$ such that $\Tfr \Rew \Tfr'$ one has
-    $\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$, then the rewrite relation
-    induced by $\Rew$ is terminating.
-\end{Lemma}
-\medbreak
+
+
+
 
 Moreover, we shall use the following result appearing in~\cite{Gir16}
 specialized on rewrite relation on $\Mag$ to prove that a terminating
@@ -302,4 +612,18 @@ rewrite relation is convergent.
     terminating and all its branching pairs of degrees at most
     $2\ell - 1$ are joinable, $\RewContext$ is convergent.
 \end{Lemma}
+\medbreak
+
+
+
+Given an operad $\Oca \simeq \Mag/_{\Congr}$ where $\Congr$ is an operad
+congruence of $\Mag$, we denote by $[\Tfr]_{\Congr}$ the
+$\Congr$-equivalence class of any $\Tfr \in \Mag$. Besides, we say that
+$\Rew$ is an \Def{orientation} of $\Congr$ if the reflexive, transitive,
+and symmetric closure of $\RewContext$ is $\Congr$. We say that $\Rew$
+is a \Def{convergent orientation} if $\RewContext$ is convergent. When
+$\Rew$ is a convergent orientation of $\Congr$, the set of all normal
+forms of $\RewContext$ is a \Def{Poincaré-Birkhoff-Witt basis} of the
+operad $\Oca$ and its elements are exactly the binary trees avoiding,
+as subtrees, the trees appearing as left members in~$\Rew$.
 \medbreak
