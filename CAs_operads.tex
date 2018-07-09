@@ -239,9 +239,9 @@ $\lcm$ the least common multiple operators, respectively.
     Let $\gamma$ be a strictly positive integer and let $\Tfr$ and
     $\Tfr'$ be two binary trees. If $\Tfr \CongrCAs{\gamma} \Tfr'$, then
     \begin{equation}
-        \LBranch(\Tfr) \mod \gamma - 1
+        \LRank(\Tfr) \mod \gamma - 1
         \enspace = \enspace
-        \LBranch(\Tfr') \mod \gamma - 1.
+        \LRank(\Tfr') \mod \gamma - 1.
     \end{equation}
 \end{Lemma}
 \begin{proof}
@@ -251,7 +251,7 @@ $\lcm$ the least common multiple operators, respectively.
     \smallbreak
 
     First, we show that $\Tfr \Rew \Tfr'$ implies that
-    $\LBranch\left(\Tfr'\right) - \LBranch\left(\Tfr\right)$ is
+    $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
     divisible by $\gamma - 1$. \Todo{à faire.}
     \smallbreak
 
@@ -260,12 +260,12 @@ $\lcm$ the least common multiple operators, respectively.
     $\Tfr_k = \Tfr'$ and for every $i \in \{1, \dots, k - 1\}$, we have
     $\Tfr_i\Rew \Tfr_{i + 1}$. The integer
     \begin{math}
-        \LBranch\left(\Tfr_{i + 1}\right)
+        \LRank\left(\Tfr_{i + 1}\right)
         -
-        \LBranch\left(\Tfr_i\right)
+        \LRank\left(\Tfr_i\right)
     \end{math}
     is divisible by $\gamma - 1$ from the first part of the proof, so
-    that $\LBranch\left(\Tfr'\right) - \LBranch\left(\Tfr\right)$ is
+    that $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
     divisible by $\gamma-1$.
     \smallbreak
 
@@ -275,12 +275,12 @@ $\lcm$ the least common multiple operators, respectively.
     $\Tfr_i \RewRTS \Tfr_{i + 1}$ or $\Tfr_{i + 1} \RewRTS \Tfr_i$.
     From the second part of the proof, the integer
     \begin{math}
-        \LBranch\left(\Tfr_{i + 1}\right)
+        \LRank\left(\Tfr_{i + 1}\right)
         -
-        \LBranch\left(\Tfr_i\right)
+        \LRank\left(\Tfr_i\right)
     \end{math}
     is divisible by $\gamma - 1$, so that
-    $\LBranch\left(\Tfr'\right) - \LBranch\left(\Tfr\right)$ is
+    $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
     divisible by $\gamma - 1$.
     \smallbreak
 
@@ -289,7 +289,7 @@ $\lcm$ the least common multiple operators, respectively.
     and only if $\Tfr \RewRTS \Tfr'$. Hence, from the third part of
     the proof, $\Tfr \CongrCAs{\gamma} \Tfr'$ implies that
     \begin{math}
-        \LBranch\left(\Tfr'\right) - \LBranch\left(\Tfr\right)
+        \LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)
     \end{math}
     is divisible by $\gamma - 1$.
 \end{proof}
@@ -307,8 +307,8 @@ $\lcm$ the least common multiple operators, respectively.
     $\LComb{\gamma'}\CongrCAs{\gamma}\RComb{\gamma'}$, from
     Lemma~\ref{lem:left_rank_and_CongrCAs},
     \begin{math}
-        \LBranch\left(\LComb{\gamma'}\right)
-        - \LBranch\left(\RComb{\gamma'}\right)
+        \LRank\left(\LComb{\gamma'}\right)
+        - \LRank\left(\RComb{\gamma'}\right)
         = \gamma' - 1
     \end{math}
     is divisible by $\gamma-1$, which shows the direct implication.

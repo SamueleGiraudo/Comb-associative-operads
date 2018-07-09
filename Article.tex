@@ -29,6 +29,7 @@ pagebackref=true]{hyperref}
 \usetikzlibrary{shapes}
 \usetikzlibrary{fit}
 \usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
 
 % Misc.
 \usepackage{mathtools}
@@ -126,7 +127,7 @@ pagebackref=true]{hyperref}
 \newcommand{\Deg}{\mathrm{deg}}
 \newcommand{\LComb}[1]{\mathfrak{c}^{(#1)}_{\diagup}}
 \newcommand{\RComb}[1]{\mathfrak{c}^{(#1)}_{\diagdown}}
-\newcommand{\LBranch}{\mathrm{lb}}
+\newcommand{\LRank}{\mathrm{lr}}
 \newcommand{\RBranch}{\mathrm{rb}}
 \newcommand{\Catalan}{\mathrm{cat}}
 \newcommand{\OrdCAs}{\preceq}
@@ -153,11 +154,13 @@ pagebackref=true]{hyperref}
 \tikzstyle{Node}=[circle,draw=Col1!80,fill=Col1!8,inner sep=1pt,
 minimum size=2mm,thick,font=\scriptsize]
 \tikzstyle{Edge}=[draw=Col2!80,cap=round,thick]
+\tikzstyle{EdgeColorF}=[Edge,draw=Col6!90,ultra thick]
 \tikzstyle{Leaf}=[rectangle,draw=ColBlack!70,fill=ColBlack!16,
 inner sep=0pt,minimum size=1mm,thick]
 \tikzstyle{NodeST}=[font=\footnotesize]
-\tikzstyle{Injection}=[ColBlack!100,draw,>->]
-\tikzstyle{Map}=[ColBlack!100,draw,->]
+\tikzstyle{Injection}=[ColBlack!100,draw,
+{>[scale=1.5,length=4,width=5]}-{>[scale=1.5,length=4,width=5]}]
+\tikzstyle{Map}=[ColBlack!100,draw,-{>[scale=1.5,length=4,width=5]}]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
