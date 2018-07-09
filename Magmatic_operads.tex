@@ -3,6 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Magmatic operads}
+\label{sec:Magmatic_operads}
 
 \Todo{Write mini intro.}
 
@@ -103,11 +104,6 @@ Explicitely, for every integer $n$, $\left(\Oca_1\wedge\Oca_2\right)(n)$ (respec
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hilbert series and magmatic quotients}
 
-Given an operad $\Oca$, we denote by $H_{\Oca}$ the \Def{Hiblert serie} of $\Oca$, that is
-\begin{equation} \label{equ:definition_of_Hilbert_series}
-  H_{\Oca}(t)=\sum_{n\in\N}\dim{\left(\Oca(n)\right)}t^n.
-\end{equation}
-
 In Theorem~\ref{thm:Grassmann_formula_for__Hilbert_series_of_QMag}, we show the Grassman formula for the lattice $\left(\QMag,\preceq,\wedge,\vee\right)$. For that, we need the following lemma:
 
 \begin{Lemma} \label{lem:lattice_structure_and_coefficients_of_Hiblert_series}
@@ -132,18 +128,18 @@ In Theorem~\ref{thm:Grassmann_formula_for__Hilbert_series_of_QMag}, we show the 
 \begin{Theorem} \label{thm:Grassmann_formula_for__Hilbert_series_of_QMag}
   Let $\Oca_1$ and $\Oca_2$ be two elements of $\QMag$. We have
   \begin{equation} \label{equ:lattice_structure_and_Hiblert_series}
-    H_{\Oca_1\wedge\Oca_2}(t)+H_{\Oca_1\vee\Oca_2}(t)=H_{\Oca_1}(t)+H_{\Oca_2}(t).
+    \HilbertSeries_{\Oca_1\wedge\Oca_2}(t)+\HilbertSeries_{\Oca_1\vee\Oca_2}(t)=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
     \end{equation}
   \end{Theorem}
 
 \begin{proof}
   We have
   \[\begin{split}
-  H_{\Oca_1\wedge\Oca_2}(t)+H_{\Oca_1\vee\Oca_2}(t)&=\sum_{n\in\N}\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_1\vee\Oca_2(n)\right)}t^n\\
+  \HilbertSeries_{\Oca_1\wedge\Oca_2}(t)+\HilbertSeries_{\Oca_1\vee\Oca_2}(t)&=\sum_{n\in\N}\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_1\vee\Oca_2(n)\right)}t^n\\
   &=\sum_{n\in\N}\Big(\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}+\dim{\left(\Oca_1\vee\Oca_2(n)\right)}\Big)t^n\\
   &=\sum_{n\in\N}\Big(\dim{\left(\Oca_1(n)\right)}+\dim{\left(\Oca_2(n)\right)}\Big)t^n\\
   &=\sum_{n\in\N}\dim{\left(\Oca_1(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_2(n)\right)}t^n\\
-  &=H_{\Oca_1}(t)+H_{\Oca_2}(t).
+  &=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
   \end{split}\]
 \end{proof}
 The third equality is due to Lemma~\ref{lem:lattice_structure_and_coefficients_of_Hiblert_series}.
