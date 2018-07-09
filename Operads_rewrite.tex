@@ -689,25 +689,29 @@ takes as input a finite set of rewrite rules $\Rew$ and outputs the set
 of rewrite rules $\Rew'$ satisfying the property stated above. Here is,
 step by step, a description of its execution:
 \begin{enumerate}[label={(\it\arabic*)}]
-\item Set $\Rew' := \Rew$ and let $\BranchingTrees$ be the set of
-  branching trees for $\RewContext$.
-\item \label{item:loop_start_buchberger}
-  If $\BranchingTrees$ is empty, the execution stops and the output
-  is $\Rew'$.
-\item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
-  with the minimal degree and the minimal prefix word and remove $\Tfr$
-  from $\BranchingTrees$.
-\item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
-  that $\Sfr_1$ and $\Sfr_2$ have the minimal prefix words.
-\item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be normal forms of
-  $\Sfr_1$ and $\Sfr_2$, respectively.
-\item If $\overline{\Sfr_1}$ is different from $\overline{\Sfr_2}$, add
-  to $\Rew'$ the rewrite rule
+  \item Set $\Rew' := \Rew$ and let $\BranchingTrees$ be the set of
+    branching trees for $\RewContext$.
+  \item \label{item:loop_start_buchberger}
+    If $\BranchingTrees$ is empty, the execution stops and the output
+    is $\Rew'$.
+  \item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
+    with the minimal degree and the minimal prefix word and remove $\Tfr$
+    from $\BranchingTrees$.
+  \item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
+    that $\Sfr_1$ and $\Sfr_2$ have the minimal prefix words.
+  \item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be normal forms of
+    $\Sfr_1$ and $\Sfr_2$, respectively.
+  \item \label{item:new_rewrite_rule_buchberger}
+    If $\overline{\Sfr_1}$ is different from $\overline{\Sfr_2}$, add
+    to $\Rew'$ the rewrite rule
     \begin{math}
       \max_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}
       \Rew'
       \min_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}.
     \end{math}
+  \item Add to $\BranchingTrees$ all new branching trees of degrees at
+    most $2 \Deg(\Rew') - 1$ created by the rewrite rule of
+    Step~\ref{item:new_rewrite_rule_buchberger}.
   \item Go to Step~\ref{item:loop_start_buchberger}.
 \end{enumerate}
 The set of rewrite rules $\Rew'$ outputted by this semi-algorithm is the
