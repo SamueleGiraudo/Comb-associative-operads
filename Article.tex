@@ -76,6 +76,7 @@ pagebackref=true]{hyperref}
 \newtheorem{Theorem}{Theorem}[subsection]
 \newtheorem{Proposition}[Theorem]{Proposition}
 \newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Remark}[Theorem]{Remark}
 
 % Better comparison symbols.
 \renewcommand{\leq}{\leqslant}
@@ -134,8 +135,252 @@ pagebackref=true]{hyperref}
 \newcommand{\LRank}{\mathrm{lr}}
 \newcommand{\RBranch}{\mathrm{rb}}
 \newcommand{\Catalan}{\mathrm{cat}}
+\newcommand{\OrdQMag}{\preceq_{incl}}
+\newcommand{\InfQMag}{\wedge_{incl}}
+\newcommand{\SupQMag}{\vee_{incl}}
+\newcommand{\LatQMag}{\left(\QMag,\OrdQMag,\InfQMag,\SupQMag\right)}
 \newcommand{\OrdCAs}{\preceq_{div}}
-\newcommand{\OrdKMag}{\preceq_{incl}}
+\newcommand{\InfCAs}{\wedge_{div}}
+\newcommand{\SupCAs}{\vee_{div}}
+\newcommand{\LatCAs}{\left(\CAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
+\newcommand{\LatKCAs}{\left(\KCAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
+\newcommand{\Unit}{\mathds{1}}
+\newcommand{\Leaf}{\perp}
+\newcommand{\Corolla}{\mathrm{c}}
+\newcommand{\NormalForms}{\mathfrak{N}}
+
+\DeclareMathOperator{\Product}{\star}
+\DeclareMathOperator{\Congr}{\equiv}
+\DeclareMathOperator{\Rew}{\to}
+\DeclareMathOperator{\RewRT}{\overset{*}{\Rew}}
+\DeclareMathOperator{\RewT}{\overset{+}{\Rew}}
+\DeclareMathOperator{\RewRTS}{\overset{*}{\leftrightarrow}}
+\DeclareMathOperator{\RewContext}{\Rightarrow}
+\DeclareMathOperator{\RewContextT}{\overset{+}{\RewContext}}
+\DeclareMathOperator{\RewContextRT}{\overset{\ast}{\RewContext}}
+\DeclareMathOperator{\RewContextRST}{\overset{\ast}{\Leftrightarrow}}
+\DeclareMathOperator{\lcm}{lcm}
+
+\newcommand{\CongrCAs}[1]{\Congr^{(#1)}}
+
+% Tree drawings.
+\tikzstyle{Node}=[circle,draw=Col1!80,fill=Col1!8,inner sep=1pt,
+minimum size=2mm,thick,font=\scriptsize]
+\tikzstyle{Edge}=[draw=Col2!80,cap=round,thick]
+\tikzstyle{EdgeColorF}=[Edge,draw=Col6!90,ultra thick]
+\tikzstyle{Leaf}=[rectangle,draw=ColBlack!70,fill=ColBlack!16,
+inner sep=0pt,minimum size=1mm,thick]
+\tikzstyle{NodeST}=[font=\footnotesize]
+\tikzstyle{Injection}=[ColBlack!100,draw,
+{>[scale=1.5,length=4,width=5]}-{>[scale=1.5,length=4,width=5]}]
+\tikzstyle{Map}=[ColBlack!100,draw,-{>[scale=1.5,length=4,width=5]}]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+    The associative operad is the quotient of the magmatic operad by
+    the operad congruence identifying the two binary trees of degree
+    $2$. We introduce here a generalization of the associative operad
+    depending on a nonnegative integer $d$, called $d$-comb associative
+    operad, as the quotient of the magmatic operad by the operad
+    congruence identifying the left and the right comb binary trees of
+    degree $d$. We study the case $d = 3$ and provide an orientation
+    of its space of relations by using rewrite systems on trees and
+    the Buchberger algorithm for operads to obtain a convergent
+    rewrite system.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Operads_rewrite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Magmatic_operads}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{CAs_operads}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}
+\bibliography{Bibliography}
+
+\end{document}
+% Author: Cyrille Chenavier, Christophe Cordero, Samuele Giraudo
+% Creation: may. 2018
+% Modifications: may. 2018, june 2018, july 2018
+
+\documentclass[10pt,reqno]{amsart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,shuffle}
+\usepackage[T1]{fontenc}
+\usepackage[math]{anttor}
+
+% Layout.
+\usepackage[top=3.5cm,bottom=3.5cm,left=3.6cm,right=3.6cm]{geometry}
+
+% Colors of hyperlinks.
+\usepackage{xcolor}
+\input{Colors}
+
+\usepackage[hyperindex=true,frenchlinks=true,colorlinks=true,
+citecolor=Col2,linkcolor=Col3,urlcolor=Col4,linktocpage,
+pagebackref=true]{hyperref}
+
+% Tikz.
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{fit}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
+
+% Misc.
+\usepackage{mathtools}
+\usepackage{dsfont}
+\usepackage{wasysym}
+\usepackage{stmaryrd}
+\usepackage{cite}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{cancel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Line space.
+\linespread{1.15}
+\renewcommand{\arraystretch}{1.4}
+
+% Vertical space for equations.
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+
+% Alphabetic footnote marks.
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+% To allow cutting equations in several pages.
+\allowdisplaybreaks
+
+% Numbering of equations.
+\numberwithin{equation}{subsection}
+
+% Depth of the table of contents.
+\setcounter{tocdepth}{2}
+
+% Indentation in the table of contents.
+\makeatletter
+\def\l@section{\@tocline{1}{3pt}{1pc}{5pc}{}}
+\def\l@subsection{\@tocline{2}{2pt}{2pc}{5pc}{}}
+\makeatother
+
+% Environments definitions.
+\newtheorem{Theorem}{Theorem}[subsection]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Lemma}[Theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Remark}[Theorem]{Remark}
+
+% Better comparison symbols.
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Mathematical symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Comb associative operads}
+\keywords{Operad; trees; Rewrite rule; Presentation; Enumeration.}
+\subjclass[2010]{\Todo{}}
+\date{\today}
+\author{Cyrille Chenavier \and Christophe Cordero \and Samuele Giraudo}
+\address{\scriptsize Université Paris-Est, LIGM (UMR $8049$), CNRS,
+    ENPC, ESIEE Paris, UPEM, F-$77454$, Marne-la-Vallée, France}
+\email{cyrille.chenavier@u-pem.fr}
+\email{christophe.cordero@u-pem.fr}
+\email{samuele.giraudo@u-pem.fr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tools}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+
+\newcommand{\Oca}{\mathcal{O}}
+\newcommand{\Rfr}{\mathfrak{r}}
+\newcommand{\Sfr}{\mathfrak{s}}
+\newcommand{\Tfr}{\mathfrak{t}}
+\newcommand{\BranchingTrees}{\mathfrak{P}}
+
+\newcommand{\Zero}{\mathtt{0}}
+\newcommand{\Two}{\mathtt{2}}
+\newcommand{\HilbertSeries}{\mathcal{H}}
+\newcommand{\GeneratingSet}{\mathfrak{G}}
+\newcommand{\FreeOperad}{\mathrm{F}}
+\newcommand{\Mag}{\mathbf{Mag}}
+\newcommand{\KMag}{\K\mathbf{Mag}}
+\newcommand{\QMag}{\mathcal{Q}\left(\KMag\right)}
+\newcommand{\IMag}{\mathcal{I}\left(\KMag\right)}
+\newcommand{\As}{\mathsf{As}}
+\newcommand{\CAs}[1]{\mathsf{CAs}^{(#1)}}
+\newcommand{\CAsAll}{\mathbf{CAs}}
+\newcommand{\KCAs}[1]{\K\mathsf{CAs}^{(#1)}}
+\newcommand{\KCAsAll}{\K\mathbf{CAs}}
+\newcommand{\PrefixWord}{\mathrm{p}}
+\newcommand{\Deg}{\mathrm{deg}}
+\newcommand{\LComb}[1]{\mathfrak{c}^{(#1)}_{\diagup}}
+\newcommand{\RComb}[1]{\mathfrak{c}^{(#1)}_{\diagdown}}
+\newcommand{\LRank}{\mathrm{lr}}
+\newcommand{\RBranch}{\mathrm{rb}}
+\newcommand{\Catalan}{\mathrm{cat}}
+\newcommand{\OrdQMag}{\preceq_{incl}}
+\newcommand{\InfQMag}{\wedge_{incl}}
+\newcommand{\SupQMag}{\vee_{incl}}
+\newcommand{\LatQMag}{\left(\QMag,\OrdQMag,\InfQMag,\SupQMag\right)}
+\newcommand{\OrdCAs}{\preceq_{div}}
+\newcommand{\InfCAs}{\wedge_{div}}
+\newcommand{\SupCAs}{\vee_{div}}
+\newcommand{\LatCAs}{\left(\CAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
+\newcommand{\LatKCAs}{\left(\KCAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
 \newcommand{\Unit}{\mathds{1}}
 \newcommand{\Leaf}{\perp}
 \newcommand{\Corolla}{\mathrm{c}}

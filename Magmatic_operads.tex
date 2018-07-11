@@ -5,13 +5,17 @@
 \section{Linear magmatic operads}
 \label{sec:Magmatic_operads}
 
-In this section, we fix a commutative field $\K$ and we study quotients
-of the free linear operad over one binary generator. We call this free
-operad the \Def{linear magmatic operad} and we denote it by $\KMag$. For
-each arity $n$, $\KMag(n)$ is the vector space with basis $\Mag(n)$, and
-the compositions of $\KMag$ extend by linearity the ones of $\Mag$.
+In this section, we equip the set of quotients of the linear magmatic
+operad with a lattice structure. We also show the Grassmann formula
+analog for this lattice.
 
 \subsection{Lattice of linear magmatic quotients}
+
+Throughout Section~\ref{sec:Magmatic_operads}, we fix a commutative field
+$\K$. The \Def{linear magmatic operad}, written $\KMag$, is the free
+linear operad over one binary generator. For each arity $n$, $\KMag(n)$
+is the vector space with basis $\Mag(n)$, and the compositions of $\KMag$
+extend by linearity the ones of $\Mag$.
 
 We denote by $\IMag$ the set of operadic ideals of $\KMag$, and
 \begin{equation} \label{equ:definition_of_QMag}
@@ -19,7 +23,7 @@ We denote by $\IMag$ the set of operadic ideals of $\KMag$, and
   \end{equation}
 the set of quotients of the linear magmatic operad. Given two elements
 $\Oca_1$ and $\Oca_2$ of $\QMag$, we denote by
-$\text{hom}\left(\Oca_1,\Oca_2\right)$ the set of operads morphisms from
+$\text{hom}\left(\Oca_1,\Oca_2\right)$ the set of operads morphism from
 $\Oca_1$ to $\Oca_2$.
 
 \begin{Proposition} \label{prop:endomorphisms_of_magmatic_operads}
@@ -40,7 +44,7 @@ $\Oca_1$ to $\Oca_2$.
   scalar $\lambda\in\K$ such that $\varphi\left([\Product]_{I_1}\right)
   =\lambda[\Product]_{I_2}$. If there exists such a $\lambda$ different
   from zero, then for every nonzero scalar $\mu$, we have a well-defined
-  operads morphism $\psi:\Oca_1\to\Oca_2$ satisfying
+  operad morphism $\psi:\Oca_1\to\Oca_2$ satisfying
   $\psi([\Product]_{I_1}) =\mu[\Product]_{I_2}=
   \left(\mu/\lambda\right)\varphi([\Product]_{I_1})$. Hence,
   $\text{hom}\left(\Oca_1,\Oca_2\right)$ is either reduced to the zero
@@ -52,13 +56,13 @@ $\Oca_1$ to $\Oca_2$.
   =[\Product]_{I_2}$, so that $\varphi$ is surjective.
 \end{proof}
 
-We introduce the binary relation $\OrdKMag$ on $\QMag$ as follows: we
-have $\Oca_2\OrdKMag\Oca_1$ if the dimension of
+We introduce the binary relation $\OrdQMag$ on $\QMag$ as follows: we
+have $\Oca_2\OrdQMag\Oca_1$ if the dimension of
 $\text{hom}\left(\Oca_1,\Oca_2\right)$ is equal to $1$.
 
 \begin{Proposition} \label{prop:order_relations_on_QMag_and_ideals}
   Let $\Oca_1=\KMag/I_1$ and $\Oca_2=\KMag/I_2$ be two elements of
-  $\QMag$.   We have $\Oca_2\OrdKMag\Oca_1$ if and only if
+  $\QMag$.   We have $\Oca_2\OrdQMag\Oca_1$ if and only if
   $I_1\subseteq I_2$.
 \end{Proposition}
 
@@ -67,7 +71,7 @@ $\text{hom}\left(\Oca_1,\Oca_2\right)$ is equal to $1$.
   dimension at most $1$, it contains a nonzero morphism if and only if
   the morphism $\overline{\varphi}:\Oca_1\to\Oca_2$ satisfying
   $\overline{\varphi}([\Product]_{I_1})=[\Product]_{I_2}$ is well
-  -defined, which means that $\Oca_2\OrdKMag\Oca_1$ is equivalent to this
+  -defined, which means that $\Oca_2\OrdQMag\Oca_1$ is equivalent to this
   condition. Moreover, by the universal property of the quotient,
   $\overline{\varphi}$ is well-defined if and only if $I_1$ is included
   in the kernel of the morphism $\varphi:\KMag\to\Oca_2$ defined by
@@ -86,27 +90,27 @@ operadic ideals, respectively.
 Given two elements $\Oca_1=\KMag/I_1$ and $\Oca_2=\KMag/I_2$ of $\QMag$,
 we let
 \begin{equation} \label{equ:definition_of_lattice_operations_of_QMag}
-  \Oca_1\wedge \Oca_2=\KMag/\left(I_1+I_2\right)\ \ \text{and}\ \
-  \Oca_1\wedge \Oca_2=\KMag/\left(I_1\cap I_2\right).
+  \Oca_1\InfQMag \Oca_2=\KMag/\left(I_1+I_2\right)\ \ \text{and}\ \
+  \Oca_1\SupQMag \Oca_2=\KMag/\left(I_1\cap I_2\right).
 \end{equation}
-Explicitely, for every integer $n$, $\left(\Oca_1\wedge\Oca_2\right)(n)$
-(respectively, $\left(\Oca_1\vee\Oca_2\right)(n)$) is the quotient of
+Explicitely, for every integer $n$, $\left(\Oca_1\InfQMag\Oca_2\right)(n)$
+(respectively, $\left(\Oca_1\SupQMag\Oca_2\right)(n)$) is the quotient of
 vector spaces $\KMag(n)/\left(I_1(n)+I_2(n)\right)$ (respectively,
 $\KMag(n)/\left(I_1(n)\cap I_2(n)\right)$).
 
 \begin{Theorem} \label{thm:lattice_structure_of_QMag}
-  The tuple $\left(\QMag,\OrdKMag,\wedge,\vee\right)$ is a lattice.
+  The tuple $\LatQMag$ is a lattice.
 \end{Theorem}
 
 \begin{proof}
   The map $\mathcal{Q}:\IMag\to\QMag$ defined by $\mathcal{Q}(I)=\KMag/I$
   is a bijection by definition of $\QMag$. Moreover, from
   Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
-  $\Oca_2\OrdKMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
-  $\left(\QMag,\OrdKMag\right)$ is a poset and $\mathcal{Q}$ is a
+  $\Oca_2\OrdQMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
+  $\left(\QMag,\OrdQMag\right)$ is a poset and $\mathcal{Q}$ is a
   decreasing bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$
   being a lattice, the decreasing bijection $\mathcal{Q}$ induces
-  lattice operations on $\QMag$, precisely $\wedge$ and $\vee$ by
+  lattice operations on $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by
   definition.
 \end{proof}
 
@@ -115,17 +119,15 @@ $\KMag(n)/\left(I_1(n)\cap I_2(n)\right)$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hilbert series and linear magmatic quotients}
 
-In Theorem~\ref{thm:Grassmann_formula_for__Hilbert_series_of_QMag}, we
-show a formula, analogous to the Grassman formula, for Hilbert series of
-elements of the lattice $\left(\QMag,\OrdKMag,\wedge,\vee\right)$. For
-that, we need the following :
+In order to show the Grassman formula analog for $\LatQMag$, we need the
+following lemma.
 
 \begin{Lemma} \label{lem:lattice_structure_and_coefficients_of_Hiblert_series}
   Let $\Oca_1$ and $\Oca_2$ be two elements of $\QMag$. For every integer
   $n$, we have
   \begin{equation} \label{equ:lattice_structure_and_coefficients_of_the_Hiblert_series}
-    \dim{\left(\Oca_1\wedge\Oca_2(n)\right)}+
-    \dim{\left(\Oca_1\vee\Oca_2(n)\right)}=
+    \dim{\left(\Oca_1\InfQMag\Oca_2(n)\right)}+
+    \dim{\left(\Oca_1\SupQMag\Oca_2(n)\right)}=
     \dim{\left(\Oca_1(n)\right)}+\dim{\left(\Oca_2(n)\right)}.
   \end{equation}
 \end{Lemma}
@@ -135,8 +137,8 @@ that, we need the following :
   $\Oca_1$ and $\Oca_2$ are equal to $\KMag/I_1$ and $\KMag/I_2$,
   respectively. For every integer $n$, we have
   \[\begin{split}
-  &\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}+
-  \dim{\left(\Oca_1\vee\Oca_2(n)\right)}\\
+  &\dim{\left(\Oca_1\InfQMag\Oca_2(n)\right)}+
+  \dim{\left(\Oca_1\SupQMag\Oca_2(n)\right)}\\
   &=\dim{\Big(\KMag(n)/\left(I_1+I_2\right)(n)\Big)}+
   \dim{\Big(\KMag(n)/\left(I_1\cap I_2\right)(n)\Big)}\\
   &=\dim{\left(\KMag(n)\right)}-\dim{\left(I_1(n)+I_2(n)\right)}
@@ -150,18 +152,21 @@ that, we need the following :
   subspaces $I_1(n)$ and $I_2(n)$ of $\KMag(n)$.
 \end{proof}
 
+The Grassman formula analog for $\LatQMag$ is given by the following
+theorem.
+
 \begin{Theorem} \label{thm:Grassmann_formula_for__Hilbert_series_of_QMag}
   Let $\Oca_1$ and $\Oca_2$ be two elements of $\QMag$. We have
   \begin{equation} \label{equ:lattice_structure_and_Hiblert_series}
-    \HilbertSeries_{\Oca_1\wedge\Oca_2}(t)+\HilbertSeries_{\Oca_1\vee\Oca_2}(t)=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
+    \HilbertSeries_{\Oca_1\InfQMag\Oca_2}(t)+\HilbertSeries_{\Oca_1\SupQMag\Oca_2}(t)=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
     \end{equation}
   \end{Theorem}
 
 \begin{proof}
   We have
   \[\begin{split}
-  \HilbertSeries_{\Oca_1\wedge\Oca_2}(t)+\HilbertSeries_{\Oca_1\vee\Oca_2}(t)&=\sum_{n\in\N}\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_1\vee\Oca_2(n)\right)}t^n\\
-  &=\sum_{n\in\N}\Big(\dim{\left(\Oca_1\wedge\Oca_2(n)\right)}+\dim{\left(\Oca_1\vee\Oca_2(n)\right)}\Big)t^n\\
+  \HilbertSeries_{\Oca_1\InfQMag\Oca_2}(t)+\HilbertSeries_{\Oca_1\SupQMag\Oca_2}(t)&=\sum_{n\in\N}\dim{\left(\Oca_1\InfQMag\Oca_2(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_1\SupQMag\Oca_2(n)\right)}t^n\\
+  &=\sum_{n\in\N}\Big(\dim{\left(\Oca_1\InfQMag\Oca_2(n)\right)}+\dim{\left(\Oca_1\SupQMag\Oca_2(n)\right)}\Big)t^n\\
   &=\sum_{n\in\N}\Big(\dim{\left(\Oca_1(n)\right)}+\dim{\left(\Oca_2(n)\right)}\Big)t^n\\
   &=\sum_{n\in\N}\dim{\left(\Oca_1(n)\right)}t^n+\sum_{n\in\N}\dim{\left(\Oca_2(n)\right)}t^n\\
   &=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
