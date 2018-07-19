@@ -8,36 +8,13 @@ In this section, we define comb associative operads and we show that the
 set of such operads admits a lattice structure, isomorphic to the lattice
 division for nonnegative integers. We also relate this lattice to the
 lattice of linear magmatic quotients.
+\medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comb associative operads}
-
-Let, for any integer $\gamma \geq 1$, the binary trees
-\begin{equation}
-    \LComb{\gamma} :=
-    \underbrace{(\dots (\Product \circ_1 \Product) \circ_1 \dots)
-        \circ_1 \Product}
-    _{\gamma \mbox{ \footnotesize operands}}
-\end{equation}
-and
-\begin{equation}
-    \RComb{\gamma} :=
-    \underbrace{\Product \circ_2
-        (\dots \circ_2 (\Product \circ_2 \Product) \dots)}
-    _{\gamma \mbox{ \footnotesize operands}}
-\end{equation}
-be respectively the left and the right comb of degree $\gamma$.
-Let us now define for any $\gamma \geq 1$ the \Def{$\gamma$-comb
-associative operad} $\CAs{\gamma}$ as the quotient operad
-$\Mag/_{\CongrCAs{\gamma}}$ where $\CongrCAs{\gamma}$ is the smallest
-operad congruence of $\Mag$ satisfying
-\begin{equation} \label{equ:congruence_CAs_gamma}
-    \LComb{\gamma} \enspace \CongrCAs{\gamma} \enspace \RComb{\gamma}.
-\end{equation}
-Notice that $\CongrCAs{1}$ is trivial so that
-$\CAs{1} = \Mag$ and that $\CongrCAs{2}$ is the operad congruence
-defined by
+Recall first that the \Def{associative operad} $\As$ is the quotient
+of $\Mag$ by the smallest operad congruence $\Congr$ satisfying
 \begin{equation}
     \begin{tikzpicture}[xscale=.24,yscale=.24,Centering]
         \node(0)at(0.00,-3.33){};
@@ -69,10 +46,70 @@ defined by
         \draw[Edge](4)--(3);
         \node(r)at(1.00,1.5){};
         \draw[Edge](r)--(1);
-    \end{tikzpicture}\,
+    \end{tikzpicture}\,.
 \end{equation}
-so that $\CAs{2} = \As$.
-Let also
+We propose here a generalization of $\Congr$ in order to define
+generalizations of $\As$.
+\medbreak
+
+Let, for any integer $\gamma \geq 1$, the binary trees $\LComb{\gamma}$
+and $\RComb{\gamma}$ be respectively the left and the right comb of
+degree $\gamma$. These trees are depicted as
+\begin{equation}
+    \LComb{\gamma} = \enspace
+    \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
+        \node(0)at(0.00,-5.25){};
+        \node(2)at(2.00,-5.25){};
+        \node(4)at(4.00,-3.50){};
+        \node(6)at(6.00,-1.75){};
+        \node[NodeST](1)at(1.00,-3.50){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-1.75){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge,dotted](1)edge[]node[font=\tiny]{
+            \begin{math}\gamma\! -\! 1\end{math}\hspace*{.6cm}}(3);
+        \draw[Edge](2)--(1);
+        \draw[Edge](3)--(5);
+        \draw[Edge](4)--(3);
+        \draw[Edge](6)--(5);
+        \node(r)at(5.00,1.5){};
+        \draw[Edge](r)--(5);
+    \end{tikzpicture}
+    \qquad \mbox{and} \qquad
+    \RComb{\gamma} =
+    \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
+        \node(0)at(0.00,-1.75){};
+        \node(2)at(2.00,-3.50){};
+        \node(4)at(4.00,-5.25){};
+        \node(6)at(6.00,-5.25){};
+        \node[NodeST](1)at(1.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-1.75){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,-3.50){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](2)--(3);
+        \draw[Edge](3)--(1);
+        \draw[Edge](4)--(5);
+        \draw[Edge,dotted](5)edge[]node[font=\tiny]{
+            \hspace*{.6cm}\begin{math}\gamma\! -\! 1\end{math}}(3);
+        \draw[Edge](6)--(5);
+        \node(r)at(1.00,1.5){};
+        \draw[Edge](r)--(1);
+    \end{tikzpicture}\,,
+\end{equation}
+where the values on the dotted edges denote the number of internal
+nodes they contain. We shall employ this drawing convention in the
+sequel, combined with the convention stipulating that dotted edges
+with no value have any number of internal nodes. Let us now define for
+any $\gamma \geq 1$ the \Def{$\gamma$-comb associative operad}
+$\CAs{\gamma}$ as the quotient operad $\Mag/_{\CongrCAs{\gamma}}$ where
+$\CongrCAs{\gamma}$ is the smallest operad congruence of $\Mag$
+satisfying
+\begin{equation} \label{equ:congruence_CAs_gamma}
+    \LComb{\gamma} \enspace \CongrCAs{\gamma} \enspace \RComb{\gamma}.
+\end{equation}
+Notice that $\CongrCAs{1}$ is trivial so that
+$\CAs{1} = \Mag$ and that $\CongrCAs{2}$ is the operad congruence
+defining $\As$ so that $\CAs{2} = \As$. Let also
 \begin{equation}
     \CAsAll := \left\{\CAs{\gamma} : \gamma\geq 1\right\}
 \end{equation}
@@ -265,45 +302,46 @@ $\lcm$ the least common multiple operators, respectively.
 
 Recall that
 $\LRank(\Tfr)$ denotes the left rank of a binary tree $\Tfr$, defined in
-Section~\ref{sec:operad_Mag}.
+Section~\ref{sec:operad_Mag}. Besides, to simplify the notation,
+we shall write $\bar{a}$ instead of $a - 1$ for any integer $a$.
 \medbreak
 
 \begin{Lemma}\label{lem:left_rank_and_CongrCAs}
-    Let $\gamma$ be a strictly positive integer and let $\Tfr$ and
+    Let $\gamma$ be a positive integer and let $\Tfr$ and
     $\Tfr'$ be two binary trees. If $\Tfr \CongrCAs{\gamma} \Tfr'$, then
     \begin{equation}
-        \LRank(\Tfr) \mod \gamma - 1
+        \LRank(\Tfr) \pmod{\bar{\gamma}}
         \enspace = \enspace
-        \LRank(\Tfr') \mod \gamma - 1.
+        \LRank\left(\Tfr'\right) \pmod{\bar{\gamma}}.
     \end{equation}
 \end{Lemma}
 \begin{proof}
   We consider the rewrite rule $\LComb{\gamma} \Rew \RComb{\gamma}$ on
-  $\Mag$. 
+  $\Mag$.
     \smallbreak
 
     First, we show that $\Tfr \RewContext \Tfr'$ implies that
     $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
-    divisible by $\gamma - 1$. \Todo{à faire.}
+    divisible by $\bar{\gamma}$. \Todo{à faire.}
     \smallbreak
 
     Assume that $\Tfr \RewContextRT \Tfr'$, so that there exist binary trees
     $\Tfr_1$, \dots, $\Tfr_k$ such that $\Tfr_1 = \Tfr$,
-    $\Tfr_k = \Tfr'$ and for every $i \in \{1, \dots, k - 1\}$, we have
+    $\Tfr_k = \Tfr'$ and for every $i \in [k - 1]$, we have
     $\Tfr_i\RewContext \Tfr_{i + 1}$. The integer
     \begin{math}
         \LRank\left(\Tfr_{i + 1}\right)
         -
         \LRank\left(\Tfr_i\right)
     \end{math}
-    is divisible by $\gamma - 1$ from the first part of the proof, so
+    is divisible by $\bar{\gamma}$ from the first part of the proof, so
     that $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
-    divisible by $\gamma-1$.
+    divisible by~$\bar{\gamma}$.
     \smallbreak
 
     Assume that $\Tfr \RewContextRST \Tfr'$, so that there exist binary trees
     $\Tfr_1$, \dots, $\Tfr_k$ such that $\Tfr_1 = \Tfr$,
-    $\Tfr_k = \Tfr'$ and for every $i \in \{1, \dots, k - 1\}$, we have
+    $\Tfr_k = \Tfr'$ and for every $i \in [k - 1]$, we have
     $\Tfr_i \RewContextRT \Tfr_{i + 1}$ or $\Tfr_{i + 1} \RewContextRT
     \Tfr_i$. From the second part of the proof, the integer
     \begin{math}
@@ -311,9 +349,9 @@ Section~\ref{sec:operad_Mag}.
         -
         \LRank\left(\Tfr_i\right)
     \end{math}
-    is divisible by $\gamma - 1$, so that
+    is divisible by $\bar{\gamma}$, so that
     $\LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)$ is
-    divisible by $\gamma - 1$.
+    divisible by~$\bar{\gamma}$.
     \smallbreak
 
     The congruence $\CongrCAs{\gamma}$ is the equivalence relation
@@ -325,31 +363,31 @@ Section~\ref{sec:operad_Mag}.
     \begin{math}
         \LRank\left(\Tfr'\right) - \LRank\left(\Tfr\right)
     \end{math}
-    is divisible by $\gamma - 1$.
+    is divisible by~$\bar{\gamma}$.
 \end{proof}
 \medbreak
 
 \begin{Proposition} \label{prop:division_CAs}
     Let $\gamma$ and $\gamma'$ be two positive integers. Then, there
     exists a morphism $\varphi:\CAs{\gamma'} \to \CAs{\gamma}$ if and
-    only if $\left(\gamma - 1\right) \mid \left(\gamma' - 1\right)$.
+    only if $\bar{\gamma} \mid \bar{\gamma'}$.
 \end{Proposition}
 \begin{proof}
     From Lemma~\ref{lem:morphism_CAs}, it is enough to show that
     $\LComb{\gamma'} \CongrCAs{\gamma} \RComb{\gamma'}$ if and only if
-    $\left(\gamma-1\right) \mid \left(\gamma'-1\right)$. If
+    $\bar{\gamma} \mid \bar{\gamma'}$. If
     $\LComb{\gamma'}\CongrCAs{\gamma}\RComb{\gamma'}$, from
     Lemma~\ref{lem:left_rank_and_CongrCAs},
     \begin{math}
         \LRank\left(\LComb{\gamma'}\right)
         - \LRank\left(\RComb{\gamma'}\right)
-        = \gamma' - 1
+        = \bar{\gamma'}
     \end{math}
-    is divisible by $\gamma-1$, which shows the direct implication.
+    is divisible by $\bar{\gamma}$, which shows the direct implication.
     \smallbreak
 
     Conversely, if
-    $\left(\gamma-1\right) \mid \left(\gamma'-1\right)$, the rewrite
+    $\bar{\gamma} \mid \bar{\gamma'}$, the rewrite
     rule $\LComb{\gamma} \Rew \RComb{\gamma}$ induces the
     sequence
     \begin{multline}
@@ -378,7 +416,8 @@ Section~\ref{sec:operad_Mag}.
             \node[NodeST](9)at(9.00,-3.75)
                 {\begin{math}\Product\end{math}};
             \draw[Edge](0)--(1);
-            \draw[Edge,dotted](1)--(3);
+            \draw[Edge,dotted](1)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(3);
             \draw[Edge](10)--(9);
             \draw[Edge](11)--(13);
             \draw[Edge](12)--(11);
@@ -386,23 +425,25 @@ Section~\ref{sec:operad_Mag}.
             \draw[Edge](2)--(1);
             \draw[Edge,dotted](3)--(5);
             \draw[Edge](4)--(3);
-            \draw[Edge,dotted](5)--(7);
+            \draw[Edge,dotted](5)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(7);
             \draw[Edge](6)--(5);
             \draw[Edge](7)--(9);
             \draw[Edge](8)--(7);
-            \draw[Edge,dotted](9)--(11);
+            \draw[Edge,dotted](9)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(11);
             \node(r)at(13.00,1.41){};
             \draw[Edge](r)--(13);
             %
-            \node[fit=(1)(3),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(5)(7),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(9)(11),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
+            %\node[fit=(1)(3),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(5)(7),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(9)(11),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
         \end{tikzpicture}
-        \enspace \Rew \enspace
-            \begin{tikzpicture}[xscale=.19,yscale=.2,Centering]
+        \enspace \RewContext \enspace
+        \begin{tikzpicture}[xscale=.19,yscale=.2,Centering]
             \node(0)at(0.00,-12.50){};
             \node(10)at(10.00,-5.00){};
             \node(12)at(12.00,-7.50){};
@@ -426,30 +467,33 @@ Section~\ref{sec:operad_Mag}.
             \node[NodeST](9)at(9.00,0.00)
                 {\begin{math}\Product\end{math}};
             \draw[Edge](0)--(1);
-            \draw[Edge,dotted](1)--(3);
+            \draw[Edge,dotted](1)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(3);
             \draw[Edge](10)--(11);
             \draw[Edge](11)--(9);
             \draw[Edge](12)--(13);
-            \draw[Edge,dotted](13)--(11);
+            \draw[Edge,dotted](13)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(11);
             \draw[Edge](14)--(13);
             \draw[Edge](2)--(1);
             \draw[Edge,dotted](3)--(5);
             \draw[Edge](4)--(3);
-            \draw[Edge,dotted](5)--(7);
+            \draw[Edge,dotted](5)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(7);
             \draw[Edge](6)--(5);
             \draw[Edge](7)--(9);
             \draw[Edge](8)--(7);
             \node(r)at(9.00,1.88){};
             \draw[Edge](r)--(9);
             %
-            \node[fit=(1)(3),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(5)(7),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(11)(13),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-        \end{tikzpicture}
-        \enspace \Rew \enspace
+            %\node[fit=(1)(3),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(5)(7),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(11)(13),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+        \end{tikzpicture} \\
+        \enspace \RewContext \enspace
         \begin{tikzpicture}[xscale=.19,yscale=.2,Centering]
             \node(0)at(0.00,-7.50){};
             \node(10)at(10.00,-10.00){};
@@ -474,11 +518,13 @@ Section~\ref{sec:operad_Mag}.
             \node[NodeST](9)at(9.00,-5.00)
                 {\begin{math}\Product\end{math}};
             \draw[Edge](0)--(1);
-            \draw[Edge,dotted](1)--(3);
+            \draw[Edge,dotted](1)edge[]node[font=\footnotesize]{
+                \begin{math}\bar{\gamma}\end{math}\hspace*{.5cm}}(3);
             \draw[Edge](10)--(11);
             \draw[Edge](11)--(9);
             \draw[Edge](12)--(13);
-            \draw[Edge,dotted](13)--(11);
+            \draw[Edge,dotted](13)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(11);
             \draw[Edge](14)--(13);
             \draw[Edge](2)--(1);
             \draw[Edge,dotted](3)--(5);
@@ -486,18 +532,19 @@ Section~\ref{sec:operad_Mag}.
             \draw[Edge](6)--(7);
             \draw[Edge](7)--(5);
             \draw[Edge](8)--(9);
-            \draw[Edge,dotted](9)--(7);
+            \draw[Edge,dotted](9)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(7);
             \node(r)at(5.00,1.88){};
             \draw[Edge](r)--(5);
             %
-            \node[fit=(1)(3),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(7)(9),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(11)(13),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-        \end{tikzpicture} \\
-        \enspace \RewRT \enspace
+            %\node[fit=(1)(3),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(7)(9),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(11)(13),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+        \end{tikzpicture}
+        \enspace \RewContextRT \enspace
         \begin{tikzpicture}[xscale=.19,yscale=.25,Centering]
             \node(0)at(0.00,-1.88){};
             \node(10)at(10.00,-11.25){};
@@ -525,25 +572,28 @@ Section~\ref{sec:operad_Mag}.
             \draw[Edge](10)--(11);
             \draw[Edge,dotted](11)--(9);
             \draw[Edge](12)--(13);
-            \draw[Edge,dotted](13)--(11);
+            \draw[Edge,dotted](13)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(11);
             \draw[Edge](14)--(13);
             \draw[Edge](2)--(3);
             \draw[Edge](3)--(1);
             \draw[Edge](4)--(5);
-            \draw[Edge,dotted](5)--(3);
+            \draw[Edge,dotted](5)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(3);
             \draw[Edge](6)--(7);
             \draw[Edge](7)--(5);
             \draw[Edge](8)--(9);
-            \draw[Edge,dotted](9)--(7);
+            \draw[Edge,dotted](9)edge[]node[font=\footnotesize]{
+                \hspace*{.5cm}\begin{math}\bar{\gamma}\end{math}}(7);
             \node(r)at(1.00,1.41){};
             \draw[Edge](r)--(1);
             %
-            \node[fit=(3)(5),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(7)(9),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
-            \node[fit=(11)(13),rotate fit=0,inner sep=0pt,
-                rounded corners,draw=Col5!80]{};
+            %\node[fit=(3)(5),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(7)(9),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
+            %\node[fit=(11)(13),rotate fit=0,inner sep=0pt,
+                %rounded corners,draw=Col5!80]{};
         \end{tikzpicture}
         \enspace = \enspace
         \RComb{\gamma'}
@@ -559,13 +609,15 @@ Proposition~\ref{prop:division_CAs} implies the following result.
 
 \begin{Theorem}\label{thm:lattice_CAs}
   The tuple $\LatCAs$ is a lattice, where $\InfCAs$ and $\SupCAs$ are
-  defined, for any positive integers $\gamma$ and $\gamma'$, as follows:
+  defined, for any positive integers $\gamma$ and $\gamma'$, by
     \begin{equation}
-      \CAs{\gamma}\InfCAs\CAs{\gamma'}=\CAs{\gcd \left(\gamma-1, \gamma'-1\right)}
+      \CAs{\gamma}\InfCAs\CAs{\gamma'}
+      =\CAs{\gcd \left(\bar{\gamma}, \bar{\gamma'}\right)}
     \end{equation}
     and
     \begin{equation}
-      \CAs{\gamma}\SupCAs\CAs{\gamma'}=\CAs{\lcm \left(\gamma-1, \gamma'-1\right)}.
+      \CAs{\gamma}\SupCAs\CAs{\gamma'}
+      =\CAs{\lcm \left(\bar{\gamma}, \bar{\gamma'}\right)}.
     \end{equation}
 \end{Theorem}
 \medbreak
@@ -598,21 +650,26 @@ $1$. Hence, $\LatKCAs$ is related to $\LatQMag$ by the following
 theorem.
 
 \begin{Theorem}
-  The inclusion
-  $\iota:\left(\KCAsAll,\OrdCAs\right)\to\left(\QMag,\OrdQMag\right)$ is
-  non decreasing. In particular, for any positive integers $\gamma$ and
-  $\gamma'$, we have
-  \begin{equation} \label{equ:comparison_of_lattice_operations}
-    \KCAs{\gcd \left(\gamma-1, \gamma'-1\right)}\OrdQMag
-    \KCAs{\gamma}\InfQMag\KCAs{\gamma'}
-  \end{equation}
-  and
-  \begin{equation}
-    \KCAs{\gamma}\SupQMag\KCAs{\gamma'}\OrdQMag
-    \KCAs{\lcm \left(\gamma-1, \gamma'-1\right)}.
-  \end{equation}
-
-  \end{Theorem}
+    The inclusion
+    \begin{math}
+        \iota:\left(\KCAsAll,\OrdCAs\right)
+        \to
+        \left(\QMag,\OrdQMag\right)
+    \end{math}
+    is nondecreasing. In particular, for any positive integers $\gamma$
+    and $\gamma'$, we have
+    \begin{equation} \label{equ:comparison_of_lattice_operations}
+        \KCAs{\gcd \left(\bar{\gamma}, \bar{\gamma'}\right)}
+        \OrdQMag
+        \KCAs{\gamma}\InfQMag\KCAs{\gamma'}
+    \end{equation}
+    and
+    \begin{equation}
+        \KCAs{\gamma}\SupQMag\KCAs{\gamma'}
+        \OrdQMag
+        \KCAs{\lcm \left(\bar{\gamma}, \bar{\gamma'}\right)}.
+    \end{equation}
+\end{Theorem}
 
 \begin{Remark}
   Note that $\LatKCAs$ does not embed into a sub-lattice of $\LatQMag$,
@@ -869,9 +926,9 @@ the following consequences.
 \medbreak
 
 From Proposition~\ref{prop:PBW_basis_CAs_3}, and by using a result
-of~\cite{Gir18} describing a system of equations for the generating
-series of syntax trees avoiding some sets of subtrees, we obtain the
-following result.
+of~\cite{Gir18} (see also~\cite{Row10,KP15}) describing a system of
+equations for the generating series of syntax trees avoiding some sets
+of subtrees, we obtain the following result.
 \medbreak
 
 \begin{Proposition} \label{prop:Hilbert_series_CAs_3}
