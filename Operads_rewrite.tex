@@ -95,12 +95,17 @@ spaces, where $\K$ denotes in all this text a commutative field. We call
 them \Def{linear operads} and we study a class of such operads in
 Section~\ref{sec:Magmatic_operads}. All the above definitions extend for
 linear operads, mainly by substituting Cartesian products $\times$ of
-sets with tensor products $\otimes$ of spaces, maps with maps, operad
-congruences with operad ideals, and cardinalities of sets with space
-dimensions (for instance in~\eqref{equ:hilbert_series}). Besides, when
-$\Oca$ is a linear operad admitting a basis $B$ such that its unit
-$\Unit$ belongs to $B$ and all partial composition maps are internal in
-$B$, $\Oca$ can be studied as a set-theoretic operad. 
+sets with tensor products $\otimes$ of spaces, maps with linear maps,
+operad congruences with operad ideals, and cardinalities of sets with
+space dimensions (for instance in~\eqref{equ:hilbert_series}).
+If $\Oca$ is an operad in the category of sets, we denote by
+$\K \Angle{\Oca}$ the corresponding linear operad defined on the
+linear span of $\Oca$, where the partial composition maps of $\Oca$ are
+extended by linearity on $\K \Angle{\Oca}$. Conversely, when $\Oca$ is
+a linear operad admitting a basis $B$ such that its unit $\Unit$
+belongs to $B$ and all partial composition maps are internal in $B$,
+$\Oca = \K \Angle{B}$ and this operad can be studied as a
+set-theoretic operad~$B$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -590,7 +595,7 @@ of a rewrite relation, we will use the following criterion.
 \medbreak
 
 A \Def{normal form} for $\RewContext$ is a binary tree $\Tfr$ such
-that for all binary tree $\Tfr'$, $\Tfr \RewContextRT \Tfr'$ implies
+that for all binary trees $\Tfr'$, $\Tfr \RewContextRT \Tfr'$ implies
 $\Tfr' = \Tfr$. In other words, a normal form for $\RewContext$ is a
 tree which is not rewritable by $\RewContext$. A normal form for
 $\RewContext$ of a binary tree $\Tfr$ is a normal form $\overline{\Tfr}$
@@ -689,30 +694,44 @@ takes as input a finite set of rewrite rules $\Rew$ and outputs the set
 of rewrite rules $\Rew'$ satisfying the property stated above. Here is,
 step by step, a description of its execution:
 \begin{enumerate}[label={(\it\arabic*)}]
-  \item Set $\Rew' := \Rew$ and let $\BranchingTrees$ be the set of
+    \item Set $\Rew' := \Rew$ and let $\BranchingTrees$ be the set of
     branching trees for $\RewContext$.
-  \item \label{item:loop_start_buchberger}
+    \smallbreak
+
+    \item \label{item:loop_start_buchberger}
     If $\BranchingTrees$ is empty, the execution stops and the output
     is $\Rew'$.
-  \item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
-    with the minimal degree and the minimal prefix word and remove $\Tfr$
-    from $\BranchingTrees$.
-  \item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
-    that $\Sfr_1$ and $\Sfr_2$ have the minimal prefix words.
-  \item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be normal forms of
-    $\Sfr_1$ and $\Sfr_2$, respectively.
-  \item \label{item:new_rewrite_rule_buchberger}
-    If $\overline{\Sfr_1}$ is different from $\overline{\Sfr_2}$, add
-    to $\Rew'$ the rewrite rule
+    \smallbreak
+
+    \item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
+    with the minimal degree and which is minimal with respect to the
+    order $\leq$. Remove $\Tfr$ from $\BranchingTrees$.
+    \smallbreak
+
+    \item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
+    that $\Sfr_1$ and $\Sfr_2$ are minimal with respect to the
+    order $\leq$.
+    \smallbreak
+
+    \item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be two
+    different normal forms of $\Sfr_1$ and $\Sfr_2$, respectively.
+    \smallbreak
+
+    \item \label{item:new_rewrite_rule_buchberger}
+    Add to $\Rew'$ the rewrite rule
     \begin{math}
-      \max_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}
-      \Rew'
-      \min_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}.
+        \max_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}
+        \Rew'
+        \min_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}.
     \end{math}
-  \item Add to $\BranchingTrees$ all new branching trees of degrees at
+    \smallbreak
+
+    \item Add to $\BranchingTrees$ all new branching trees of degrees at
     most $2 \Deg(\Rew') - 1$ created by the rewrite rule of
     Step~\ref{item:new_rewrite_rule_buchberger}.
-  \item Go to Step~\ref{item:loop_start_buchberger}.
+    \smallbreak
+
+    \item Go to Step~\ref{item:loop_start_buchberger}.
 \end{enumerate}
 The set of rewrite rules $\Rew'$ outputted by this semi-algorithm is the
 \Def{completion} of $\Rew$. By Lemma~\ref{lem:degree_confluence},
