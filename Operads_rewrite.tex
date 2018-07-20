@@ -619,7 +619,7 @@ admit the following description, useful for enumerative prospects.
 \end{proof}
 \medbreak
 
-When for any binary trees $\Tfr$, $\Sfr_1$, and $\Sfr_2$ such that
+When for all binary trees $\Tfr$, $\Sfr_1$, and $\Sfr_2$ such that
 $\Tfr \RewContextRT \Sfr_1$ and $\Tfr \RewContextRT \Sfr_2$, there
 exists a binary tree $\Tfr'$ such that $\Sfr_1 \RewContextRT \Tfr'$ and
 $\Sfr_2 \RewContextRT \Tfr'$, we say that $\RewContext$ is
@@ -704,22 +704,20 @@ step by step, a description of its execution:
     is $\Rew'$.
     \smallbreak
 
-    \item Otherwise, let $\Tfr$ be the branching tree for $\RewContext'$
-    with the minimal degree and which is minimal with respect to the
-    order $\leq$. Remove $\Tfr$ from $\BranchingTrees$.
+  \item Otherwise, let $\Tfr$ be a branching tree for $\RewContext'$.
+    Remove $\Tfr$ from $\BranchingTrees$.
     \smallbreak
 
-    \item Let $\{\Sfr_1, \Sfr_2\}$ be the branching pair for $\Tfr$ such
-    that $\Sfr_1$ and $\Sfr_2$ are minimal with respect to the
-    order $\leq$.
+    \item Let $\{\Sfr_1, \Sfr_2\}$ be a branching pair for $\Tfr$.
     \smallbreak
 
-    \item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be two
-    different normal forms of $\Sfr_1$ and $\Sfr_2$, respectively.
+  \item Let $\overline{\Sfr_1}$ and $\overline{\Sfr_2}$ be normal forms
+    of $\Sfr_1$ and $\Sfr_2$, respectively.
     \smallbreak
 
     \item \label{item:new_rewrite_rule_buchberger}
-    Add to $\Rew'$ the rewrite rule
+      If $\overline{\Sfr_1}$ is different from $\overline{\Sfr_2}$, add
+      to $\Rew'$ the rewrite rule
     \begin{math}
         \max_\leq \left\{\overline{\Sfr_1}, \overline{\Sfr_2}\right\}
         \Rew'

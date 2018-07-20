@@ -26,7 +26,7 @@ $\KMag/_I \in \QMag$ and $x \in \KMag$, we denote by $[x]_I$ the
 $I$-equivalence of $x$. Observe that $\KMag/_I$ is generated as an
 operad by $[\Product]_I$. Moreover, given two  elements $\Oca_1$ and
 $\Oca_2$ of $\QMag$, we denote by $\Hom\left(\Oca_1,\Oca_2\right)$ the
-set of operad morphism from $\Oca_1$ to~$\Oca_2$.
+set of linear operad morphism from $\Oca_1$ to~$\Oca_2$.
 \medbreak
 
 \begin{Proposition} \label{prop:endomorphisms_of_magmatic_operads}
@@ -118,16 +118,15 @@ $\KMag(n)/_{I_1(n)\cap I_2(n)}$).
     The tuple $\LatQMag$ is a lattice.
 \end{Theorem}
 \begin{proof}
-    The map $\mathcal{Q}:\IMag\to\QMag$ defined by
-    $\mathcal{Q}(I) := \KMag/_I$ is a bijection by definition of
-    $\QMag$. Moreover, from
+  The map $\Oca:\IMag\to\QMag$ defined by $\Oca(I) := \KMag/_I$ is a
+  bijection by definition of $\QMag$. Moreover, from
     Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
     $\Oca_2\OrdQMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
-    $\left(\QMag,\OrdQMag\right)$ is a poset and $\mathcal{Q}$ is a
-    decreasing bijection. The tuple
-    $\left(\IMag,\subseteq,\cap,+\right)$ being a lattice, the
-    decreasing bijection $\mathcal{Q}$ induces lattice operations on
-    $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by definition.
+    $\left(\QMag,\OrdQMag\right)$ is a poset and $\Oca$ is a decreasing
+    bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$ being a
+    lattice, the decreasing bijection $\mathcal{Q}$ induces lattice
+    operations on $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by
+    definition.
 \end{proof}
 \medbreak
 

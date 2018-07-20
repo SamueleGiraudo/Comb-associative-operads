@@ -124,7 +124,7 @@ In order to introduce the lattice structure of $\CAsAll$, we study operad
 morphisms betweeen its elements by mean of intermediate lemmas.
 
 \begin{Lemma} \label{lem:first_dimensions_CAs}
-    For any positive integers $\gamma$ and $n$ such that $\gamma \geq 2$
+    For all positive integers $\gamma$ and $n$ such that $\gamma \geq 2$
     and $n \leq \gamma + 1$,
     \begin{equation}
         \# \CAs{\gamma}(n) =
@@ -609,7 +609,7 @@ Proposition~\ref{prop:division_CAs} implies the following result.
 
 \begin{Theorem}\label{thm:lattice_CAs}
   The tuple $\LatCAs$ is a lattice, where $\InfCAs$ and $\SupCAs$ are
-  defined, for any positive integers $\gamma$ and $\gamma'$, by
+  defined, for all positive integers $\gamma$ and $\gamma'$, by
     \begin{equation}
       \CAs{\gamma}\InfCAs\CAs{\gamma'}
       =\CAs{\gcd \left(\bar{\gamma}, \bar{\gamma'}\right)}
@@ -622,14 +622,12 @@ Proposition~\ref{prop:division_CAs} implies the following result.
 \end{Theorem}
 \medbreak
 
-\begin{Remark}
   The lattice $\left(\N,\mid, \gcd, \lcm\right)$ admits $1$ as minimum
   element and $0$ as maximum element: any nonnegative integer is
   divisible by $1$ and divides $0$. The corresponding property for
   $\LatCAs$ is that it admits $\As=\CAs{2}$ as minimum element and $\Mag=
   \CAs{1}$ as maximum element: any comb associative operad projects onto
   $\As$ and is a quotient of $\Mag$.
-\end{Remark}
 
 We terminate this section by relating the lattice
 $\LatQMag$ introduced in Section~\ref{sec:Magmatic_operads} to the
@@ -656,7 +654,7 @@ theorem.
         \to
         \left(\QMag,\OrdQMag\right)
     \end{math}
-    is nondecreasing. In particular, for any positive integers $\gamma$
+    is nondecreasing. In particular, for all positive integers $\gamma$
     and $\gamma'$, we have
     \begin{equation} \label{equ:comparison_of_lattice_operations}
         \KCAs{\gcd \left(\bar{\gamma}, \bar{\gamma'}\right)}
@@ -671,14 +669,12 @@ theorem.
     \end{equation}
 \end{Theorem}
 
-\begin{Remark}
   Note that $\LatKCAs$ does not embed into a sub-lattice of $\LatQMag$,
   that is $\iota$ is not a lattice morphism. Consider for instance
   $\gamma=3$ and $\gamma'=4$, then $\KCAs{\gamma}\InfCAs\KCAs{\gamma'}$
   is equal to $\KCAs{2}=\K\As$, whereas
   $\KCAs{\gamma}\InfQMag\KCAs{\gamma'}$ is quotient of $\KMag$ be the two
   relations $\LComb{3}-\RComb{3}$ and $\LComb{4}-\RComb{4}$.
-\end{Remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
