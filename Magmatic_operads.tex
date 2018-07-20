@@ -115,18 +115,20 @@ $\KMag(n)/_{I_1(n)\cap I_2(n)}$).
 \medbreak
 
 \begin{Theorem} \label{thm:lattice_structure_of_QMag}
-    The tuple $\LatQMag$ is a lattice.
+  The tuple $\LatQMag$ is a lattice.
 \end{Theorem}
 \begin{proof}
-  The map $\Oca:\IMag\to\QMag$ defined by $\Oca(I) := \KMag/_I$ is a
-  bijection by definition of $\QMag$. Moreover, from
-    Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
-    $\Oca_2\OrdQMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
-    $\left(\QMag,\OrdQMag\right)$ is a poset and $\Oca$ is a decreasing
-    bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$ being a
-    lattice, the decreasing bijection $\mathcal{Q}$ induces lattice
-    operations on $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by
-    definition.
+  First, we observe that the map $\Oca:\IMag\to\QMag$ defined by
+  $\Oca(I) :=\KMag/_I$ is a bijection: it is surjective by definition of
+  $\QMag$ and it is injective since $\Oca(I_1)=\Oca(I_2)$ implies that
+  the kernel of the natural projection $\KMag\to\Oca(I_1)=\Oca(I_2)$ is
+  both equal to $I_1$ and $I_2$. Moreover, from
+  Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
+  $\Oca_2\OrdQMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
+  $\left(\QMag,\OrdQMag\right)$ is a poset and $\Oca$ is a decreasing
+  bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$ being a
+  lattice, the decreasing bijection $\Oca$ induces lattice operations on
+  $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by definition.
 \end{proof}
 \medbreak
 
