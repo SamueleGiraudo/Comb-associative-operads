@@ -630,13 +630,21 @@ admit the following description, useful for enumerative prospects.
 
 \begin{Lemma} \label{lem:normal_forms_avoiding}
     Let $\Rew$ be a set of rewrite rules on $\Mag$ and $\RewContext$ be
-    the rewrite relation induced by $\Rew$. Then, if $\RewContext$ is
-    terminating, $\NormalForms_{\RewContext}$ is the set of all the
-    binary trees that avoid all the trees appearing as left members
-    of $\Rew$.
+    the rewrite relation induced by $\Rew$. Then,
+    %if $\RewContext$ is terminating,
+    $\NormalForms_{\RewContext}$ is the set of all the binary trees that
+    avoid all the trees appearing as left members of~$\Rew$.
 \end{Lemma}
 \begin{proof}
-    \Todo{à faire}
+    Assume first that $\Tfr$ is a binary tree avoiding all the trees
+    appearing as left members of~$\Rew$. Then, due to the
+    definition~\eqref{equ:rewrite_relation_induced} of $\RewContext$,
+    $\Tfr$ is not rewritable by $\RewContext$. Hence, $\Tfr$ is a normal
+    form for $\RewContext$. Conversely, assume that
+    $\Tfr \in \NormalForms_{\RewContext}$. In this case, by definition
+    of a normal form, $\Tfr$ is not rewritable by $\RewContext$, so that
+    $\Tfr$ does not admit any occurrence of a tree appearing as a left
+    member of~$\Rew$.
 \end{proof}
 \medbreak
 
