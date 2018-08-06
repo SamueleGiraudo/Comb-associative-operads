@@ -56,7 +56,7 @@ $n \geq 1$, the \Def{arity} $|x|$ of $x$ is $n$. The
     \to \Oca\left(m_1 + \dots + m_n\right)
 \end{equation}
 defined, for any $x \in \Oca(n)$ and $y_1, \dots, y_n \in \Oca$, by
-\begin{equation}
+\begin{equation} \label{equ:complete_composition}
     x \circ \left[y_1, \dots, y_n\right] :=
     \left(\dots \left(\left(x \circ_n y_n\right)
     \circ_{n - 1} y_{n - 1}\right) \dots\right) \circ_1 y_1.
@@ -399,7 +399,7 @@ $\Rew$ is infinite.
 
 If $\Rew$ is a set of rewrite rules, we denote by $\RewContext$ the
 \Def{rewrite relation induced} by $\Rew$. Formally we have
-\begin{equation}
+\begin{equation} \label{equ:rewrite_relation_induced}
     \Tfr \circ_i
     \left(\Sfr \circ \left[\Rfr_1, \dots, \Rfr_{n}\right]\right)
     \RewContext
@@ -588,10 +588,31 @@ of a rewrite relation, we will use the following criterion.
     terminating.
 \end{Lemma}
 \begin{proof}
-    \Todo{à faire}
-    % 1. Montrer la compatibilité des compo aux mots prefixes
-    % 2. Supposer qu'il existe une chaine infinie de reecritures
-    % 3. Absurde car il n'existe qu'un nombre fini de mots sur {0, 2}.
+    Observe first that for any binary trees $\Tfr$ and $\Sfr$, the
+    prefix word of $\Tfr \circ_i \Sfr$ is obtained by replacing the
+    $i$th $\Zero$ of $\PrefixWord(\Tfr)$ by $\PrefixWord(\Sfr)$. For
+    this reason, and due to the
+    definition~\eqref{equ:complete_composition} of $\circ$, for any
+    binary trees $\Sfr$ and $\Rfr_1, \dots, \Rfr_n$ where $n$ is the
+    arity of $\Sfr$, the prefix word of
+    $\Sfr \circ \left[\Rfr_1, \dots, \Rfr_n\right]$ is obtained by
+    replacing from right to left each $\Zero$ of $\PrefixWord(\Sfr)$ by
+    the prefix words of each $\Rfr_i$. This, together with the
+    definition~\eqref{equ:rewrite_relation_induced} of the rewrite
+    relation $\RewContext$ induced by $\Rew$ and the hypothesis of the
+    statement of the lemma, implies that if $\Tfr$ and $\Tfr'$ are two
+    binary trees such that $\Tfr \RewContext \Tfr'$,
+    $\PrefixWord(\Tfr) > \PrefixWord\left(\Tfr'\right)$. This leads to
+    the fact that any chain
+    \begin{math}
+        \Tfr_0 \Rew \Tfr_1 \Rew \Tfr_2 \Rew \cdots
+    \end{math}
+    is finite since
+    \begin{math}
+        \Tfr_0 > \Tfr_1 > \Tfr_2 > \cdots
+    \end{math}
+    and there is a finite number of binary trees of a fixed arity.
+    Therefore, $\RewContext$ is terminating.
 \end{proof}
 \medbreak
 
