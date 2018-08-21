@@ -9,10 +9,10 @@
   \coordinate (dum) at (#3);  \coordinate (ble) at (#4);
   \pgfmathanglebetweenpoints{\pgfpointanchor{dum}{center}}{
   \pgfpointanchor{ble}{center}}
-  \global\let#2\pgfmathresult  
+  \global\let#2\pgfmathresult
   \pgfpointdiff{\pgfpointanchor{dum}{center}}{
   \pgfpointanchor{ble}{center}}
-  \pgfmathparse{veclen(\pgf@x,\pgf@y)/28.45274}  
+  \pgfmathparse{veclen(\pgf@x,\pgf@y)/28.45274}
   \global\let#1\pgfmathresult
 }
 \newcommand{\accolade}[7][]{
@@ -124,7 +124,7 @@
 %%%%%%%%%%%%%%%%% Normal forms of Mag(3,5) %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\Lightning}[1]{
-\mathfrak{c}^{(#1)}_{\begin{tikzpicture}[scale=.1, Centering]  
+\mathfrak{c}^{(#1)}_{\begin{tikzpicture}[scale=.1, Centering]
     \draw (0,0)--(-1,-2);
     \draw (-1,-2)--(0,-2);
     \draw (0,-2)--(-1,-4);
@@ -132,89 +132,107 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We now explore all magmatic simple quotients of degree $3$. We denote 
-by $A_k$ the $k$-th tree of degree $3$ for lexicographic order. Thus 
+\Todo{S: "rewriting rule" -> "rewrite rule" (même si le 1er est correct,
+c'est simplement pour rester homogène).}
+
+\Todo{S : je n'aime pas trop la typographie des réalisations des opérades
+(d'ailleurs, il faudrait expliquer ce qu'on entends par réalisation)}
+
+We now explore all magmatic simple quotients of degree $3$. We denote
+by $A_k$ the $k$-th tree of degree $3$ for lexicographic order. Thus
 \begin{equation}
-A_1 := \TreeA,\, A_2 := \TreeB,\, A_3 := \TreeC,\, A_4 := \TreeD, 
+A_1 := \TreeA,\, A_2 := \TreeB,\, A_3 := \TreeC,\, A_4 := \TreeD,
 \text{ and } A_5 := \TreeE.
 \end{equation}
-We denote by $\Mag(i,j)$ the operad quotient of $\Mag$ by the relation 
-$A_i \Congr A_j$. We already studied the operad $\Mag(1,5) = \CAs{3}$ 
-in section~\ref{sec:CAs_3}. Some of those operads are anti-isomorphic.
-We say that $\Oca_1$ and $\Oca_2$ are anti-isomorphic if there exist a function (called anti-isomorphism)
-$\phi : \Oca_1 \rightarrow \Oca_2$ such that 
+\Todo{S: Autre notation pour les arbres : $\Afr_i$ (homogène avec $\Tfr$).}
+
+We denote by $\Mag(i,j)$ the quotient operad of $\Mag$ by the relation
+$A_i \Congr A_j$. We have already studied the operad
+$\Mag(1,5) = \CAs{3}$
+in section~\ref{subsec:CAs_3}. Some of these operads are anti-isomorphic.
+Recall that $\Oca_1$ and $\Oca_2$ are \Def{anti-isomorphic} if there
+exists a map (called \Def{anti-isomorphism})
+$\phi : \Oca_1 \rightarrow \Oca_2$ such that $\phi(\Unit) = \Unit$,
+and, for all $x, y \in \Oca_1$ and $i \in [|x|]$,
 \begin{equation}
- \phi(1) = 1 \text{ and } \phi(x \circ_i y) = 
- \phi(x) \circ_{|x|-i+1} \phi(y), \text{ for } x,y \in \Oca_1.
+    \phi\left(x \circ_i y\right) =
+    \phi(x) \circ_{|x|-i+1} \phi(y).
 \end{equation}
-We recall some basics properties of anti-isomorphic operads.
+We recall some basics properties about anti-isomorphic operads.
+
 \begin{Proposition} \label{prop:Recall_anti_isomorphic}
-If $\phi$ is an anti-isomorphism between $\Oca_1$ and $\Oca_2$ then
-\begin{itemize}
-\item $\HilbertSeries_{\Oca_1}(t) = \HilbertSeries_{\Oca_2}(t)$;
-\item if $\left(\Oca, \left\{\circ_i\right\}_{i \geq 1}\right)$ is a realisation of $\Oca_1$ then 
-$\left(\Oca, \left\{\overline{\circ_i}\right\}_{i \geq 1}\right)$ is a 
-realisation of $\Oca_2$, where $\overline{\circ_i}$ is the operation
- defined by
-\begin{equation}
-x \, \overline{\circ_i} \, y := x \circ_{|x|-i+1} y;
-\end{equation}
-\item if $\{ x_i \rightarrow y_i \}_{1 \leq i \leq n}$ is a convergent
- orientation of $\Oca_1$ then $\{ \phi\left(x_i\right) \rightarrow 
- \phi\left(y_i\right) \}_{1 \leq i \leq n}$ is a convergent orientation
-  of $\Oca_2$.
-\end{itemize}
+    If $\phi$ is an anti-isomorphism between $\Oca_1$ and $\Oca_2$ then
+    \begin{itemize}
+        \item $\HilbertSeries_{\Oca_1}(t) = \HilbertSeries_{\Oca_2}(t)$;
+        \item if $\left(\Oca, \left\{\circ_i\right\}_{i \geq 1}\right)$
+         is a realisation of $\Oca_1$ then
+         \begin{math}
+        \left(\Oca, \left\{\overline{\circ_i}\right\}_{i \geq 1}\right)
+        \end{math} is a
+    realisation of $\Oca_2$, where $\overline{\circ_i}$ is the operation
+    defined by
+    \begin{equation}
+    x \, \overline{\circ_i} \, y := x \circ_{|x|-i+1} y;
+    \end{equation}
+    \item if $\{ x_i \rightarrow y_i \}_{1 \leq i \leq n}$ is a convergent
+     orientation of $\Oca_1$ then $\{ \phi\left(x_i\right) \rightarrow
+     \phi\left(y_i\right) \}_{1 \leq i \leq n}$ is a convergent orientation
+      of $\Oca_2$. \Todo{Samuele: je ne sais pas si cela respecte les
+      notations et conventions de la partie 1}
+
+    \end{itemize}
 \end{Proposition}
 
+\Todo{Samuele: peut-être déplacer ces faits généraux dans la 1re partie?}
 
-\subsection{Operads \texorpdfstring{$\Mag(1,2)$}{Mag(1,2)} and 
+\subsection{Operads \texorpdfstring{$\Mag(1,2)$}{Mag(1,2)} and
 \texorpdfstring{$\Mag(4,5)$}{Mag(4,5)}} \label{sub:Mag_1_2}
-The reader can check that the rewriting rule $A_2 \Rew A_1$ is a 
-convergent orientation of $\Mag(1,2)$. The operads $\Mag(1,2)$ and 
-$\Mag(4,5)$ are anti-isomorphic, hence the rewriting rule $A_4 \Rew A_5$ 
-is a convergent orientation of $\Mag(4,5)$. 
+The reader can check that the rewrite rule $A_2 \Rew A_1$ is a
+convergent orientation of $\Mag(1,2)$. The operads $\Mag(1,2)$ and
+$\Mag(4,5)$ are anti-isomorphic, hence the rewriting rule $A_4 \Rew A_5$
+is a convergent orientation of $\Mag(4,5)$.
 
-Like proposition~\eqref{prop:Hilbert_series_CAs_3} we compute the 
+Like proposition~\eqref{prop:Hilbert_series_CAs_3} we compute the
 following results thanks to~\cite{Gir18}.
 \begin{Proposition} \label{prop:Hilbert_series_Mag_1_2}
 The Hilbert series of $\Mag(1,2)$ and $\Mag(4,5)$ is
 \begin{equation} \label{equ:Hilbert_series_Mag_1_2}
-\HilbertSeries_{\Mag(1,2)}(t) = \HilbertSeries_{\Mag(4,5)}(t) = 
+\HilbertSeries_{\Mag(1,2)}(t) = \HilbertSeries_{\Mag(4,5)}(t) =
 t\frac{t-1}{2t -1}.
 \end{equation}
 \end{Proposition}
 
-A Taylor expansion of series~\eqref{equ:Hilbert_series_Mag_1_2} shows 
-that 
+A Taylor expansion of series~\eqref{equ:Hilbert_series_Mag_1_2} shows
+that
 \begin{Proposition} \label{prop:Close_formula_Mag_1_2}
 For all $n \geq 2,$
 \begin{equation} \label{equ:Close_formula_Mag_1_2}
-\# \Mag(1,2)(1) = \# \Mag(4,5)(1) = 1 \text{ and } \# \Mag(1,2)(n) = 
+\# \Mag(1,2)(1) = \# \Mag(4,5)(1) = 1 \text{ and } \# \Mag(1,2)(n) =
 \# \Mag(4,5)(n) = 2^{n-2}.
 \end{equation}
 \end{Proposition}
 
-Many combinatorial objects are graduate sets with the powers of two as 
-cardinals. We choose to present a realisation of $\Mag(1,2)$ based on 
-integer compositions. We denote by 
+Many graduate sets combinatorial objects are enumerated by
+powers of $2$. We choose to present a realisation of $\Mag(1,2)$ based on
+integer compositions. We denote by
 \begin{equation}
-\mathcal{C} := \bigsqcup\limits_{n \geq 1} \mathcal{C}(n) = 
-\bigsqcup\limits_{n \geq 1}\left\{ (a_1 , \dots, a_p), p \geq 0 
+\mathcal{C} := \bigsqcup\limits_{n \geq 1} \mathcal{C}(n) =
+\bigsqcup\limits_{n \geq 1}\left\{ (a_1 , \dots, a_p), p \geq 0
 \text{ and } 1+\sum\limits_{k = 1}^{p} a_k = n \right\}
 \end{equation}
-the graduate set of integer compositions. Given an integer composition 
-$a = (a_1 , \dots, a_p)$, we denote by $s_{(i,j)}(a)$ the number 
+the graduate set of integer compositions. Given an integer composition
+$a = (a_1 , \dots, a_p)$, we denote by $s_{(i,j)}(a)$ the number
 $1 + \sum\limits_{k = i}^{j} a_k$.
 
-Given an integer $i \geq 1$, we define the binary operation 
-$\circ_i^{(1,2)} : \mathcal{C}(n) \times \mathcal{C}(n') \rightarrow \mathcal{C}(n + n' -1)$ for 
+Given an integer $i \geq 1$, we define the binary operation
+$\circ_i^{(1,2)} : \mathcal{C}(n) \times \mathcal{C}(n') \rightarrow \mathcal{C}(n + n' -1)$ for
 $n \geq i$ and $n' \geq 1$ by
 \begin{equation}
-\left(a_1 , \dots, a_p \right) \circ_i^{(1,2)} 
+\left(a_1 , \dots, a_p \right) \circ_i^{(1,2)}
 \left(b_1, \dots ,b_{q}\right) := \left\{
  \begin{split}
- & \left(a_1, \dots ,a_{p}, b_1, \dots ,b_{q}\right) & 
-    \text{if } i = n\\ 
+ & \left(a_1, \dots ,a_{p}, b_1, \dots ,b_{q}\right) &
+    \text{if } i = n\\
  & \left(a_1, \dots, a_{k}, a_{k+1} + n'-1, a_{k+2}, \dots ,a_{p}\right)
   & \text{otherwise}
  \end{split}
@@ -223,182 +241,182 @@ $n \geq i$ and $n' \geq 1$ by
 where $k \geq 0$ be such that $s_{(1,k)}(a) \leq i < s_{(1,k+1)}(a)$.
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_2}
-The operad 
-$\left(\mathcal{C}, \left\{\circ_i^{(1,2)}\right\}_{i \geq 1}\right)$ 
+The operad
+$\left(\mathcal{C}, \left\{\circ_i^{(1,2)}\right\}_{i \geq 1}\right)$
 is a realisation of $\Mag(1,2)$.
 \end{Proposition}
 \begin{proof}
-It's equivalent to show that there are isomorphic. The set of normal 
-forms of arity $n$ for the rewriting rule $A_2 \Rew A_1$ is 
+It's equivalent to show that there are isomorphic. The set of normal
+forms of arity $n$ for the rewriting rule $A_2 \Rew A_1$ is
 \begin{equation} \label{equ:Normal_forms_A2}
-\left\{ \LComb{k_1 \, ; \, \dots \, ; \, k_p} \text{ for } 
+\left\{ \LComb{k_1 \, ; \, \dots \, ; \, k_p} \text{ for }
 \left(k_1, \dots, k_p\right) \in \mathcal{C}(n) \right\}
 \end{equation}
-where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is 
-$\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1} 
+where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is
+$\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1}
 ; | \, \right]$.
-Thus the function 
+Thus the function
 $\phi : \Mag(1,2)(n) \rightarrow \mathcal{C}(n)$ defined by
 \begin{equation} \label{equ:Morphism_A2}
-\phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) := 
+\phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
 \left(k_1 ; \dots ; k_p  \right)
 \end{equation}
-is a bijection. Let's show that $\phi$ is an operad morphism. Given 
+is a bijection. Let's show that $\phi$ is an operad morphism. Given
 \begin{equation}
 a := \LComb{a_1 \, ; \, \dots \, ; \, a_p} \in \Mag(1,2)(n) \text{ and }
 b := \LComb{b_1 \, ; \, \dots \, ; \, b_q} \in \Mag(1,2)(n'),
 \end{equation}
 we have that $a \circ_n b$ equals $\LComb{a_1 \, ; \, \dots \, ; \, a_p
- \, ; \, b_1 \, ; \, \dots \, ; \, b_q}$, thus 
- $\phi\left(a \circ_n b\right) = \phi\left(a\right) \circ_n^{(1,2)} 
- \phi\left(b\right)$. Let $1 \leq i < n$ and $k$ be such that 
- $s_{(1, k)}(a) \leq i < s_{(1, k+1)}(a)$ then $a \circ_i b$ equals 
+ \, ; \, b_1 \, ; \, \dots \, ; \, b_q}$, thus
+ $\phi\left(a \circ_n b\right) = \phi\left(a\right) \circ_n^{(1,2)}
+ \phi\left(b\right)$. Let $1 \leq i < n$ and $k$ be such that
+ $s_{(1, k)}(a) \leq i < s_{(1, k+1)}(a)$ then $a \circ_i b$ equals
 \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; 
+\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
 \LComb{a_{k+1}-1}
-\circ_{i-s_{(1,k)}(a)} b  ; \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ; 
+\circ_{i-s_{(1,k)}(a)} b  ; \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ;
 | \, \right]
 \end{equation}
 that can be rewrite in one step into
 \begin{equation}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; \left( 
-\LComb{a_{k+1}-1} \circ_{i-s_{(1,k)}(a)}  \LComb{b_1} \right) 
-\circ_{i-s_{(1,k)}(a)+b_1} \LComb{b_2 \, ; \, \dots \, ; \, b_q} ; 
+\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; \left(
+\LComb{a_{k+1}-1} \circ_{i-s_{(1,k)}(a)}  \LComb{b_1} \right)
+\circ_{i-s_{(1,k)}(a)+b_1} \LComb{b_2 \, ; \, \dots \, ; \, b_q} ;
 \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ; | \, \right]
 \end{equation}
 that can be rewrite in $b_1$ steps into
 \begin{equation} \label{equ:Rewriting_2_Mag_1_2}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; 
-\LComb{a_{k+1}-1+b_1} \circ_{i-s_{(1,k)}(a)+b_1} 
-\LComb{b_2 \, ; \, \dots \, ; \, b_q}  ; \LComb{a_{k+2}-1} ; \dots; 
+\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
+\LComb{a_{k+1}-1+b_1} \circ_{i-s_{(1,k)}(a)+b_1}
+\LComb{b_2 \, ; \, \dots \, ; \, b_q}  ; \LComb{a_{k+2}-1} ; \dots;
 \LComb{a_p-1} ; | \, \right]
 \end{equation}
-by iterating $q-1$ times the rewriting process 
-$\eqref{equ:Rewriting_1_Mag_1_2} \rightarrow 
-\eqref{equ:Rewriting_2_Mag_1_2}$ we get that 
+by iterating $q-1$ times the rewriting process
+$\eqref{equ:Rewriting_1_Mag_1_2} \rightarrow
+\eqref{equ:Rewriting_2_Mag_1_2}$ we get that
 \begin{equation}
-a \circ_i b \rightarrow \LComb{a_1 \, ; \, \dots \, ; \, a_{k} \, ; \, 
+a \circ_i b \rightarrow \LComb{a_1 \, ; \, \dots \, ; \, a_{k} \, ; \,
 a_{k+1} + n'-1 \, ; \, a_{k+2} \, ; \, \dots \, ; \, a_p}
 \end{equation}
 thus $\phi(a \circ_i b) = \phi(a) \circ_i^{(1,2)} \phi(b)$.
 \end{proof}
 
 We deduce from proposition~\ref{prop:Recall_anti_isomorphic} that the
- operad $\left(\mathcal{C}, 
- \left\{\overline{\circ_i^{(1,2)}}\right\}_{i \geq 1}\right)$ 
+ operad $\left(\mathcal{C},
+ \left\{\overline{\circ_i^{(1,2)}}\right\}_{i \geq 1}\right)$
 is a realisation of $\Mag(4,5)$.
 
-\subsection{Operads \texorpdfstring{$\Mag(1,3)$}{Mag(1,3)} and 
+\subsection{Operads \texorpdfstring{$\Mag(1,3)$}{Mag(1,3)} and
 \texorpdfstring{$\Mag(3,5)$}{Mag(3,5)}}
-The reader can check that the rewriting rule $A_3 \Rew A_1$ is a 
-convergent orientation of $\Mag(1,3)$. Symmetrically, we have that the 
-rewriting rule $A_3 \Rew A_5$ is a convergent orientation of 
+The reader can check that the rewriting rule $A_3 \Rew A_1$ is a
+convergent orientation of $\Mag(1,3)$. Symmetrically, we have that the
+rewriting rule $A_3 \Rew A_5$ is a convergent orientation of
 $\Mag(3,5)$.
 
-Thanks to~\cite{Gir18}, we get that the Hilbert series of $\Mag(1,3)$ 
-and $\Mag(3,5)$ are equals to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus 
-for $n \geq 1,$ $\# \Mag(1,3)(n)$ and $\# \Mag(3,5)(n)$ are equals 
-to~\eqref{prop:Close_formula_Mag_1_2}. 
+Thanks to~\cite{Gir18}, we get that the Hilbert series of $\Mag(1,3)$
+and $\Mag(3,5)$ are equals to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus
+for $n \geq 1,$ $\# \Mag(1,3)(n)$ and $\# \Mag(3,5)(n)$ are equals
+to~\eqref{prop:Close_formula_Mag_1_2}.
 
-Like in subsection~\ref{sub:Mag_1_2}, we choose a realisation based on 
-integer compositions. Given an integer $i \geq 1$, we define the 
-binary operation 
-$\circ_i^{(1,3)} : \mathcal{C}(n) \times \mathcal{C}(n')\rightarrow 
-\mathcal{C}(n + n' -1)$ for 
+Like in subsection~\ref{sub:Mag_1_2}, we choose a realisation based on
+integer compositions. Given an integer $i \geq 1$, we define the
+binary operation
+$\circ_i^{(1,3)} : \mathcal{C}(n) \times \mathcal{C}(n')\rightarrow
+\mathcal{C}(n + n' -1)$ for
 $n \geq i$ and $n' \geq 1$ by
 \begin{equation}
-\left(a_1 , \dots, a_p\right) \circ_i^{(1,3)} 
+\left(a_1 , \dots, a_p\right) \circ_i^{(1,3)}
 \left(b_1, \dots ,b_{q}\right) := \left\{
  \begin{split}
- & \left(a_1, \dots ,a_{i-1}, b_1 + s_{(i,p)}(a),b_2,\dots,b_{q}\right) 
- & \text{if } i \leq p + 1\\ 
+ & \left(a_1, \dots ,a_{i-1}, b_1 + s_{(i,p)}(a),b_2,\dots,b_{q}\right)
+ & \text{if } i \leq p + 1\\
  & \left(a_1, \dots, a_{k-1}, a_{k} + n'-1, a_{k+1},\dots,a_{p}\right)
   & \text{otherwise}
  \end{split}
 \right.
 \end{equation}
-where $k \geq 0$ be such that 
+where $k \geq 0$ be such that
 $k+1 + s_{(k+1,p)}(a) < i \leq k + s_{(k,p)}(a)$.
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_3}
-The operads 
-$\left(\mathcal{C}, \left\{\circ_i^{(1,3)}\right\}_{i \geq 1}\right)$ 
+The operads
+$\left(\mathcal{C}, \left\{\circ_i^{(1,3)}\right\}_{i \geq 1}\right)$
 and
 $\left(\mathcal{C}, \left\{\overline{\circ_i^{(1,3)}}\right\}_{i \geq 1}
 \right)$ are realisations of $\Mag(1,3)$ and $\Mag(3,5)$, respectively.
 \end{Proposition}
 \begin{proof}
-The set of normal forms of arity $n$ for the rewriting rule 
+The set of normal forms of arity $n$ for the rewriting rule
 $A_3 \Rew A_1$ is
 \begin{equation}
-\left\{ \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \text{ for } 
+\left\{ \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \text{ for }
 \left(k_1, \dots, k_p\right) \in \mathcal{C}(n) \right\}
 \end{equation}
-where $\Lightning{k_1 \, ; \, \dots \, ; \, k_p}$ is 
-$\LComb{k_1} \circ_2 \left( \LComb{k_2} \circ_2 \left( \cdots \left( 
-\LComb{k_{p-1}} \circ_2 \LComb{k_p} \right) \cdots \right) \right)$. 
-Thus we can show that the function 
+where $\Lightning{k_1 \, ; \, \dots \, ; \, k_p}$ is
+$\LComb{k_1} \circ_2 \left( \LComb{k_2} \circ_2 \left( \cdots \left(
+\LComb{k_{p-1}} \circ_2 \LComb{k_p} \right) \cdots \right) \right)$.
+Thus we can show that the function
 $\phi : \Mag(1,3)(n) \rightarrow \mathcal{C}(n)$ defined by
 \begin{equation}
-\phi\left( \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \right) := 
+\phi\left( \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
 \left(k_1 ; \dots ; k_p \right)
 \end{equation}
-is an operad isomorphism from the operad $\Mag(1,3)$ to 
-$\left(\mathcal{C}, \left\{\circ_i^{(1,3)}\right\}_{i \geq 1}\right)$. 
+is an operad isomorphism from the operad $\Mag(1,3)$ to
+$\left(\mathcal{C}, \left\{\circ_i^{(1,3)}\right\}_{i \geq 1}\right)$.
 \end{proof}
 
-\subsection{Operads \texorpdfstring{$\Mag(1,4)$}{Mag(1,4)} and 
+\subsection{Operads \texorpdfstring{$\Mag(1,4)$}{Mag(1,4)} and
 \texorpdfstring{$\Mag(2,5)$}{Mag(2,5)}}
-The rewriting rule $A_4 \Rew A_1$ is a convergent orientation of 
-$\Mag(1,4)$. Symmetrically the rewriting rule $A_2 \Rew A_5$ is a 
+The rewriting rule $A_4 \Rew A_1$ is a convergent orientation of
+$\Mag(1,4)$. Symmetrically the rewriting rule $A_2 \Rew A_5$ is a
 convergent orientation of $\Mag(2,5)$.
 
 Thanks to~\cite{Gir18}, we get that the Hilbert series of $\Mag(1,4)$
- and $\Mag(2,5)$ are equals to~\eqref{equ:Hilbert_series_Mag_1_2}. 
-Thus for $n \geq 1,$ $\# \Mag(1,4)(n)$ and $\# \Mag(2,5)(n)$ are equals 
-to~\eqref{prop:Close_formula_Mag_1_2}. 
+ and $\Mag(2,5)$ are equals to~\eqref{equ:Hilbert_series_Mag_1_2}.
+Thus for $n \geq 1,$ $\# \Mag(1,4)(n)$ and $\# \Mag(2,5)(n)$ are equals
+to~\eqref{prop:Close_formula_Mag_1_2}.
 
-Given an integer $i \geq 1$, we define the binary operation 
+Given an integer $i \geq 1$, we define the binary operation
 $\circ_i^{(2,5)} : \mathcal{C}(n) \times \mathcal{C}(n')
 \rightarrow \mathcal{C}(n + n' -1)$ for $n \geq i$ and $n' \geq 1$ by
 \begin{equation}
 a \circ_i^{(2,5)} b := \left\{
     \begin{split}
     & (a_1, \dots, a_{k}, b_1, \dots, b_{q}, a_{k+1}, \dots ,
-    a_{p}) & \text{if } i = s_k\\ 
-    & (a_1, \dots, a_{k}, i - s_{k}, b_1, \dots, b_{q-1}, 
+    a_{p}) & \text{if } i = s_k\\
+    & (a_1, \dots, a_{k}, i - s_{k}, b_1, \dots, b_{q-1},
     b_{q} + s_{k+1} - i, a_{k+2}, \dots ,a_{p}) & \text{otherwise}
     \end{split}
   \right.
 \end{equation}
-where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$. 
+where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$.
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_4}
-The operads 
+The operads
 $\left(\mathcal{C}, \left\{\overline{\circ_i^{(2,5)}}\right\}_{i \geq 1}
-\right)$ and 
-$\left(\mathcal{C}, \left\{\circ_i^{(2,5)}\right\}_{i \geq 1}\right)$ 
+\right)$ and
+$\left(\mathcal{C}, \left\{\circ_i^{(2,5)}\right\}_{i \geq 1}\right)$
 are realisation of $\Mag(1,4)$ and $\Mag(2,5)$, respectively.
 \end{Proposition}
 
 \begin{proof}
-The set of normal forms of arity $n$ for the rewriting rule 
+The set of normal forms of arity $n$ for the rewriting rule
 $A_2 \Rew A_5$ is~\eqref{equ:Normal_forms_A2}. Thus we can show that
  the function~\eqref{equ:Morphism_A2}
-is an operad isomorphism from the operad $\Mag(2,5)$ to 
-$\left(\mathcal{C}, \left\{\circ_i^{(2,5)}\right\}_{i \geq 1}\right)$. 
+is an operad isomorphism from the operad $\Mag(2,5)$ to
+$\left(\mathcal{C}, \left\{\circ_i^{(2,5)}\right\}_{i \geq 1}\right)$.
 \end{proof}
 
-\subsection{Operads \texorpdfstring{$\Mag(2,3)$}{Mag(2,3)} and 
+\subsection{Operads \texorpdfstring{$\Mag(2,3)$}{Mag(2,3)} and
 \texorpdfstring{$\Mag(3,4)$}{Mag(3,4)}}
-We did not found a finite, terminating and confluent orientation  
-for these operads. However, thanks to computer exploration, we 
-conjecture that the following rules form a terminating and confluent 
+We did not found a finite, terminating and confluent orientation
+for these operads. However, thanks to computer exploration, we
+conjecture that the following rules form a terminating and confluent
 orientation of $\Mag(3,4)$:
 \begin{equation}\label{eq:Rules_Mag_3_4}
 \begin{split}
-A_4 \Rew A_3, 
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+A_4 \Rew A_3,
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-8.25){};
     \node(10)at(10.00,-8.25){};
     \node(2)at(2.00,-8.25){};
@@ -422,8 +440,8 @@ A_4 \Rew A_3,
     \draw[Edge](9)--(7);
     \node(r)at(5.00,2.06){};
     \draw[Edge](r)--(5);
-\end{tikzpicture}  \Rew 
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+\end{tikzpicture}  \Rew
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-5.50){};
     \node(10)at(10.00,-8.25){};
     \node(2)at(2.00,-8.25){};
@@ -448,7 +466,7 @@ A_4 \Rew A_3,
     \node(r)at(5.00,2.06){};
     \draw[Edge](r)--(5);
 \end{tikzpicture},
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-10.40){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -476,8 +494,8 @@ A_4 \Rew A_3,
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.95){};
     \draw[Edge](r)--(9);
-\end{tikzpicture}  \Rew 
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+\end{tikzpicture}  \Rew
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-7.80){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -506,7 +524,7 @@ A_4 \Rew A_3,
     \node(r)at(9.00,1.95){};
     \draw[Edge](r)--(9);
 \end{tikzpicture},\\
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+\begin{tikzpicture}[xscale=.23,yscale=.18,Centering]
     \node(0)at(0.00,-8.67){};
     \node(10)at(10.00,-4.33){};
     \node(12)at(12.00,-4.33){};
@@ -533,10 +551,10 @@ A_4 \Rew A_3,
     \draw[Edge](7)--(9);
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.62){};
-    \draw[Edge](r)--(9);    
+    \draw[Edge](r)--(9);
     \accolade{0.5pt}{0.3}{0.2}{3.70,-5.33}{6.70,-1.90}{\LARGE $k$}
 \end{tikzpicture} \Rew
-\begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-7.80){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -568,59 +586,62 @@ A_4 \Rew A_3,
 \end{tikzpicture} \text{ for } k \geq 1.
 \end{split}
 \end{equation}
+\Todo{S : il faudrait utiliser les memes conventions que dans la partie
+3 pour représenter les morceaux fait de $k$ occurrences d'un noeud
+(voir l'eq (3.2.3)}
 
-One of our perspective is to allowed new generators in the rewriting 
-process to found a finite, terminating and confluent 
+One of our perspective is to allowed new generators in the rewriting
+process to found a finite, terminating and confluent
 orientation of $\Mag(3,4)$.
 
-From~\eqref{eq:Rules_Mag_3_4}, we also conjecture that the Hilbert 
+From~\eqref{eq:Rules_Mag_3_4}, we also conjecture that the Hilbert
 series of $\Mag(2,3)$ and $\Mag(3,4)$ equals
 \begin{equation}
 \HilbertSeries_{\Mag(3,4)}(t) = \frac{t}{(t-1)^3}
 \left( t^6 -t^4 -2 t^2 +2t -1 \right).
 \end{equation}
-And thus by Taylor expansion, we have the sequence 
+And thus by Taylor expansion, we have the sequence
 \begin{equation}
 1, 1, 2, 4
 \end{equation}
-for the first dimensions of $\Mag(2,3)$ and $\Mag(3,4)$, and then for 
+for the first dimensions of $\Mag(2,3)$ and $\Mag(3,4)$, and then for
 $n \geq 5,$
 \begin{equation}
 \Mag(2,3)(n) =\Mag(3,4)(n) = \frac{n(n+1)}{2} - 7.
 \end{equation}
 
 \subsection{Operad \texorpdfstring{$\Mag(2,4)$}{Mag(2,4)}}
-The rewriting rules $A_2 \Rew A_4$ and $A_4 \Rew A_2$ are both 
-convergent orientation of $\Mag(2,4)$. Its Hilbert series is equal 
+The rewriting rules $A_2 \Rew A_4$ and $A_4 \Rew A_2$ are both
+convergent orientation of $\Mag(2,4)$. Its Hilbert series is equal
 to~\eqref{equ:Hilbert_series_Mag_1_2}.
 
-Given an integer $i \geq 1$, we define the 
-binary operation 
+Given an integer $i \geq 1$, we define the
+binary operation
 $\circ_i^{(2,4)} : \mathcal{C}(n) \times \mathcal{C}(n')\rightarrow
- \mathcal{C}(n + n' -1)$ for 
+ \mathcal{C}(n + n' -1)$ for
 $n \geq i$ and $n' \geq 1$ by
 \begin{equation}
 a \circ_i^{(2,4)} b := \left\{
     \begin{split}
-    & (a_1, \dots, a_{k}, b_1, \dots, b_{q-1}, b_{q} + a_{k+1}, 
-    a_{k+2}, \dots ,a_{p}) & \text{if } i = s_k\\ 
+    & (a_1, \dots, a_{k}, b_1, \dots, b_{q-1}, b_{q} + a_{k+1},
+    a_{k+2}, \dots ,a_{p}) & \text{if } i = s_k\\
     & (a_1, \dots, a_{k}, i - s_{k}, b_1, \dots, b_{q-1}, b_{q}
      + s_{k+1} - i, a_{k+2}, \dots ,a_{p}) & \text{otherwise}
     \end{split}
   \right.
 \end{equation}
-where $k \geq 0$  be such that $s_k \leq i < s_{k+1}$. 
+where $k \geq 0$  be such that $s_k \leq i < s_{k+1}$.
 
 \begin{Proposition} \label{prop:Realisation_Mag_2_4}
-The operads 
+The operads
 $\left(\mathcal{C}, \left\{\overline{\circ_i^{(2,4)}}\right\}_{i \geq 1}
 \right)$ is a realisation of $\Mag(2,4)$.
 \end{Proposition}
 
 \begin{proof}
-The set of normal forms of arity $n$ for the rewriting rule 
+The set of normal forms of arity $n$ for the rewriting rule
 $A_2 \Rew A_4$ is~\eqref{equ:Normal_forms_A2}. Thus we can show that
  the function~\eqref{equ:Morphism_A2}
-is an operad isomorphism from the operad $\Mag(2,4)$ to 
-$\left(\mathcal{C}, \left\{\circ_i^{(2,4)}\right\}_{i \geq 1}\right)$. 
+is an operad isomorphism from the operad $\Mag(2,4)$ to
+$\left(\mathcal{C}, \left\{\circ_i^{(2,4)}\right\}_{i \geq 1}\right)$.
 \end{proof}
