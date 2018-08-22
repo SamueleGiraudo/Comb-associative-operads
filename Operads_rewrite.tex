@@ -64,7 +64,13 @@ defined, for any $x \in \Oca(n)$ and $y_1, \dots, y_n \in \Oca$, by
 If $\Oca_1$ and $\Oca_2$ are two operads, a map
 $\phi : \Oca_1 \to \Oca_2$ is an \Def{operad morphism} if it respects
 the arities, sends the unit of $\Oca_1$ to the unit of $\Oca_2$, and
-commutes with partial composition maps. We say that $\Oca_2$ is a
+commutes with partial composition maps. A map $\phi : \Oca_1 \to \Oca_2$
+is an \Def{operad antimorphism} if it respects the arities, sends the
+unit of $\Oca_1$ to the unit of $\Oca_2$, and
+\begin{math}
+    \phi\left(x \circ_i y\right) = \phi(x) \circ_{|x|-i+1} \phi(y)
+\end{math}
+for all $x, y \in \Oca_1$ and $i \in [|x|]$. We say that $\Oca_2$ is a
 \Def{suboperad} of $\Oca_1$ if $\Oca_2$ is a subset of $\Oca_1$
 containing the unit of $\Oca_1$ and the partial composition maps of
 $\Oca_2$ are the ones of $\Oca_1$ restricted on $\Oca_2$. For any subset
