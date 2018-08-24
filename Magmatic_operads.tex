@@ -94,9 +94,9 @@ $\Hom\left(\Oca_1,\Oca_2\right)$ is equal to~$1$.
 \medbreak
 
 Recall that a \Def{lattice} is a tuple
-$\left(E,\leq,\wedge,\vee\right)$, where $\left(E,\leq\right)$ is a
-poset such that any two elements $e$ and $e'$ of $E$ admit a lower-bound
-$e\wedge e'$ and an upper-bound $e\vee e'$. In particular,
+$\left(E,\leq,\wedge,\vee\right)$, where $\leq$ is a partial order
+relation such that any two elements $e$ and $e'$ of $E$ admit a
+lower-bound $e\wedge e'$ and an upper-bound $e\vee e'$. In particular,
 $\left(\IMag,\subseteq,\cap,+\right)$ is a lattice, where $\cap$ and $+$
 are the intersection and the sum of operadic ideals, respectively.
 \medbreak
@@ -127,10 +127,11 @@ $\KMag(n)/_{I_1(n)\cap I_2(n)}$).
   both equal to $I_1$ and $I_2$. Moreover, from
   Proposition~\ref{prop:order_relations_on_QMag_and_ideals},
   $\Oca_2\OrdQMag\Oca_1$ is equivalent to $I_1\subseteq I_2$, so that
-  $\left(\QMag,\OrdQMag\right)$ is a poset and $\Oca$ is a decreasing
-  bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$ being a
-  lattice, the decreasing bijection $\Oca$ induces lattice operations on
-  $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by definition.
+  $\OrdQMag$ is a partial order relation on $\QMag$ and $\Oca$ is a
+  decreasing bijection. The tuple $\left(\IMag,\subseteq,\cap,+\right)$
+  being a lattice, the decreasing bijection $\Oca$ induces lattice
+  operations on $\QMag$, precisely $\InfQMag$ and $\SupQMag$ by
+  definition.
 \end{proof}
 \medbreak
 
