@@ -2,18 +2,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Perspectives}
-\Todo{S: mettre à jour}
 
 \Todo{S: parler aussi des généralisation avec $2\Mag$ (arbres de Schröder)}
 
-Our first axis of perspectives consists in collecting properties about
-the operads $\CAs{d}$. A natural question consists in finding all the
-morphisms between the operads $\CAs{d}$. Some surjective morphisms are
-described by Proposition~\ref{prop:quotients_CAs_d} and we can hope to a
-full description of these, as well as some possible injections.
-Moreover, we can try to obtain a convergent orientation of
-$\CongrCAs{d}$ and general expressions of the Hilbert series of
-$\CAs{d}$ when $d \geq 4$. By computer exploration, we have the sequence
+Our first axis of perspectives consists in finding convergent
+presentations for $\CAs{d}$ operads in order to describe algebraic and
+combinatorial properties of these operads, \emph{e.g.} find explicit bases,
+compute Hilbert series, provide realizations, \emph{ect}... By computer
+exploration, we have already some informations in this direction: we have
+the sequence
 \begin{equation}
     1, 1, 2, 5, 13, 35, 96, 264, 724, 1973, 5335, 14390, 38872, 105141, 
     284929, 774254
@@ -45,7 +42,34 @@ of dimensions and the first cardinalities
     0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0
 \end{math}
 for any convergent orientation of $\CongrCAs{6}$. We can notice that
-only $\CAs{3}$ seems to have oscillating first dimensions.
+only $\CAs{3}$ seems to have oscillating first dimensions. 
+\medbreak
+
+Following ideas existing for word rewriring~\cite{GGM15}, a second axis
+consists in allowing new generators in the orientations of $\CongrCAs{d}$
+in order to obtain finite convergent presentations for $d\geq 4$. More
+generally, we also would like to use this method for other magmatic
+quotients, such as the operad $\Mag^{\{3, 4\}}$ that we did not study
+entirely in Section~\ref{sec:MAg_3}.
+\medbreak
+
+A third axis for studying completion of magmatic operads is to use
+the lattice structure introduced in Section~\ref{sec:Magmatic_operads}.
+More precisely, assuming that we have completed the magmatic operads
+$\Oca_1$, $\Oca_2$ as well as the lower-bound $\Oca_2\InfQMag \Oca_2$,
+is there a procedure for completing the upper-bound
+$\Oca_1\SupQMag \Oca_2$? Of course, the same question also makes sense
+for the lattice of comb associative operads introduced in
+Section~\ref{sec:CAs_d}.
+\medbreak
+
+\Todo{C : Plus développer les aspects treillis de Tamari ?}
+In a last axis, we can consider further generalizations of $\As$ being
+quotients of $\Mag$ by congruences defined by identifying certain binary
+trees of a same fixed degree. A possible question is, as presented in
+the introduction, to investigate if combinatorial properties of the
+trees belonging to a same equivalence class imply algebraic properties
+on the obtained operads.
 \medbreak
 
 \Todo{S: Placer ces résultats expérimentaux dans la partie sur CAs}
@@ -61,10 +85,3 @@ question is to explore the suboperads $\CAs{3}$ in the category of
 vector spaces.
 \medbreak
 
-In a last axis, we can consider further generalizations of $\As$ being
-quotients of $\Mag$ by congruences defined by identifying certain binary
-trees of a same fixed degree. A possible question is, as presented in
-the introduction, to investigate if combinatorial properties of the
-trees belonging to a same equivalence class imply algebraic properties
-on the obtained operads.
-\medbreak
