@@ -679,12 +679,13 @@ theorem.
 \end{Theorem}
 \medbreak
 
-  Note that $\LatKCAs$ does not embed into a sub-lattice of $\LatQMag$,
-  that is $\iota$ is not a lattice morphism. Consider for instance
-  $\gamma=3$ and $\gamma'=4$, then $\KCAs{\gamma}\InfCAs\KCAs{\gamma'}$
-  is equal to $\KCAs{2}=\K\As$, whereas
-  $\KCAs{\gamma}\InfQMag\KCAs{\gamma'}$ is quotient of $\KMag$ be the two
-  relations $\LComb{3}-\RComb{3}$ and $\LComb{4}-\RComb{4}$.
+Note that $\LatKCAs$ does not embed as a sub-lattice of $\LatQMag$, that
+is $\iota$ is not a lattice morphism. Consider for instance $\gamma = 3$
+and $\gamma' = 4$, then $\KCAs{\gamma} \InfCAs \KCAs{\gamma'}$ is equal
+to $\KCAs{2} = \K\As$, whereas $\KCAs{\gamma} \InfQMag \KCAs{\gamma'}$
+is a quotient of $\KMag$ be the two relations $\LComb{3} - \RComb{3}$
+and $\LComb{4} - \RComb{4}$.
+\medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -884,54 +885,59 @@ the new relation
     \end{tikzpicture}\,.
 \end{equation}
 The Buchberger algorithm applied on binary trees of degrees $5$, $6$,
-and $7$ provides the new relations \\
+and $7$ provides the new relations \smallbreak
 \input{Buchberger_relations_5-7}
-
-\noindent
-We claim that the rewrite relation $\RewContext$ induced by
-rewrite rule $\Rew$ satisfying~\eqref{equ:rew_1}, \eqref{equ:rew_2},
-\eqref{equ:rew_3}---\eqref{equ:rew_11} is convergent. First, for every
-relation $\Tfr \Rew \Tfr'$, we have
-$\PrefixWord(\Tfr) > \PrefixWord(\Tfr')$. Therefore, by
-Lemma~\ref{lem:prefix_word_termination}, $\RewContext$ is terminating.
-Moreover, the greatest degree of a tree appearing in $\Rew$ is~$7$ so
-that, from Lemma~\ref{lem:degree_confluence}, to show that $\RewContext$
-is convergent, it is enough to prove that each tree of degree at most
-$13$ admits exactly one normal form. Equivalently, this amounts to
-show that the number of normal forms of trees of arity $n$ is equal
-to $\#\CAs{3}(n)$. By computer exploration, we get the same sequence
-\begin{equation} \label{equ:dimensions_CAs_3}
-    1, 1, 2, 4, 8, 14, 20, 19, 16, 14, 14, 15, 16, 17
-\end{equation}
-for $\#\CAs{3}(n)$ and for the numbers of normal forms of arity $n$,
-when $ 1 \leq n \leq 14$. Hence, we get our following main result.
+\medbreak
 
 \begin{Theorem} \label{thm:convergent_rewrite_rule_CAs_3}
-    The rewrite rule $\Rew$ satisfying~\eqref{equ:rew_1},
+    The set $\Rew$ of rewrite rules containing~\eqref{equ:rew_1},
     \eqref{equ:rew_2}, \eqref{equ:rew_3}---\eqref{equ:rew_11} is a
     convergent orientation of the congruence $\CongrCAs{3}$
     of~$\CAs{3}$.
 \end{Theorem}
+\begin{proof}
+    Let us show that the rewrite relation $\RewContext$ induced by
+    $\Rew$ is convergent. First, for every relation $\Tfr \Rew \Tfr'$,
+    we have $\Tfr > \Tfr'$. Therefore, by
+    Lemma~\ref{lem:prefix_word_termination}, $\RewContext$ is
+    terminating. Moreover, the greatest degree of a tree appearing in
+    $\Rew$ is~$7$ so that, from Lemma~\ref{lem:degree_confluence}, to
+    show that $\RewContext$ is convergent, it is enough to prove that
+    each tree of degree at most $13$ admits exactly one normal form.
+    Equivalently, this amounts to show that the number of normal forms
+    of trees of arity $n$ is equal to $\#\CAs{3}(n)$. By computer
+    exploration, we get the same sequence
+    \begin{equation} \label{equ:dimensions_CAs_3}
+        1, 1, 2, 4, 8, 14, 20, 19, 16, 14, 14, 15, 16, 17
+    \end{equation}
+    for $\#\CAs{3}(n)$ and for the numbers of normal forms of arity $n$,
+    when $ 1 \leq n \leq 14$. Hence, we get our following main result.
+\end{proof}
 \medbreak
 
 The rewrite rule $\Rew$ has, arity by arity, the cardinalities
 \begin{equation}
-    0, 0, 0, 1, 1, 2, 3, 4, 0, \dots~.
+    0, 0, 0, 1, 1, 2, 3, 4, 0, 0, \dots~.
 \end{equation}
 We obtain from Theorem~\ref{thm:convergent_rewrite_rule_CAs_3} also
 the following consequences.
+\medbreak
 
 \begin{Proposition} \label{prop:PBW_basis_CAs_3}
     The set of the trees avoiding as subtrees the ones appearing as
     left members of $\Rew$ is a Poincaré-Birkhoff-Witt basis
     of~$\CAs{3}$.
 \end{Proposition}
+\begin{proof}
+    By definition of PBW bases and
+    Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}, the set
+    $\NormalForms_{\RewContext}$ is a PBW basis of $\CAs{3}$ where
+    $\RewContext$ is the rewrite relation induced by $\Rew$. Now, by
+    Lemma~\ref{lem:normal_forms_avoiding}, $\NormalForms_{\RewContext}$
+    can be described as the set of the trees avoiding the left members
+    of~$\Rew$, whence the statement.
+\end{proof}
 \medbreak
-
-From Proposition~\ref{prop:PBW_basis_CAs_3}, and by using a result
-of~\cite{Gir18} (see also~\cite{Row10,KP15}) describing a system of
-equations for the generating series of syntax trees avoiding some sets
-of subtrees, we obtain the following result.
 
 \begin{Proposition} \label{prop:Hilbert_series_CAs_3}
     The Hilbert series of $\CAs{3}$ is
@@ -941,6 +947,15 @@ of subtrees, we obtain the following result.
         2t^{10} + t^{11}\right).
     \end{equation}
 \end{Proposition}
+\begin{proof}
+    From Proposition~\ref{prop:PBW_basis_CAs_3}, for any $n \geq 1$, the
+    dimension of $\CAs{3}(n)$ is the number of trees that avoid as
+    subtrees the left members of $\Rew$. Now, by using a result
+    of~\cite{Gir18} (see also~\cite{Row10,KP15}) providing a system of
+    equations for the generating series of the trees avoiding some sets
+    of subtrees, we obtain Expression~\eqref{equ:Hilbert_series_CAs_3}
+    for the considered family.
+\end{proof}
 \medbreak
 
 For $n \leq 10$, the dimensions of $\CAs{3}(n)$ are provided by
@@ -953,7 +968,8 @@ $\# \CAs{3}(n) = n + 3$.
 
 
 \Todo{S: résultats expérimentaux de quelques $\CAs{\gamma}$ à donner
-dans cette partie.}
+dans cette partie (ou peut être dans une sous-partie précédente ; à
+voir selon ce que ça donne).}
 
 %By computer exploration, we have already some information in this
 %direction: we have the sequence
