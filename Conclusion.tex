@@ -1,53 +1,78 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Perspectives}
-
-\Todo{S: parler aussi des généralisation avec $2\Mag$ (arbres de Schröder)}
-
-Our first axis of perspectives consists in finding convergent
-presentations for $\CAs{d}$ operads in order to describe algebraic and
-combinatorial properties of these operads, \emph{e.g.} find explicit bases,
-compute Hilbert series, provide realizations, \emph{ect}...
-
-
-
-Following ideas existing for word rewriring~\cite{GGM15}, a second axis
-consists in allowing new generators in the orientations of $\CongrCAs{d}$
-in order to obtain finite convergent presentations for $d\geq 4$. More
-generally, we also would like to use this method for other magmatic
-quotients, such as the operad $\Mag^{\{3, 4\}}$ that we did not study
-entirely in Section~\ref{sec:MAg_3}.
+\section*{Conclusion and perspectives}
+In this paper, we have considered some quotients of the magmatic operad
+in both the linear and the set-theoretic frameworks. We focused mainly
+our study on comb associative operads and collected properties by
+using computer exploration and rewrite systems on trees. There are many
+ways to extend this work. Here follow some few further research
+directions.
 \medbreak
 
-A third axis for studying completion of magmatic operads is to use
+A first research direction consists in finding convergent orientations
+of presentations for (all or most of) the $\CAs{\gamma}$ operads in
+order to describe algebraic and combinatorial properties of these
+operads (as describing explicit bases, computing Hilbert
+series, and providing combinatorial realizations). This has been
+done only in the case $\gamma = 3$. For some other cases, we only have
+conjectural and experimental data (see Section~\ref{?}).
+\Todo{S: compléter avec la bonne partie une fois qu'on aura ajouté ces
+données}.
+\medbreak
+
+Following ideas existing for word rewriting theory~\cite{GGM15}, a
+second axis consists in allowing new generators in the orientations of
+the operad congruence $\CongrCAs{\gamma}$ in order to obtain finite
+convergent orientations for their presentations when $\gamma \geq 4$.
+Indeed, the Buchberger semi-algorithm works by adding rewrite rules to a
+set of rewrite rules to obtain a convergent rewrite system. An orthogonal
+procedure consists rather in adding new generators (new labels for
+internal nodes in the trees) in order to obtain convergent rewrite
+systems. More generally, we also would like to use these ideas for other
+magmatic quotients, such as the operad $\Mag^{\{3, 4\}}$ that we did not
+study entirely in Section~\ref{sec:MAg_3}.
+\medbreak
+
+A third axis consists in studying if the completion of orientations of
+presentations of quotients of the magmatic operad maintains links with
 the lattice structure introduced in Section~\ref{sec:Magmatic_operads}.
-More precisely, assuming that we have completed the magmatic operads
-$\Oca_1$, $\Oca_2$ as well as the lower-bound $\Oca_2\InfQMag \Oca_2$,
-is there a procedure for completing the upper-bound
-$\Oca_1\SupQMag \Oca_2$? Of course, the same question also makes sense
+More precisely, assuming that we have completed the orientations of
+the presentations of the quotients $\Oca_1$ and $\Oca_2$ of $\Mag$,
+as well as the one of the lower-bound $\Oca_2 \InfQMag \Oca_2$, the
+question consists in designing an algorithm for computing a completion
+of an orientation of the presentation of the upper-bound
+$\Oca_1 \SupQMag \Oca_2$. Of course, the same question also makes sense
 for the lattice of comb associative operads introduced in
 Section~\ref{sec:CAs_d}.
 \medbreak
 
-\Todo{C : Plus développer les aspects treillis de Tamari ?}
-In a last axis, we can consider further generalizations of $\As$ being
-quotients of $\Mag$ by congruences defined by identifying certain binary
-trees of a same fixed degree. A possible question is, as presented in
-the introduction, to investigate if combinatorial properties of the
-trees belonging to a same equivalence class imply algebraic properties
-on the obtained operads.
+Let us address now a perspective fitting more in a combinatorial
+context. As mentioned in the introduction of this article, we suspect
+that some combinatorial properties of quotients $\Mag/_{\Congr}$ of
+$\Mag$ derive from properties of the equivalence relation generating the
+operad congruence $\Congr$. More precisely, we would like to investigate
+if, when this equivalence relation is a set of Tamari intervals (or is
+closed by interval, or satisfies some other classical properties coming
+from poset theory), one harvests a nice description of the Hilbert
+series and of a combinatorial realization of $\Mag/_{\Congr}$.
 \medbreak
 
-\Todo{S: Placer ces résultats expérimentaux dans la partie sur CAs}
-
-A second axis concerns a complete understanding of $\CAs{3}$. We can
-try to construct an explicit basis of this operad.
-Proposition~\ref{prop:PBW_basis_CAs_3} describes a basis in terms of
-trees avoiding some patterns but, we can hope to find a simpler
-description. This includes the description of a family of combinatorial
-objects forming a basis of $\CAs{3}$ and an adequate definition of a
-partial composition map $\circ_i$ on these. Moreover, a natural
-question is to explore the suboperads $\CAs{3}$ in the category of
-vector spaces.
+A last research axis rely on the study on the $2$-magmatic operad
+$\TwoMag$, that is, the free operad generated by two binary elements.
+The analog of the associative operad in this context is the operad
+$\TwoAs$ (see~\cite{LR06}), defined as the quotient of $\TwoMag$ by
+the congruence saying that the two generators are associative. This
+operad has a nice combinatorial realization in terms of alternating
+bicolored Schröder trees. The question consists here in generalizing
+our main results for the quotients of $\TwoMag$ and the generalizations
+of $\TwoAs$ (definition of analog of comb associative operads and
+study of its presentations).
 \medbreak
+
+\Todo{S: attention, on emploie souvent l'expression "presentation" et
+"completion of presentation" mais on a jamais vraiment défini ce qu'est
+une presentation et ce qu'est une orientation d'une complétion. C'est
+facile, mais il faudrait le faire (préliminaires). Il faudrait d'ailleurs
+utiliser plutôt l'expression "convergent orientation of a presentation"
+plutôt que "convergent orientation".}
