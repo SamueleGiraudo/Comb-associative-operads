@@ -323,6 +323,61 @@ we shall write $\bar{a}$ instead of $a - 1$ for any integer $a$.
     \end{equation}
 \end{Lemma}
 
+\Todo{Christophe : je vous propose cette démo}
+\begin{proof}
+    We consider the rewrite rule $\LComb{\gamma} \Rew \RComb{\gamma}$ 
+    on $\Mag$. First, we show that 
+    \begin{equation} \label{eq:rewriting_invariant}
+        \Tfr \RewContext \Tfr' 
+        \mbox{ implies that }
+        \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right) 
+        \, \pmod{\bar{\gamma}}.
+    \end{equation}
+    Indeed for all $\Tfr \in \Mag$, there exist binary trees 
+    $\Tfr_1, \dots, \Tfr_{\LRank\left(\Tfr\right)}$ such that
+    \begin{math}
+      \Tfr = 
+      \left[\, |,\Tfr_1, \dots, \Tfr_{\LRank\left(\Tfr\right)} \right].
+    \end{math}
+    Thus if $\Tfr \RewContext \Tfr'$, then one of the 
+    two following cases occurs :
+    \begin{enumerate}[label={(\it\roman*)}]
+        \item there exist $\Tfr_i'$ such that
+            \begin{math}
+              \Tfr' = \LComb{\LRank\left(\Tfr\right)} \circ 
+              \left[\, | ,\Tfr_1, \dots, \Tfr_i',\dots, 
+                    \Tfr_{\LRank\left(\Tfr\right)}
+              \right] \mbox{ so } 
+              \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right);
+            \end{math}
+        \item there exist $i$ such that
+            \begin{math} 
+              \Tfr' = \LComb{\LRank\left(\Tfr\right)-\bar{\gamma}} \circ
+              \left[ | ,\Tfr_1, \dots, 
+                 \RComb{\bar{\gamma}} \circ 
+                 [\Tfr_{i},\dots, \Tfr_{i+\bar{\gamma}}]
+                 ,\dots, \Tfr_{\LRank\left(\Tfr\right)}
+              \right]\\
+              \mbox{ so }
+              \LRank\left(\Tfr'\right) = 
+              \LRank\left(\Tfr\right) - \bar{\gamma} = 
+              \LRank\left(\Tfr\right) \pmod{\bar{\gamma}}
+            \end{math}.
+    \end{enumerate} 
+    This concludes the proof of~\ref{eq:rewriting_invariant}.  
+    \smallbreak
+    
+    We deduce from~\ref{eq:rewriting_invariant} that the equivalence 
+    relation $r$ defined by 
+    \begin{equation}
+        r(\Tfr, \Tfr') \mbox{ if and only if } 
+        \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right) 
+        \, \pmod{\bar{\gamma}}
+    \end{equation}
+    contains the relation $\RewContext$ and thus its transitive 
+    and symmetric closure, which is $\CongrCAs{\gamma}$.
+\end{proof}
+
 \begin{proof}
   We consider the rewrite rule $\LComb{\gamma} \Rew \RComb{\gamma}$ on
   $\Mag$.
