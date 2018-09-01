@@ -679,7 +679,7 @@ its confluence.
 
 When $\RewContext$ is terminating and confluent, $\RewContext$ is said
 \Def{convergent}. We shall use the following result to prove that
-a terminating rewrite relation is convergent.
+a terminating rewrite relation is convergent. 
 \medbreak
 
 \begin{Lemma} \label{lem:degree_confluence}
@@ -708,7 +708,15 @@ $\RewContextRST$ and $\Congr$ are equal as binary relations, where
 $\RewContext$ is the rewrite relation induced by $\Rew$. Moreover,
 $\Rew$ is a \Def{convergent} (resp. \Def{terminating}, \Def{confluent})
 orientation of $\Congr$ if $\RewContext$ is convergent (resp.
-terminating, confluent).
+terminating, confluent). In the sequel, we use the terminology of a
+\Def{presentation} of a magmatic operad $\Oca$: it is the data of an
+operad congruence $\Congr$ such that $\Oca$ is isomorphic to 
+\begin{math}
+  \Mag/_{\Congr}.
+\end{math}
+For simplicity, we say that a convergent (resp. terminating, confluent)
+orientation of $\Congr$ is a \Def{convergent} (resp. \Def{terminating},
+\Def{confluent}) \Def{presentation} of $\Oca$.
 \medbreak
 
 When $\Rew$ is a convergent orientation of $\Congr$, the set
