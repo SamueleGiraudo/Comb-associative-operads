@@ -27,11 +27,12 @@ Indeed, the map $\phi : \Mag \to \Mag$ sending any binary tree $\Tfr$
 to the binary tree obtained by exchanging recursively the left and
 right subtrees of $\Tfr$ is an anti-isomorphism of $\Mag$. For this
 reason, the $\binom{5}{2} = 10$ quotients $\Mag^{\{i, j\}}$ of $\Mag$
-fit into the five equivalence classes
+fit into the six equivalence classes
 \begin{multline}
     \left\{\Mag^{\{1, 2\}}, \Mag^{\{4, 5\}}\right\},
     \left\{\Mag^{\{1, 3\}}, \Mag^{\{3, 5\}}\right\},
-    \left\{\Mag^{\{1, 4\}}, \Mag^{\{2, 5\}}\right\}, \\
+    \left\{\Mag^{\{1, 4\}}, \Mag^{\{2, 5\}}\right\},
+    \left\{\CAs{3}\right\}, \\
     \left\{\Mag^{\{2, 3\}}, \Mag^{\{3, 4\}}\right\},
     \left\{\Mag^{\{2, 4\}}\right\}
 \end{multline}
@@ -46,12 +47,13 @@ following Proposition.
         \item \label{item:recall_anti_isomorphic_1}
         $\HilbertSeries_{\Oca_1}(t) = \HilbertSeries_{\Oca_2}(t)$;
         \item \label{item:recall_anti_isomorphic_2}
-        if $\rightarrow^{(1)}$ is a convergent presentation of $\Oca_1$
+        if $\rightarrow^{(1)}$ is a convergent orientation of
+        $\Oca_1$
         then the set of rewrite rules $\rightarrow^{(2)}$ defined by
         \begin{math}
           \phi(x) \rightarrow^{(2)} \phi(y) \iff x \rightarrow^{(1)} y
         \end{math}
-        is a convergent presentation of $\Oca_2$.
+        is a convergent orientation of $\Oca_2$.
     \end{enumerate}
 \end{Proposition}
 \begin{proof}
@@ -60,8 +62,8 @@ following Proposition.
     $\Oca_2(n)$ is a bijection.
     \smallbreak
 
-    To establish~\ref{item:recall_anti_isomorphic_2}, ...
-    \item \Todo{C : preuve ou référence ?}
+    To establish~\ref{item:recall_anti_isomorphic_2},
+    \Todo{C : preuve ou référence ?}
 \end{proof}
 \medbreak
 
@@ -87,13 +89,10 @@ following Proposition.
 \end{proof}
 \medbreak
 
-\Todo{S: remplacer partout "realization" par "combinatorial realization"
-(j'en ai fait certains, vérifier qu'il n'y en a plus).}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quotients on integer compositions}
-Four among the five equivalence classes of the quotients
+Four among the six equivalence classes of the quotients
 $\Mag^{\{i, j\}}$ of $\Mag$ can be realized in terms of operads on
 integer compositions. Let us review these.
 \medbreak
@@ -102,9 +101,9 @@ integer compositions. Let us review these.
 \subsubsection{Operads $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$}
 \label{subsubsec:Mag_1_2}
 The reader can check that the rewrite rule $\Afr_2 \Rew \Afr_1$ is a
-convergent presentation of $\Mag^{\{1, 2\}}$. The operads
+convergent orientation of $\Mag^{\{1, 2\}}$. The operads
 $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$ are anti-isomorphic, so that the
-rewrite rule $\Afr_4 \Rew \Afr_5$ is a convergent presentation
+rewrite rule $\Afr_4 \Rew \Afr_5$ is a convergent orientation
 of~$\Mag^{\{4, 5\}}$.
 \medbreak
 
@@ -134,7 +133,8 @@ the following.
 \medbreak
 
 Many graduate sets of combinatorial objects are enumerated by powers of
-$2$. We choose to present a realization of $\Mag^{\{1, 2\}}$ based on
+$2$. We choose to present a combinatorial realization of 
+$\Mag^{\{1, 2\}}$ based on
 integer compositions. Recall that an \Def{integer composition} is a
 finite sequence of positive integers. If
 $a := \left(a_1, \dots, a_p\right)$ is an integer composition, we denote
@@ -171,7 +171,8 @@ where $k \geq 0$ is such that $s_{1, k}(a) \leq i < s_{1, k + 1}(a)$.
 \end{Proposition}
 \begin{proof}
   It is equivalent to show that the operads
-  $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$ are
+  $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$ 
+  are
   isomorphic. The set of normal forms of arity $n$ for the rewrite rule
   $\Afr_2 \Rew \Afr_1$ is
 \begin{equation} \label{equ:Normal_forms_A2}
@@ -238,8 +239,8 @@ realization of $\Mag^{\{4, 5\}}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operads $\Mag^{\{1, 3\}}$ and $\Mag^{\{3, 5\}}$}
 The reader can check that the rewrite rule $\Afr_3 \Rew \Afr_1$ is a
-convergent presentation of $\Mag^{\{1, 3\}}$. Symmetrically, the rewrite
-rule $\Afr_3 \Rew \Afr_5$ is a convergent presentation of
+convergent orientation of $\Mag^{\{1, 3\}}$. Symmetrically, the rewrite
+rule $\Afr_3 \Rew \Afr_5$ is a convergent orientation of
 $\Mag^{\{3, 5\}}$.
 \medbreak
 
@@ -249,7 +250,8 @@ for $n \geq 1,$ $\# \Mag^{\{1, 3\}}(n)$ and $\# \Mag^{\{3, 5\}}(n)$ are
 equal to~\eqref{prop:Close_formula_Mag_1_2}.
 \medbreak
 
-Like in Section~\ref{subsubsec:Mag_1_2}, we choose a realization based on
+Like in Section~\ref{subsubsec:Mag_1_2}, we choose a combinatorial
+ realization based on
 integer compositions. Given an integer $i \geq 1$, we define the
 binary operation
 $\circ_i^{(1,3)} : \Compositions(n) \times \Compositions(n')\rightarrow
@@ -302,9 +304,9 @@ $\left(\Compositions, \circ_i^{(1,3)}\right)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operads $\Mag^{\{1, 4\}}$ and $\Mag^{\{2, 5\}}$}
-The rewrite rule $\Afr_4 \Rew \Afr_1$ is a convergent presentation of
+The rewrite rule $\Afr_4 \Rew \Afr_1$ is a convergent orientation of
 $\Mag^{\{1, 4\}}$. Symmetrically, the rewrite rule $\Afr_2 \Rew \Afr_5$
-is a convergent presentation of $\Mag^{\{2, 5\}}$.
+is a convergent orientation of $\Mag^{\{2, 5\}}$.
 \medbreak
 
 Thanks to~\cite{Gir18}, the Hilbert series of $\Mag^{\{1, 4\}}$ and
@@ -332,7 +334,8 @@ where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$.
 The operad
 $\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ and
 $\left(\Compositions, \circ_i^{(2,5)}\right)$
-are combinatorial realizations of $\Mag^{\{1, 4\}}$ and $\Mag^{\{2, 5\}}$, respectively.
+are combinatorial realizations of $\Mag^{\{1, 4\}}$ and 
+$\Mag^{\{2, 5\}}$, respectively.
 \end{Proposition}
 
 \begin{proof}
@@ -347,7 +350,7 @@ $\left(\Compositions, \circ_i^{(2,5)}\right)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operad $\Mag^{\{2, 4\}}$}
 The rewrite rules $\Afr_2 \Rew \Afr_4$ and $\Afr_4 \Rew \Afr_2$ are both
-convergent presentations of $\Mag^{\{2, 4\}}$. The Hilbert series of
+convergent orientations of $\Mag^{\{2, 4\}}$. The Hilbert series of
 this operad is equal to~\eqref{equ:Hilbert_series_Mag_1_2}.
 \medbreak
 
@@ -370,7 +373,7 @@ where $k \geq 0$  be such that $s_k \leq i < s_{k+1}$.
 
 \begin{Proposition} \label{prop:Realisation_Mag_2_4}
 The operad
-$\left(\Compositions, \bar{\circ}_i^{(2,4)}\right)$
+$\left(\Compositions, \circ_i^{(2,4)}\right)$
 is a combinatorial realization of $\Mag^{\{2, 4\}}$.
 \end{Proposition}
 
@@ -380,15 +383,14 @@ $\Afr_2 \Rew \Afr_4$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
 that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
 the operad $\Mag^{\{2, 4\}}$ to
 $\left(\Compositions, \circ_i^{(2,4)}\right)$.
-\Todo{S: je suis pas sûr ici, il manque peut-être une barre ?}
 \end{proof}
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quotients with complicated presentations}
-We did not found a finite, terminating and confluent presentation
-of the operads $\Mag^{\{2, 3\}}$ and $\Mag^{\{3, 4\}}$.
+\subsection{Quotients with complicated orientations}
+We did not found a finite, terminating and confluent orientation
+for the operads $\Mag^{\{2, 3\}}$ and $\Mag^{\{3, 4\}}$.
 However, thanks to computer explorations, we
 conjecture that the rewrite rules
 \begin{equation}\label{eq:Rules_Mag_3_4}
@@ -567,7 +569,7 @@ conjecture that the rewrite rules
 \end{tikzpicture} \text{ for } k \geq 1.
 \end{split}
 \end{equation}
-form a terminating and confluent presentation of $\Mag^{\{3, 4\}}$.
+form a terminating and confluent orientation of $\Mag^{\{3, 4\}}$.
 \medbreak
 
 From~\eqref{eq:Rules_Mag_3_4}, we also conjecture that the Hilbert
