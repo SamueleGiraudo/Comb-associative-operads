@@ -926,15 +926,21 @@ We obtain the following results.
   \end{math}
 \end{center}
 
-
 From these computer explorations, we conjecture that this algorithm
 does not provide a finite convergent presentation of $\CAs{\gamma}$, 
 when $\gamma \geq 4$.
 
-However, this completion algorithm depends on the other we choose. 
-We might found a finite presentation using a different order.
+However, this completion algorithm depends on the other we choose.
+In order to find out if the completion algorithm leads to a finite 
+presentation using a different order, we run the following algorithm.
 
-\Todo{Expliquer algo et résultats}
+For every branching pair $(\Tfr_1, \Tfr_2)$ which is not joinable,
+we recursively try to find a completion of $\Rew$ with
+the new rule $\Tfr_1 \Rew  \Tfr_2$ and than with the new rule 
+$\Tfr_2 \Rew  \Tfr_1$. If at any moment the rewrite relation induced by
+$\Rew$ loops then we simply reject it.
+
+\Todo{résultats}
 
 We conjecture that there is no finite and convergent presentation
 of $\CAs{\gamma}$ with one generator when $\gamma \geq 4$.
