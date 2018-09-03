@@ -930,13 +930,14 @@ From these computer explorations, we conjecture that this algorithm
 does not provide a finite convergent presentation of $\CAs{\gamma}$, 
 when $\gamma \geq 4$.
 
-However, this completion algorithm depends on the other we choose.
+However, this completion algorithm depends on the order we choose.
 In order to find out if the completion algorithm leads to a finite 
-presentation using a different order, we run the following algorithm.
+convergent presentation using a different order, we run the following
+algorithm.
 
 For every branching pair $(\Tfr_1, \Tfr_2)$ which is not joinable,
 we recursively try to find a completion of $\Rew$ with
-the new rule $\Tfr_1 \Rew  \Tfr_2$ and than with the new rule 
+the new rule $\Tfr_1 \Rew  \Tfr_2$ and with the new rule 
 $\Tfr_2 \Rew  \Tfr_1$. If at any moment the rewrite relation induced by
 $\Rew$ loops then we simply reject it.
 
