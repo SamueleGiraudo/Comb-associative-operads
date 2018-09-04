@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Equating two trees of degree three} \label{sec:MAg_3}
+\section{Equating two cubic trees} \label{sec:MAg_3}
 In this section, we explore all the quotients of $\Mag$ obtained by
 equating two trees of degree $3$. We denote by $\Afr_k$ the $k$-th tree
 of degree $3$ for the lexicographic order, that is
@@ -31,8 +31,8 @@ fit into the six equivalence classes
 \begin{multline}
     \left\{\Mag^{\{1, 2\}}, \Mag^{\{4, 5\}}\right\},
     \left\{\Mag^{\{1, 3\}}, \Mag^{\{3, 5\}}\right\},
-    \left\{\Mag^{\{1, 4\}}, \Mag^{\{2, 5\}}\right\},
-    \left\{\CAs{3}\right\}, \\
+    \left\{\Mag^{\{1, 4\}}, \Mag^{\{2, 5\}}\right\}, \\
+    \left\{\CAs{3}\right\},
     \left\{\Mag^{\{2, 3\}}, \Mag^{\{3, 4\}}\right\},
     \left\{\Mag^{\{2, 4\}}\right\}
 \end{multline}
@@ -47,13 +47,13 @@ following Proposition.
         \item \label{item:recall_anti_isomorphic_1}
         $\HilbertSeries_{\Oca_1}(t) = \HilbertSeries_{\Oca_2}(t)$;
         \item \label{item:recall_anti_isomorphic_2}
-        if $\rightarrow^{(1)}$ is a convergent presentation of
-        $\Oca_1$
-        then the set of rewrite rules $\rightarrow^{(2)}$ defined by
-        \begin{math}
-          \phi(x) \rightarrow^{(2)} \phi(y) \iff x \rightarrow^{(1)} y
-        \end{math}
-        is a convergent presentation of $\Oca_2$.
+        if $\Rew^{(1)}$ is a convergent presentation of
+        $\Oca_1$,
+        then the set of rewrite rules $\Rew^{(2)}$ satisfying
+        $\phi(x) \Rew^{(2)} \phi(y)$
+        for any $x, y \in \Oca_1$ whenever
+        $x \Rew^{(1)} y$,
+        is a convergent presentation of~$\Oca_2$.
     \end{enumerate}
 \end{Proposition}
 \begin{proof}
@@ -64,6 +64,8 @@ following Proposition.
 
     To establish~\ref{item:recall_anti_isomorphic_2},
     \Todo{C : preuve ou référence ?}
+    \Todo{S: je suis presque d'avis de mettre ça en lemme et de ne pas
+    mettre de démo vu que c'est un résultat facile}
 \end{proof}
 \medbreak
 
@@ -82,7 +84,6 @@ for all $x, y \in \Oca$ and $i \in [|x|]$.
         \left(\Oca, \bar{\circ}_i\right)
     \end{math}
     is a combinatorial realization of $\Oca_2$.
-    
 \end{Proposition}
 \begin{proof}
   If $\phi_1$ is isomorphism from $(\Oca, \circ_i)$ to
@@ -92,6 +93,9 @@ for all $x, y \in \Oca$ and $i \in [|x|]$.
 \end{proof}
 \medbreak
 
+\Todo{S: pourquoi avoir séparé ces deux résultats?}
+\Todo{S: sinon, je crois que ça devrait vraiment être plutot des lemmes}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quotients on integer compositions}
@@ -99,6 +103,8 @@ Four among the six equivalence classes of the quotients
 $\Mag^{\{i, j\}}$ of $\Mag$ can be realized in terms of operads on
 integer compositions. Let us review these.
 \medbreak
+
+\Todo{S: pas encore eu le temps de relir en détail.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operads $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$}
@@ -136,7 +142,7 @@ the following.
 \medbreak
 
 Many graduate sets of combinatorial objects are enumerated by powers of
-$2$. We choose to present a combinatorial realization of 
+$2$. We choose to present a combinatorial realization of
 $\Mag^{\{1, 2\}}$ based on
 integer compositions. Recall that an \Def{integer composition} is a
 finite sequence of positive integers. If
@@ -174,7 +180,7 @@ where $k \geq 0$ is such that $s_{1, k}(a) \leq i < s_{1, k + 1}(a)$.
 \end{Proposition}
 \begin{proof}
   It is equivalent to show that the operads
-  $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$ 
+  $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$
   are
   isomorphic. The set of normal forms of arity $n$ for the rewrite rule
   $\Afr_2 \Rew \Afr_1$ is
@@ -337,7 +343,7 @@ where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$.
 The operad
 $\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ and
 $\left(\Compositions, \circ_i^{(2,5)}\right)$
-are combinatorial realizations of $\Mag^{\{1, 4\}}$ and 
+are combinatorial realizations of $\Mag^{\{1, 4\}}$ and
 $\Mag^{\{2, 5\}}$, respectively.
 \end{Proposition}
 
@@ -395,7 +401,7 @@ $\left(\Compositions, \circ_i^{(2,4)}\right)$.
 We did not find finite convergent presentations for the operads
 $\Mag^{\{2, 3\}}$ and $\Mag^{\{3, 4\}}$. However, thanks to
 computer explorations, we
-conjecture that the rewrite rules
+conjecture that the rewrite rules \Todo{S:remettre en forme}
 \begin{equation}\label{eq:Rules_Mag_3_4}
 \begin{split}
 \Afr_4 \Rew \Afr_3,

@@ -1,6 +1,6 @@
 % Author: Cyrille Chenavier, Christophe Cordero, Samuele Giraudo
 % Creation: may. 2018
-% Modifications: may. 2018, june 2018, july 2018, aug. 2018
+% Modifications: may. 2018, june 2018, july 2018, aug. 2018, sep.2018
 
 \documentclass[10pt,reqno]{amsart}
 
@@ -122,18 +122,20 @@ pagebackref=true]{hyperref}
 \newcommand{\Two}{\mathtt{2}}
 \newcommand{\HilbertSeries}{\mathcal{H}}
 \newcommand{\GeneratingSet}{\mathfrak{G}}
-\newcommand{\FreeOperad}{\mathrm{F}}
-\newcommand{\Mag}{\mathsf{Mag}}
-\newcommand{\TwoMag}{2\mathsf{Mag}}
+
+\newcommand{\FreeOperad}{\mathbf{F}}
+\newcommand{\Mag}{\mathbf{Mag}}
+\newcommand{\TwoMag}{2\Mag}
 \newcommand{\KMag}{\K \Angle{\Mag}}
 \newcommand{\QMag}{\mathcal{Q}\left(\KMag\right)}
 \newcommand{\IMag}{\mathcal{I}\left(\KMag\right)}
-\newcommand{\As}{\mathsf{As}}
-\newcommand{\TwoAs}{2\mathsf{As}}
-\newcommand{\CAs}[1]{\mathsf{CAs}^{\left(#1\right)}}
+\newcommand{\As}{\mathbf{As}}
+\newcommand{\TwoAs}{2\As}
 \newcommand{\CAsAll}{\mathbf{CAs}}
+\newcommand{\CAs}[1]{\CAsAll^{\left(#1\right)}}
 \newcommand{\KCAs}[1]{\K\CAs{#1}}
 \newcommand{\KCAsAll}{\K\CAsAll}
+
 \newcommand{\PrefixWord}{\mathrm{p}}
 \newcommand{\Deg}{\mathrm{deg}}
 \newcommand{\LComb}[1]{\mathfrak{c}^{\left(#1\right)}_{\diagup}}
@@ -308,8 +310,8 @@ inner sep=0pt,minimum size=1mm,thick]
     order. Driven by computer experimentation, we provide a finite
     convergent presentation for the comb associative operad in
     correspondence with~$3$. Finally, we study quotients of the magmatic
-    operad by one relation of degree three by studying their Hilbert
-    series and providing combinatorial realizations.
+    operad by one cubic relation by expressing their Hilbert series and
+    providing combinatorial realizations.
 \end{abstract}
 
 \maketitle
