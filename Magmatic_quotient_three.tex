@@ -57,15 +57,22 @@ following Proposition.
     \end{enumerate}
 \end{Proposition}
 \begin{proof}
-    Let us first prove~\ref{item:recall_anti_isomorphic_1}. For any
-    $n \geq 1$, the restriction of $\phi$ from $\Oca_1(n)$ to
-    $\Oca_2(n)$ is a bijection.
-    \smallbreak
+  Point~\ref{item:recall_anti_isomorphic_1} is due to the fact that for
+  any $n \geq 1$, the restriction of $\phi$ from $\Oca_1(n)$ to
+  $\Oca_2(n)$ is a bijection.
+  \smallbreak
 
     To establish~\ref{item:recall_anti_isomorphic_2},
     \Todo{C : preuve ou référence ?}
 \end{proof}
 \medbreak
+
+Given an operad $\Oca$ with partial compositions $\circ_i$, we consider
+the partial compositions $\bar{\circ}_i$ defined by
+\begin{math}
+  x \, \bar{\circ}_i \, y := x \circ_{|x| - i + 1} y
+\end{math}
+for all $x, y \in \Oca$ and $i \in [|x|]$.
 
 \begin{Proposition} \label{prop:realization_anti_isomorphic}
     Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads. If
@@ -74,12 +81,8 @@ following Proposition.
     \begin{math}
         \left(\Oca, \bar{\circ}_i\right)
     \end{math}
-    is a combinatorial realization of $\Oca_2$, where the
-    $\bar{\circ}_i$ are the partial composition maps defined by
-    \begin{math}
-        x \, \bar{\circ}_i \, y := x \circ_{|x| - i + 1} y
-    \end{math}
-    for all $x, y \in \Oca$ and $i \in [|x|]$.
+    is a combinatorial realization of $\Oca_2$.
+    
 \end{Proposition}
 \begin{proof}
   If $\phi_1$ is isomorphism from $(\Oca, \circ_i)$ to
