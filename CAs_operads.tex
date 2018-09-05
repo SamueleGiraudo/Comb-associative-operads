@@ -118,8 +118,8 @@ defining $\As$ so that $\CAs{2} = \As$. Let also
 be the set of all the $\gamma$-comb associative operads.
 \medbreak
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lattice of comb associative operads}
 In order to introduce a lattice structure on $\CAsAll$, we begin by
 studying operad morphisms between its elements by mean of intermediate
@@ -335,7 +335,8 @@ integer~$a$.
     \begin{math}
       \Tfr =
        \LComb{\LRank\left(\Tfr\right)} \circ
-      \left[\, |,\Tfr_1, \dots, \Tfr_{\LRank\left(\Tfr\right)} \right].
+      \left[\, \Leaf \, \Tfr_1, \dots, 
+      \Tfr_{\LRank\left(\Tfr\right)} \right].
     \end{math}
     Thus, if $\Tfr \RewContext \Tfr'$, then one of the following two
     cases occurs:
@@ -344,7 +345,7 @@ integer~$a$.
       that is there exists $\Tfr_i'$ such that
             \begin{math}
               \Tfr' = \LComb{\LRank\left(\Tfr\right)} \circ
-              \left[\, | ,\Tfr_1, \dots, \Tfr_i',\dots,
+              \left[\, \Leaf ,\Tfr_1, \dots, \Tfr_i',\dots,
                     \Tfr_{\LRank\left(\Tfr\right)}
               \right] \mbox{, so that }
               \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right);
@@ -353,7 +354,7 @@ integer~$a$.
             at the root, that is there exists $i$ such that
             \begin{math}
               \Tfr' = \LComb{\LRank\left(\Tfr\right)-\bar{\gamma}} \circ
-              \left[ | ,\Tfr_1, \dots,
+              \left[ \Leaf ,\Tfr_1, \dots,
                  \RComb{\bar{\gamma}} \circ
                  [\Tfr_{i},\dots, \Tfr_{i+\bar{\gamma}}]
                  ,\dots, \Tfr_{\LRank\left(\Tfr\right)}

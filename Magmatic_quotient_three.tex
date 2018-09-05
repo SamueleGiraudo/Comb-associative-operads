@@ -161,59 +161,59 @@ where $k \geq 0$ is such that $s_{1, k}(a) \leq i < s_{1, k + 1}(a)$.
   are
   isomorphic. The set of normal forms of arity $n$ for the rewrite rule
   $\Afr_2 \Rew \Afr_1$ is
-\begin{equation} \label{equ:Normal_forms_A2}
-\left\{ \LComb{k_1 \, ; \, \dots \, ; \, k_p} :
-\left(k_1, \dots, k_p\right) \in \Compositions(n) \right\}
-\end{equation}
-where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is
-$\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1}
-; | \, \right]$.
-Thus, the function
-$\phi : \Mag^{\{1, 2\}}(n) \Rew \Compositions(n)$ defined by
-\begin{equation} \label{equ:Morphism_A2}
-\phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
-\left(k_1 ; \dots ; k_p  \right)
-\end{equation}
-is a bijection. Let us show that $\phi$ is an operad morphism. Given
-\begin{equation}
-  a := \LComb{a_1 \, ; \, \dots \, ; \, a_p} \in \Mag^{\{1, 2\}}(n)
-  \text{ and }
-  b := \LComb{b_1 \, ; \, \dots \, ; \, b_q} \in \Mag^{\{1, 2\}}(n'),
-\end{equation}
-$a \circ_n b$ equals $\LComb{a_1 \, ; \, \dots \, ; \, a_p
- \, ; \, b_1 \, ; \, \dots \, ; \, b_q}$, so that
- $\phi\left(a \circ_n b\right) = \phi\left(a\right) \circ_n^{(1,2)}
- \phi\left(b\right)$. Let $1 \leq i < n$ and let $k$ be such that
- $s_{(1, k)}(a) \leq i < s_{(1, k+1)}(a)$, so that $a \circ_i b$ equals
-\begin{equation} \label{equ:Rewriting_1_Mag_1_2}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
-\LComb{a_{k+1}-1}
-\circ_{i-s_{(1,k)}(a)} b  ; \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ;
-| \, \right]
-\end{equation}
-is rewritable into
-\begin{equation}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; \left(
-\LComb{a_{k+1}-1} \circ_{i-s_{(1,k)}(a)}  \LComb{b_1} \right)
-\circ_{i-s_{(1,k)}(a)+b_1} \LComb{b_2 \, ; \, \dots \, ; \, b_q} ;
-\LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ; | \, \right]
-\end{equation}
-which is rewritable into
-\begin{equation} \label{equ:Rewriting_2_Mag_1_2}
-\RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
-\LComb{a_{k+1}-1+b_1} \circ_{i-s_{(1,k)}(a)+b_1}
-\LComb{b_2 \, ; \, \dots \, ; \, b_q}  ; \LComb{a_{k+2}-1} ; \dots;
-\LComb{a_p-1} ; | \, \right]
-\end{equation}
- in $b_1$ steps. By iterating $q-1$ times the process
-$\eqref{equ:Rewriting_1_Mag_1_2} \rightarrow
-\eqref{equ:Rewriting_2_Mag_1_2}$, we get
-\begin{equation}
-a \circ_i b \rightarrow \LComb{a_1 \, ; \, \dots \, ; \, a_{k} \, ; \,
-a_{k+1} + n'-1 \, ; \, a_{k+2} \, ; \, \dots \, ; \, a_p},
-\end{equation}
-so that $\phi(a \circ_i b) = \phi(a) \circ_i^{(1,2)} \phi(b)$, that is
-$\phi$ is an operad morphism.
+  \begin{equation} \label{equ:Normal_forms_A2}
+    \left\{ \LComb{k_1 \, ; \, \dots \, ; \, k_p} :
+    \left(k_1, \dots, k_p\right) \in \Compositions(n) \right\}
+  \end{equation}
+  where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is
+  $\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1}
+  ; \Leaf \, \right]$.
+  Thus, the function
+  $\phi : \Mag^{\{1, 2\}}(n) \Rew \Compositions(n)$ defined by
+  \begin{equation} \label{equ:Morphism_A2}
+    \phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
+    \left(k_1 ; \dots ; k_p  \right)
+  \end{equation}
+  is a bijection. Let us show that $\phi$ is an operad morphism. Given
+  \begin{equation}
+    a := \LComb{a_1 \, ; \, \dots \, ; \, a_p} \in \Mag^{\{1, 2\}}(n)
+    \text{ and }
+    b := \LComb{b_1 \, ; \, \dots \, ; \, b_q} \in \Mag^{\{1, 2\}}(n'),
+  \end{equation}
+  $a \circ_n b$ equals $\LComb{a_1 \, ; \, \dots \, ; \, a_p
+   \, ; \, b_1 \, ; \, \dots \, ; \, b_q}$, so that
+  $\phi\left(a \circ_n b\right) = \phi\left(a\right) \circ_n^{(1,2)}
+  \phi\left(b\right)$. Let $1 \leq i < n$ and let $k$ be such that
+  $s_{(1, k)}(a) \leq i < s_{(1, k+1)}(a)$, so that $a \circ_i b$ equals
+  \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
+    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
+    \LComb{a_{k+1}-1}
+    \circ_{i-s_{(1,k)}(a)} b ; \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1};
+    \Leaf \, \right]
+  \end{equation}
+  is rewritable into
+  \begin{equation}
+    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; \left(
+    \LComb{a_{k+1}-1} \circ_{i-s_{(1,k)}(a)}  \LComb{b_1} \right)
+    \circ_{i-s_{(1,k)}(a)+b_1} \LComb{b_2 \, ; \, \dots \, ; \, b_q} ;
+    \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ; \Leaf \, \right]
+  \end{equation}
+  which is rewritable into
+  \begin{equation} \label{equ:Rewriting_2_Mag_1_2}
+    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
+    \LComb{a_{k+1}-1+b_1} \circ_{i-s_{(1,k)}(a)+b_1}
+    \LComb{b_2 \, ; \, \dots \, ; \, b_q}  ; \LComb{a_{k+2}-1} ; \dots;
+    \LComb{a_p-1} ; \Leaf \, \right]
+  \end{equation}
+  in $b_1$ steps. By iterating $q-1$ times the process
+  $\eqref{equ:Rewriting_1_Mag_1_2} \rightarrow
+  \eqref{equ:Rewriting_2_Mag_1_2}$, we get
+  \begin{equation}
+    a \circ_i b \rightarrow \LComb{a_1 \, ; \, \dots \, ; \, a_{k} \,;\,
+    a_{k+1} + n'-1 \, ; \, a_{k+2} \, ; \, \dots \, ; \, a_p},
+  \end{equation}
+  so that $\phi(a \circ_i b) = \phi(a) \circ_i^{(1,2)} \phi(b)$, that is
+  $\phi$ is an operad morphism.
 \end{proof}
 \medbreak
 
@@ -261,30 +261,30 @@ $k+1 + s_{(k+1,p)}(a) < i \leq k + s_{(k,p)}(a)$.
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_3}
-The operads
-$\left(\Compositions, \circ_i^{(1,3)}\right)$
-and $\left(\Compositions, \bar{\circ}_i^{(1,3)}\right)$
-are combinatorial realizations of $\Mag^{\{1, 3\}}$ and $\Mag^{\{3, 5\}}$,
+  The operads $\left(\Compositions, \circ_i^{(1,3)}\right)$
+  and $\left(\Compositions, \bar{\circ}_i^{(1,3)}\right)$
+  are combinatorial realizations of $\Mag^{\{1, 3\}}$ and 
+  $\Mag^{\{3, 5\}}$,
 respectively.
 \end{Proposition}
-\begin{proof}
-The set of normal forms of arity $n$ for the rewrite rule
-$\Afr_3 \Rew \Afr_1$ is
-\begin{equation}
-\left\{ \Lightning{k_1 \, ; \, \dots \, ; \, k_p} :
-\left(k_1, \dots, k_p\right) \in \Compositions(n) \right\}
-\end{equation}
-where $\Lightning{k_1 \, ; \, \dots \, ; \, k_p}$ is
-$\LComb{k_1} \circ_2 \left( \LComb{k_2} \circ_2 \left( \cdots \left(
-\LComb{k_{p-1}} \circ_2 \LComb{k_p} \right) \cdots \right) \right)$.
-Thus, we can show that the function
-$\phi : \Mag^{\{1, 3\}}(n) \rightarrow \Compositions(n)$ defined by
-\begin{equation}
-\phi\left( \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
-\left(k_1 ; \dots ; k_p \right)
-\end{equation}
-is an operad isomorphism from the operad $\Mag^{\{1, 3\}}$ to
-$\left(\Compositions, \circ_i^{(1,3)}\right)$.
+  \begin{proof}
+    The set of normal forms of arity $n$ for the rewrite rule
+    $\Afr_3 \Rew \Afr_1$ is
+    \begin{equation}
+      \left\{ \Lightning{k_1 \, ; \, \dots \, ; \, k_p} :
+      \left(k_1, \dots, k_p\right) \in \Compositions(n) \right\}
+    \end{equation}
+    where $\Lightning{k_1 \, ; \, \dots \, ; \, k_p}$ is
+    $\LComb{k_1} \circ_2 \left( \LComb{k_2} \circ_2 \left( \cdots \left(
+    \LComb{k_{p-1}} \circ_2 \LComb{k_p} \right) \cdots \right) \right)$.
+    Thus, we can show that the function
+    $\phi : \Mag^{\{1, 3\}}(n) \rightarrow \Compositions(n)$ defined by
+    \begin{equation}
+      \phi\left( \Lightning{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
+      \left(k_1 ; \dots ; k_p \right)
+    \end{equation}
+    is an operad isomorphism from the operad $\Mag^{\{1, 3\}}$ to
+    $\left(\Compositions, \circ_i^{(1,3)}\right)$.
 \end{proof}
 \medbreak
 
@@ -317,19 +317,17 @@ where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$.
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_4}
-The operad
-$\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ and
-$\left(\Compositions, \circ_i^{(2,5)}\right)$
-are combinatorial realizations of $\Mag^{\{1, 4\}}$ and
-$\Mag^{\{2, 5\}}$, respectively.
+  The operad $\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ and
+  $\left(\Compositions, \circ_i^{(2,5)}\right)$
+  are combinatorial realizations of $\Mag^{\{1, 4\}}$ and
+  $\Mag^{\{2, 5\}}$, respectively.
 \end{Proposition}
 
 \begin{proof}
-The set of normal forms of arity $n$ for the rewrite rule
-$\Afr_2 \Rew \Afr_5$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
-that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
-$\Mag^{\{2, 5\}}$ to
-$\left(\Compositions, \circ_i^{(2,5)}\right)$.
+  The set of normal forms of arity $n$ for the rewrite rule
+  $\Afr_2 \Rew \Afr_5$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
+  that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
+  $\Mag^{\{2, 5\}}$ to $\left(\Compositions, \circ_i^{(2,5)}\right)$.
 \end{proof}
 \medbreak
 
@@ -358,17 +356,16 @@ where $k \geq 0$  be such that $s_k \leq i < s_{k+1}$.
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_2_4}
-The operad
-$\left(\Compositions, \circ_i^{(2,4)}\right)$
-is a combinatorial realization of $\Mag^{\{2, 4\}}$.
+  The operad $\left(\Compositions, \circ_i^{(2,4)}\right)$
+  is a combinatorial realization of $\Mag^{\{2, 4\}}$.
 \end{Proposition}
 
 \begin{proof}
-The set of normal forms of arity $n$ for the rewrite rule
-$\Afr_2 \Rew \Afr_4$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
-that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
-the operad $\Mag^{\{2, 4\}}$ to
-$\left(\Compositions, \circ_i^{(2,4)}\right)$.
+  The set of normal forms of arity $n$ for the rewrite rule
+  $\Afr_2 \Rew \Afr_4$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
+  that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
+  the operad $\Mag^{\{2, 4\}}$ to
+  $\left(\Compositions, \circ_i^{(2,4)}\right)$.
 \end{proof}
 \medbreak
 
@@ -380,9 +377,9 @@ $\Mag^{\{2, 3\}}$ and $\Mag^{\{3, 4\}}$. However, thanks to
 computer explorations, we
 conjecture that the rewrite rules \Todo{S:remettre en forme}
 \begin{equation}\label{eq:Rules_Mag_3_4}
-\begin{split}
-\Afr_4 \Rew \Afr_3,
-\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+  \begin{split}
+  \Afr_4 \Rew \Afr_3,
+  \begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-8.25){};
     \node(10)at(10.00,-8.25){};
     \node(2)at(2.00,-8.25){};
@@ -406,9 +403,9 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](9)--(7);
     \node(r)at(5.00,2.06){};
     \draw[Edge](r)--(5);
-\end{tikzpicture}
-\Rew
-\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+  \end{tikzpicture}
+  \Rew
+  \begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-5.50){};
     \node(10)at(10.00,-8.25){};
     \node(2)at(2.00,-8.25){};
@@ -432,8 +429,8 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](9)--(7);
     \node(r)at(5.00,2.06){};
     \draw[Edge](r)--(5);
-\end{tikzpicture},
-\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+  \end{tikzpicture},
+  \begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-10.40){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -461,9 +458,9 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.95){};
     \draw[Edge](r)--(9);
-\end{tikzpicture}
-\Rew
-\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+  \end{tikzpicture}
+  \Rew
+  \begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
     \node(0)at(0.00,-7.80){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -491,8 +488,8 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.95){};
     \draw[Edge](r)--(9);
-\end{tikzpicture},\\
-\begin{tikzpicture}[xscale=.23,yscale=.18,Centering]
+  \end{tikzpicture},\\
+  \begin{tikzpicture}[xscale=.23,yscale=.18,Centering]
     \node(0)at(0.00,-8.67){};
     \node(10)at(10.00,-4.33){};
     \node(12)at(12.00,-4.33){};
@@ -521,9 +518,9 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.62){};
     \draw[Edge](r)--(9);
-\end{tikzpicture}
-\Rew
-\begin{tikzpicture}[xscale=.22,yscale=.18,Centering]
+  \end{tikzpicture}
+  \Rew
+  \begin{tikzpicture}[xscale=.22,yscale=.18,Centering]
     \node(0)at(0.00,-7.80){};
     \node(10)at(10.00,-5.20){};
     \node(12)at(12.00,-5.20){};
@@ -552,8 +549,8 @@ conjecture that the rewrite rules \Todo{S:remettre en forme}
     \draw[Edge](8)--(7);
     \node(r)at(9.00,1.95){};
     \draw[Edge](r)--(9);
-\end{tikzpicture} \text{ for } k \geq 1.
-\end{split}
+  \end{tikzpicture} \text{ for } k \geq 1.
+  \end{split}
 \end{equation}
 form a convergent presentation of $\Mag^{\{3, 4\}}$.
 \medbreak
