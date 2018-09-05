@@ -40,9 +40,15 @@ of anti-isomorphic operads. Anti-isomorphic operads are linked by the
 following Proposition.
 \medbreak
 
-\Todo{Fusionner les deux propositions et en faire un lemme, écrire aucune
-preuve et dire qu'elles sony easy}
-\begin{Lemma} \label{prop:recall_anti_isomorphic}
+Given an operad $\Oca$ with partial compositions $\circ_i$, we consider
+the partial compositions $\bar{\circ}_i$ defined by
+\begin{math}
+  x \, \bar{\circ}_i \, y := x \circ_{|x| - i + 1} y
+\end{math}
+for all $x, y \in \Oca$ and $i \in [|x|]$. The reader can easily check
+the assertions of the following lemma.
+
+\begin{Lemma} \label{lem:recall_anti_isomorphic}
   Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads and let
   $\phi$ be an anti-isomorphism between $\Oca_1$ and $\Oca_2$. Then,
     \begin{enumerate}[label={(\it\roman*)}]
@@ -56,47 +62,16 @@ preuve et dire qu'elles sony easy}
         for any $x, y \in \Oca_1$ whenever
         $x \Rew^{(1)} y$,
         is a convergent presentation of~$\Oca_2$.
+      \item\label{item:realization_anti_isomorphic}
+        If $\left(\Oca, \circ_i\right)$ is a combinatorial realization of
+        $\Oca_1$, then
+        \begin{math}
+          \left(\Oca, \bar{\circ}_i\right)
+        \end{math}
+        is a combinatorial realization of $\Oca_2$.
     \end{enumerate}
 \end{Lemma}
-\begin{proof}
-  Point~\ref{item:recall_anti_isomorphic_1} is due to the fact that for
-  any $n \geq 1$, the restriction of $\phi$ from $\Oca_1(n)$ to
-  $\Oca_2(n)$ is a bijection.
-  \smallbreak
-
-    To establish~\ref{item:recall_anti_isomorphic_2},
-    \Todo{C : preuve ou référence ?}
-    \Todo{S: je suis presque d'avis de mettre ça en lemme et de ne pas
-    mettre de démo vu que c'est un résultat facile}
-\end{proof}
 \medbreak
-
-Given an operad $\Oca$ with partial compositions $\circ_i$, we consider
-the partial compositions $\bar{\circ}_i$ defined by
-\begin{math}
-  x \, \bar{\circ}_i \, y := x \circ_{|x| - i + 1} y
-\end{math}
-for all $x, y \in \Oca$ and $i \in [|x|]$.
-
-\begin{Proposition} \label{prop:realization_anti_isomorphic}
-    Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads. If
-    $\left(\Oca, \circ_i\right)$ is a combinatorial realization of
-    $\Oca_1$, then
-    \begin{math}
-        \left(\Oca, \bar{\circ}_i\right)
-    \end{math}
-    is a combinatorial realization of $\Oca_2$.
-\end{Proposition}
-\begin{proof}
-  If $\phi_1$ is isomorphism from $(\Oca, \circ_i)$ to
-  $\Oca_1$ and $\phi$ an anti-isomorphism from $\Oca_1$ to $\Oca_2$,
-  then $\phi \circ \phi_1$ is an isomorphism from
-  $(\Oca, \bar{\circ}_i)$ to $\Oca_2$.
-\end{proof}
-\medbreak
-
-\Todo{S: pourquoi avoir séparé ces deux résultats?}
-\Todo{S: sinon, je crois que ça devrait vraiment être plutot des lemmes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,7 +217,7 @@ $\phi$ is an operad morphism.
 \end{proof}
 \medbreak
 
-From proposition~\ref{prop:recall_anti_isomorphic}, we deduce that
+From Lemma~\ref{lem:recall_anti_isomorphic}, we deduce that
 $\left(\Compositions, \bar{\circ}_i^{(1,2)}\right)$ is a combinatorial
 realization of $\Mag^{\{4, 5\}}$.
 \medbreak
