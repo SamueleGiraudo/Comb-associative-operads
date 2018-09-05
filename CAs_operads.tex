@@ -321,13 +321,12 @@ integer~$a$.
     \end{equation}
 \end{Lemma}
 \begin{proof}
-  \Todo{Mettre les pmod}
-    We consider the rewrite rule $\LComb{\gamma} \Rew \RComb{\gamma}$
+  We consider the rewrite rule $\LComb{\gamma} \Rew \RComb{\gamma}$
     on $\Mag$. First, we show that
     \begin{equation} \label{eq:rewriting_invariant}
         \Tfr \RewContext \Tfr'
         \mbox{ implies }
-        \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right)
+        \LRank\left(\Tfr'\right) \pmod{\bar{\gamma}} = \LRank\left(\Tfr\right)
         \, \pmod{\bar{\gamma}}.
     \end{equation}
     Indeed, for all $\Tfr \in \Mag$, let
@@ -335,13 +334,14 @@ integer~$a$.
     such that
     \begin{math}
       \Tfr =
+       \LComb{\LRank\left(\Tfr\right)} \circ
       \left[\, |,\Tfr_1, \dots, \Tfr_{\LRank\left(\Tfr\right)} \right].
     \end{math}
-    \Todo{S: notation ? Je n'ai pas encore bien relu cette démo.}
     Thus, if $\Tfr \RewContext \Tfr'$, then one of the following two
     cases occurs:
     \begin{enumerate}[label={(\it\roman*)}]
-        \item there exists $\Tfr_i'$ such that
+    \item the rewrite step is applied on one of the trees $\Tfr_i$,
+      that is there exists $\Tfr_i'$ such that
             \begin{math}
               \Tfr' = \LComb{\LRank\left(\Tfr\right)} \circ
               \left[\, | ,\Tfr_1, \dots, \Tfr_i',\dots,
@@ -349,7 +349,8 @@ integer~$a$.
               \right] \mbox{, so that }
               \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right);
             \end{math}
-        \item there exists $i$ such that
+          \item the rewrite step is applied in the left branch beginning
+            at the root, that is there exists $i$ such that
             \begin{math}
               \Tfr' = \LComb{\LRank\left(\Tfr\right)-\bar{\gamma}} \circ
               \left[ | ,\Tfr_1, \dots,
@@ -370,8 +371,8 @@ integer~$a$.
     relation $\simeq$ defined by
     \begin{equation}
         \Tfr \simeq \Tfr' \mbox{ if and only if }
-        \LRank\left(\Tfr'\right) = \LRank\left(\Tfr\right)
-        \, \pmod{\bar{\gamma}}
+        \LRank\left(\Tfr'\right) \pmod{\bar{\gamma}} =
+        \LRank\left(\Tfr\right) \, \pmod{\bar{\gamma}}
     \end{equation}
     contains the relation $\RewContext$, so that it contains its
     transitive symmetric closure. The latter is $\CongrCAs{\gamma}$,
@@ -817,7 +818,9 @@ the following consequences.
 For $n \leq 10$, the dimensions of $\CAs{3}(n)$ are provided by
 Sequence~\eqref{equ:dimensions_CAs_3} and for all $n \geq 11$, the
 Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
-$\# \CAs{3}(n) = n + 3$.
+\begin{equation}
+  \# \CAs{3}(n) = n + 3.
+  \end{equation}
 \medbreak
 
 \Todo{S: réalisation combinatoire de $\CAs{3}$ à donner ici.}
@@ -857,19 +860,20 @@ We obtain the following results.
 
 From these computer explorations, we conjecture that this algorithm
 does not provide a finite convergent presentation of $\CAs{\gamma}$,
-when $\gamma \geq 4$.
+when $\gamma \geq 4$. We point out that for $\CAs{4}$ new
+rewrite rules still appear at degree $41$. Moreover, the total number of
+rewrite rules at degree $41$ is $3149$.
 \medbreak
 
-\Todo{S: j'ai un peu réécrit les explications suivantes, vérifier que
-je n'ai pas introduit de bétise(s).}
 However, the completion algorithm we used depends on the chosen order on
 the trees. In order to find out if the completion algorithm leads to a
 finite convergent presentation using a different order, we run the
-following algorithm. For every branching pair $(\Tfr_1, \Tfr_2)$ which
-is not joinable, we recursively try to find a completion of $\Rew$ by
-adding either the rule $\Tfr_1 \Rew  \Tfr_2$ or $\Tfr_2 \Rew  \Tfr_1$.
-If at any moment the rewrite relation induced by $\Rew$ is no
-antisymmetric, we simply reject it.
+following backtracking algorithm. For every branching pair
+$(\Tfr_1, \Tfr_2)$ which is not joinable, we recursively try to find a
+completion of $\Rew$ by adding either the rule
+$\Tfr_1 \Rew  \Tfr_2$ or $\Tfr_2 \Rew  \Tfr_1$.
+If at any moment the rewrite relation $\RewContext$ induced by $\Rew$
+loops (that is $\RewContext$ is not antisymmetric), we simply reject it.
 \medbreak
 
 We did not find a finite presentation for $\CAs{4}$, $\CAs{5}$, and

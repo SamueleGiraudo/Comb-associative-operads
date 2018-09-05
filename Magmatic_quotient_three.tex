@@ -40,7 +40,9 @@ of anti-isomorphic operads. Anti-isomorphic operads are linked by the
 following Proposition.
 \medbreak
 
-\begin{Proposition} \label{prop:recall_anti_isomorphic}
+\Todo{Fusionner les deux propositions et en faire un lemme, écrire aucune
+preuve et dire qu'elles sony easy}
+\begin{Lemma} \label{prop:recall_anti_isomorphic}
   Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads and let
   $\phi$ be an anti-isomorphism between $\Oca_1$ and $\Oca_2$. Then,
     \begin{enumerate}[label={(\it\roman*)}]
@@ -55,7 +57,7 @@ following Proposition.
         $x \Rew^{(1)} y$,
         is a convergent presentation of~$\Oca_2$.
     \end{enumerate}
-\end{Proposition}
+\end{Lemma}
 \begin{proof}
   Point~\ref{item:recall_anti_isomorphic_1} is due to the fact that for
   any $n \geq 1$, the restriction of $\phi$ from $\Oca_1(n)$ to
@@ -192,7 +194,7 @@ where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is
 $\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1}
 ; | \, \right]$.
 Thus, the function
-$\phi : \Mag^{\{1, 2\}}(n) \rightarrow \Compositions(n)$ defined by
+$\phi : \Mag^{\{1, 2\}}(n) \Rew \Compositions(n)$ defined by
 \begin{equation} \label{equ:Morphism_A2}
 \phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
 \left(k_1 ; \dots ; k_p  \right)
@@ -596,6 +598,6 @@ By Taylor expansion, we have the sequence
 for the first dimensions of $\Mag^{\{2, 3\}}$ and $\Mag^{\{3, 4\}}$.
 For $n \geq 5$,
 \begin{equation}
-    \Mag^{\{2, 3\}}(n) =\Mag^{\{3, 4\}}(n) = \frac{n(n+1)}{2} - 7.
+    \#\Mag^{\{2, 3\}}(n) =\#\Mag^{\{3, 4\}}(n) = \frac{n(n+1)}{2} - 7.
 \end{equation}
 \medbreak
