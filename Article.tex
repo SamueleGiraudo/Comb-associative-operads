@@ -18,7 +18,24 @@
 
 % Colors of hyperlinks.
 \usepackage{xcolor}
-\input{Colors}
+
+\definecolor{ColBlack}{RGB}{0,0,0} % Black.
+\definecolor{ColWhite}{RGB}{255,255,255} % White.
+\definecolor{Col1}{RGB}{133,6,6} % Rouge sang.
+\definecolor{Col2}{RGB}{198,8,0} % Rouge ponceau.
+\definecolor{Col3}{RGB}{174,74,52} % Rouge tomette.
+\definecolor{Col4}{RGB}{103,113,121} % Gris de Payne.
+\definecolor{Col5}{RGB}{90,94,107} % Ardoise.
+\definecolor{Col6}{RGB}{70,63,50} % Taupe.
+
+\newcommand{\ColBlack}[1]{\textcolor{ColBlack}{#1}}
+\newcommand{\ColWhite}[1]{\textcolor{ColWhite}{#1}}
+\newcommand{\ColA}[1]{\textcolor{Col1}{#1}}
+\newcommand{\ColB}[1]{\textcolor{Col2}{#1}}
+\newcommand{\ColC}[1]{\textcolor{Col3}{#1}}
+\newcommand{\ColD}[1]{\textcolor{Col4}{#1}}
+\newcommand{\ColE}[1]{\textcolor{Col5}{#1}}
+\newcommand{\ColF}[1]{\textcolor{Col6}{#1}}
 
 \usepackage[hyperindex=true,frenchlinks=true,colorlinks=true,
 citecolor=Col2,linkcolor=Col3,urlcolor=Col4,linktocpage,
@@ -60,6 +77,9 @@ pagebackref=true]{hyperref}
 
 % To allow cutting equations in several pages.
 \allowdisplaybreaks
+
+% Reduce first verical spacing of multicols.
+\setlength\multicolsep{0pt}
 
 % Numbering of equations.
 \numberwithin{equation}{subsection}
@@ -103,8 +123,20 @@ pagebackref=true]{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Tools}
+% Tools macros.
+\newcommand{\Todo}[1]{\textcolor{Col1}{{\tt TODO: $[$#1$]$}}}
+\newcommand{\Hide}[1]{\textcolor{Col4}{\tt [hidden]}}
 
+% Format macros.
+\newcommand{\Def}[1]{\textcolor{Col3}{\em #1}}
+\newcommand{\OEIS}[1]{\href{http://oeis.org/#1}{{\bf #1}}}
+\newcommand{\Arxiv}[1]{\href{https://arxiv.org/abs/#1}{\tt arXiv:#1}}
+
+% Tikz for vertical centering.
+\tikzstyle{Centering}=[{baseline={([yshift=-0.5ex]current
+    bounding box.center)}}]
+
+% Other.
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -195,7 +227,6 @@ inner sep=0pt,minimum size=1mm,thick]
 \tikzstyle{Map}=[ColBlack!100,draw,-{>[scale=1.5,length=4,width=5]}]
 
 % Tree drawings.
-
 \newcommand{\TreeA}{
 \begin{tikzpicture}[xscale=.22,yscale=.23,Centering]
     \node(0)at(0.00,-5.25){};
