@@ -14,9 +14,9 @@ trees.
 \subsection{Nonsymmetric operads}
 A \Def{nonsymmetric operad in the category of sets} (or a
 \Def{nonsymmetric operad} for short) is a graded set
-\begin{equation}
+\begin{math}
     \Oca = \bigsqcup_{n \geq 1} \Oca(n)
-\end{equation}
+\end{math}
 together with maps
 \begin{equation}
     \circ_i : \Oca(n) \times \Oca(m) \to \Oca(n + m - 1),
@@ -77,14 +77,12 @@ $\Oca_2$ are the ones of $\Oca_1$ restricted on $\Oca_2$. For any subset
 $\GeneratingSet$ of $\Oca$, the \Def{operad generated} by
 $\GeneratingSet$ is the smallest suboperad $\Oca^\GeneratingSet$ of
 $\Oca$ containing $\GeneratingSet$. When $\Oca = \Oca^\GeneratingSet$,
-we say that $\GeneratingSet$ is a \Def{generating set} of $\Oca$. In
-this case, and when additionally $\GeneratingSet$ is minimal among all
-the subsets of $\Oca$ satisfying this property, $\GeneratingSet$ is a
-\Def{minimal} generating set of $\Oca$. An \Def{operad congruence} is an
-equivalence relation $\Congr$ on $\Oca$ such that $\Congr$ respects the
-arities, and for any $x, x', y, y' \in \Oca$ such that $x \Congr x'$ and
-$y \Congr y'$, $x \circ_i y$ is $\Congr$-equivalent to $x' \circ_i y'$
-for any valid integer $i$. Given an operad congruence $\Congr$, the
+we say that $\GeneratingSet$ is a \Def{generating set} of $\Oca$. An
+\Def{operad congruence} is an equivalence relation $\Congr$ on $\Oca$
+such that $\Congr$ respects the arities, and for any
+$x, x', y, y' \in \Oca$ such that $x \Congr x'$ and $y \Congr y'$,
+$x \circ_i y$ is $\Congr$-equivalent to $x' \circ_i y'$ for any valid
+integer $i$. Given an operad congruence $\Congr$, the
 \Def{quotient operad} $\Oca/_{\Congr}$ of $\Oca$ by $\Congr$ is the
 operad of all $\Congr$-equivalence classes endowed with the partial
 composition maps defined in the obvious way. In the case where all the
@@ -116,7 +114,7 @@ set-theoretic operad~$B$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Binary trees and magmatic operad}
+\subsection{Binary trees and the magmatic operad}
 A \Def{binary tree} is either the \Def{leaf} $\Leaf$ or a pair
 $(\Tfr_1, \Tfr_2)$ of binary trees. We use the standard terminology
 about binary trees (such as \Def{root}, \Def{internal node},
@@ -127,7 +125,7 @@ internal nodes). A binary tree $\Tfr$ is \Def{quadratic} (resp.
 \Def{cubic}) if $\Deg(\Tfr) = 2$ (resp. $\Deg(\Tfr) = 3$). We shall draw
 binary trees the root to the top. For instance,
 \begin{equation}
-    \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
+    \begin{tikzpicture}[xscale=.15,yscale=.16,Centering]
         \node(0)at(0.00,-4.50){};
         \node(2)at(2.00,-6.75){};
         \node(4)at(4.00,-6.75){};
@@ -145,7 +143,7 @@ binary trees the root to the top. For instance,
         \draw[Edge](6)--(7);
         \draw[Edge](7)--(5);
         \draw[Edge](8)--(7);
-        \node(r)at(5.00,2){};
+        \node(r)at(5.00,2.25){};
         \draw[Edge](r)--(5);
     \end{tikzpicture}
 \end{equation}
@@ -162,7 +160,7 @@ given two binary trees $\Tfr$ and $\Sfr$, $\Tfr \circ_i \Sfr$ is the
 binary tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
 (numbered from left to right) of $\Tfr$. For instance,
 \begin{equation} \label{equ:example_composition_mag}
-    \begin{tikzpicture}[xscale=.15,yscale=.18,Centering]
+    \begin{tikzpicture}[xscale=.15,yscale=.16,Centering]
         \node(0)at(0.00,-4.50){};
         \node(2)at(2.00,-6.75){};
         \node(4)at(4.00,-6.75){};
@@ -180,7 +178,7 @@ binary tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
         \draw[Edge](6)--(7);
         \draw[Edge](7)--(5);
         \draw[Edge](8)--(7);
-        \node(r)at(5.00,2){};
+        \node(r)at(5.00,2.25){};
         \draw[Edge](r)--(5);
     \end{tikzpicture}
     \enspace \circ_4 \enspace
@@ -202,7 +200,7 @@ binary tree obtained by grafting the root of $\Sfr$ onto the $i$th leaf
         \draw[Edge](r)--(3);
     \end{tikzpicture}
     \enspace = \enspace
-    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+    \begin{tikzpicture}[xscale=.15,yscale=.12,Centering]
         \node(0)at(0.00,-6.00){};
         \node(10)at(10.00,-12.00){};
         \node(12)at(12.00,-12.00){};
@@ -269,7 +267,7 @@ $f = \phi \circ \Corolla$, where $\Corolla$ is the map sending
 $\Product'$ to the unique binary tree of degree $1$ (and then, arity
 $2$). In other terms, the diagram
 \begin{equation}
-    \begin{tikzpicture}[xscale=1.3,yscale=1.1,Centering]
+    \begin{tikzpicture}[xscale=1.3,yscale=0.9,Centering]
         \node(G)at(0,0){\begin{math}\GeneratingSet\end{math}};
         \node(O)at(2,0){\begin{math}\Oca\end{math}};
         \node(AG)at(0,-2){\begin{math}\Mag\end{math}};
@@ -290,7 +288,7 @@ right depth-first traversal of $\Tfr$ and by writing $\Zero$ (resp.
 $\Two$) when a leaf (resp. an internal node) is encountered. For
 instance,
 \begin{equation}
-    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+    \begin{tikzpicture}[xscale=.15,yscale=.12,Centering]
         \node(0)at(0.00,-6.00){};
         \node(10)at(10.00,-12.00){};
         \node(12)at(12.00,-12.00){};
@@ -335,7 +333,7 @@ $\PrefixWord(\Tfr) \leq \PrefixWord(\Tfr')$. Let also the
 \Def{left rank} of $\Tfr$ as the number $\LRank(\Tfr)$ of internal
 nodes in the left branch beginning at the root of $\Tfr$. For instance,
 \begin{equation}
-    \begin{tikzpicture}[xscale=.15,yscale=.14,Centering]
+    \begin{tikzpicture}[xscale=.15,yscale=.12,Centering]
         \node(0)at(0.00,-9.00){};
         \node(10)at(10.00,-9.00){};
         \node(12)at(12.00,-9.00){};
@@ -420,7 +418,7 @@ by replacing a subtree $\Sfr$ of $\Tfr$ by $\Sfr'$ whenever
 $\Sfr \Rew \Sfr'$. For instance, if $\Rew$ is the set of rewrite rules
 containing the single rewrite rule
 \begin{equation} \label{equ:example_rewrite_rule}
-    \begin{tikzpicture}[xscale=.22,yscale=.22,Centering]
+    \begin{tikzpicture}[xscale=.22,yscale=.21,Centering]
         \node(0)at(0.00,-3.50){};
         \node(2)at(2.00,-5.25){};
         \node(4)at(4.00,-5.25){};
@@ -438,7 +436,7 @@ containing the single rewrite rule
         \draw[Edge](r)--(5);
     \end{tikzpicture}
     \enspace \Rew \enspace
-    \begin{tikzpicture}[xscale=.22,yscale=.22,Centering]
+    \begin{tikzpicture}[xscale=.22,yscale=.21,Centering]
         \node(0)at(0.00,-1.75){};
         \node(2)at(2.00,-3.50){};
         \node(4)at(4.00,-5.25){};
@@ -458,7 +456,7 @@ containing the single rewrite rule
 \end{equation}
 one has
 \begin{equation} \label{equ:example_rewrite_step}
-    \begin{tikzpicture}[xscale=.19,yscale=.14,Centering]
+    \begin{tikzpicture}[xscale=.22,yscale=.12,Centering]
         \node(0)at(0.00,-9.00){};
         \node(10)at(10.00,-12.00){};
         \node(12)at(12.00,-18.00){};
@@ -509,7 +507,7 @@ one has
         \draw[Edge](r)--(5);
     \end{tikzpicture}
     \enspace \RewContext \enspace
-    \begin{tikzpicture}[xscale=.19,yscale=.14,Centering]
+    \begin{tikzpicture}[xscale=.22,yscale=.12,Centering]
         \node(0)at(0.00,-9.00){};
         \node(10)at(10.00,-9.00){};
         \node(12)at(12.00,-18.00){};
@@ -568,11 +566,11 @@ of its root by the right member of~\eqref{equ:example_rewrite_rule}.
 \medbreak
 
 Let $\Rew$ be a set of rewrite rules and $\RewContext$ be the rewrite
-relation induced by $\Rew$. Since $\RewContext$ is in particular a
+relation induced by $\Rew$. Since~$\RewContext$ is in particular a
 binary relation on $\Mag$, the classical notations about closures apply
 here: we denote by $\RewContextT$ (resp. $\RewContextRT$,
 $\RewContextRST$) the transitive (resp. reflexive and transitive,
-reflexive, symmetric, and transitive) closure of $\RewContext$.
+and reflexive, symmetric, and transitive) closure of~$\RewContext$.
 \medbreak
 
 When $\Tfr_0$, $\Tfr_1$, \dots, $\Tfr_k$ are binary trees such that
@@ -584,8 +582,8 @@ in $k$ \Def{steps}. When there is no infinite chain
 \begin{equation} \label{equ:infinite_chain}
     \Tfr_0 \RewContext \Tfr_1 \RewContext \Tfr_2 \RewContext \cdots
 \end{equation}
-we say that $\RewContext$ is terminating. To establish the termination
-of a rewrite relation, we will use the following criterion.
+we say that $\RewContext$ is \Def{terminating}. To establish the
+termination of a rewrite relation, we will use the following criterion.
 \medbreak
 
 \begin{Lemma}\label{lem:prefix_word_termination}
@@ -612,7 +610,7 @@ of a rewrite relation, we will use the following criterion.
     $\PrefixWord(\Tfr) > \PrefixWord\left(\Tfr'\right)$. This leads to
     the fact that any chain
     \begin{math}
-        \Tfr_0 \Rew \Tfr_1 \Rew \Tfr_2 \Rew \cdots
+        \Tfr_0 \RewContext \Tfr_1 \RewContext \Tfr_2 \RewContext \cdots
     \end{math}
     is finite since
     \begin{math}
@@ -709,11 +707,11 @@ $\Congr$ if $\RewContextRST$ and $\Congr$ are equal as binary relations,
 where $\RewContext$ is the rewrite relation induced by $\Rew$. Moreover,
 $\Rew$ is a \Def{convergent} (resp. \Def{terminating}, \Def{confluent})
 orientation of $\Congr$ if $\RewContext$ is convergent (resp.
-terminating, confluent). We call \Def{presentation} of a quotient
-operad $\Oca$ of the form~\eqref{equ:quotient_operad_mag} the data of
-a generating set for the operad congruence $\Congr$. Observe that
-any orientation of $\Congr$ is a presentation of $\Oca$, so that the
-above nomenclature (\Def{convergent}, \Def{terminating}, and
+terminating, confluent). In this text, we call \Def{presentation} of a
+quotient operad $\Oca$ of the form~\eqref{equ:quotient_operad_mag} the
+data of a generating set for the operad congruence $\Congr$. Observe
+that any orientation of $\Congr$ is a presentation of $\Oca$, so that
+the above nomenclature (\Def{convergent}, \Def{terminating}, and
 \Def{confluent}) still holds for presentations. A presentation is said
 to be \Def{finite} if it is a finite set.
 \medbreak
