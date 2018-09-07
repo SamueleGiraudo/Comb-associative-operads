@@ -6,10 +6,10 @@
 
 In this section, we define comb associative operads and we show that the
 set of such operads admits a lattice structure, isomorphic to the
-lattice division for nonnegative integers. We relate this lattice to the
-lattice of linear magmatic quotients. We also provide a finite
-convergent presentation of the comb associative operad corresponding
-to~$3$.
+lattice of division for nonnegative integers. We relate this lattice to
+the one of the linear magmatic quotients considered in the previous
+section. We also provide a finite convergent presentation of the comb
+associative operad corresponding to~$3$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,9 +146,10 @@ lemmas.
     $\# \CAs{\gamma}(n) = \# \Mag(n) = \Catalan(n)$ with
     $n \leq \gamma$. Besides, by definition of $\CongrCAs{\gamma}$, all
     the $\CongrCAs{\gamma}$-equivalence classes of binary trees of
-    degree $\gamma$ are trivial, except one consisting in the pair
-    $\left\{\LComb{\gamma}, \RComb{\gamma}\right\}$. Therefore, since a
-    binary tree of degree $d$ has arity $n := \gamma + 1$,
+    degree $\gamma$ are trivial, except one due to the fact that
+    $\LComb{\gamma} \ne \RComb{\gamma}$ and
+    $\LComb{\gamma} \CongrCAs{\gamma} \RComb{\gamma}$. Therefore, since
+    a binary tree of degree $\gamma$ has arity $n := \gamma + 1$,
     \begin{math}
         \# \CAs{\gamma}(n)
         = \# \Mag(\gamma + 1) - 1
@@ -176,9 +177,10 @@ lemmas.
         [\Product]_{\CongrCAs{\gamma}}.
     \end{math}
     Hence, if $\varphi$ exists, it is the unique operad morphism from
-    $\CAs{\gamma'}$ to $\CAs{\gamma}$ determined by the previous formula.
-    In this case, $[\Product]_{\CongrCAs{\gamma}}$ being in the image of
-    $\varphi$, the latter is surjective.
+    $\CAs{\gamma'}$ to $\CAs{\gamma}$ determined by the image of
+    $[\Product]_{\CongrCAs{\gamma'}}$. In this case,
+    $[\Product]_{\CongrCAs{\gamma}}$ being in the image of $\varphi$,
+    the latter is surjective.
 \end{proof}
 \medbreak
 
@@ -222,8 +224,7 @@ lemmas.
         \varphi\left(\left[\Tfr\right]_{\CongrCAs{\gamma'}}\right)
         = \left[\Tfr\right]_{\CongrCAs{\gamma}}
     \end{math}
-    for any binary tree $\Tfr$.
-    Since
+    for any binary tree $\Tfr$. Since
     \begin{math}
         \varphi\left(
         \left[\LComb{\gamma'}\right]_{\CongrCAs{\gamma'}}
@@ -824,8 +825,8 @@ Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
   \end{equation}
 \medbreak
 
-Let us describe the normal forms for arity $n\geq 11$. For that, we 
-consider the following "zig-zag" of degree $k \geq 0$ 
+Let us describe the normal forms for arity $n\geq 11$. For that, we
+consider the following "zig-zag" of degree $k \geq 0$
 \Todo{Dessins}
 \begin{equation}
   z_k :=.
@@ -834,9 +835,9 @@ For instance, $z_3$ and $z_4$ are the following trees
 \begin{equation}
 .
 \end{equation}
-The normal forms are decomposed into two families. 
-The first family is the set of the $n-1$ trees 
-$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$, 
+The normal forms are decomposed into two families.
+The first family is the set of the $n-1$ trees
+$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$,
 pictured as follows
 \begin{equation}\label{equ:normal_forms_type_A}
    z_k \circ_{k+1} z_{n-1-k} = dessin.

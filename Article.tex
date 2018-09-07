@@ -172,8 +172,16 @@ pagebackref=true]{hyperref}
 
 \newcommand{\PrefixWord}{\mathrm{p}}
 \newcommand{\Deg}{\mathrm{deg}}
-\newcommand{\LComb}[1]{\mathfrak{c}^{\left(#1\right)}_{\diagup}}
-\newcommand{\RComb}[1]{\mathfrak{c}^{\left(#1\right)}_{\diagdown}}
+\newcommand{\LComb}[1]{\mathfrak{c}^{\left(#1\right)}_{
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+    \draw[Edge](0,0)--(-1,-1);
+\end{tikzpicture}
+}}
+\newcommand{\RComb}[1]{\mathfrak{c}^{\left(#1\right)}_{
+\begin{tikzpicture}[xscale=.2,yscale=.17,Centering]
+    \draw[Edge](0,0)--(1,-1);
+\end{tikzpicture}
+}}
 \newcommand{\LRank}{\mathrm{lr}}
 \newcommand{\RBranch}{\mathrm{rb}}
 \newcommand{\Catalan}{\mathrm{cat}}
@@ -187,7 +195,11 @@ pagebackref=true]{hyperref}
 \newcommand{\LatCAs}{\left(\CAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
 \newcommand{\LatKCAs}{\left(\KCAsAll,\OrdCAs,\InfCAs,\SupCAs\right)}
 \newcommand{\Unit}{\mathds{1}}
-\newcommand{\Leaf}{\perp}
+\newcommand{\Leaf}{{
+\begin{tikzpicture}[xscale=.2,yscale=.22,Centering]
+    \draw[Edge](0,0)--(0,-1);
+\end{tikzpicture}
+}}
 \newcommand{\Corolla}{\mathrm{c}}
 \newcommand{\NormalForms}{\mathfrak{N}}
 \newcommand{\Hom}{\mathrm{Hom}}
