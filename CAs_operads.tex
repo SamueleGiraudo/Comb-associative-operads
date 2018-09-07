@@ -832,8 +832,70 @@ family of $n-1$ trees
 \end{equation}
 and the following family of four trees
 \begin{equation}\label{equ:normal_forms_type_B}
-  B
-  \end{equation}
+  \RComb{n-1}, \qquad
+  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+    \node(0)at(0.00,-4.50){};
+    \node(2)at(2.00,-4.50){};
+    \node(8)at(8.00,-6.75){};
+    \node(10)at(5,-9){};
+    \node(11)at(7,-9){};
+    \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
+    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+    \node(9)at(6,-6.75){};
+    \draw[Edge](0)--(1);
+    \draw[Edge](1)--(3);
+    \draw[Edge](2)--(1);
+    \draw[Edge](7)--(9);
+    \draw[Edge, dotted](7)--(3);
+    \draw[Edge](8)--(7);
+    \node(r)at(3.00,1.74){};
+    \draw[Edge](r)--(3);
+  \end{tikzpicture}, \qquad
+  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+    \node(0)at(0.00,-4.50){};
+    \node(2)at(2.00,-4.50){};
+    \node(8)at(8.00,-6.75){};
+    \node(10)at(5,-9){};
+    \node(11)at(7,-9){};
+    \node(1)at(1.00,-2.25){};
+    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
+    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+    \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
+    \draw[Edge](1)--(3);
+    \draw[Edge](7)--(9);
+    \draw[Edge](9)--(10);
+    \draw[Edge](9)--(11);
+    \draw[Edge, dotted](7)--(3);
+    \draw[Edge](8)--(7);
+    \node(r)at(3.00,1.74){};
+    \draw[Edge](r)--(3);
+  \end{tikzpicture}, \qquad
+  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+    \node(0)at(0.00,-4.50){};
+    \node(2)at(2.00,-4.50){};
+    \node(8)at(8.00,-6.75){};
+    \node(10)at(5,-9){};
+    \node(11)at(7,-9){};
+    \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-3\end{math}};
+    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+    \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
+    \draw[Edge](0)--(1);
+    \draw[Edge](1)--(3);
+    \draw[Edge](2)--(1);
+    \draw[Edge](7)--(9);
+    \draw[Edge](9)--(10);
+    \draw[Edge](9)--(11);
+    \draw[Edge, dotted](7)--(3);
+    \draw[Edge](8)--(7);
+    \node(r)at(3.00,1.74){};
+    \draw[Edge](r)--(3);
+  \end{tikzpicture}.
+\end{equation}
 
 Indeed, each of these trees avoids the left membres of the convergent
 presentation given in Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}.
