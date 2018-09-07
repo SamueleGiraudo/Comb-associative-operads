@@ -824,8 +824,47 @@ Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
   \end{equation}
 \medbreak
 
-\Todo{S: réalisation combinatoire de $\CAs{3}$ à donner ici.}
+For arity $n\geq 11$, the normal forms are composed of the following
+family of $n-1$ trees
+\Todo{dessiner arbres}
+\begin{equation}\label{equ:normal_forms_type_A}
+  A
+\end{equation}
+and the following family of four trees
+\begin{equation}\label{equ:normal_forms_type_B}
+  B
+  \end{equation}
 
+Indeed, each of these trees avoids the left membres of the convergent
+presentation given in Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}.
+Moreover, we have the following.
+\medbreak
+
+\begin{Proposition}
+  The family~\eqref{equ:normal_forms_type_B} is absorbing for each
+  partial composition.
+  \end{Proposition}
+
+\begin{proof}
+  None of the trees of type~\eqref{equ:normal_forms_type_A}
+  contains the left or the right member of the congruence relation
+  $\CongrCAs{3}$, so that they are alone in their equivalence classes.
+  Moreover, the trees of type~\eqref{equ:normal_forms_type_B}
+  contain the right member of $\CongrCAs{3}$, so that the composition of
+  such a tree with anothter tree is not alone in its
+  equivalence class, and thus it does not belong to the
+  family~\eqref{equ:normal_forms_type_A}.
+\end{proof}
+
+By computer explorations, we are able to conjecture the multiplication
+tables of each partial compositions. However, the obtained tables are not
+simply described. For instance, the partial composition
+$\Tfr\circ_i\Tfr'$ with $\Tfr$ of type~\eqref{equ:normal_forms_type_A}
+and $\Tfr'$ of type~\eqref{equ:normal_forms_type_B} is described by $36$
+cases depending on the values of various parameters associated to $\Tfr$,
+$\Tfr'$ and $i$.
+
+\medbreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Higher comb associative operads}
 \label{sec:higher_comb_associative_operads}
