@@ -824,13 +824,24 @@ Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
   \end{equation}
 \medbreak
 
-For arity $n\geq 11$, the normal forms are composed of the following
-family of $n-1$ trees
-\Todo{dessiner arbres}
-\begin{equation}\label{equ:normal_forms_type_A}
-  A
+Let us describe the normal forms for arity $n\geq 11$. For that, we 
+consider the following "zig-zag" of degree $k \geq 0$ 
+\Todo{Dessins}
+\begin{equation}
+  z_k :=.
 \end{equation}
-and the following family of four trees
+For instance, $z_3$ and $z_4$ are the following trees
+\begin{equation}
+.
+\end{equation}
+The normal forms are decomposed in two families. 
+The first family is the set of the $n-1$ trees 
+$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$, 
+pictured as follows
+\begin{equation}\label{equ:normal_forms_type_A}
+   z_k \circ_{k+1} z_{n-1-k} = dessin.
+\end{equation}
+The second family is composed of the following four trees
 \begin{equation}\label{equ:normal_forms_type_B}
   \RComb{n-1}, \qquad
   \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
@@ -896,7 +907,6 @@ and the following family of four trees
     \draw[Edge](r)--(3);
   \end{tikzpicture}.
 \end{equation}
-
 Indeed, each of these trees avoids the left membres of the convergent
 presentation given in Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}.
 Moreover, we have the following.
