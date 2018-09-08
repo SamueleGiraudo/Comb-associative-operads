@@ -829,11 +829,59 @@ Let us describe the normal forms for arity $n\geq 11$. For that, we
 consider the following "zig-zag" of degree $k \geq 0$
 \Todo{Dessins}
 \begin{equation}
-  z_k :=.
+  z_k := \Product \circ_1 ( \Product \circ_2 ( \Product 
+  \circ_1 ( \Product \circ_2 \cdots
+  \Product ) \cdots ).
 \end{equation}
-For instance, $z_3$ and $z_4$ are the following trees
+For instance, $z_4$ and $z_5$ are the following trees
 \begin{equation}
-.
+	\begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+		\node(0)at(0.00,-3.60){};
+		\node(2)at(2.00,-7.20){};
+		\node(4)at(4.00,-7.20){};
+		\node(6)at(6.00,-5.40){};
+		\node(8)at(8.00,-1.80){};
+		\node[NodeST](1)at(1.00,-1.80){\begin{math}\Product\end{math}};
+		\node[NodeST](3)at(3.00,-5.40){\begin{math}\Product\end{math}};
+		\node[NodeST](5)at(5.00,-3.60){\begin{math}\Product\end{math}};
+		\node[NodeST](7)at(7.00,0.00){\begin{math}\Product\end{math}};
+		\draw[Edge](0)--(1);
+		\draw[Edge](1)--(7);
+		\draw[Edge](2)--(3);
+		\draw[Edge](3)--(5);
+		\draw[Edge](4)--(3);
+		\draw[Edge](5)--(1);
+		\draw[Edge](6)--(5);
+		\draw[Edge](8)--(7);
+		\node(r)at(7.00,1.35){};
+		\draw[Edge](r)--(7);
+	\end{tikzpicture}
+	\qquad \mbox{and} \qquad
+	\begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+		\node(0)at(0.00,-3.67){};
+		\node(10)at(10.00,-1.83){};
+		\node(2)at(2.00,-7.33){};
+		\node(4)at(4.00,-9.17){};
+		\node(6)at(6.00,-9.17){};
+		\node(8)at(8.00,-5.50){};
+		\node[NodeST](1)at(1.00,-1.83){\begin{math}\Product\end{math}};
+		\node[NodeST](3)at(3.00,-5.50){\begin{math}\Product\end{math}};
+		\node[NodeST](5)at(5.00,-7.33){\begin{math}\Product\end{math}};
+		\node[NodeST](7)at(7.00,-3.67){\begin{math}\Product\end{math}};
+		\node[NodeST](9)at(9.00,0.00){\begin{math}\Product\end{math}};
+		\draw[Edge](0)--(1);
+		\draw[Edge](1)--(9);
+		\draw[Edge](10)--(9);
+		\draw[Edge](2)--(3);
+		\draw[Edge](3)--(7);
+		\draw[Edge](4)--(5);
+		\draw[Edge](5)--(3);
+		\draw[Edge](6)--(5);
+		\draw[Edge](7)--(1);
+		\draw[Edge](8)--(7);
+		\node(r)at(9.00,1.38){};
+		\draw[Edge](r)--(9);
+	\end{tikzpicture}.
 \end{equation}
 The normal forms are decomposed into two families.
 The first family is the set of the $n-1$ trees
