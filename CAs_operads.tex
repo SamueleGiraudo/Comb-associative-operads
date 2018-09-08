@@ -827,7 +827,6 @@ Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
 
 Let us describe the normal forms for arity $n\geq 11$. For that, we
 consider the following "zig-zag" of degree $k \geq 0$
-\Todo{Dessins}
 \begin{equation}
   z_k := \Product \circ_1 ( \Product \circ_2 ( \Product 
   \circ_1 ( \Product \circ_2 \cdots
@@ -885,10 +884,61 @@ For instance, $z_4$ and $z_5$ are the following trees
 \end{equation}
 The normal forms are decomposed into two families.
 The first family is the set of the $n-1$ trees
-$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$,
-pictured as follows
+$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$.
+For example,
 \begin{equation}\label{equ:normal_forms_type_A}
-   z_k \circ_{k+1} z_{n-1-k} = dessin.
+   z_8 \circ_{9} z_{3} = 
+   \begin{tikzpicture}[xscale=.18,yscale=.16,Centering]
+      \node(0)at(0.00,-5.56){};
+      \node(10)at(10.00,-19.44){};
+      \node(12)at(12.00,-13.89){};
+      \node(14)at(14.00,-8.33){};
+      \node(16)at(16.00,-8.33){};
+      \node(18)at(18.00,-13.89){};
+      \node(2)at(2.00,-11.11){};
+      \node(20)at(20.00,-13.89){};
+      \node(22)at(22.00,-11.11){};
+      \node(24)at(24.00,-5.56){};
+      \node(4)at(4.00,-16.67){};
+      \node(6)at(6.00,-22.22){};
+      \node(8)at(8.00,-22.22){};
+      \node(19)at(19.00,-11){};
+      \node[NodeST](1)at(1.00,-2.78){\begin{math}\Product\end{math}};
+      \node[NodeST](11)at(11.00,-11.11){\begin{math}\Product\end{math}};
+      \node[NodeST](13)at(13.00,-5.56){\begin{math}\Product\end{math}};
+      \node[NodeST](15)at(15.00,0.00){\begin{math}\Product\end{math}};
+      \node[NodeST](17)at(17.00,-5.56){\begin{math}\Product\end{math}};
+      \node[NodeST](21)at(21.00,-8.33){\begin{math}\Product\end{math}};
+      \node[NodeST](23)at(23.00,-2.78){\begin{math}\Product\end{math}};
+      \node[NodeST](3)at(3.00,-8.33){\begin{math}\Product\end{math}};
+      \node[NodeST](5)at(5.00,-13.89){\begin{math}\Product\end{math}};
+      \node[NodeST](7)at(7.00,-19.44){\begin{math}\Product\end{math}};
+      \node[NodeST](9)at(9.00,-16.67){\begin{math}\Product\end{math}};
+      \draw[Edge](0)--(1);
+      \draw[Edge](1)--(15);
+      \draw[Edge](10)--(9);
+      \draw[Edge](11)--(3);
+      \draw[Edge](12)--(11);
+      \draw[Edge](13)--(1);
+      \draw[Edge](14)--(13);
+      \draw[Edge](16)--(17);
+      \draw[Edge](17)--(23);
+      \draw[Edge](19)--(21);
+      \draw[Edge](2)--(3);
+      \draw[Edge](21)--(17);
+      \draw[Edge](22)--(21);
+      \draw[Edge](23)--(15);
+      \draw[Edge](24)--(23);
+      \draw[Edge](3)--(13);
+      \draw[Edge](4)--(5);
+      \draw[Edge](5)--(11);
+      \draw[Edge](6)--(7);
+      \draw[Edge](7)--(9);
+      \draw[Edge](8)--(7);
+      \draw[Edge](9)--(5);
+      \node(r)at(15.00,2.08){};
+      \draw[Edge](r)--(15);
+    \end{tikzpicture}.
 \end{equation}
 The second family is composed of the following four trees
 \begin{equation}\label{equ:normal_forms_type_B}
