@@ -749,7 +749,7 @@ normal forms of $\RewContext$).
 In order to transform the rewrite relation induced by~\eqref{equ:rew_1}
 into a convergent one, we apply the Buchberger algorithm for
 operads~\cite[Section 3.7]{DK10} with respect to the lexicographic order
-on prefix words. We first focus on the special case $\gamma = 3$.
+on prefix words. We first focus on the special case~$\gamma = 3$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -782,8 +782,8 @@ provides the new rewrite rules \smallbreak
         1, 1, 2, 4, 8, 14, 20, 19, 16, 14, 14, 15, 16, 17
     \end{equation}
     for $\#\CAs{3}(n)$ and for the numbers of normal forms of arity $n$,
-    when $ 1 \leq n \leq 14$, which proves
-    Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}.
+    when $ 1 \leq n \leq 14$, which proves the statement of the
+    theorem.
 \end{proof}
 \medbreak
 
@@ -791,14 +791,13 @@ The rewrite rule $\Rew$ has, arity by arity, the cardinalities
 \begin{equation}
     0, 0, 0, 1, 1, 2, 3, 4, 0, 0, \dots~.
 \end{equation}
-We also obtain from Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}
-the following consequences.
+We also obtain from Theorem~\ref{thm:convergent_rewrite_rule_CAs_3} the
+following consequences.
 \medbreak
 
 \begin{Proposition} \label{prop:PBW_basis_CAs_3}
     The set of the trees avoiding as subtrees the ones appearing as
-    left members of $\Rew$ is a Poincaré-Birkhoff-Witt basis
-    of~$\CAs{3}$.
+    left members of $\Rew$ is a PBW basis of~$\CAs{3}$.
 \end{Proposition}
 \begin{proof}
     By definition of PBW bases and
@@ -834,19 +833,26 @@ For $n \leq 10$, the dimensions of $\CAs{3}(n)$ are provided by
 Sequence~\eqref{equ:dimensions_CAs_3} and for all $n \geq 11$, the
 Taylor expansion of~\eqref{equ:Hilbert_series_CAs_3} shows that
 \begin{equation}
-  \# \CAs{3}(n) = n + 3.
-  \end{equation}
+    \# \CAs{3}(n) = n + 3.
+\end{equation}
 \medbreak
 
-Let us describe the normal forms for arity $n\geq 11$. For that, we
-consider the following "zig-zag" of degree $k \geq 0$
+Let us describe the elements of the PBW basis of $\CAs{3}$ for arity
+$n \geq 11$. By Proposition~\ref{prop:PBW_basis_CAs_3}, these elements
+are the normal forms of the rewrite relation induced by $\Rew$. Let for
+any $d \geq 0$, the binary tree $\Zfr_d$ defined recursively by
 \begin{equation}
-  z_k := \Product \circ_1 ( \Product \circ_2 ( \Product
-  \circ_1 ( \Product \circ_2 \cdots
-  \Product ) \cdots ).
+    \Zfr_d :=
+    \begin{cases}
+        \Leaf & \mbox{if } d = 0, \\
+        \Zfr_{d - 1}
+        \circ_{\left\lfloor \frac{d}{2} \right\rfloor + 1} \Product
+        & \mbox{otherwise}.
+    \end{cases}
 \end{equation}
-For instance, $z_4$ and $z_5$ are the following trees
+For instance,
 \begin{equation}
+    \Zfr_4 =
     \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
         \node(0)at(0.00,-3.60){};
         \node(2)at(2.00,-7.20){};
@@ -869,6 +875,7 @@ For instance, $z_4$ and $z_5$ are the following trees
         \draw[Edge](r)--(7);
     \end{tikzpicture}
     \qquad \mbox{and} \qquad
+    \Zfr_5 =
     \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
         \node(0)at(0.00,-3.67){};
         \node(10)at(10.00,-1.83){};
@@ -895,161 +902,180 @@ For instance, $z_4$ and $z_5$ are the following trees
         \draw[Edge](r)--(9);
     \end{tikzpicture}.
 \end{equation}
-The normal forms are decomposed into two families.
-The first family is the set of the $n-1$ trees
-$\left(z_k \circ_{k+1} z_{n-1-k}\right)_{1 \leq k \leq n-1}$.
-For example,
-\begin{equation}\label{equ:normal_forms_type_A}
-   z_8 \circ_{9} z_{3} =
-   \begin{tikzpicture}[xscale=.18,yscale=.16,Centering]
-      \node(0)at(0.00,-5.56){};
-      \node(10)at(10.00,-19.44){};
-      \node(12)at(12.00,-13.89){};
-      \node(14)at(14.00,-8.33){};
-      \node(16)at(16.00,-8.33){};
-      \node(18)at(18.00,-13.89){};
-      \node(2)at(2.00,-11.11){};
-      \node(20)at(20.00,-13.89){};
-      \node(22)at(22.00,-11.11){};
-      \node(24)at(24.00,-5.56){};
-      \node(4)at(4.00,-16.67){};
-      \node(6)at(6.00,-22.22){};
-      \node(8)at(8.00,-22.22){};
-      \node(19)at(19.00,-11){};
-      \node[NodeST](1)at(1.00,-2.78){\begin{math}\Product\end{math}};
-      \node[NodeST](11)at(11.00,-11.11){\begin{math}\Product\end{math}};
-      \node[NodeST](13)at(13.00,-5.56){\begin{math}\Product\end{math}};
-      \node[NodeST](15)at(15.00,0.00){\begin{math}\Product\end{math}};
-      \node[NodeST](17)at(17.00,-5.56){\begin{math}\Product\end{math}};
-      \node[NodeST](21)at(21.00,-8.33){\begin{math}\Product\end{math}};
-      \node[NodeST](23)at(23.00,-2.78){\begin{math}\Product\end{math}};
-      \node[NodeST](3)at(3.00,-8.33){\begin{math}\Product\end{math}};
-      \node[NodeST](5)at(5.00,-13.89){\begin{math}\Product\end{math}};
-      \node[NodeST](7)at(7.00,-19.44){\begin{math}\Product\end{math}};
-      \node[NodeST](9)at(9.00,-16.67){\begin{math}\Product\end{math}};
-      \draw[Edge](0)--(1);
-      \draw[Edge](1)--(15);
-      \draw[Edge](10)--(9);
-      \draw[Edge](11)--(3);
-      \draw[Edge](12)--(11);
-      \draw[Edge](13)--(1);
-      \draw[Edge](14)--(13);
-      \draw[Edge](16)--(17);
-      \draw[Edge](17)--(23);
-      \draw[Edge](19)--(21);
-      \draw[Edge](2)--(3);
-      \draw[Edge](21)--(17);
-      \draw[Edge](22)--(21);
-      \draw[Edge](23)--(15);
-      \draw[Edge](24)--(23);
-      \draw[Edge](3)--(13);
-      \draw[Edge](4)--(5);
-      \draw[Edge](5)--(11);
-      \draw[Edge](6)--(7);
-      \draw[Edge](7)--(9);
-      \draw[Edge](8)--(7);
-      \draw[Edge](9)--(5);
-      \node(r)at(15.00,2.08){};
-      \draw[Edge](r)--(15);
+The normal forms split into two families. The first one is the set
+of the $n - 1$ trees of the form
+\begin{equation} \label{equ:normal_forms_type_A}
+    \Zfr_d \circ_{d + 1} \Zfr_{n - 1 - d},
+\end{equation}
+for any $d \in [n - 1]$. For example, for $n = 12$,
+\begin{equation}
+    z_8 \circ_9 z_3 =
+    \begin{tikzpicture}[xscale=.18,yscale=.16,Centering]
+        \node(0)at(0.00,-5.56){};
+        \node(10)at(10.00,-19.44){};
+        \node(12)at(12.00,-13.89){};
+        \node(14)at(14.00,-8.33){};
+        \node(16)at(16.00,-8.33){};
+        \node(18)at(18.00,-13.89){};
+        \node(2)at(2.00,-11.11){};
+        \node(20)at(20.00,-13.89){};
+        \node(22)at(22.00,-11.11){};
+        \node(24)at(24.00,-5.56){};
+        \node(4)at(4.00,-16.67){};
+        \node(6)at(6.00,-22.22){};
+        \node(8)at(8.00,-22.22){};
+        \node(19)at(19.00,-11){};
+        \node[NodeST](1)at(1.00,-2.78){\begin{math}\Product\end{math}};
+        \node[NodeST](11)at(11.00,-11.11)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](13)at(13.00,-5.56)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](15)at(15.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](17)at(17.00,-5.56)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](21)at(21.00,-8.33)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](23)at(23.00,-2.78)
+            {\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,-8.33){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(5.00,-13.89){\begin{math}\Product\end{math}};
+        \node[NodeST](7)at(7.00,-19.44){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(9.00,-16.67){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(15);
+        \draw[Edge](10)--(9);
+        \draw[Edge](11)--(3);
+        \draw[Edge](12)--(11);
+        \draw[Edge](13)--(1);
+        \draw[Edge](14)--(13);
+        \draw[Edge](16)--(17);
+        \draw[Edge](17)--(23);
+        \draw[Edge](19)--(21);
+        \draw[Edge](2)--(3);
+        \draw[Edge](21)--(17);
+        \draw[Edge](22)--(21);
+        \draw[Edge](23)--(15);
+        \draw[Edge](24)--(23);
+        \draw[Edge](3)--(13);
+        \draw[Edge](4)--(5);
+        \draw[Edge](5)--(11);
+        \draw[Edge](6)--(7);
+        \draw[Edge](7)--(9);
+        \draw[Edge](8)--(7);
+        \draw[Edge](9)--(5);
+        \node(r)at(15.00,2.25){};
+        \draw[Edge](r)--(15);
+    \end{tikzpicture}
+\end{equation}
+is a tree of this first family. The second family contains the
+following four trees
+\begin{equation}\label{equ:normal_forms_type_B}
+    \RComb{n-1}, \qquad
+    \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+        \node(0)at(0.00,-4.50){};
+        \node(2)at(2.00,-4.50){};
+        \node(8)at(8.00,-6.75){};
+        \node(10)at(5,-9){};
+        \node(11)at(7,-9){};
+        \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
+        \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+        \node(9)at(6,-6.75){};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(3);
+        \draw[Edge](2)--(1);
+        \draw[Edge](7)--(9);
+        \draw[Edge, dotted](7)--(3);
+        \draw[Edge](8)--(7);
+        \node(r)at(3.00,1.74){};
+        \draw[Edge](r)--(3);
+    \end{tikzpicture}\,, \qquad
+    \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+        \node(0)at(0.00,-4.50){};
+        \node(2)at(2.00,-4.50){};
+        \node(8)at(8.00,-6.75){};
+        \node(10)at(5,-9){};
+        \node(11)at(7,-9){};
+        \node(1)at(1.00,-2.25){};
+        \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
+        \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
+        \draw[Edge](1)--(3);
+        \draw[Edge](7)--(9);
+        \draw[Edge](9)--(10);
+        \draw[Edge](9)--(11);
+        \draw[Edge, dotted](7)--(3);
+        \draw[Edge](8)--(7);
+        \node(r)at(3.00,1.74){};
+        \draw[Edge](r)--(3);
+    \end{tikzpicture}\,, \qquad
+    \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
+        \node(0)at(0.00,-4.50){};
+        \node(2)at(2.00,-4.50){};
+        \node(8)at(8.00,-6.75){};
+        \node(10)at(5,-9){};
+        \node(11)at(7,-9){};
+        \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
+        \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
+        \node[NodeST](5)at(6.5,-1.4){\begin{math}n-3\end{math}};
+        \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
+        \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
+        \draw[Edge](0)--(1);
+        \draw[Edge](1)--(3);
+        \draw[Edge](2)--(1);
+        \draw[Edge](7)--(9);
+        \draw[Edge](9)--(10);
+        \draw[Edge](9)--(11);
+        \draw[Edge, dotted](7)--(3);
+        \draw[Edge](8)--(7);
+        \node(r)at(3.00,1.74){};
+        \draw[Edge](r)--(3);
     \end{tikzpicture}.
 \end{equation}
-The second family is composed of the following four trees
-\begin{equation}\label{equ:normal_forms_type_B}
-  \RComb{n-1}, \qquad
-  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
-    \node(0)at(0.00,-4.50){};
-    \node(2)at(2.00,-4.50){};
-    \node(8)at(8.00,-6.75){};
-    \node(10)at(5,-9){};
-    \node(11)at(7,-9){};
-    \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
-    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
-    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
-    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
-    \node(9)at(6,-6.75){};
-    \draw[Edge](0)--(1);
-    \draw[Edge](1)--(3);
-    \draw[Edge](2)--(1);
-    \draw[Edge](7)--(9);
-    \draw[Edge, dotted](7)--(3);
-    \draw[Edge](8)--(7);
-    \node(r)at(3.00,1.74){};
-    \draw[Edge](r)--(3);
-  \end{tikzpicture}, \qquad
-  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
-    \node(0)at(0.00,-4.50){};
-    \node(2)at(2.00,-4.50){};
-    \node(8)at(8.00,-6.75){};
-    \node(10)at(5,-9){};
-    \node(11)at(7,-9){};
-    \node(1)at(1.00,-2.25){};
-    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
-    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-2\end{math}};
-    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
-    \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
-    \draw[Edge](1)--(3);
-    \draw[Edge](7)--(9);
-    \draw[Edge](9)--(10);
-    \draw[Edge](9)--(11);
-    \draw[Edge, dotted](7)--(3);
-    \draw[Edge](8)--(7);
-    \node(r)at(3.00,1.74){};
-    \draw[Edge](r)--(3);
-  \end{tikzpicture}, \qquad
-  \begin{tikzpicture}[xscale=.22,yscale=.20,Centering]
-    \node(0)at(0.00,-4.50){};
-    \node(2)at(2.00,-4.50){};
-    \node(8)at(8.00,-6.75){};
-    \node(10)at(5,-9){};
-    \node(11)at(7,-9){};
-    \node[NodeST](1)at(1.00,-2.25){\begin{math}\Product\end{math}};
-    \node[NodeST](3)at(3.00,0.00){\begin{math}\Product\end{math}};
-    \node[NodeST](5)at(6.5,-1.4){\begin{math}n-3\end{math}};
-    \node[NodeST](7)at(7.00,-4.50){\begin{math}\Product\end{math}};
-    \node[NodeST](9)at(6,-6.75){\begin{math}\Product\end{math}};
-    \draw[Edge](0)--(1);
-    \draw[Edge](1)--(3);
-    \draw[Edge](2)--(1);
-    \draw[Edge](7)--(9);
-    \draw[Edge](9)--(10);
-    \draw[Edge](9)--(11);
-    \draw[Edge, dotted](7)--(3);
-    \draw[Edge](8)--(7);
-    \node(r)at(3.00,1.74){};
-    \draw[Edge](r)--(3);
-  \end{tikzpicture}.
-\end{equation}
-Indeed, each of these $n+3$ trees avoids the left membres of the
+Observe that each of these $n + 4$ trees avoids the left members of the
 convergent presentation given in
 Theorem~\ref{thm:convergent_rewrite_rule_CAs_3}. Moreover, we have the
 following.
 \medbreak
 
-\begin{Proposition}
-  The family~\eqref{equ:normal_forms_type_B} is absorbing for each
-  partial composition.
-  \end{Proposition}
-
+\begin{Proposition} \label{prop:absorbing_normal_forms_type_B}
+    For any two trees $\Tfr$ and $\Tfr'$ of the
+    form~\eqref{equ:normal_forms_type_B} and $i \in [|\Tfr|]$, the
+    normal form for the rewrite relation induced by $\Rew$ of
+    $\Tfr \circ_i \Tfr'$ is a tree of the
+    form~\eqref{equ:normal_forms_type_B}.
+\end{Proposition}
 \begin{proof}
-  None of the trees of type~\eqref{equ:normal_forms_type_A}
-  contains the left or the right member of the congruence relation
-  $\CongrCAs{3}$, so that they are alone in their equivalence classes.
-  Moreover, the trees of type~\eqref{equ:normal_forms_type_B}
-  contain the right member of $\CongrCAs{3}$, so that the composition of
-  such a tree with anothter tree is not alone in its
-  equivalence class, and thus it does not belong to the
-  family~\eqref{equ:normal_forms_type_A}.
+    None of the trees of the form~\eqref{equ:normal_forms_type_A}
+    contain the left or the right member of the rewrite
+    rule~\eqref{equ:rew_1} generating the congruence relation
+    $\CongrCAs{3}$. Hence, these trees are alone in their equivalence
+    classes. Moreover, the trees of the
+    form~\eqref{equ:normal_forms_type_B} contain the right member of
+    the rewrite rule~\eqref{equ:rew_1} generating the congruence
+    relation $\CongrCAs{3}$, so that the composition of such a tree
+    with another tree is not alone in its equivalence class, and thus
+    it does not belong to the family~\eqref{equ:normal_forms_type_A}.
 \end{proof}
-
-By computer explorations, we are able to conjecture the multiplication
-tables of each partial compositions. However, the obtained tables are not
-simply described. For instance, the partial composition
-$\Tfr\circ_i\Tfr'$ with $\Tfr$ of type~\eqref{equ:normal_forms_type_A}
-and $\Tfr'$ of type~\eqref{equ:normal_forms_type_B} is described by $36$
-cases depending on the values of various parameters associated to $\Tfr$,
-$\Tfr'$ and $i$.
-
 \medbreak
+
+Proposition~\ref{prop:absorbing_normal_forms_type_B} says that the
+family of trees~\eqref{equ:normal_forms_type_B} is absorbing
+for the partial composition.
+\medbreak
+
+Computer explorations allow us to conjecture the multiplication table
+of the exhibited PBW basis of $\CAs{3}$. However, we do note have a
+simple description of this table. For instance, the partial composition
+$\Tfr\circ_i\Tfr'$ where $\Tfr$ is a tree of the
+form~\eqref{equ:normal_forms_type_A} and $\Tfr'$ is a tree of the
+form~\eqref{equ:normal_forms_type_B} can be fully described by $36$
+cases depending on the values of various parameters associated with
+$\Tfr$, $\Tfr'$, and~$i$.
+\medbreak
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Higher comb associative operads}
 \label{sec:higher_comb_associative_operads}
