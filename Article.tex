@@ -217,13 +217,13 @@ pagebackref=true]{hyperref}
 \DeclareMathOperator{\RewContextRST}{\overset{\ast}{\Leftrightarrow}}
 \DeclareMathOperator{\lcm}{lcm}
 
-\newcommand{\CongrCAs}[1]{\Congr^{(#1)}}
+\newcommand{\CongrCAs}[1]{\Congr^{\left(#1\right)}}
 
 \newcommand{\Lightning}[1]{
-\mathfrak{c}^{(#1)}_{\begin{tikzpicture}[scale=.1, Centering]
-    \draw (0,0)--(-1,-2);
-    \draw (-1,-2)--(0,-2);
-    \draw (0,-2)--(-1,-4);
+\mathfrak{c}^{\left(#1\right)}_{\begin{tikzpicture}[scale=.1, Centering]
+    \draw[Edge](0,0)--(-1,-2);
+    \draw[Edge](-1,-2)--(0,-2);
+    \draw[Edge](0,-2)--(-1,-4);
 \end{tikzpicture}}}
 
 % Tizk styles.
