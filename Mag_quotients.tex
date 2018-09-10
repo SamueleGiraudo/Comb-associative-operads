@@ -99,9 +99,8 @@ $\Hom\left(\Oca_1,\Oca_2\right)$ is equal to~$1$.
     $I_1$ is included in the kernel of the morphism
     $\varphi:\KMag\to\Oca_2$ defined by
     \begin{math}
-        \varphi(\Product) = [\Product]_{I_1}.
+        \varphi(\Product) = [\Product]_{I_2}.
     \end{math}
-    \Todo{S: plutôt $[\Product]_{I_2}$ ??}
     This kernel is equal to $I_2$, so that $\bar{\varphi}$ is
     well-defined if and only if $I_1$ is included in $I_2$, which
     concludes the proof.
@@ -170,24 +169,29 @@ for~$\Oca_1\SupQMag\Oca_2$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hilbert series and Grassmann formula}
-In order to show a Grassmann formula analog for $\LatQMag$, we need the
-following lemma.
+The statement of the Grassmann formula analog for $\LatQMag$ is the
+following.
 \medbreak
 
-\begin{Lemma}
-    \label{lem:lattice_structure_and_coefficients_of_Hilbert_series}
-    Let $\Oca_1$ and $\Oca_2$ be two operads of $\QMag$. For every
-    positive integer~$n$, we have
-    \begin{equation}
+\begin{Theorem}
+    \label{thm:Grassmann_formula_for_Hilbert_series_of_QMag}
+    Let $\Oca_1$ and $\Oca_2$ be two operads of $\QMag$. We have
+    \begin{equation} \label{equ:lattice_structure_and_Hiblert_series}
+        \HilbertSeries_{\Oca_1\InfQMag\Oca_2}(t)
+        +\HilbertSeries_{\Oca_1\SupQMag\Oca_2}(t)
+        =\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
+    \end{equation}
+\end{Theorem}
+\begin{proof}
+  Let $I_1, I_2 \in \IMag$ be such that $\Oca_1 = \KMag/_{I_1}$ and
+    $\Oca_2 = \KMag/_{I_2}$. For every nonnegative integer $n$, we have
+  \begin{equation}
     \label{equ:lattice_structure_and_coefficients_of_the_Hiblert_series}
         \dim{\left(\left(\Oca_1\InfQMag\Oca_2\right)(n)\right)}+
         \dim{\left(\left(\Oca_1\SupQMag\Oca_2\right)(n)\right)}=
         \dim{\left(\Oca_1(n)\right)}+\dim{\left(\Oca_2(n)\right)}.
-    \end{equation}
-\end{Lemma}
-\begin{proof}
-    Let $I_1, I_2 \in \IMag$ such that $\Oca_1 = \KMag/_{I_1}$ and
-    $\Oca_2 = \KMag/_{I_2}$. For every positive integer $n$, we have
+  \end{equation}
+  Indeed,
     \begin{equation}\begin{split}
         \dim & {\left(\Oca_1\InfQMag\Oca_2(n)\right)}+
             \dim{\left(\Oca_1\SupQMag\Oca_2(n)\right)}\\
@@ -204,42 +208,15 @@ following lemma.
     \end{split}\end{equation}
     The third equality is due to the Grassmann formula applied to the
     subspaces $I_1(n)$ and $I_2(n)$ of $\KMag(n)$.
-\end{proof}
-\medbreak
+    \smallbreak
 
-The Grassmann formula analog for $\LatQMag$ is given by the following
-statement.
-\medbreak
-
-\begin{Theorem}
-    \label{thm:Grassmann_formula_for_Hilbert_series_of_QMag}
-    Let $\Oca_1$ and $\Oca_2$ be two operads of $\QMag$. We have
-    \begin{equation} \label{equ:lattice_structure_and_Hiblert_series}
-        \HilbertSeries_{\Oca_1\InfQMag\Oca_2}(t)
-        +\HilbertSeries_{\Oca_1\SupQMag\Oca_2}(t)
-        =\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t).
-    \end{equation}
-\end{Theorem}
-\begin{proof}
-    We have
-    \begin{equation}\begin{split}
-        \HilbertSeries_{\Oca_1\InfQMag\Oca_2}(t)
-        +\HilbertSeries_{\Oca_1\SupQMag\Oca_2}(t)&
-        =\sum_{n \geq 1}\dim{\left(\left(\Oca_1\InfQMag\Oca_2\right)(n)
-            \right)}t^n
-            +\sum_{n \geq 1}\dim{\left(\left(\Oca_1\SupQMag\Oca_2\right)
-            (n)\right)}t^n\\
-        &=\sum_{n \geq 1}\Big(\dim{\left(\Oca_1\InfQMag\Oca_2(n)\right)}
-            +\dim{\left(\left(\Oca_1\SupQMag\Oca_2\right)(n)
-        \right)}\Big)t^n\\
-        &=\sum_{n \geq 1}\Big(\dim{\left(\Oca_1(n)\right)}
-            +\dim{\left(\Oca_2(n)\right)}\Big)t^n\\
-        &=\sum_{n \geq 1}\dim{\left(\Oca_1(n)\right)}t^n+\sum_{n \geq 1}
-            \dim{\left(\Oca_2(n)\right)}t^n\\
-        &=\HilbertSeries_{\Oca_1}(t)+\HilbertSeries_{\Oca_2}(t),
-    \end{split}\end{equation}
-    where the third equality is due to
-    Lemma~\ref{lem:lattice_structure_and_coefficients_of_Hilbert_series}.
+    From
+    \eqref{equ:lattice_structure_and_coefficients_of_the_Hiblert_series},
+    and for every nonnegative integer $n$, the terms of degree $n$ in the
+    left and right members
+    of~\eqref{thm:Grassmann_formula_for_Hilbert_series_of_QMag} are
+    equal, which proves
+    Theorem~\ref{thm:Grassmann_formula_for_Hilbert_series_of_QMag}.
 \end{proof}
 \medbreak
 
