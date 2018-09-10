@@ -86,10 +86,8 @@ convergent presentation of $\Mag^{\{1, 2\}}$. The operads
 $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$ are anti-isomorphic, so that
 by Lemma~\ref{lem:recall_anti_isomorphic}, the rewrite rule
 $\Afr_4 \Rew \Afr_5$ is a convergent presentation of~$\Mag^{\{4, 5\}}$.
-\medbreak
-
-Like Proposition~\ref{prop:Hilbert_series_CAs_3}, we compute the
-following result thanks to~\cite{Gir18}.
+In a similar fashion as Proposition~\ref{prop:Hilbert_series_CAs_3}, we
+compute the following result thanks to~\cite{Gir18}.
 \medbreak
 
 \begin{Theorem} \label{thm:Hilbert_series_Mag_1_2}
@@ -260,8 +258,6 @@ The reader can check that the rewrite rule $\Afr_3 \Rew \Afr_1$ is a
 convergent presentation of $\Mag^{\{1, 3\}}$. By
 Lemma~\ref{lem:recall_anti_isomorphic}, the rewrite rule
 $\Afr_3 \Rew \Afr_5$ is a convergent presentation of~$\Mag^{\{3, 5\}}$.
-\medbreak
-
 Thanks to~\cite{Gir18}, the Hilbert series of $\Mag^{\{1, 3\}}$ and
 $\Mag^{\{3, 5\}}$ are equals to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus,
 for all $n \geq 2$,
@@ -349,19 +345,15 @@ The reader can check that the rewrite rule $\Afr_4 \Rew \Afr_1$ is a
 convergent presentation of $\Mag^{\{1, 4\}}$. By
 Lemma~\ref{lem:recall_anti_isomorphic}, the rewrite rule
 $\Afr_2 \Rew \Afr_5$ is a convergent presentation of~$\Mag^{\{2, 5\}}$.
-\medbreak
-
 Thanks to~\cite{Gir18}, the Hilbert series of $\Mag^{\{1, 4\}}$ and
 $\Mag^{\{2, 5\}}$ are equal to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus,
-for $n \geq 2$,
-\Todo{S: voir commentaire analogue prec.}
-$\# \Mag^{\{1, 4\}}(n)$ and $\# \Mag^{\{2, 5\}}(n)$ are
+for $n \geq 2$, $\# \Mag^{\{1, 4\}}(n)$ and $\# \Mag^{\{2, 5\}}(n)$ are
 equal to~\eqref{prop:Close_formula_Mag_1_2}.
 \medbreak
 
 Like in Section~\ref{subsubsec:Mag_1_2}, we choose a combinatorial
-realization based on integer compositions.
-Given an integer $i \geq 1$, we define the binary operation
+realization based on integer compositions. Given an integer $i \geq 1$,
+we define the binary operation
 \begin{math}
     \circ_i^{(2,5)} : \Compositions(n) \times \Compositions(m)
     \to\Compositions(n + m - 1)
@@ -413,39 +405,60 @@ realization of $\Mag^{\{1, 4\}}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operad $\Mag^{\{2, 4\}}$}
-The rewrite rules $\Afr_2 \Rew \Afr_4$ and $\Afr_4 \Rew \Afr_2$ are both
-convergent presentations of $\Mag^{\{2, 4\}}$. The Hilbert series of
-this operad is equal to~\eqref{equ:Hilbert_series_Mag_1_2}.
+The reader can check that the rewrite rules $\Afr_2 \Rew \Afr_4$ and
+$\Afr_4 \Rew' \Afr_2$ are both convergent presentations of
+$\Mag^{\{2, 4\}}$.
+Thanks to~\cite{Gir18}, the Hilbert series of $\Mag^{\{2, 4\}}$
+is equal to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus, for $n \geq 2$,
+$\# \Mag^{\{2, 4\}}(n)$ is equal to~\eqref{prop:Close_formula_Mag_1_2}.
 \medbreak
 
-Given an integer $i \geq 1$, we define the
-binary operation
-$\circ_i^{(2,4)} : \Compositions(n) \times \Compositions(m)\rightarrow
- \Compositions(n + m - 1)$ for
-$n \geq i$ and $m \geq 1$ by
+Like in Section~\ref{subsubsec:Mag_1_2}, we choose a combinatorial
+realization based on integer compositions. Given an integer $i \geq 1$,
+we define the binary operation
+\begin{math}
+    \circ_i^{(2,4)} : \Compositions(n) \times \Compositions(m)
+    \to\Compositions(n + m - 1)
+\end{math}
+for any integer compositions
+$\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
+$\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
+$n \geq 1$ and $m$ by
 \begin{equation}
-    a \circ_i^{(2,4)} b :=
+    \LambdaB \circ_i^{(2,4)} \MuB :=
     \begin{cases}
-    (a_1, \dots, a_{k}, b_1, \dots, b_{q-1}, b_{q} + a_{k+1},
-    a_{k+2}, \dots ,a_{p}) & \mbox{if } i = s_k, \\
-    (a_1, \dots, a_{k}, i - s_{k}, b_1, \dots, b_{q-1}, b_{q}
-     + s_{k+1} - i, a_{k+2}, \dots ,a_{p}) & \mbox{otherwise},
+        \left(\LambdaB_1, \dots, \LambdaB_k,
+        \MuB_1, \dots, \MuB_{q - 1}, \MuB_q + \LambdaB_{k + 1},
+        \LambdaB_{k + 2}, \dots, \LambdaB_p\right)
+            & \mbox{if } i = s_k, \\
+        \left(\LambdaB_1, \dots, \LambdaB_k,
+        i - s_k, \MuB_1, \dots, \MuB_{q - 1},
+        \MuB_q + s_{k + 1} - i, \LambdaB_{k + 2}, \dots, \LambdaB_p
+        \right)
+            & \mbox{otherwise},
     \end{cases}
 \end{equation}
-where $k \geq 0$  be such that $s_k \leq i < s_{k+1}$.
+where $k \geq 0$ is such that
+\begin{math}
+    s_k \leq i < s_{k + 1}.
+\end{math}
 \medbreak
 
-\begin{Proposition} \label{prop:Realisation_Mag_2_4}
-  The operad $\left(\Compositions, \circ_i^{(2,4)}\right)$
-  is a combinatorial realization of $\Mag^{\{2, 4\}}$.
-\end{Proposition}
+\Todo{S: même remarque que précédemment, les $s_k$ ne veulent rien
+dire (la notation qui est définie est $s_{i, j}(\LambdaB)$).}
 
+\begin{Proposition} \label{prop:Realisation_Mag_2_4}
+    The operad $\left(\Compositions, \circ_i^{(2,4)}\right)$
+    is a combinatorial realization of~$\Mag^{\{2, 4\}}$.
+\end{Proposition}
 \begin{proof}
-  The set of normal forms of arity $n$ for the rewrite rule
-  $\Afr_2 \Rew \Afr_4$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
-  that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
-  the operad $\Mag^{\{2, 4\}}$ to
-  $\left(\Compositions, \circ_i^{(2,4)}\right)$.
+    We have to show that the operad
+    $\left(\Compositions, \circ_i^{(2,4)}\right)$ and $\Mag^{\{2, 4\}}$
+    are isomorphic. The set of normal forms of arity $n$ for the
+    rewrite rule $\RewContext$ induced by $\Afr_2 \Rew \Afr_4$
+    is~\eqref{equ:Normal_forms_A2}. Thus, it is possible to show that
+    the map~\eqref{equ:Morphism_A2} is an operad isomorphism from
+    $\Mag^{\{2, 4\}}$ to~$\left(\Compositions, \circ_i^{(2,4)}\right)$.
 \end{proof}
 \medbreak
 
