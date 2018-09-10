@@ -136,10 +136,7 @@ $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
 $n \geq 1$ and $m$ by
 \begin{equation}
-    \left(\LambdaB_1, \dots, \LambdaB_p\right)
-    \circ_i^{(1,2)}
-    \left(\MuB_1, \dots, \MuB_q\right)
-    :=
+    \LambdaB \circ_i^{(1,2)} \MuB :=
     \begin{cases}
         \left(\LambdaB_1, \dots, \LambdaB_p,
         \MuB_1, \dots, \MuB_q\right) &
@@ -285,10 +282,7 @@ $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
 $n \geq 1$ and $m$ by
 \begin{equation}
-    \left(\LambdaB_1, \dots, \LambdaB_p\right)
-    \circ_i^{(1,3)}
-    \left(\MuB_1, \dots, \MuB_q\right)
-    :=
+    \LambdaB \circ_i^{(1,3)} \MuB :=
     \begin{cases}
         \left(\LambdaB_1, \dots, \LambdaB_{i - 1},
         \MuB_1 + s_{i, p}(\LambdaB), \MuB_2, \dots, \MuB_q\right) &
@@ -340,7 +334,9 @@ where $k \geq 0$ is such that
     $\left(\Compositions, \circ_i^{(1,3)}\right)$.
 \end{proof}
 \medbreak
-\Todo{S: on est d'accord qu'il s'agit juste d'un schéma de la démo?}
+\Todo{S: on est d'accord qu'il s'agit juste d'un schéma de la démo?
+Si oui, préciser par une phrase "dans la suite, on ne donnera que les
+idées principales des démo...".}
 
 From Lemma~\ref{lem:recall_anti_isomorphic}, we deduce that
 $\left(\Compositions, \bar{\circ}_i^{(1,3)}\right)$ is a combinatorial
@@ -349,45 +345,70 @@ realization of $\Mag^{\{3, 5\}}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operads $\Mag^{\{1, 4\}}$ and $\Mag^{\{2, 5\}}$}
-The rewrite rule $\Afr_4 \Rew \Afr_1$ is a convergent presentation of
-$\Mag^{\{1, 4\}}$. Symmetrically, the rewrite rule $\Afr_2 \Rew \Afr_5$
-is a convergent p of $\Mag^{\{2, 5\}}$.
+The reader can check that the rewrite rule $\Afr_4 \Rew \Afr_1$ is a
+convergent presentation of $\Mag^{\{1, 4\}}$. By
+Lemma~\ref{lem:recall_anti_isomorphic}, the rewrite rule
+$\Afr_2 \Rew \Afr_5$ is a convergent presentation of~$\Mag^{\{2, 5\}}$.
 \medbreak
 
 Thanks to~\cite{Gir18}, the Hilbert series of $\Mag^{\{1, 4\}}$ and
 $\Mag^{\{2, 5\}}$ are equal to~\eqref{equ:Hilbert_series_Mag_1_2}. Thus,
-for $n \geq 1,$ $\# \Mag^{\{1, 4\}}(n)$ and $\# \Mag^{\{2, 5\}}(n)$ are
+for $n \geq 2$,
+\Todo{S: voir commentaire analogue prec.}
+$\# \Mag^{\{1, 4\}}(n)$ and $\# \Mag^{\{2, 5\}}(n)$ are
 equal to~\eqref{prop:Close_formula_Mag_1_2}.
 \medbreak
 
+Like in Section~\ref{subsubsec:Mag_1_2}, we choose a combinatorial
+realization based on integer compositions.
 Given an integer $i \geq 1$, we define the binary operation
-$\circ_i^{(2,5)} : \Compositions(n) \times \Compositions(n')
-\rightarrow \Compositions(n + n' -1)$ for $n \geq i$ and $n' \geq 1$ by
+\begin{math}
+    \circ_i^{(2,5)} : \Compositions(n) \times \Compositions(m)
+    \to\Compositions(n + m - 1)
+\end{math}
+for any integer compositions
+$\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
+$\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
+$n \geq 1$ and $m$ by
 \begin{equation}
-    a \circ_i^{(2,5)} b :=
+    \LambdaB \circ_i^{(2,5)} \MuB :=
     \begin{cases}
-        (a_1, \dots, a_{k}, b_1, \dots, b_{q}, a_{k+1}, \dots ,
-        a_{p}) & \mbox{if } i = s_k, \\
-        (a_1, \dots, a_{k}, i - s_{k}, b_1, \dots, b_{q-1},
-        b_{q} + s_{k+1} - i, a_{k+2}, \dots ,a_{p}) & \mbox{otherwise},
+        \left(\LambdaB_1, \dots, \LambdaB_k,
+        \MuB_1, \dots, \MuB_q,
+        \LambdaB_{k + 1}, \dots, \LambdaB_p\right)
+            & \mbox{if } i = s_k, \\
+        \left(\LambdaB_1, \dots, \LambdaB_k,
+        i - s_k, \MuB_1, \dots, \MuB_{q - 1},
+        \MuB_q + s_{k + 1} - i, \LambdaB_{k + 2}, \dots, \LambdaB_p
+        \right)
+            & \mbox{otherwise},
     \end{cases}
 \end{equation}
-where $k \geq 0$ be such that $s_k \leq i < s_{k+1}$.
+where $k \geq 0$ is such that
+\begin{math}
+    s_k \leq i < s_{k + 1}.
+\end{math}
+\Todo{S: corriger les "$s_k"$ qui ne veulent rien dire.}
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_4}
-  The operad $\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ and
-  $\left(\Compositions, \circ_i^{(2,5)}\right)$
-  are combinatorial realizations of $\Mag^{\{1, 4\}}$ and
-  $\Mag^{\{2, 5\}}$, respectively.
+    The operad $\left(\Compositions, \circ_i^{(2,5)}\right)$ is a
+    combinatorial realization of~$\Mag^{\{2, 5\}}$.
 \end{Proposition}
-
 \begin{proof}
-  The set of normal forms of arity $n$ for the rewrite rule
-  $\Afr_2 \Rew \Afr_5$ is~\eqref{equ:Normal_forms_A2}. Thus, we can show
-  that the function~\eqref{equ:Morphism_A2} is an operad isomorphism from
-  $\Mag^{\{2, 5\}}$ to $\left(\Compositions, \circ_i^{(2,5)}\right)$.
+    We have to show that the operad
+    $\left(\Compositions, \circ_i^{(2,5)}\right)$ and $\Mag^{\{2, 5\}}$
+    are isomorphic. The set of normal forms of arity $n$ for the
+    rewrite rule $\RewContext$ induced by $\Afr_2 \Rew \Afr_5$
+    is~\eqref{equ:Normal_forms_A2}. Thus, it is possible to show that
+    the map~\eqref{equ:Morphism_A2} is an operad isomorphism from
+    $\Mag^{\{2, 5\}}$ to~$\left(\Compositions, \circ_i^{(2,5)}\right)$.
 \end{proof}
+\medbreak
+
+From Lemma~\ref{lem:recall_anti_isomorphic}, we deduce that
+$\left(\Compositions, \bar{\circ}_i^{(2,5)}\right)$ is a combinatorial
+realization of $\Mag^{\{1, 4\}}$.
 \medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
