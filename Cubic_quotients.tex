@@ -21,11 +21,11 @@ $\Mag^{\{1, 5\}} = \CAs{3}$ in Section~\ref{subsubsec:CAs_3}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Anti-isomorphism and combinatorial realizations}
-Some of the quotients $\Mag^{\{i, j\}}$ are anti-isomorphic.
-Indeed, the map $\phi : \Mag \to \Mag$ sending any binary tree $\Tfr$
-to the binary tree obtained by exchanging recursively the left and
-right subtrees of $\Tfr$ is an anti-isomorphism of $\Mag$. For this
+\subsection{Anti-isomorphic classes of quotients}
+Some of the quotients $\Mag^{\{i, j\}}$ are anti-isomorphic one of the
+other. Indeed, the map $\phi : \Mag \to \Mag$ sending any binary tree
+$\Tfr$ to the binary tree obtained by exchanging recursively the left
+and right subtrees of $\Tfr$ is an anti-isomorphism of $\Mag$. For this
 reason, the $\binom{5}{2} = 10$ quotients $\Mag^{\{i, j\}}$ of $\Mag$
 fit into the six equivalence classes
 \begin{multline}
@@ -36,8 +36,7 @@ fit into the six equivalence classes
     \left\{\Mag^{\{2, 3\}}, \Mag^{\{3, 4\}}\right\},
     \left\{\Mag^{\{2, 4\}}\right\}
 \end{multline}
-of anti-isomorphic operads. Anti-isomorphic operads are linked by the
-following Proposition.
+of anti-isomorphic operads.
 \medbreak
 
 Given an operad $\Oca$ with partial compositions $\circ_i$, we consider
@@ -47,24 +46,22 @@ the partial compositions $\bar{\circ}_i$ defined by
 \end{math}
 for all $x, y \in \Oca$ and $i \in [|x|]$. The reader can easily check
 the assertions of the following lemma.
+\medbreak
 
 \begin{Lemma} \label{lem:recall_anti_isomorphic}
-  Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads and let
-  $\phi$ be an anti-isomorphism between $\Oca_1$ and $\Oca_2$. Then,
+    Let $\Oca_1$ and $\Oca_2$ be two anti-isomorphic operads and let
+    $\phi$ be an anti-isomorphism between $\Oca_1$ and $\Oca_2$. Then,
     \begin{enumerate}[label={(\it\roman*)}]
         \item \label{item:recall_anti_isomorphic_1}
         $\HilbertSeries_{\Oca_1}(t) = \HilbertSeries_{\Oca_2}(t)$;
         \item \label{item:recall_anti_isomorphic_2}
-        if $\Rew^{(1)}$ is a convergent presentation of
-        $\Oca_1$,
-        then the set of rewrite rules $\Rew^{(2)}$ satisfying
-        $\phi(x) \Rew^{(2)} \phi(y)$
-        for any $x, y \in \Oca_1$ whenever
-        $x \Rew^{(1)} y$,
-        is a convergent presentation of~$\Oca_2$.
-      \item\label{item:realization_anti_isomorphic}
-        If $\left(\Oca, \circ_i\right)$ is a combinatorial realization of
-        $\Oca_1$, then
+        if $\Rew^{(1)}$ is a convergent presentation of $\Oca_1$, then
+        the set of rewrite rules $\Rew^{(2)}$ satisfying
+        $\phi(x) \Rew^{(2)} \phi(y)$ for any $x, y \in \Oca_1$ whenever
+        $x \Rew^{(1)} y$, is a convergent presentation of~$\Oca_2$;
+        \item\label{item:realization_anti_isomorphic}
+        If $\left(\Oca, \circ_i\right)$ is a combinatorial realization
+        of $\Oca_1$, then
         \begin{math}
           \left(\Oca, \bar{\circ}_i\right)
         \end{math}
@@ -81,20 +78,19 @@ $\Mag^{\{i, j\}}$ of $\Mag$ can be realized in terms of operads on
 integer compositions. Let us review these.
 \medbreak
 
-\Todo{S: pas encore eu le temps de relir en détail.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Operads $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$}
 \label{subsubsec:Mag_1_2}
 The reader can check that the rewrite rule $\Afr_2 \Rew \Afr_1$ is a
 convergent presentation of $\Mag^{\{1, 2\}}$. The operads
-$\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$ are anti-isomorphic, so that the
-rewrite rule $\Afr_4 \Rew \Afr_5$ is a convergent presentation
-of~$\Mag^{\{4, 5\}}$.
+$\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$ are anti-isomorphic, so that
+by Lemma~\ref{lem:recall_anti_isomorphic}, the rewrite rule
+$\Afr_4 \Rew \Afr_5$ is a convergent presentation of~$\Mag^{\{4, 5\}}$.
 \medbreak
 
 Like Proposition~\ref{prop:Hilbert_series_CAs_3}, we compute the
 following result thanks to~\cite{Gir18}.
+\medbreak
 
 \begin{Theorem} \label{thm:Hilbert_series_Mag_1_2}
     The Hilbert series of $\Mag^{\{1, 2\}}$ and $\Mag^{\{4, 5\}}$ are
@@ -120,14 +116,14 @@ the following.
 
 Many graduate sets of combinatorial objects are enumerated by powers of
 $2$. We choose to present a combinatorial realization of
-$\Mag^{\{1, 2\}}$ based on
-integer compositions. Recall that an \Def{integer composition} is a
-finite sequence of positive integers. If
-$a := \left(a_1, \dots, a_p\right)$ is an integer composition, we denote
-by $s_{i, j}(a)$ the number $1 + \sum_{i \leq k \leq j} a_k$. The
-\Def{arity} of $a$ is $s_{1, p}(a)$. Observe that the empty integer
-composition $\epsilon$ is the unique object of arity $1$. The graded set
-of all integer compositions is denoted by $\Compositions$.
+$\Mag^{\{1, 2\}}$ based on integer compositions. Recall that an
+\Def{integer composition} is a finite sequence of positive integers. If
+$\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ is an integer
+composition, we denote by $s_{i, j}(\LambdaB)$ the number
+$1 + \sum_{i \leq k \leq j} \LambdaB_k$. The \Def{arity} of $\LambdaB$
+is $s_{1, p}(\LambdaB)$. Observe that the empty integer composition
+$\epsilon$ is the unique object of arity $1$. The graded set of all
+integer compositions is denoted by~$\Compositions$.
 \medbreak
 
 Given an integer $i \geq 1$, we define the binary operation
@@ -135,20 +131,28 @@ Given an integer $i \geq 1$, we define the binary operation
     \circ_i^{(1,2)} : \Compositions(n) \times \Compositions(m)
     \to\Compositions(n + m - 1)
 \end{math}
-for $n \geq i$ and $m \geq 1$ by
+for any integer compositions
+$\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
+$\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities $n$
+and $m$, and $i \in [n]$, by
 \begin{equation}
-    \left(a_1, \dots, a_p\right) \circ_i^{(1,2)}
-    \left(b_1, \dots, b_{q}\right)
+    \left(\LambdaB_1, \dots, \LambdaB_p\right)
+    \circ_i^{(1,2)}
+    \left(\MuB_1, \dots, \MuB_q\right)
     :=
     \begin{cases}
-        \left(a_1, \dots ,a_{p}, b_1, \dots ,b_{q}\right) &
+        \left(\LambdaB_1, \dots, \LambdaB_p,
+        \MuB_1, \dots, \MuB_q\right) &
         \mbox{if } i = n, \\
-        \left(a_1, \dots, a_{k}, a_{k+1} + m - 1, a_{k + 2}, \dots,
-            a_p\right)
+        \left(\LambdaB_1, \dots, \LambdaB_k, \LambdaB_{k + 1} + m - 1,
+        \LambdaB_{k + 2}, \dots, \LambdaB_p\right)
             & \mbox{otherwise},
     \end{cases}
 \end{equation}
-where $k \geq 0$ is such that $s_{1, k}(a) \leq i < s_{1, k + 1}(a)$.
+where $k \geq 0$ is such that
+\begin{math}
+    s_{1, k}(\LambdaB) \leq i < s_{1, k + 1}(\LambdaB).
+\end{math}
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_2}
@@ -156,66 +160,97 @@ where $k \geq 0$ is such that $s_{1, k}(a) \leq i < s_{1, k + 1}(a)$.
     combinatorial realization of $\Mag^{\{1, 2\}}$.
 \end{Proposition}
 \begin{proof}
-  It is equivalent to show that the operads
-  $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$
-  are
-  isomorphic. The set of normal forms of arity $n$ for the rewrite rule
-  $\Afr_2 \Rew \Afr_1$ is
-  \begin{equation} \label{equ:Normal_forms_A2}
-    \left\{ \LComb{k_1 \, ; \, \dots \, ; \, k_p} :
-    \left(k_1, \dots, k_p\right) \in \Compositions(n) \right\}
-  \end{equation}
-  where $\LComb{k_1 \, ; \, \dots \, ; \, k_p}$ is
-  $\RComb{p} \circ \left[\LComb{k_1-1}; \dots ; \LComb{k_p-1}
-  ; \Leaf \, \right]$.
-  Thus, the function
-  $\phi : \Mag^{\{1, 2\}}(n) \Rew \Compositions(n)$ defined by
-  \begin{equation} \label{equ:Morphism_A2}
-    \phi\left( \LComb{k_1 \, ; \, \dots \, ; \, k_p} \right) :=
-    \left(k_1 ; \dots ; k_p  \right)
-  \end{equation}
-  is a bijection. Let us show that $\phi$ is an operad morphism. Given
-  \begin{equation}
-    a := \LComb{a_1 \, ; \, \dots \, ; \, a_p} \in \Mag^{\{1, 2\}}(n)
-    \text{ and }
-    b := \LComb{b_1 \, ; \, \dots \, ; \, b_q} \in \Mag^{\{1, 2\}}(n'),
-  \end{equation}
-  $a \circ_n b$ equals $\LComb{a_1 \, ; \, \dots \, ; \, a_p
-   \, ; \, b_1 \, ; \, \dots \, ; \, b_q}$, so that
-  $\phi\left(a \circ_n b\right) = \phi\left(a\right) \circ_n^{(1,2)}
-  \phi\left(b\right)$. Let $1 \leq i < n$ and let $k$ be such that
-  $s_{(1, k)}(a) \leq i < s_{(1, k+1)}(a)$, so that $a \circ_i b$ equals
-  \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
-    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
-    \LComb{a_{k+1}-1}
-    \circ_{i-s_{(1,k)}(a)} b ; \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1};
-    \Leaf \, \right]
-  \end{equation}
-  is rewritable into
-  \begin{equation}
-    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1}; \left(
-    \LComb{a_{k+1}-1} \circ_{i-s_{(1,k)}(a)}  \LComb{b_1} \right)
-    \circ_{i-s_{(1,k)}(a)+b_1} \LComb{b_2 \, ; \, \dots \, ; \, b_q} ;
-    \LComb{a_{k+2}-1} ; \dots; \LComb{a_p-1} ; \Leaf \, \right]
-  \end{equation}
-  which is rewritable into
-  \begin{equation} \label{equ:Rewriting_2_Mag_1_2}
-    \RComb{p} \circ \left[\LComb{a_1-1}; \dots ; \LComb{a_k-1};
-    \LComb{a_{k+1}-1+b_1} \circ_{i-s_{(1,k)}(a)+b_1}
-    \LComb{b_2 \, ; \, \dots \, ; \, b_q}  ; \LComb{a_{k+2}-1} ; \dots;
-    \LComb{a_p-1} ; \Leaf \, \right]
-  \end{equation}
-  in $b_1$ steps. By iterating $q-1$ times the process
-  $\eqref{equ:Rewriting_1_Mag_1_2} \rightarrow
-  \eqref{equ:Rewriting_2_Mag_1_2}$, we get
-  \begin{equation}
-    a \circ_i b \rightarrow \LComb{a_1 \, ; \, \dots \, ; \, a_{k} \,;\,
-    a_{k+1} + n'-1 \, ; \, a_{k+2} \, ; \, \dots \, ; \, a_p},
-  \end{equation}
-  so that $\phi(a \circ_i b) = \phi(a) \circ_i^{(1,2)} \phi(b)$, that is
-  $\phi$ is an operad morphism.
+    We have to show that the operads
+    $\left(\Compositions, \circ_i^{(1,2)}\right)$ and $\Mag^{\{1, 2\}}$
+    are isomorphic. The set of normal forms of arity $n$ for the rewrite
+    rule $\RewContext$ induced by $\Afr_2 \Rew \Afr_1$ is
+    \begin{equation} \label{equ:Normal_forms_A2}
+        \left\{\LComb{\LambdaB_1, \dots, \LambdaB_p} :
+        \left(\LambdaB_1, \dots, \LambdaB_p\right)
+        \in \Compositions(n) \right\}
+    \end{equation}
+    where
+    \begin{equation}
+        \LComb{\LambdaB_1, \dots, \LambdaB_p} :=
+        \RComb{p} \circ
+        \left[\LComb{\LambdaB_1-1}, \dots, \LComb{\LambdaB_p-1},
+        \Leaf\right].
+    \end{equation}
+    Thus, the map $\phi : \Mag^{\{1, 2\}}(n) \Rew \Compositions(n)$
+    defined by
+    \begin{equation} \label{equ:Morphism_A2}
+        \phi\left(\LComb{\LambdaB_1, \dots, \LambdaB_p} \right) :=
+        \left(\LambdaB_1, \dots, \LambdaB_p\right)
+    \end{equation}
+    is a bijection. Let us show that $\phi$ is an operad morphism.
+    Let $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
+    $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ be two integer
+    compositions of respective arities $n$ and $m$, and let
+    \begin{equation}
+        \Tfr := \LComb{\LambdaB_1, \dots, \LambdaB_p}
+        \in \Mag^{\{1, 2\}}(n)
+        \quad \mbox{ and } \quad
+        \Sfr := \LComb{\MuB_1, \dots, \MuB_q} \in \Mag^{\{1, 2\}}(m).
+    \end{equation}
+    The tree $\Tfr \circ_n \Sfr$ is equal to
+    $\LComb{\LambdaB_1, \dots, \LambdaB_p, \MuB_1, \dots, \MuB_q}$, so
+    that
+    \begin{math}
+        \phi\left(\Tfr \circ_n \Sfr\right)
+        = \phi\left(\Tfr\right) \circ_n^{(1,2)} \phi\left(\Sfr\right).
+    \end{math}
+    Let $i \in [n - 1]$ and $k$ be such that
+    $s_{1, k}(\LambdaB) \leq i < s_{1, k+1}(\LambdaB)$, so that
+    $\Tfr \circ_i \Sfr$ equals to
+    \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
+        \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
+            \LComb{\LambdaB_k-1}, \LComb{\LambdaB_{k+1}-1}
+            \circ_{i-s_{1,k}(\LambdaB)} \MuB, \LComb{\LambdaB_{k+2}-1},
+            \dots, \LComb{\LambdaB_p-1}, \Leaf \right].
+    \end{equation}
+    \Todo{S: il y a une faute ici, le $\MuB$ ("$b$" d'avant) au milieu ??}
+    The tree~\eqref{equ:Rewriting_1_Mag_1_2} rewrites by $\RewContext$
+    into
+    \begin{equation}
+        \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
+        \LComb{\LambdaB_k-1},
+        \left(
+        \LComb{\LambdaB_{k+1}-1} \circ_{i-s_{1,k}(\LambdaB)}
+        \LComb{\MuB_1}
+        \right)
+        \circ_{i-s_{1,k}(\LambdaB)+\MuB_1}
+        \LComb{\MuB_2, \dots, \MuB_q},
+        \LComb{\LambdaB_{k+2}-1}, \dots, \LComb{\LambdaB_p-1},
+        \Leaf \right]
+    \end{equation}
+    which rewrite itself by $\RewContext$ into
+    \begin{equation} \label{equ:Rewriting_2_Mag_1_2}
+        \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
+        \LComb{\LambdaB_k-1}, \LComb{\LambdaB_{k+1}-1+\MuB_1}
+        \circ_{i-s_{1,k}(\LambdaB)+\MuB_1}
+        \LComb{\MuB_2, \dots, \MuB_q}, \LComb{\LambdaB_{k+2}-1}, \dots,
+        \LComb{\LambdaB_p-1}, \Leaf \right]
+    \end{equation}
+    in $b_1$ steps. By iterating $q-1$ times the rewriting steps
+    passing from~\eqref{equ:Rewriting_1_Mag_1_2}
+    to~\eqref{equ:Rewriting_2_Mag_1_2}, we get
+    \begin{equation}
+        \Tfr \circ_i \Sfr
+        \Rew
+        \LComb{\LambdaB_1, \dots, \LambdaB_k,
+        \LambdaB_{k+1} + m-1, \LambdaB_{k+2}, \dots, \LambdaB_p},
+    \end{equation}
+    so that
+    \begin{math}
+        \phi(\Tfr \circ_i \Sfr) = \phi(\Tfr) \circ_i^{(1,2)} \phi(\Sfr).
+    \end{math}
+    Therefore $\phi$ is an operad morphism.
 \end{proof}
 \medbreak
+\Todo{S: pb de typage dans la démo : des "$a$" (et "$b$" qui étaient à
+la fois des arbres et des compos. J'ai corrigé.}
+\Todo{S: j'ai viré les ";" qui n'ont pas de sens particulier et mis des
+"," à la place (on a déf les compos par des ",".}
 
 From Lemma~\ref{lem:recall_anti_isomorphic}, we deduce that
 $\left(\Compositions, \bar{\circ}_i^{(1,2)}\right)$ is a combinatorial
