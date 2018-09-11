@@ -304,10 +304,11 @@ Finally, for every integer $\gamma\geq 2$, we define the
 \Def{$\gamma$-right comb operad} $\RC{\gamma}$ as follows. For every
 arity $n$, we let
 \begin{equation}
+  \label{equ:compositions_of_RC}
   \RC{\gamma}(n):=
     \begin{cases}
         \As(n) &
-        \mbox{if } n \leq \gamma-1, \\
+        \mbox{if } n \leq \gamma, \\
         \RComb{n}
             & \mbox{otherwise},
     \end{cases}
@@ -322,18 +323,41 @@ is strictly smaller than $\gamma$, and $\RComb{n}$, otherwise.
 
 \begin{Lemma}
   \label{lem:presentation_of_RC}
-  We have
+  We have an isomorphism
   \begin{equation}
   \label{equ:presentation_of_RC}
-  \NiHil:=\KMag/_{\IRCC{\gamma}}
+  \RC{\gamma}\simeq\KMag/_{\IRCC{\gamma}}
   \end{equation}
-  where $\IRC{\gamma}$ is the ideal spanned by the elements
-  $\Tfr-\RComb{\gamma}$, where $\Tfr$ runs over all the trees of arity
-  $\gamma$.
+  where $\IRCC{\gamma}$ is the ideal spanned by the elements
+  $\Tfr-\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees of
+  arity $\gamma+1$. In other words, $\RC{\gamma}$ is a combinatorial
+  realization of
+  \begin{math}
+    \KMag/_{\IRCC{\gamma}}.
+    \end{math}
 \end{Lemma}
 
 \begin{proof}
-  \Todo{todo}
+  Let $R^{(\gamma)}$ be the set of rewrite rules
+  $\Tfr\Rew\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees
+  of arity $\gamma+1$ different from $\RComb{\gamma}$. The unique normal
+  form of arity $n\geq\gamma+1$ for  $R^{(\gamma)}$ is equal to
+  $\RComb{n}$, so that $R^{(\gamma)}$ is a convergent presentation of
+  \begin{math}
+    \KMag/_{\IRC{\gamma}}.
+  \end{math}
+  Moreover, the normal forms of arity $n\leq\gamma$ are all the trees of
+  arity $n$ and, by using the convergent presentation
+  $R^{(\gamma)}$, we see that the compositions of
+  \begin{math}
+    \KMag/_{\IRC{\gamma}}
+  \end{math}
+  satisfy~\eqref{equ:compositions_of_RC}. Hence, $R^{(\gamma)}$ is also a
+  convergent presentation of
+  \begin{math}
+    \RC{\gamma}
+  \end{math}
+  which proves Lemma~\ref{lem:presentation_of_RC}.
 \end{proof}
 
 \medbreak
