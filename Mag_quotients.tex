@@ -220,13 +220,14 @@ following.
 \end{proof}
 \medbreak
 
-We terminate this section with an example illustrating the previous
-constructions in the case where the characteristic of the
-field $\K$ is different from $2$. For that, we introduce various operads,
-which requires the following notations, also used in
-Section~\ref{sec:CAs_d}. Let, for any integer $\gamma \geq 1$, the binary
-trees $\LComb{\gamma}$ and $\RComb{\gamma}$ be respectively the left and
-the right combs of degree $\gamma$. These trees are depicted as
+We terminate this section with an example illustrating the lattice
+constructions on $\QMag$ in the case where the
+characteristic of the field $\K$ is different from $2$. For that, we
+introduce various operads, which requires the following notations, also
+used in Section~\ref{sec:CAs_d}. Let, for any integer $\gamma \geq 1$,
+the binary trees $\LComb{\gamma}$ and $\RComb{\gamma}$ be respectively
+the left and the right combs of degree $\gamma$. These trees are depicted
+as
 \begin{equation}
     \LComb{\gamma} = \enspace
     \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
@@ -281,6 +282,16 @@ where $\IAAs$ is the ideal spanned by
   \LComb{3}+\RComb{3}
 \end{math}.
 \Todo{Illustrer avec la représentation graphique ?}
+\medbreak
+
+\begin{Lemma}
+\label{lem:properties_of_AAs}
+\end{Lemma}
+
+\begin{proof}
+\Todo{todo}
+\end{proof}
+\medbreak
 
 We define the \Def{2-nihilpotente operad} by
 \begin{equation}
@@ -307,9 +318,9 @@ arity $n$, we let
   \label{equ:compositions_of_RC}
   \RC{\gamma}(n):=
     \begin{cases}
-        \As(n) &
+        \KMag(n) &
         \mbox{if } n \leq \gamma, \\
-        \RComb{n}
+        \K\Angle{\RComb{n}}
             & \mbox{otherwise},
     \end{cases}
 \end{equation}
@@ -318,7 +329,7 @@ composition of $\Tfr_1$ and $\Tfr_2$ in $\Mag$ if the integer
 \begin{math}
   n:=|\Tfr_1|+|\Tfr_2| 
 \end{math}
-is strictly smaller than $\gamma$, and $\RComb{n}$, otherwise.
+is smaller than or equal to $\gamma$, and $\RComb{n}$, otherwise.
 \medbreak
 
 \begin{Lemma}
@@ -361,29 +372,30 @@ is strictly smaller than $\gamma$, and $\RComb{n}$, otherwise.
 \end{proof}
 
 \medbreak
-The lower-bound and the upper-bound of $\As$ and $\AAs$ are given by the
-following.
+The lower-bound and the upper-bound of $\As$ and $\AAs$ in the lattice
+$\LatQMag$ are given by the following.
 \begin{Theorem}
   \label{thm:example_lattice}
   We have
   \begin{equation}
     \label{equ:example_lower-bound}
-    \As\InfQMag\AAs=\NiHil
+    \KAs\InfQMag\AAs=\NiHil
   \end{equation}
   and
   \begin{equation}
     \label{equ:example_upper-bound}
-    \As\SupQMag\AAs=\RC{3}.
+    \KAs\SupQMag\AAs=\RC{3}.
     \end{equation}
   \end{Theorem}
 
 \begin{proof}
   First, we show~\eqref{equ:example_lower-bound}. By definition of the
-  lower-bound $\InfQMag$, the ideal of relations of $\As\InfQMag\AAs$
-  is spanned by the two elements $\LComb{3}-\RComb{3}$ and
-  $\LComb{3}+\RComb{3}$. By linear transformations applied to these
-  generators, the ideal of relations of $\As\InfQMag\AAs$ is spanned by
-  $\LComb{3}$ and $\RComb{3}$, that is it is equal to $\INiHil$, which
+  lower-bound $\InfQMag$, the ideal of relations of
+  $\KAs\InfQMag\AAs$ is spanned by the two elements
+  $\LComb{3}-\RComb{3}$ and $\LComb{3}+\RComb{3}$. By linear
+  transformations applied to these generators, the ideal of relations of
+  $\KAs\InfQMag\AAs$ is spanned by $\LComb{3}$ and $\RComb{3}$,
+  that is it is equal to $\INiHil$, which
   proves~\eqref{equ:example_lower-bound}.
   
 \smallbreak
@@ -391,12 +403,15 @@ Now, we show~\eqref{equ:example_upper-bound}. We denote by
 \begin{math}
   \pi:\KMag\to\RC{3}
 \end{math}
-the natural projection. Let $\Tfr$ be a tree of arity $3$. Then,
-$\Tfr-\RComb{\gamma}$ belongs to the ideals $\IAs$ and $\IAAs$ of
-relations of $\As$ and $\AAs$, respectively. Indeed, every
-tree of arity $3$ to the same element $\RComb{\gamma}$. Hence, by
-definition of the upper-bound $\SupQMag$, $\pi$ induces a surjective
-operad morphism
+the natural projection. Let $\Tfr$ be a tree of arity $3$. From
+Lemma~\ref{lem:presentation_of_RC}, the kernel of $\pi$ is spanned by
+the elements $\alpha_{\Tfr}:=\Tfr-\RComb{3}$, where $\Tfr$ is a binary
+tree of arity $4$. The elements $\alpha_{\Tfr}$ belong to the ideal
+$\IAs$ of relations of $\KAs$ and to the ideal $\IAAs$ since both
+$[\Tfr]_{\IAAs}$ and $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$
+from Lemma~\ref{lem:properties_of_AAs}. Hence, the kernel of $\pi$ is
+included in $\IAs\cap\IAAs$, so that, by definition of the upper-bound
+$\SupQMag$, $\pi$ induces a surjective operad morphism
 \begin{math}
   \overline{\pi}:\As\SupQMag\AAs\to\RC{3}
 \end{math}.
