@@ -310,13 +310,14 @@ $\RComb{3}$.
 \Todo{Est-ce qu'il faut rajouter le 2 dans la macro désignant cette
   opérade ? De plus, Samuele,\\
   pourrais-tu rajouter la référence de Loday ?}
-We easily check that we have
+We have
 \begin{equation}
   \label{equ:Hilbert_series_of_NiHil}
   \HilbertSeries_{\NiHil}(t)=t+t^2.
 \end{equation}
 \Todo{Est-ce bien la bonne série ? Samuele, tu avais l'air de dire que
-  c'était plutôt $t+2t^2$}
+  c'était plutôt $t+2t^2$. Ou peut-être que NiHil est la $1$-
+  nihilipotente opérade ?}
 
 Finally, for every integer $\gamma\geq 2$, we define the
 \Def{$\gamma$-right comb operad} $\RC{\gamma}$ as follows. For every
@@ -372,7 +373,7 @@ Moreover, by definition of the $\gamma$-right comb operad, we have
   \end{math}
   Moreover, the normal forms of arity $n\leq\gamma$ are all the trees of
   arity $n$ and, by using the convergent presentation
-  $R^{(\gamma)}$, we see that the compositions of
+  $R^{(\gamma)}$, the compositions of
   \begin{math}
     \KMag/_{\IRC{\gamma}}
   \end{math}
@@ -411,33 +412,34 @@ $\LatQMag$ are given by the following.
   that is it is equal to $\INiHil$, which
   proves~\eqref{equ:example_lower-bound}.
   
-\smallbreak
-Now, we show~\eqref{equ:example_upper-bound}. We denote by
-\begin{math}
-  \pi:\KMag\to\RC{3}
-\end{math}
-the natural projection. Let $\Tfr$ be a tree of arity $3$. From
-Lemma~\ref{lem:presentation_of_RC}, the kernel of $\pi$ is spanned by
-the elements $\alpha_{\Tfr}:=\Tfr-\RComb{3}$, where $\Tfr$ is a binary
-tree of arity $4$. The elements $\alpha_{\Tfr}$ belong to the ideal
-$\IAs$ of relations of $\KAs$ and to the ideal $\IAAs$ since both
-$[\Tfr]_{\IAAs}$ and $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$
-from Lemma~\ref{lem:properties_of_AAs}. Hence, the kernel of $\pi$ is
-included in $\IAs\cap\IAAs$, so that, by definition of the upper-bound
-$\SupQMag$, $\pi$ induces a surjective operad morphism
-\begin{math}
-  \overline{\pi}:\As\SupQMag\AAs\to\RC{3}
-\end{math}.
-We conclude using a dimension argument: by definition, the Hilbert series
-of $\RC{3}$ is equal to
-\begin{equation}
-  \label{equ:Hilbert_series_of_RC3}
-  t+t^2+2t^3+\sum_{n\geq 4}t^n
-\end{equation}
-and from the Grassmann formula analog given in
-Theorem~\ref{thm:Grassmann_formula_for_Hilbert_series_of_QMag}, we check
-that the Hilbert series of $\As\SupQMag\AAs$ is also equal
-to~\eqref{equ:Hilbert_series_of_RC3}. Hence, $\overline{\pi}$ is an
-isomorphism, which proves~\eqref{equ:example_upper-bound}.
-  \end{proof}
+  \smallbreak
+  Now, we show~\eqref{equ:example_upper-bound}. We denote by
+  \begin{math}
+    \pi:\KMag\to\KAs\SupQMag\AAs
+  \end{math}
+  the natural projection. Let $\Tfr$ be a tree of arity $4$. From
+  Lemma~\ref{lem:presentation_of_RC}, the kernel of $\pi$ is spanned by
+  the elements $\alpha_{\Tfr}:=\Tfr-\RComb{3}$, where $\Tfr$ is a binary
+  tree of arity $4$. The elements $\alpha_{\Tfr}$ belong to the ideal
+  $\IAs$ of relations of $\KAs$ and to the ideal $\IAAs$ since both
+  $[\Tfr]_{\IAAs}$ and $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$.
+  The last statement is shown using the convergent
+  presentation~\eqref{equ:convergent_presentation_of_AAS}. Hence, the kernel
+  of $\pi$ is included in $\IAs\cap\IAAs$, so that, by definition of the
+  upper-bound $\SupQMag$, $\pi$ induces a surjective operad morphism
+  \begin{math}
+    \overline{\pi}:\As\SupQMag\AAs\to\RC{3}
+  \end{math}.
+  We conclude using a dimension argument: by definition, the Hilbert series
+  of $\RC{3}$ is equal to
+  \begin{equation}
+    \label{equ:Hilbert_series_of_RC3}
+    t+t^2+2t^3+\sum_{n\geq 4}t^n
+  \end{equation}
+  and from the Grassmann formula analog given in
+  Theorem~\ref{thm:Grassmann_formula_for_Hilbert_series_of_QMag}, we check
+  that the Hilbert series of $\As\SupQMag\AAs$ is also equal
+  to~\eqref{equ:Hilbert_series_of_RC3}. Hence, $\overline{\pi}$ is an
+  isomorphism, which proves~\eqref{equ:example_upper-bound}.
+\end{proof}
 \medbreak
