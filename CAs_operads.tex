@@ -1038,8 +1038,83 @@ $\Tfr$, $\Tfr'$, and~$i$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Higher comb associative operads}
 \label{sec:higher_comb_associative_operads}
-Let us provide here some experimental data. First,
-Table~\ref{tab:dimensions_CAs} shows the first dimensions of the
+
+We run the same algorithm for $\CAs{\gamma}$ when $\gamma \in [9]$.
+Table~\ref{tab:cardinalities_completion_CAs} shows
+the number of rewrite rules needed to obtain complete orientations.
+\medbreak
+
+\begin{table}[ht]
+    \centering
+    \footnotesize
+    \setlength{\tabcolsep}{.35em}
+    \begin{tabular}{c||ccccccccccccccccccccccccccc}
+        $\gamma$ & \multicolumn{27}{c}{
+        Cardinalities of completions of $\CAs{\gamma}$}
+        \\ \hline \hline
+        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \\
+        2 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \\
+        3 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 4 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \\
+        4 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 3 & 4 & 5 & 18 & 22 & 11 & 12
+        & 15 & 19 & 25 & 36 & 44 & 52 & 68 & 79 & 93 & 105 & 106 & 109
+        & 107
+        \\
+        5 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 4 & 5 & 8 & 18 & 31
+        & 36 & 48 & 73 & 111 & 172 & 272 & 455 & 783
+        \\
+        6 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 5 & 6 & 11
+        & 23 & 30 & 48 & 73 & 117 & 204 & 348 & 589 & 1004
+        \\
+        7 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 6 & 7
+        & 16 & 24 & 32 & 49 & 88 & 150 & 261 & 475 & 854
+        \\
+        8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0
+        & 7 & 8 & 21 & 29 & 34 & 53 & 93 & 172 & 311 & 565
+        \\
+        9 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0
+        & 0 & 0 & 8 & 9 & 28 & 30 & 36 & 57 & 101 & 185 & 348 & 648
+    \end{tabular}
+    \caption{\footnotesize
+    The sequences of the cardinalities, arity by arity, of the rewrite
+    rules being completions of orientations of~$\CongrCAs{\gamma}$.}
+    \label{tab:cardinalities_completion_CAs}
+\end{table}
+    
+From these computer explorations, we conjecture that the algorithm we
+use does not provide a finite convergent presentation of $\CAs{\gamma}$,
+when $\gamma \geq 4$. We point out that for $\CAs{4}$ new rewrite
+rules still appear in arity $42$. Moreover, the total number of rewrite
+rules at this arity is~$3149$. Our program was too slow to 
+compute further the completions of $\CAs{5}$, $\CAs{6}$, $\CAs{7}$, and
+$\CAs{8}$.
+\medbreak
+
+However, the completion algorithm we used depends on the chosen order on
+the trees. In order to find out if the completion algorithm leads to a
+finite convergent presentation using a different order, we run the
+following backtracking algorithm. For every branching pair
+$(\Tfr_1, \Tfr_2)$ which is not joinable, we recursively try to find a
+completion of $\Rew$ by adding either the rule
+$\Tfr_1 \Rew  \Tfr_2$ or $\Tfr_2 \Rew  \Tfr_1$.
+If at any moment the rewrite relation $\RewContext$ induced by~$\Rew$
+loops (that is $\RewContext$ is not antisymmetric), we simply reject it.
+We do not find any finite presentation for $\CAs{4}$, $\CAs{5}$, and
+$\CAs{6}$ until arity $12$. We conjecture that there is no finite
+convergent presentation of $\CAs{\gamma}$ when $\gamma \geq 4$ and when
+ the left and the right members of the rewriting rules are trees
+ belonging to $\Mag$.
+\medbreak
+
+Thanks to the partial completions presented in table
+\ref{tab:cardinalities_completion_CAs}, we can compute the following 
+first dimensions of $\CAs{\gamma}$. Table~\ref{tab:dimensions_CAs}
+ shows the first dimensions of the
 operads $\CAs{\gamma}$ for $\gamma \in [9]$.
 \begin{table}[ht]
     \centering
@@ -1094,75 +1169,4 @@ operads $\CAs{\gamma}$ for $\gamma \in [9]$.
 \end{table}
 \medbreak
 
-Moreover, we run the same completion algorithm for $\CAs{\gamma}$ as
-the one considered in Section~\ref{subsubsec:CAs_3}, now for
-$\gamma \in [9]$. Table~\ref{tab:cardinalities_completion_CAs} shows
-the number of rewrite rules needed to obtain complete orientations.
-\begin{table}[ht]
-    \centering
-    \footnotesize
-    \setlength{\tabcolsep}{.35em}
-    \begin{tabular}{c||ccccccccccccccccccccccccccc}
-        $\gamma$ & \multicolumn{27}{c}{
-        Cardinalities of completions of $\CAs{\gamma}$}
-        \\ \hline \hline
-        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        \\
-        2 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        \\
-        3 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 4 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-        \\
-        4 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 3 & 4 & 5 & 18 & 22 & 11 & 12
-        & 15 & 19 & 25 & 36 & 44 & 52 & 68 & 79 & 93 & 105 & 106 & 109
-        & 107
-        \\
-        5 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 4 & 5 & 8 & 18 & 31
-        & 36 & 48 & 73 & 111 & 172 & 272 & 455 & 783
-        \\
-        6 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 5 & 6 & 11
-        & 23 & 30 & 48 & 73 & 117 & 204 & 348 & 589 & 1004
-        \\
-        7 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 6 & 7
-        & 16 & 24 & 32 & 49 & 88 & 150 & 261 & 475 & 854
-        \\
-        8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0
-        & 7 & 8 & 21 & 29 & 34 & 53 & 93 & 172 & 311 & 565
-        \\
-        9 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0
-        & 0 & 0 & 8 & 9 & 28 & 30 & 36 & 57 & 101 & 185 & 348 & 648
-    \end{tabular}
-    \medbreak
 
-    \caption{\footnotesize
-    The sequences of the cardinalities, arity by arity, of the rewrite
-    rules being completions of orientations of~$\CongrCAs{\gamma}$.}
-    \label{tab:cardinalities_completion_CAs}
-\end{table}
-\Todo{S : il faut équilibrer la table. Toutes les suites doivent avoir
-la même longueur. (ou alors, il est toléré d'avoir des suites plus
-courtes à mesure que $\gamma$ augmente... mais non ici.)}
-From these computer explorations, we conjecture that the algorithm we
-use does not provide a finite convergent presentation of $\CAs{\gamma}$,
-when $\gamma \geq 4$. We point out that for $\CAs{4}$ new rewrite
-rules still appear in arity $42$. Moreover, the total number of rewrite
-rules at this arity is~$3149$.
-\medbreak
-
-However, the completion algorithm we used depends on the chosen order on
-the trees. In order to find out if the completion algorithm leads to a
-finite convergent presentation using a different order, we run the
-following backtracking algorithm. For every branching pair
-$(\Tfr_1, \Tfr_2)$ which is not joinable, we recursively try to find a
-completion of $\Rew$ by adding either the rule
-$\Tfr_1 \Rew  \Tfr_2$ or $\Tfr_2 \Rew  \Tfr_1$.
-If at any moment the rewrite relation $\RewContext$ induced by~$\Rew$
-loops (that is $\RewContext$ is not antisymmetric), we simply reject it.
-We do not find any finite presentation for $\CAs{4}$, $\CAs{5}$, and
-$\CAs{6}$ until arity $12$. We conjecture that there is no finite
-convergent presentation of $\CAs{\gamma}$ when $\gamma \geq 4$ and when
- the left and the right members of the rewriting rules are trees
- belonging to $\Mag$.
-\medbreak
