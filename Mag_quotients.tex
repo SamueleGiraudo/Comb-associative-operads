@@ -279,18 +279,25 @@ We define the \Def{anti-associative operad} by
 \end{equation}
 where $\IAAs$ is the ideal spanned by
 \begin{math}
-  \LComb{3}+\RComb{3}
+  \LComb{2}+\RComb{2}
 \end{math}.
 \Todo{Illustrer avec la représentation graphique ?}
-\medbreak
-
-\begin{Lemma}
-\label{lem:properties_of_AAs}
-\end{Lemma}
-
-\begin{proof}
-\Todo{todo}
-\end{proof}
+Using the Buchberger algorithm for operads~\cite[Section 3.7]{DK10}, we
+check that the set of rewrite rules
+\begin{equation}
+  \label{equ:convergent_presentation_of_AAS}
+  \left\{\LComb{2}\Rew -\RComb{2},\
+  \RComb{3}\Rew 0
+  \right\}
+\end{equation}
+is a convergent presentation of $\AAs$. We point out that this statement
+is false if the characteristic of $\K$ is equal to $2$. Moreover, using
+the convergent presentation~\eqref{equ:convergent_presentation_of_AAS},
+we have
+  \begin{equation}
+    \label{equ:Hilbert_series_of_AAS}
+    \HilbertSeries_{\AAs}(t)=t+t^2+t³.
+    \end{equation}
 \medbreak
 
 We define the \Def{2-nihilpotente operad} by
@@ -330,6 +337,12 @@ composition of $\Tfr_1$ and $\Tfr_2$ in $\Mag$ if the integer
   n:=|\Tfr_1|+|\Tfr_2| 
 \end{math}
 is smaller than or equal to $\gamma$, and $\RComb{n}$, otherwise.
+Moreover, by definition of the $\gamma$-right comb operad, we have
+\begin{equation}
+  \label{equ:Hilbert_series_of_RC}
+  \HilbertSeries_{\RC{\gamma}}(t)=\sum_{1\leq n\leq\gamma}\Catalan(n) t^n
+  +\sum_{n\geq\gamma+1}t^n.
+  \end{equation}
 \medbreak
 
 \begin{Lemma}
