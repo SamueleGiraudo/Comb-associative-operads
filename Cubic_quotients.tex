@@ -132,7 +132,7 @@ Given an integer $i \geq 1$, we define the binary operation
 for any integer compositions
 $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
-$n \geq 1$ and $m$ by
+$n \geq i$ and $m \geq 1$ by
 \begin{equation}
     \LambdaB \circ_i^{(1,2)} \MuB :=
     \begin{cases}
@@ -185,67 +185,61 @@ where $k \geq 0$ is such that
         \Tfr := \LComb{\LambdaB_1, \dots, \LambdaB_p}
         \in \Mag^{\{1, 2\}}(n)
         \quad \mbox{ and } \quad
-        \Sfr := \LComb{\MuB_1, \dots, \MuB_q} \in \Mag^{\{1, 2\}}(m).
+        \Tfr' := \LComb{\MuB_1, \dots, \MuB_q} \in \Mag^{\{1, 2\}}(m).
     \end{equation}
-    The tree $\Tfr \circ_n \Sfr$ is equal to
+    The tree $\Tfr \circ_n \Tfr'$ is equal to
     $\LComb{\LambdaB_1, \dots, \LambdaB_p, \MuB_1, \dots, \MuB_q}$, so
     that
     \begin{math}
-        \phi\left(\Tfr \circ_n \Sfr\right)
-        = \phi\left(\Tfr\right) \circ_n^{(1,2)} \phi\left(\Sfr\right).
+        \phi\left(\Tfr \circ_n \Tfr'\right)
+        = \phi\left(\Tfr\right) \circ_n^{(1,2)} \phi\left(\Tfr'\right).
     \end{math}
     Let $i \in [n - 1]$ and $k$ be such that
     $s_{1, k}(\LambdaB) \leq i < s_{1, k+1}(\LambdaB)$, so that
-    $\Tfr \circ_i \Sfr$ equals to
+    $\Tfr \circ_i \Tfr'$ equals to
     \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
         \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
             \LComb{\LambdaB_k-1}, \LComb{\LambdaB_{k+1}-1}
-            \circ_{i-s_{1,k}(\LambdaB)} \MuB, \LComb{\LambdaB_{k+2}-1},
+            \circ_{i+1-s_{1,k}(\LambdaB)}\Tfr', \LComb{\LambdaB_{k+2}-1},
             \dots, \LComb{\LambdaB_p-1}, \Leaf \right].
     \end{equation}
-    \Todo{S: il y a une faute ici, le $\MuB$ ("$b$" d'avant) au milieu ??}
     The tree~\eqref{equ:Rewriting_1_Mag_1_2} rewrites by $\RewContext$
     into
     \begin{equation}
         \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
-        \LComb{\LambdaB_k-1},
         \left(
-        \LComb{\LambdaB_{k+1}-1} \circ_{i-s_{1,k}(\LambdaB)}
-        \LComb{\MuB_1}
+        \LComb{\LambdaB_{k+1}-1} \circ_{i+1-s_{1,k}(\LambdaB)}
+        \LComb{\MuB_1-1}
         \right)
-        \circ_{i-s_{1,k}(\LambdaB)+\MuB_1}
+        \circ_{i+1-s_{1,k}(\LambdaB)+\MuB_1}
         \LComb{\MuB_2, \dots, \MuB_q},
-        \LComb{\LambdaB_{k+2}-1}, \dots, \LComb{\LambdaB_p-1},
+        \dots, \LComb{\LambdaB_p-1},
         \Leaf \right]
     \end{equation}
     which rewrite itself by $\RewContext$ into
     \begin{equation} \label{equ:Rewriting_2_Mag_1_2}
         \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
         \LComb{\LambdaB_k-1}, \LComb{\LambdaB_{k+1}-1+\MuB_1}
-        \circ_{i-s_{1,k}(\LambdaB)+\MuB_1}
+        \circ_{i+1-s_{1,k}(\LambdaB)+\MuB_1}
         \LComb{\MuB_2, \dots, \MuB_q}, \LComb{\LambdaB_{k+2}-1}, \dots,
         \LComb{\LambdaB_p-1}, \Leaf \right]
     \end{equation}
-    in $b_1$ steps. By iterating $q-1$ times the rewriting steps
+    in $\MuB_1-1$ steps. By iterating $q-1$ times the rewriting steps
     passing from~\eqref{equ:Rewriting_1_Mag_1_2}
     to~\eqref{equ:Rewriting_2_Mag_1_2}, we get
     \begin{equation}
-        \Tfr \circ_i \Sfr
+        \Tfr \circ_i \Tfr'
         \Rew
         \LComb{\LambdaB_1, \dots, \LambdaB_k,
         \LambdaB_{k+1} + m-1, \LambdaB_{k+2}, \dots, \LambdaB_p},
     \end{equation}
     so that
     \begin{math}
-        \phi(\Tfr \circ_i \Sfr) = \phi(\Tfr) \circ_i^{(1,2)} \phi(\Sfr).
+        \phi(\Tfr \circ_i \Tfr') = \phi(\Tfr) \circ_i^{(1,2)} \phi(\Tfr').
     \end{math}
     Therefore $\phi$ is an operad morphism.
 \end{proof}
 \medbreak
-\Todo{S: pb de typage dans la démo : des "$a$" (et "$b$" qui étaient à
-la fois des arbres et des compos. J'ai corrigé.}
-\Todo{S: j'ai viré les ";" qui n'ont pas de sens particulier et mis des
-"," à la place (on a déf les compos par des ",".}
 
 From Lemma~\ref{lem:recall_anti_isomorphic}, we deduce that
 $\left(\Compositions, \bar{\circ}_i^{(1,2)}\right)$ is a combinatorial
@@ -276,7 +270,7 @@ Given an integer $i \geq 1$, we define the binary operation
 for any integer compositions
 $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
-$n \geq 1$ and $m$ by
+$n \geq i$ and $m \geq 1$ by
 \begin{equation}
     \LambdaB \circ_i^{(1,3)} \MuB :=
     \begin{cases}
@@ -291,7 +285,7 @@ $n \geq 1$ and $m$ by
 \end{equation}
 where $k \geq 0$ is such that
 \begin{math}
-    k + 1 + s_{k + 1, p}(\LambdaB) < i \leq s_{k, p}(\LambdaB).
+    k + 1 + s_{k + 1, p}(\LambdaB) \leq i < k + s_{k, p}(\LambdaB).
 \end{math}
 \medbreak
 
@@ -361,26 +355,26 @@ we define the binary operation
 for any integer compositions
 $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
-$n \geq 1$ and $m$ by
+$n \geq i$ and $m \geq 1$ by
 \begin{equation}
     \LambdaB \circ_i^{(2,5)} \MuB :=
     \begin{cases}
         \left(\LambdaB_1, \dots, \LambdaB_k,
-        \MuB_1, \dots, \MuB_q,
+        \MuB_1, \dots, \MuB_{q-1}, \MuB_q+
         \LambdaB_{k + 1}, \dots, \LambdaB_p\right)
             & \mbox{if } i = s_k, \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
-        i - s_k, \MuB_1, \dots, \MuB_{q - 1},
-        \MuB_q + s_{k + 1} - i, \LambdaB_{k + 2}, \dots, \LambdaB_p
+        i - s_{1, k}(\LambdaB), \MuB_1, \dots,
+        \MuB_q, s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots, 
+        \LambdaB_p
         \right)
             & \mbox{otherwise},
     \end{cases}
 \end{equation}
 where $k \geq 0$ is such that
 \begin{math}
-    s_k \leq i < s_{k + 1}.
+    s_{1, k}(\LambdaB) \leq i < s_{1, k + 1}(\LambdaB).
 \end{math}
-\Todo{S: corriger les "$s_k"$ qui ne veulent rien dire.}
 \medbreak
 
 \begin{Proposition} \label{prop:Realisation_Mag_1_4}
@@ -423,7 +417,7 @@ we define the binary operation
 for any integer compositions
 $\LambdaB := \left(\LambdaB_1, \dots, \LambdaB_p\right)$ and
 $\MuB := \left(\MuB_1, \dots, \MuB_q\right)$ of respective arities
-$n \geq 1$ and $m$ by
+$n \geq i$ and $m \geq 1$ by
 \begin{equation}
     \LambdaB \circ_i^{(2,4)} \MuB :=
     \begin{cases}
@@ -432,24 +426,23 @@ $n \geq 1$ and $m$ by
         \LambdaB_{k + 2}, \dots, \LambdaB_p\right)
             & \mbox{if } i = s_k, \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
-        i - s_k, \MuB_1, \dots, \MuB_{q - 1},
-        \MuB_q + s_{k + 1} - i, \LambdaB_{k + 2}, \dots, \LambdaB_p
+        i - s_{1, k}(\LambdaB), \MuB_1, \dots, \MuB_{q - 1},
+        \MuB_q + s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots, 
+        \LambdaB_p
         \right)
             & \mbox{otherwise},
     \end{cases}
 \end{equation}
 where $k \geq 0$ is such that
 \begin{math}
-    s_k \leq i < s_{k + 1}.
+    s_{1, k}(\LambdaB) \leq i < s_{1, k+1}(\LambdaB).
 \end{math}
 \medbreak
 
-\Todo{S: même remarque que précédemment, les $s_k$ ne veulent rien
-dire (la notation qui est définie est $s_{i, j}(\LambdaB)$).}
-
 \begin{Proposition} \label{prop:Realisation_Mag_2_4}
-    The operad $\left(\Compositions, \circ_i^{(2,4)}\right)$
-    is a combinatorial realization of~$\Mag^{\{2, 4\}}$.
+    The operads $\left(\Compositions, \circ_i^{(2,4)}\right)$
+    and $\left(\Compositions, \bar{\circ}_i^{(2,4)}\right)$
+    are combinatorial realizations of~$\Mag^{\{2, 4\}}$.
 \end{Proposition}
 \begin{proof}
     We have to show that the operad
