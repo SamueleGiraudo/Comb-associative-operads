@@ -229,6 +229,7 @@ the binary trees $\LComb{\gamma}$ and $\RComb{\gamma}$ be respectively
 the left and the right combs of degree $\gamma$. These trees are depicted
 as
 \begin{equation}
+  \label{equ:left_and_right_combs}
     \LComb{\gamma} = \enspace
     \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
         \node(0)at(0.00,-5.25){};
@@ -270,7 +271,23 @@ as
     \end{tikzpicture}\,,
 \end{equation}
 where the values on the dotted edges denote the number of internal
-nodes they contain. 
+nodes they contain.
+
+We first recall that the \Def{linear associative operad} is
+\begin{equation}
+  \label{equ:linear_associative_operad}
+  \KAs:=\KMag/_{\IAs}
+\end{equation}
+where $\IAs$ is the ideal spanned
+\begin{math}
+  \LComb{2}-\RComb{2},
+\end{math}
+and that its Hilbert series is
+\Todo{référence ?}
+\begin{equation}
+    \label{equ:Hilbert_series_of_As}
+    \HilbertSeries_{\KAs}(t)=\sum_{n\geq 1}t^n,
+    \end{equation}
 
 We define the \Def{anti-associative operad} by
 \begin{equation}
@@ -281,7 +298,6 @@ where $\IAAs$ is the ideal spanned by
 \begin{math}
   \LComb{2}+\RComb{2}
 \end{math}.
-\Todo{Illustrer avec la représentation graphique ?}
 Using the Buchberger algorithm for operads~\cite[Section 3.7]{DK10}, we
 check that the set of rewrite rules
 \begin{equation}
@@ -295,7 +311,7 @@ is false if the characteristic of $\K$ is equal to $2$. Moreover, using
 the convergent presentation~\eqref{equ:convergent_presentation_of_AAS},
 we have
   \begin{equation}
-    \label{equ:Hilbert_series_of_AAS}
+    \label{equ:Hilbert_series_of_AAs}
     \HilbertSeries_{\AAs}(t)=t+t^2+t³.
     \end{equation}
 \medbreak
@@ -305,8 +321,8 @@ We define the \Def{2-nihilpotente operad} by
   \label{equ:2-nihilpotente_operad}
   \NiHil:=\KMag/_{\INiHil}
   \end{equation}
-where $\INiHil$ is the ideal spanned by the two trees $\LComb{3}$ and
-$\RComb{3}$.
+where $\INiHil$ is the ideal spanned by the two trees $\LComb{2}$ and
+$\RComb{2}$.
 \Todo{Est-ce qu'il faut rajouter le 2 dans la macro désignant cette
   opérade ? De plus, Samuele,\\
   pourrais-tu rajouter la référence de Loday ?}
@@ -351,14 +367,14 @@ Moreover, by definition of the $\gamma$-right comb operad, we have
   We have an isomorphism
   \begin{equation}
   \label{equ:presentation_of_RC}
-  \RC{\gamma}\simeq\KMag/_{\IRCC{\gamma}}
+  \RC{\gamma}\simeq\KMag/_{\IRC{\gamma}}
   \end{equation}
-  where $\IRCC{\gamma}$ is the ideal spanned by the elements
+  where $\IRC{\gamma}$ is the ideal spanned by the elements
   $\Tfr-\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees of
   arity $\gamma+1$. In other words, $\RC{\gamma}$ is a combinatorial
   realization of
   \begin{math}
-    \KMag/_{\IRCC{\gamma}}.
+    \KMag/_{\IRC{\gamma}}.
     \end{math}
 \end{Lemma}
 
@@ -371,8 +387,8 @@ Moreover, by definition of the $\gamma$-right comb operad, we have
   \begin{math}
     \KMag/_{\IRC{\gamma}}.
   \end{math}
-  Moreover, the normal forms of arity $n\leq\gamma$ are all the trees of
-  arity $n$ and, by using the convergent presentation
+  Moreover, the normal forms of arity $n\leq\gamma$ are all the trees
+  of arity $n$ and, by using the convergent presentation
   $R^{(\gamma)}$, the compositions of
   \begin{math}
     \KMag/_{\IRC{\gamma}}
@@ -403,43 +419,37 @@ $\LatQMag$ are given by the following.
   \end{Theorem}
 
 \begin{proof}
-  First, we show~\eqref{equ:example_lower-bound}. By definition of the
-  lower-bound $\InfQMag$, the ideal of relations of
-  $\KAs\InfQMag\AAs$ is spanned by the two elements
-  $\LComb{3}-\RComb{3}$ and $\LComb{3}+\RComb{3}$. By linear
-  transformations applied to these generators, the ideal of relations of
-  $\KAs\InfQMag\AAs$ is spanned by $\LComb{3}$ and $\RComb{3}$,
-  that is it is equal to $\INiHil$, which
-  proves~\eqref{equ:example_lower-bound}.
+  First, we show~\eqref{equ:example_lower-bound}. The ideal of relations
+  of $\KAs\InfQMag\AAs$ is equal to $\IAs+\IAAs$, so that it is spanned
+  by the two elements $\LComb{2}-\RComb{2}$ and $\LComb{2}+\RComb{2}$. By
+  linear transformations applied to these generators, $\IAs+\IAAs$ is
+  spanned by $\LComb{2}$ and $\RComb{2}$, that is it is equal to
+  $\INiHil$, which proves~\eqref{equ:example_lower-bound}.
   
   \smallbreak
   Now, we show~\eqref{equ:example_upper-bound}. We denote by
   \begin{math}
     \pi:\KMag\to\KAs\SupQMag\AAs
   \end{math}
-  the natural projection. Let $\Tfr$ be a tree of arity $4$. From
-  Lemma~\ref{lem:presentation_of_RC}, the kernel of $\pi$ is spanned by
-  the elements $\alpha_{\Tfr}:=\Tfr-\RComb{3}$, where $\Tfr$ is a binary
-  tree of arity $4$. The elements $\alpha_{\Tfr}$ belong to the ideal
-  $\IAs$ of relations of $\KAs$ and to the ideal $\IAAs$ since both
-  $[\Tfr]_{\IAAs}$ and $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$.
-  The last statement is shown using the convergent
-  presentation~\eqref{equ:convergent_presentation_of_AAS}. Hence, the kernel
-  of $\pi$ is included in $\IAs\cap\IAAs$, so that, by definition of the
-  upper-bound $\SupQMag$, $\pi$ induces a surjective operad morphism
+  the natural projection. Let $\Tfr$ be a tree of arity $4$ and let
+  us define $\alpha_{\Tfr}:=\Tfr-\RComb{3}$. The elements $\alpha_{\Tfr}$
+  belong to $\IAs$ and to $\IAAs$ since both $[\Tfr]_{\IAAs}$ and to
+  $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$. The last statement is
+  shown using the convergent
+  presentation~\eqref{equ:convergent_presentation_of_AAS}. Hence, the
+  ideal generated by the elements $\alpha_{\Tfr}$ is included in 
+  $\IAs\cap\IAAs=\ker(\pi)$, so that $\pi$ induces a surjective morphism
   \begin{math}
-    \overline{\pi}:\As\SupQMag\AAs\to\RC{3}
-  \end{math}.
-  We conclude using a dimension argument: by definition, the Hilbert series
-  of $\RC{3}$ is equal to
-  \begin{equation}
-    \label{equ:Hilbert_series_of_RC3}
-    t+t^2+2t^3+\sum_{n\geq 4}t^n
-  \end{equation}
-  and from the Grassmann formula analog given in
-  Theorem~\ref{thm:Grassmann_formula_for_Hilbert_series_of_QMag}, we check
-  that the Hilbert series of $\As\SupQMag\AAs$ is also equal
-  to~\eqref{equ:Hilbert_series_of_RC3}. Hence, $\overline{\pi}$ is an
+    \overline{\pi}:\RC{3}\to\KAs\SupQMag\AAs
+  \end{math}
+  from Lemma~\ref{lem:presentation_of_RC}. We conclude using Hilbert
+  series: $\HilbertSeries_{\KAs\SupQMag\AAs}(t)$ is computed
+  using the Grassmann formula analog with
+  Formulas~\eqref{equ:Hilbert_series_of_As},
+  \eqref{equ:Hilbert_series_of_AAs} and
+  ~\eqref{equ:Hilbert_series_of_NiHil} and it turns out to be equal to
+  $\HilbertSeries_{\RC{3}}(t)$ which is given
+  in~\eqref{equ:Hilbert_series_of_RC}. Hence, $\overline{\pi}$ is an
   isomorphism, which proves~\eqref{equ:example_upper-bound}.
 \end{proof}
 \medbreak

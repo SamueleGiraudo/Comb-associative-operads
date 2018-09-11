@@ -54,53 +54,12 @@ We propose here a generalization of $\Congr$ in order to define
 generalizations of $\As$.
 \medbreak
 
-Let, for any integer $\gamma \geq 1$, the binary trees $\LComb{\gamma}$
-and $\RComb{\gamma}$ be respectively the left and the right combs of
-degree $\gamma$. These trees are depicted as
-\begin{equation}
-    \LComb{\gamma} = \enspace
-    \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
-        \node(0)at(0.00,-5.25){};
-        \node(2)at(2.00,-5.25){};
-        \node(4)at(4.00,-3.50){};
-        \node(6)at(6.00,-1.75){};
-        \node[NodeST](1)at(1.00,-3.50){\begin{math}\Product\end{math}};
-        \node[NodeST](3)at(3.00,-1.75){\begin{math}\Product\end{math}};
-        \node[NodeST](5)at(5.00,0.00){\begin{math}\Product\end{math}};
-        \draw[Edge](0)--(1);
-        \draw[Edge,dotted](1)edge[]node[font=\tiny]{
-            \begin{math}\gamma\! -\! 1\end{math}\hspace*{.6cm}}(3);
-        \draw[Edge](2)--(1);
-        \draw[Edge](3)--(5);
-        \draw[Edge](4)--(3);
-        \draw[Edge](6)--(5);
-        \node(r)at(5.00,1.5){};
-        \draw[Edge](r)--(5);
-    \end{tikzpicture}
-    \qquad \mbox{and} \qquad
-    \RComb{\gamma} =
-    \begin{tikzpicture}[xscale=.26,yscale=.3,Centering]
-        \node(0)at(0.00,-1.75){};
-        \node(2)at(2.00,-3.50){};
-        \node(4)at(4.00,-5.25){};
-        \node(6)at(6.00,-5.25){};
-        \node[NodeST](1)at(1.00,0.00){\begin{math}\Product\end{math}};
-        \node[NodeST](3)at(3.00,-1.75){\begin{math}\Product\end{math}};
-        \node[NodeST](5)at(5.00,-3.50){\begin{math}\Product\end{math}};
-        \draw[Edge](0)--(1);
-        \draw[Edge](2)--(3);
-        \draw[Edge](3)--(1);
-        \draw[Edge](4)--(5);
-        \draw[Edge,dotted](5)edge[]node[font=\tiny]{
-            \hspace*{.6cm}\begin{math}\gamma\! -\! 1\end{math}}(3);
-        \draw[Edge](6)--(5);
-        \node(r)at(1.00,1.5){};
-        \draw[Edge](r)--(1);
-    \end{tikzpicture}\,,
-\end{equation}
-where the values on the dotted edges denote the number of internal
-nodes they contain. We shall employ this drawing convention in the
-sequel, combined with the convention stipulating that dotted edges
+As in Section~\ref{sec:Magmatic_operads}, the left and the right combs of
+degree $\gamma$ are denoted by $\LComb{\gamma}$ and $\RComb{\gamma}$,
+respectively. In the sequel , we shall employ the drawing convention
+introduced after~\eqref{equ:left_and_right_combs}: the values on dotted
+edges in a binary tree denote the number of internal nodes they contain.
+Moreover, we also employ the convention stipulating that dotted edges
 with no value have any number of internal nodes. Let us now define for
 any $\gamma \geq 1$ the \Def{$\gamma$-comb associative operad}
 $\CAs{\gamma}$ as the quotient operad $\Mag/_{\CongrCAs{\gamma}}$ where
