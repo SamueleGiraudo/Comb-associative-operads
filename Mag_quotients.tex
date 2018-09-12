@@ -330,11 +330,9 @@ arity $n$, we let
 and the partial composition $\Tfr_1 \circ_i \Tfr_2$ is the partial
 composition of $\Tfr_1$ and $\Tfr_2$ in $\Mag$ if the integer
 \begin{math}
-    n:=|\Tfr_1|+|\Tfr_2|
+    n:=|\Tfr_1|+|\Tfr_2|-1
 \end{math}
-\Todo{S : je crois qu'il manque un "$-1$ ici, non ?
-  Cy : il me semble qu'ici c'est bon puisqu'il s'agit de l'arité}
-is smaller than or equal to $\gamma$, is and $\RComb{n}$, otherwise.
+is smaller than or equal to $\gamma$, and $\RComb{n}$, otherwise.
 Moreover, by definition of the $\gamma$-right comb operad, we have
 \begin{equation} \label{equ:Hilbert_series_of_RC}
     \HilbertSeries_{\RC{\gamma}}(t)=
