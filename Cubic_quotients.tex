@@ -233,7 +233,6 @@ where $k \geq 0$ is such that
         \LComb{\LambdaB_1, \dots, \LambdaB_k,
         \LambdaB_{k+1} + m-1, \LambdaB_{k+2}, \dots, \LambdaB_p},
     \end{equation}
-    \Todo{S: j'ai changé $\Rew$ en $\RewContext$. C'est bon ?}
     so that
     \begin{math}
         \phi(\Tfr \circ_i \Tfr')
@@ -362,9 +361,7 @@ $n \geq i$ and $m \geq 1$ by
         \left(\LambdaB_1, \dots, \LambdaB_k,
         \MuB_1, \dots, \MuB_{q-1}, \MuB_q+
         \LambdaB_{k + 1}, \dots, \LambdaB_p\right)
-            & \mbox{if } i = s_k, \\
-            \mbox{\Todo{S: probleme dans la condition : "$s_k$" ne veut rien dire.}}
-            \\
+            & \mbox{if } i = s_{1, k}(\LambdaB), \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
         i - s_{1, k}(\LambdaB), \MuB_1, \dots,
         \MuB_q, s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots,
@@ -429,9 +426,7 @@ $n \geq i$ and $m \geq 1$ by
         \left(\LambdaB_1, \dots, \LambdaB_k,
         \MuB_1, \dots, \MuB_{q - 1}, \MuB_q + \LambdaB_{k + 1},
         \LambdaB_{k + 2}, \dots, \LambdaB_p\right)
-            & \mbox{if } i = s_k, \\
-        \mbox{\Todo{S: probleme dans la condition : "$s_k$" ne veut rien dire.}}
-        \\
+            & \mbox{if } i = s_{1, k}(\LambdaB), \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
         i - s_{1, k}(\LambdaB), \MuB_1, \dots, \MuB_{q - 1},
         \MuB_q + s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots,
