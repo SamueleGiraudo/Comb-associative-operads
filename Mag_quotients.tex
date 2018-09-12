@@ -221,13 +221,12 @@ following.
 \medbreak
 
 We terminate this section with an example illustrating the lattice
-constructions on $\QMag$ in the case where the
-characteristic of the field $\K$ is different from $2$. For that, we
-introduce various operads, which requires the following notations, also
-used in Section~\ref{sec:CAs_d}. Let, for any integer $\gamma \geq 1$,
-the binary trees $\LComb{\gamma}$ and $\RComb{\gamma}$ be respectively
-the left and the right combs of degree $\gamma$. These trees are depicted
-as
+constructions on $\QMag$ in the case where the characteristic of the
+field $\K$ is different from $2$. For that, we introduce various
+operads, which requires the following notations, also used in
+Section~\ref{sec:CAs_d}. Let, for any integer $\gamma \geq 1$, the
+binary trees $\LComb{\gamma}$ and $\RComb{\gamma}$ be respectively the
+left and the right combs of degree $\gamma$. These trees are depicted as
 \begin{equation}
   \label{equ:left_and_right_combs}
     \LComb{\gamma} = \enspace
@@ -270,186 +269,165 @@ as
         \draw[Edge](r)--(1);
     \end{tikzpicture}\,,
 \end{equation}
-where the values on the dotted edges denote the number of internal
-nodes they contain.
+where the values on the dotted edges denote the number of internal nodes
+they contain.
+\medbreak
 
 We first recall that the \Def{linear associative operad} is
-\begin{equation}
-  \label{equ:linear_associative_operad}
-  \KAs:=\KMag/_{\IAs}
+\begin{equation} \label{equ:linear_associative_operad}
+    \KAs:=\KMag/_{\IAs}
 \end{equation}
 where $\IAs$ is the ideal spanned
 \begin{math}
-  \LComb{2}-\RComb{2},
+    \LComb{2}-\RComb{2},
 \end{math}
 and that its Hilbert series is
-\Todo{référence ?}
-\begin{equation}
-    \label{equ:Hilbert_series_of_As}
+\begin{equation} \label{equ:Hilbert_series_of_As}
     \HilbertSeries_{\KAs}(t)=\sum_{n\geq 1}t^n,
-    \end{equation}
-
+\end{equation}
 We define the \Def{anti-associative operad} by
 \begin{equation}
-  \label{equ:anti-associative_operad}
-  \AAs:=\KMag/_{\IAAs}
+    \label{equ:anti-associative_operad}
+    \AAs:=\KMag/_{\IAAs}
 \end{equation}
 where $\IAAs$ is the ideal spanned by
 \begin{math}
-  \LComb{2}+\RComb{2}
+    \LComb{2}+\RComb{2}
 \end{math}.
 Using the Buchberger algorithm for operads~\cite[Section 3.7]{DK10}, we
 check that the set of rewrite rules
 \begin{equation}
-  \label{equ:convergent_presentation_of_AAS}
-  \left\{\LComb{2}\Rew -\RComb{2},\
-  \RComb{3}\Rew 0
-  \right\}
+    \label{equ:convergent_presentation_of_AAS}
+    \left\{\LComb{2}\Rew -\RComb{2}, \; \RComb{3}\Rew 0 \right\}
 \end{equation}
 is a convergent presentation of $\AAs$. We point out that this statement
 is false if the characteristic of $\K$ is equal to $2$. Moreover, using
 the convergent presentation~\eqref{equ:convergent_presentation_of_AAS},
 we have
-  \begin{equation}
-    \label{equ:Hilbert_series_of_AAs}
-    \HilbertSeries_{\AAs}(t)=t+t^2+t³.
-    \end{equation}
-\medbreak
-
-We define the \Def{2-nihilpotente operad} by
-\begin{equation}
-  \label{equ:2-nihilpotente_operad}
-  \NiHil:=\KMag/_{\INiHil}
-  \end{equation}
-where $\INiHil$ is the ideal spanned by the two trees $\LComb{2}$ and
-$\RComb{2}$.
-\Todo{Est-ce qu'il faut rajouter le 2 dans la macro désignant cette
-  opérade ? De plus, Samuele,\\
-  pourrais-tu rajouter la référence de Loday ?}
-We have
-\begin{equation}
-  \label{equ:Hilbert_series_of_NiHil}
-  \HilbertSeries_{\NiHil}(t)=t+t^2.
+\begin{equation} \label{equ:Hilbert_series_of_AAs}
+    \HilbertSeries_{\AAs}(t)=t+t^2+t^3.
 \end{equation}
-\Todo{Est-ce bien la bonne série ? Samuele, tu avais l'air de dire que
-  c'était plutôt $t+2t^2$. Ou peut-être que NiHil est la $1$-
-  nihilipotente opérade ?}
-
+Let us consider the \Def{2-nilpotent operad}~\cite{Zin12} defined by
+\begin{equation} \label{equ:2-nilpotent_operad}
+    \TwoNil:=\KMag/_{\INiHil}
+\end{equation}
+where $\INiHil$ is the ideal spanned by the two trees $\LComb{2}$ and
+$\RComb{2}$. We have
+\begin{equation} \label{equ:Hilbert_series_of_NiHil}
+    \HilbertSeries_{\TwoNil}(t)=t+t^2.
+\end{equation}
 Finally, for every integer $\gamma\geq 2$, we define the
 \Def{$\gamma$-right comb operad} $\RC{\gamma}$ as follows. For every
 arity $n$, we let
-\begin{equation}
-  \label{equ:compositions_of_RC}
-  \RC{\gamma}(n):=
+\begin{equation} \label{equ:compositions_of_RC}
+    \RC{\gamma}(n):=
     \begin{cases}
         \KMag(n) &
         \mbox{if } n \leq \gamma, \\
-        \K\Angle{\RComb{n}}
-            & \mbox{otherwise},
+        \K\Angle{\RComb{n}} & \mbox{otherwise},
     \end{cases}
 \end{equation}
+\Todo{S: plutôt $\K\Angle{\RComb{n - 1}}$ pour avoir les bonnes arités,
+non ?}
 and the partial composition $\Tfr_1 \circ_i \Tfr_2$ is the partial
 composition of $\Tfr_1$ and $\Tfr_2$ in $\Mag$ if the integer
 \begin{math}
-  n:=|\Tfr_1|+|\Tfr_2| 
+    n:=|\Tfr_1|+|\Tfr_2|
 \end{math}
-is smaller than or equal to $\gamma$, and $\RComb{n}$, otherwise.
+\Todo{S : je crois qu'il manque un "$-1$ ici, non ?}
+is smaller than or equal to $\gamma$, is and $\RComb{n}$, otherwise.
 Moreover, by definition of the $\gamma$-right comb operad, we have
-\begin{equation}
-  \label{equ:Hilbert_series_of_RC}
-  \HilbertSeries_{\RC{\gamma}}(t)=\sum_{1\leq n\leq\gamma}\Catalan(n) t^n
-  +\sum_{n\geq\gamma+1}t^n.
-  \end{equation}
+\begin{equation} \label{equ:Hilbert_series_of_RC}
+    \HilbertSeries_{\RC{\gamma}}(t)=
+    \sum_{1\leq n\leq\gamma}\Catalan(n) t^n +\sum_{n\geq\gamma+1}t^n.
+\end{equation}
 \medbreak
 
-\begin{Lemma}
-  \label{lem:presentation_of_RC}
-  We have an isomorphism
-  \begin{equation}
-  \label{equ:presentation_of_RC}
-  \RC{\gamma}\simeq\KMag/_{\IRC{\gamma}}
-  \end{equation}
-  where $\IRC{\gamma}$ is the ideal spanned by the elements
-  $\Tfr-\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees of
-  arity $\gamma+1$. In other words, $\RC{\gamma}$ is a combinatorial
-  realization of
-  \begin{math}
-    \KMag/_{\IRC{\gamma}}.
+\begin{Lemma} \label{lem:presentation_of_RC}
+    We have an isomorphism
+    \begin{equation} \label{equ:presentation_of_RC}
+        \RC{\gamma}\simeq\KMag/_{\IRC{\gamma}}
+    \end{equation}
+    where $\IRC{\gamma}$ is the ideal spanned by the elements
+    $\Tfr-\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees
+    of arity $\gamma+1$. In other words, $\RC{\gamma}$ is a
+    combinatorial realization of
+    \begin{math}
+        \KMag/_{\IRC{\gamma}}.
     \end{math}
 \end{Lemma}
-
 \begin{proof}
-  Let $R^{(\gamma)}$ be the set of rewrite rules
-  $\Tfr\Rew\RComb{\gamma}$, where $\Tfr$ runs over all the binary trees
-  of arity $\gamma+1$ different from $\RComb{\gamma}$. The unique normal
-  form of arity $n\geq\gamma+1$ for  $R^{(\gamma)}$ is equal to
-  $\RComb{n}$, so that $R^{(\gamma)}$ is a convergent presentation of
-  \begin{math}
-    \KMag/_{\IRC{\gamma}}.
-  \end{math}
-  Moreover, the normal forms of arity $n\leq\gamma$ are all the trees
-  of arity $n$ and, by using the convergent presentation
-  $R^{(\gamma)}$, the compositions of
-  \begin{math}
-    \KMag/_{\IRC{\gamma}}
-  \end{math}
-  satisfy~\eqref{equ:compositions_of_RC}. Hence, $R^{(\gamma)}$ is also a
-  convergent presentation of
-  \begin{math}
-    \RC{\gamma}
-  \end{math}
-  which proves Lemma~\ref{lem:presentation_of_RC}.
+    Let $\Rew$ be the set of rewrite rules $\Tfr\Rew\RComb{\gamma}$,
+    where $\Tfr$ runs over all the binary trees of arity $\gamma+1$
+    different from $\RComb{\gamma}$. The unique normal
+    form of arity $n\geq\gamma+1$ for the rewrite relation $\RewContext$
+    induced by $\Rew$ is $\RComb{n}$, so that $\Rew$ is a convergent
+    presentation of
+    \begin{math}
+        \KMag/_{\IRC{\gamma}}.
+    \end{math}
+    \Todo{S: "$n - 1$" aussi ici ?}
+    Moreover, the normal forms for $\RewContext$ of arity $n\leq\gamma$
+    are all the trees of arity $n$ and, by using the convergent
+    presentation $\Rew$, the compositions of
+    \begin{math}
+        \KMag/_{\IRC{\gamma}}
+    \end{math}
+    satisfy~\eqref{equ:compositions_of_RC}. Hence, $\Rew$ is also a
+    convergent presentation of $\RC{\gamma}$ which proves the statement
+    of the lemma.
 \end{proof}
-
 \medbreak
-The lower-bound and the upper-bound of $\As$ and $\AAs$ in the lattice
-$\LatQMag$ are given by the following.
-\begin{Theorem}
-  \label{thm:example_lattice}
-  We have
-  \begin{equation}
-    \label{equ:example_lower-bound}
-    \KAs\InfQMag\AAs=\NiHil
-  \end{equation}
-  and
-  \begin{equation}
-    \label{equ:example_upper-bound}
-    \KAs\SupQMag\AAs=\RC{3}.
-    \end{equation}
-  \end{Theorem}
+\Todo{S: définir d'abord dans le cadre ensembliste puis considérer son
+analogue linéaire ?}
 
+The lower-bound and the upper-bound of $\As$ and $\AAs$ in the lattice
+$\LatQMag$ are described by the following.
+\medbreak
+
+\begin{Theorem} \label{thm:example_lattice}
+    We have
+    \begin{equation} \label{equ:example_lower-bound}
+        \KAs\InfQMag\AAs=\TwoNil
+    \end{equation}
+    and
+    \begin{equation} \label{equ:example_upper-bound}
+        \KAs\SupQMag\AAs=\RC{3}.
+    \end{equation}
+\end{Theorem}
 \begin{proof}
-  First, we show~\eqref{equ:example_lower-bound}. The ideal of relations
-  of $\KAs\InfQMag\AAs$ is equal to $\IAs+\IAAs$, so that it is spanned
-  by the two elements $\LComb{2}-\RComb{2}$ and $\LComb{2}+\RComb{2}$. By
-  linear transformations applied to these generators, $\IAs+\IAAs$ is
-  spanned by $\LComb{2}$ and $\RComb{2}$, that is it is equal to
-  $\INiHil$, which proves~\eqref{equ:example_lower-bound}.
-  
-  \smallbreak
-  Now, we show~\eqref{equ:example_upper-bound}. We denote by
-  \begin{math}
-    \pi:\KMag\to\KAs\SupQMag\AAs
-  \end{math}
-  the natural projection. Let $\Tfr$ be a tree of arity $4$ and let
-  us define $\alpha_{\Tfr}:=\Tfr-\RComb{3}$. The elements $\alpha_{\Tfr}$
-  belong to $\IAs$ and to $\IAAs$ since both $[\Tfr]_{\IAAs}$ and to
-  $[\RComb{3}]_{\IAAs}$ are equal to $[0]_{\IAAs}$. The last statement is
-  shown using the convergent
-  presentation~\eqref{equ:convergent_presentation_of_AAS}. Hence, the
-  ideal generated by the elements $\alpha_{\Tfr}$ is included in 
-  $\IAs\cap\IAAs=\ker(\pi)$, so that $\pi$ induces a surjective morphism
-  \begin{math}
-    \overline{\pi}:\RC{3}\to\KAs\SupQMag\AAs
-  \end{math}
-  from Lemma~\ref{lem:presentation_of_RC}. We conclude using Hilbert
-  series: $\HilbertSeries_{\KAs\SupQMag\AAs}(t)$ is computed
-  using the Grassmann formula analog with
-  Formulas~\eqref{equ:Hilbert_series_of_As},
-  \eqref{equ:Hilbert_series_of_AAs} and
-  ~\eqref{equ:Hilbert_series_of_NiHil} and it turns out to be equal to
-  $\HilbertSeries_{\RC{3}}(t)$ which is given
-  in~\eqref{equ:Hilbert_series_of_RC}. Hence, $\overline{\pi}$ is an
-  isomorphism, which proves~\eqref{equ:example_upper-bound}.
+    The ideal of relations of $\KAs\InfQMag\AAs$ is equal to
+    $\IAs+\IAAs$, so that it is spanned by the two elements
+    $\LComb{2}-\RComb{2}$ and $\LComb{2}+\RComb{2}$. By linear
+    transformations applied to these generators, $\IAs+\IAAs$ is spanned
+    by $\LComb{2}$ and $\RComb{2}$, that is, it is equal to $\INiHil$,
+    which proves~\eqref{equ:example_lower-bound}.
+    \smallbreak
+
+    Let us now denote by
+    \begin{math}
+        \pi:\KMag\to\KAs\SupQMag\AAs
+    \end{math}
+    the natural projection. Let $\Tfr$ be a tree of arity $4$ and let us
+    define $\alpha_{\Tfr}:=\Tfr-\RComb{3}$. The elements
+    $\alpha_{\Tfr}$ belong to $\IAs$ and to $\IAAs$ since both
+    $[\Tfr]_{\IAAs}$ and to $[\RComb{3}]_{\IAAs}$ are equal to
+    $[0]_{\IAAs}$. The last statement is shown by using the convergent
+    presentation~\eqref{equ:convergent_presentation_of_AAS} of $\AAs$.
+    Hence, the ideal generated by the elements $\alpha_{\Tfr}$ is
+    included in $\IAs\cap\IAAs=\ker(\pi)$, so that $\pi$ induces a
+    surjective morphism
+    \begin{math}
+        \bar{\pi}:\RC{3}\to\KAs\SupQMag\AAs
+    \end{math}
+    from Lemma~\ref{lem:presentation_of_RC}. We conclude by using
+    Hilbert series: $\HilbertSeries_{\KAs\SupQMag\AAs}(t)$ is computed
+    by using the Grassmann formula analog with
+    Formulas~\eqref{equ:Hilbert_series_of_As},
+    \eqref{equ:Hilbert_series_of_AAs},
+    and~\eqref{equ:Hilbert_series_of_NiHil}, and it turns out to be
+    equal to $\HilbertSeries_{\RC{3}}(t)$ which is given
+    in~\eqref{equ:Hilbert_series_of_RC}. Hence, $\bar{\pi}$ is an
+    isomorphism, which proves~\eqref{equ:example_upper-bound}.
 \end{proof}
 \medbreak
