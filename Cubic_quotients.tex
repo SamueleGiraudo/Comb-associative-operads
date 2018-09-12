@@ -3,8 +3,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Equating two cubic trees} \label{sec:MAg_3}
 In this section, we explore all the quotients of $\Mag$ obtained by
-equating two trees of degree $3$. We denote by $\Afr_i$ the $i$th tree
-of degree $3$ for the lexicographic order, that is
+equating two trees of degree $3$. We denote by $\Afr_i$ the $i$th
+cubic tree for the lexicographic order, that is
 \begin{center}
     \begin{tabular}{ccccc}
         \quad $\TreeA$ \quad & \quad $\TreeB$ \quad
@@ -22,12 +22,12 @@ $\Mag^{\{1, 5\}} = \CAs{3}$ in Section~\ref{subsubsec:CAs_3}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Anti-isomorphic classes of quotients}
-Some of the quotients $\Mag^{\{i, j\}}$ are anti-isomorphic one of the
-other. Indeed, the map $\phi : \Mag \to \Mag$ sending any binary tree
-$\Tfr$ to the binary tree obtained by exchanging recursively the left
-and right subtrees of $\Tfr$ is an anti-isomorphism of $\Mag$. For this
-reason, the $\binom{5}{2} = 10$ quotients $\Mag^{\{i, j\}}$ of $\Mag$
-fit into the six equivalence classes
+Some of the quotients $\Mag^{\{i, j\}}$ are anti\--iso\-morphic one of
+the other. Indeed, the map $\phi : \Mag \to \Mag$ sending any binary
+tree $\Tfr$ to the binary tree obtained by exchanging recursively the
+left and right subtrees of $\Tfr$ is an anti-isomorphism of $\Mag$. For
+this reason, the $\binom{5}{2} = 10$ quotients $\Mag^{\{i, j\}}$ of
+$\Mag$ fit into the six equivalence classes
 \begin{multline}
     \left\{\Mag^{\{1, 2\}}, \Mag^{\{4, 5\}}\right\},
     \left\{\Mag^{\{1, 3\}}, \Mag^{\{3, 5\}}\right\},
@@ -196,7 +196,7 @@ where $k \geq 0$ is such that
     \end{math}
     Let $i \in [n - 1]$ and $k$ be such that
     $s_{1, k}(\LambdaB) \leq i < s_{1, k+1}(\LambdaB)$, so that
-    $\Tfr \circ_i \Tfr'$ equals to
+    $\Tfr \circ_i \Tfr'$ is equal to
     \begin{equation} \label{equ:Rewriting_1_Mag_1_2}
         \RComb{p} \circ \left[\LComb{\LambdaB_1-1}, \dots,
             \LComb{\LambdaB_k-1}, \LComb{\LambdaB_{k+1}-1}
@@ -224,18 +224,20 @@ where $k \geq 0$ is such that
         \LComb{\MuB_2, \dots, \MuB_q}, \LComb{\LambdaB_{k+2}-1}, \dots,
         \LComb{\LambdaB_p-1}, \Leaf \right]
     \end{equation}
-    in $\MuB_1-1$ steps. By iterating $q-1$ times the rewriting steps
+    in $\MuB_1-1$ steps. By iterating $q-1$ times the rewrite steps
     passing from~\eqref{equ:Rewriting_1_Mag_1_2}
     to~\eqref{equ:Rewriting_2_Mag_1_2}, we get
     \begin{equation}
         \Tfr \circ_i \Tfr'
-        \Rew
+        \RewContext
         \LComb{\LambdaB_1, \dots, \LambdaB_k,
         \LambdaB_{k+1} + m-1, \LambdaB_{k+2}, \dots, \LambdaB_p},
     \end{equation}
+    \Todo{S: j'ai changé $\Rew$ en $\RewContext$. C'est bon ?}
     so that
     \begin{math}
-        \phi(\Tfr \circ_i \Tfr') = \phi(\Tfr) \circ_i^{(1,2)} \phi(\Tfr').
+        \phi(\Tfr \circ_i \Tfr')
+        = \phi(\Tfr) \circ_i^{(1,2)} \phi(\Tfr').
     \end{math}
     Therefore $\phi$ is an operad morphism.
 \end{proof}
@@ -293,10 +295,9 @@ where $k \geq 0$ is such that
     combinatorial realization of $\Mag^{\{1, 3\}}$.
 \end{Proposition}
 \begin{proof}
-    The proof is similar to the proof of the Proposition 
-    \eqref{prop:Realisation_Mag_1_2}, thus we just give an outline of 
-    it.
-    We have to show that the operads
+    The proof is similar to the one of
+    Proposition~\ref{prop:Realisation_Mag_1_2}, thus we just give an
+    outline of it. We have to show that the operads
     $\left(\Compositions, \circ_i^{(1,3)}\right)$ and
     $\Mag^{\{1, 3\}}$ are isomorphic.
     The set of normal forms of arity $n$ for the rewrite rule
@@ -362,9 +363,11 @@ $n \geq i$ and $m \geq 1$ by
         \MuB_1, \dots, \MuB_{q-1}, \MuB_q+
         \LambdaB_{k + 1}, \dots, \LambdaB_p\right)
             & \mbox{if } i = s_k, \\
+            \mbox{\Todo{S: probleme dans la condition : "$s_k$" ne veut rien dire.}}
+            \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
         i - s_{1, k}(\LambdaB), \MuB_1, \dots,
-        \MuB_q, s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots, 
+        \MuB_q, s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots,
         \LambdaB_p
         \right)
             & \mbox{otherwise},
@@ -381,9 +384,9 @@ where $k \geq 0$ is such that
     combinatorial realization of~$\Mag^{\{2, 5\}}$.
 \end{Proposition}
 \begin{proof}
-    The proof is similar to the proof of the Proposition 
-    \eqref{prop:Realisation_Mag_1_2}, thus we just give an outline of 
-    it.
+    The proof is similar to the one of
+    Proposition~\ref{prop:Realisation_Mag_1_2}, thus we just give an
+    outline of it.
     We have to show that the operad
     $\left(\Compositions, \circ_i^{(2,5)}\right)$ and $\Mag^{\{2, 5\}}$
     are isomorphic. The set of normal forms of arity $n$ for the
@@ -427,9 +430,11 @@ $n \geq i$ and $m \geq 1$ by
         \MuB_1, \dots, \MuB_{q - 1}, \MuB_q + \LambdaB_{k + 1},
         \LambdaB_{k + 2}, \dots, \LambdaB_p\right)
             & \mbox{if } i = s_k, \\
+        \mbox{\Todo{S: probleme dans la condition : "$s_k$" ne veut rien dire.}}
+        \\
         \left(\LambdaB_1, \dots, \LambdaB_k,
         i - s_{1, k}(\LambdaB), \MuB_1, \dots, \MuB_{q - 1},
-        \MuB_q + s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots, 
+        \MuB_q + s_{1, k+1}(\LambdaB) - i, \LambdaB_{k + 2}, \dots,
         \LambdaB_p
         \right)
             & \mbox{otherwise},
@@ -447,9 +452,9 @@ where $k \geq 0$ is such that
     are combinatorial realizations of~$\Mag^{\{2, 4\}}$.
 \end{Proposition}
 \begin{proof}
-    The proof is similar to the proof of the Proposition 
-    \eqref{prop:Realisation_Mag_1_2}, thus we just give an outline of 
-    it.
+    The proof is similar to the one of
+    Proposition~\ref{prop:Realisation_Mag_1_2}, thus we just give an
+    outline of it.
     We have to show that the operad
     $\left(\Compositions, \circ_i^{(2,4)}\right)$ and $\Mag^{\{2, 4\}}$
     are isomorphic. The set of normal forms of arity $n$ for the
