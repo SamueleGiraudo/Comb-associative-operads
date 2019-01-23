@@ -242,11 +242,12 @@ and $\Sfr_1, \dots, \Sfr_n \in \Mag$,
 \end{math}
 is the binary tree obtained by grafting simultaneously the roots of all
 the $\Sfr_i$ onto the $i$th leaves of $\Tfr$. The unit of $\Mag$ is the
-leaf. The number of binary trees of arity $n \geq 1$ is the $n$th
-Catalan number $\Catalan(n)$ and hence, the Hilbert series of $\Mag$ is
+leaf. The number of binary trees of arity $n \geq 1$ is the $(n - 1)$st
+Catalan number $\Catalan(n - 1)$ and hence, the Hilbert series of
+$\Mag$ is
 \begin{equation}
     \HilbertSeries_{\Mag}(t)
-    = \sum_{n \geq 1} \Catalan(n) t^n
+    = \sum_{n \geq 1} \Catalan(n - 1) t^n
     = \sum_{n \geq 1} \binom{2n - 1}{n - 1} \frac{1}{n} t^n.
 \end{equation}
 \medbreak
@@ -607,8 +608,8 @@ termination of a rewrite relation, we will use the following criterion.
     relation $\RewContext$ induced by $\Rew$ and the hypothesis of the
     statement of the lemma, implies that if $\Tfr$ and $\Tfr'$ are two
     binary trees such that $\Tfr \RewContext \Tfr'$,
-    $\PrefixWord(\Tfr) > \PrefixWord\left(\Tfr'\right)$. This leads to
-    the fact that any chain
+    $\PrefixWord(\Tfr) > \PrefixWord\left(\Tfr'\right)$. This means
+    that $\Tfr > \Tfr'$ and leads to the fact that any chain
     \begin{math}
         \Tfr_0 \RewContext \Tfr_1 \RewContext \Tfr_2 \RewContext \cdots
     \end{math}
@@ -691,7 +692,7 @@ a terminating rewrite relation is convergent.
 \begin{proof}
     The statement of the lemma is the specialization on rewrite
     relations on $\Mag$ of a more general result about rewrite relations
-    on trees contained in~\cite{Gir16}.
+    appearing in~\cite[Lemma 1.2.1.]{Gir16}.
 \end{proof}
 \medbreak
 

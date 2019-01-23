@@ -90,19 +90,15 @@ lemmas.
     and $n \leq \gamma + 1$,
     \begin{equation}
         \# \CAs{\gamma}(n) =
-        \begin{cases}
-            \Catalan(n)
-                & \mbox{ if } n \leq \gamma, \\
-            \Catalan(\gamma + 1) - 1
-                & \mbox{ otherwise } (n = \gamma + 1).
-        \end{cases}
+        \Catalan(n - 1) - \delta_{n, \gamma + 1},
     \end{equation}
+    where $\delta_{x, y}$ is the Kronecker delta.
 \end{Lemma}
 \begin{proof}
     Since the equivalence relation $\CongrCAs{\gamma}$ is trivial on the
     binary trees of degrees $d < \gamma$, and since a binary tree of
     degree $d$ has arity $n := d + 1$, one has
-    $\# \CAs{\gamma}(n) = \# \Mag(n) = \Catalan(n)$ with
+    $\# \CAs{\gamma}(n) = \# \Mag(n) = \Catalan(n - 1)$ with
     $n \leq \gamma$. Besides, by definition of $\CongrCAs{\gamma}$, all
     the $\CongrCAs{\gamma}$-equivalence classes of binary trees of
     degree $\gamma$ are trivial, except one due to the fact that
@@ -112,8 +108,10 @@ lemmas.
     \begin{math}
         \# \CAs{\gamma}(n)
         = \# \Mag(\gamma + 1) - 1
-        = \Catalan(\gamma + 1) - 1.
+        = \Catalan(\gamma + 1 - 1) - 1
+        = \Catalan(n - 1) - 1
     \end{math}
+    as stated.
 \end{proof}
 \medbreak
 
@@ -542,7 +540,7 @@ integer~$a$.
         \enspace = \enspace
         \RComb{\gamma'}
     \end{multline}
-    of rewrite steps, where squared regions denotes left or right
+    of rewrite steps, where dotted edges denotes left or right
     comb trees of degree $\gamma - 1$. Hence, since
     $\CongrCAs{\gamma}$ is the reflexive, symmetric, and transitive
     closure of $\RewContext$, we
@@ -711,57 +709,43 @@ provides the new rewrite rules \smallbreak
 \input{Completion_CAs3}
 \medbreak
 
-Using prefix words, these new relations are the following:\smallbreak
-\begin{minipage}{7cm}
-  \begin{equation}
-    22020200\Rew 220020200
-  \end{equation}
-\end{minipage},
-\begin{minipage}{8cm}
-  \begin{equation}
-    20202202000\Rew 20202020200
-  \end{equation}
-\end{minipage},\\
-\begin{minipage}{8cm}
-  \begin{equation}
-    20220200200\Rew 20202020200
-  \end{equation}
-\end{minipage},
-\begin{minipage}{8cm}
-  \begin{equation}
-    2020220020200\Rew 2020202022000
-  \end{equation}
-\end{minipage},\\
-\begin{minipage}{8cm}
-  \begin{equation}
-    2022002020200\Rew 2020202200200
-  \end{equation}
-\end{minipage},
-\begin{minipage}{8cm}
-  \begin{equation}
-    2202200020200\Rew 2200202020200
-  \end{equation}
-\end{minipage},\\
-\begin{minipage}{8cm}
-  \begin{equation}
-    202020202200200\Rew 202020202022000
-  \end{equation}
-\end{minipage},
-\begin{minipage}{8cm}
-  \begin{equation}
-    202020220022000\Rew 202020202020200
-  \end{equation}
-\end{minipage},\\
-\begin{minipage}{8cm}
-  \begin{equation}
-    220020202200200\Rew 220020202022000
-  \end{equation}
-\end{minipage},
-\begin{minipage}{8cm}
-  \begin{equation}
-    220200202020200\Rew 220020202022000
-  \end{equation}
-\end{minipage}.
+Using prefix words, these new relations write as
+\begin{multicols}{2}
+\begin{small}
+\begin{equation}
+    22020200 \Rew 220020200,
+\end{equation}
+\begin{equation}
+    20202202000 \Rew 20202020200,
+\end{equation}
+\begin{equation}
+    20220200200 \Rew 20202020200,
+\end{equation}
+\begin{equation}
+    2020220020200 \Rew 2020202022000,
+\end{equation}
+\begin{equation}
+    2022002020200 \Rew 2020202200200,
+\end{equation}
+
+\begin{equation}
+    2202200020200 \Rew 2200202020200,
+\end{equation}
+\begin{equation}
+    202020202200200 \Rew 202020202022000,
+\end{equation}
+\begin{equation}
+    202020220022000 \Rew 202020202020200,
+\end{equation}
+\begin{equation}
+    220020202200200 \Rew 220020202022000,
+\end{equation}
+\begin{equation}
+    220200202020200 \Rew 220020202022000.
+\end{equation}
+\end{small}
+\end{multicols}
+\medbreak
 
 \begin{Theorem} \label{thm:convergent_rewrite_rule_CAs_3}
     The set $\Rew$ of rewrite rules containing~\eqref{equ:rew_1},
