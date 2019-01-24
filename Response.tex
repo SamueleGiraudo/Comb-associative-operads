@@ -2,7 +2,7 @@
 % Creation: jan. 2019
 % Modifications: jan. 2019
 
-\documentclass[10pt,reqno]{amsart}
+\documentclass[11pt,reqno]{amsart}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,6 +104,10 @@ pagebackref=true]{hyperref}
 
 \maketitle
 
+First of all, we would like to thank the reviewer for its time and its
+careful reading. Its suggestions improve the paper.
+\medbreak
+
 Please find here the modifications made to the manuscript
 ``Quotients of the magmatic operad: lattice structures and convergent
 rewrite systems'' submitted to Experimental Mathematics, following
@@ -111,6 +115,20 @@ the comments of the reviewer.
 \bigbreak
 
 \begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item `` {\it
+They were obviously obtained through an expert and
+heavy use of computer software.
+In my humble opinion, when doing so, one should cite carefully what
+is being used (language, package, etc), just like articles are cited.
+}''
+\smallbreak
+
+We do not use a particular package. We added
+``All our computer programs are made from scratch in {\sc Caml}
+and {\sc Python}'' in the introduction.
+\medbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
@@ -128,6 +146,7 @@ operad. This question was actually one of the starting points of this
 work, and the research rather leads up to the presented results.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 The standard indexing for Catalan numbers is
 cat(n)=binomial(2n,n)/(n+1). Please respect this convention.
@@ -139,6 +158,7 @@ now respected. Moreover, we have provided an updated version of
 the statement of Lemma~3.2.1.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 In the proof of Lemma 1.3.1, say that p(t) > p(t') means t > t'
 }''
@@ -147,6 +167,7 @@ In the proof of Lemma 1.3.1, say that p(t) > p(t') means t > t'
 This precision has been added to the proof of the lemma.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 In the proof of Lemma 1.3.4, refer to a precise Theorem in [Gir16]
 }''
@@ -155,84 +176,84 @@ In the proof of Lemma 1.3.4, refer to a precise Theorem in [Gir16]
 The precise reference has been added.
 \medbreak
 
-\item `` {\it
-In my humble opinion, when doing so, one should cite carefully what
-is being used (language, package, etc), just like articles are cited.
-}''
-\smallbreak
-
-We do not use a particular package. We added
-``All our computer programs are made from scratch in {\sc Caml}
-and {\sc Python}'' in the introduction.
-\medbreak
-
-\item "{\it
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item ``{\it
   Page 9, is this completion or rewriting systems an operadic avatar of
   Knuth-Bendix procedure ?
 }''
-  \smallbreak
+\smallbreak
 
- Yes, in essence, this is the same thing but the terminology differs from
- the context: for term rewriting ystems or word rewriting systems, the
- classical terminology in the litterature is ``Knuth-Bendix procedure''
- and for linear structures, such  such as polynomial algebras,
- noncommutative algebras or operads, the classical terminology is
- ''Buchberger procedure".
- \medbreak
+In essence, this is the same thing but the terminology differs from
+the context: for term rewriting ystems or word rewriting systems, the
+classical terminology in the litterature is ``Knuth-Bendix procedure''
+and for linear structures, such  such as polynomial algebras,
+noncommutative algebras or operads, the classical terminology is
+''Buchberger procedure".
+\medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item ''{\it
-  A reference for the name "Grassmann formula" would be welcome (page 12)
+A reference for the name "Grassmann formula" would be welcome (page 12)
 }''
-  \smallbreak
+\smallbreak
 
-  Ok, we add it!
-  \medbreak
+A reference has been added.
+\medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item ''{\it
-  In the proof of Prop. 3.2.5, why not use that the composite of a
-  morphism is a morphism ?
+In the proof of Prop. 3.2.5, why not use that the composite of a
+morphism is a morphism ?
 }''
-  \smallbreak
+\smallbreak
 
-  This is a good remark: we changed the text!
-  \medbreak
+This is a good remark: we changed the text.
+\medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item ''{\it
-What are the squared regions (page 17) ? I did not look at the colored article.
+What are the squared regions (page 17) ? I did not look at the colored
+article.
 }''
-  \smallbreak
+\smallbreak
 
-  This was a mistake because, indeed, there are no squared regions. we
-  change ``squared regions'' by ``dotted edges''.
-  \medbreak
+This was a mistake because, indeed, there are no squared regions. we
+change ``squared regions'' by ``dotted edges''.
+\medbreak
 
-  \item ''{\it
-Maybe it would be a good idea to add the words in $\{0,2\}$ below the relations in the large figure of page 19 ?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item ''{\it
+Maybe it would be a good idea to add the words in $\{0,2\}$ below the
+relations in the large figure of page 19 ?
 }''
-  \smallbreak
-  The words in correspondence with the trees of the relations have been
-  written.
-  \medbreak
+\smallbreak
 
+The words in correspondence with the trees of the relations have been
+written.
+\medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 The definition of $z_d$ page 20 needs to be checked (composition index)
 }''
 \smallbreak
 
-The index was wrong. We changed "d/2" into "d-1/2".
+Indeed, you are right, the index was wrong. We changed "d/2" into
+"d-1/2".
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 About table of numbers page 23, do you see any interesting patterns ?
 possible formulas ? rationality of generating series ?
 }''
 \smallbreak
 
-No ! Even with the package gfun on Mapple, we do not
-see any pattern, formulas, $\dots$
+It seems that it is not the case. Even with the package gfun on
+Maple, we do not see any pattern, formulas, \dots
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 In section 4, the sentence "The reader can check" (repeated 4 times)
 is a bit terse. This is certainly feasible by hand. The reader would
@@ -243,25 +264,28 @@ can swallow this kind of rewriting system and check that is is closed ?
 \smallbreak
 
 We added the "using the Buchberger algorithm for operads" for the first
-occurrence of "The reader can check". It is easy to run the algorithm
-by hand on those examples.
+occurrence of "The reader can check". It is quite easy to run the
+algorithm by hand on those examples.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 Question: make a statement about the non-isomorphism (as set-operads
 or as k-linear-operads) between the 4 quotients indexed by compositions.
 }''
 \smallbreak
 
-?
+This is a good suggestion. We have added a small section (4.2.5) to
+explain this property.
 \medbreak
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item `` {\it
 For the conjecture of section 4.3, up to which arity was it verified ?
 }''
 \smallbreak
 
-Until arity 40 ! We added it in the article.
+Until arity 40. We have added this information in the article.
 \medbreak
 
 \end{itemize}
